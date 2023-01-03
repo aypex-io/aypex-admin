@@ -1,0 +1,21 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_promotions_path, link_one_text: Aypex.t(:all_promotions), current_page_name: @promotion.name) %>
+<% end %>
+
+<%= form_with model: [:admin, @promotion], data: { controller: "form-state"} do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>
+
+<div id="promotion-filters" class="row">
+  <div id="rules_container" class="col-12 col-md-6">
+    <div class="card  ">
+      <%= render partial: 'rules' %>
+    </div>
+  </div>
+
+  <div id="actions_container" class="col-12 col-md-6">
+    <div class="card  ">
+      <%= render partial: 'actions' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<%= turbo_frame_tag :payments do %>
+  <%= render partial: "aypex/admin/payments/source_views/#{@payment.payment_method.method_type}",
+             locals: {
+               payment: @payment.source.is_a?(Aypex::Payment) ? @payment.source : @payment
+             } %>
+
+  <div class="alert alert-success" data-hook="amount">
+    <%= Aypex.t(:amount) %>: <%= @payment.display_amount.to_html %>
+  </div>
+
+  <%= render 'aypex/admin/payments/capture_events' %>
+<% end %>

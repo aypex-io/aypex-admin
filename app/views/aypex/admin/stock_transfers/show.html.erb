@@ -1,0 +1,42 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_stock_transfers_path, link_one_text: Aypex.t(:stock_transfers), current_page_name: @stock_transfer.number) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon Aypex.t(:new_stock_transfer), new_admin_stock_transfer_path, { icon: 'add', class: 'btn-primary ' } %>
+<% end if can? :create, Aypex::StockTransfer %>
+
+<fieldset>
+  <legend><%= Aypex.t(:stock_transfer_name) %></legend>
+<div class="table-responsive border rounded">
+  <table class="table border rounded">
+    <tr>
+      <td width="30%"><strong><%= Aypex.t(:created_at) %></strong></td>
+      <td><%= pretty_time(@stock_transfer.created_at) %></td>
+    </tr>
+    <% if @stock_transfer.reference.present? %>
+      <tr>
+        <td><strong><%= Aypex.t(:reference) %></strong></td>
+        <td><%= @stock_transfer.reference %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+  <% if @stock_transfer.source_movements.present? %>
+    <fieldset>
+      <legend id="stock-location-source">
+        <%= Aypex.t(:source) %> / <%= @stock_transfer.source_location.name %>
+      </legend>
+      <%= render partial: 'stock_movements', object: @stock_transfer.source_movements %>
+    </fieldset>
+  <% end %>
+
+  <% if @stock_transfer.destination_movements.present? %>
+    <fieldset>
+      <legend id="stock-location-destination">
+        <%= Aypex.t(:destination) %> / <%= @stock_transfer.destination_location.name %>
+      </legend>
+      <%= render partial: 'stock_movements', object: @stock_transfer.destination_movements %>
+    </fieldset>
+  <% end %>
+</fieldset>

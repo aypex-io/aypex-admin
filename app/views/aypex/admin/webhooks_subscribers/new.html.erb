@@ -1,0 +1,12 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_webhooks_subscribers_path, link_one_text: I18n.t('aypex.admin.webhooks.subscribers.subscribers'), current_page_name: I18n.t('aypex.admin.webhooks.subscribers.new_webhooks_subscriber')) %>
+<% end %>
+
+<%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @webhooks_subscriber } %>
+
+<%= form_with model: [:admin, @webhooks_subscriber] do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'aypex/admin/shared/resource_actions' %>
+  </fieldset>
+<% end %>

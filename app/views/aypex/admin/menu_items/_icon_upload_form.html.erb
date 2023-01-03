@@ -1,0 +1,15 @@
+<% unless @menu_item.icon.new_record? %>
+  <div>
+    <%= link_to Aypex.t(:remove_image), remove_icon_admin_menu_menu_item_path(@menu, @menu_item), method: :delete %>
+  </div>
+   <div class="admin-img-holder m-auto">
+     <%= image_tag(main_app.cdn_image_url(@menu_item.icon.attachment)) %>
+   </div>
+<% end %>
+
+<%= f.field_container :icon_attachment do %>
+  <div class="form-floating">
+    <%= ff.file_field :attachment %>
+    <%= ff.label :attachment, I18n.t('aypex.admin.navigation.menu_item_icon') %>
+  </div>
+<% end %>

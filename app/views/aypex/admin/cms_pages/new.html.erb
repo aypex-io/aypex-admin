@@ -1,0 +1,43 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.cms.all_pages'), current_page_name: I18n.t('aypex.admin.cms.new_page')) %>
+<% end %>
+
+<%= form_with model: [:admin, @cms_page], data: {controller: "input--required"} do |f| %>
+  <div id="<%= dom_id(@cms_page) %>" class="card">
+    <div class="card-header d-flex">
+      <div class="flex-fill">
+        <h5 class="card-title"><%= I18n.t('aypex.admin.cms_pages.new_page_details') %></h5>
+      </div>
+      <div>
+        <a data-bs-toggle="collapse" href="#cmsPageInformation" role="button" aria-expanded="false" aria-controls="cmsPageInformation" class="align-self-center">
+          <%= aypex_admin_svg_tag "info-circle.svg", size: '20px * 20px', class: 'ms-1 shim-bottom' %>
+        </a>
+      </div>
+    </div>
+    <div class="card-body pb-2">
+      <div class="row pb-0">
+        <div class="col-12 col-md-4">
+          <%= f.field_container :title do %>
+            <%= f.text_field :title, required: true %>
+            <%= f.label :title, raw(I18n.t('aypex.admin.cms.title') + required_span_tag) %>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <%= f.field_container :type do %>
+            <%= f.select(:type, aypex_humanize_dropdown_values('Aypex::CmsPage', {const: 'TYPES'}), {include_blank: false}) %>
+            <%= f.label :type, I18n.t('aypex.admin.cms.page_type') %>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <%= f.field_container :locale do %>
+            <%= f.select :locale, options_from_collection_for_select(supported_locales_options, :last, :first, @cms_page.locale || I18n.locale), {} %>
+            <%= f.label :language %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render partial: 'aypex/admin/shared/resource_actions' %>
+<% end %>

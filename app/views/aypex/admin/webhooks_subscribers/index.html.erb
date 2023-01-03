@@ -1,0 +1,43 @@
+<% content_for :page_title do %>
+  <%= I18n.t('aypex.admin.webhooks.subscribers.subscribers') %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon I18n.t('aypex.admin.webhooks.subscribers.new_webhooks_subscriber'), new_object_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_webhooks_subscriber_link' %>
+<% end if can?(:create, Aypex::Webhooks::Subscriber) %>
+
+<% content_for :index_table do %>
+  <% if @webhooks_subscribers.any? %>
+    <g-responsive>
+      <g-table style="grid-template-columns: 2fr repeat(4, 1fr) 96px;">
+        <g-thead>
+          <g-tr>
+            <g-th><%= I18n.t('aypex.admin.url') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.active') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.webhooks.subscribers.subscriptions') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.webhooks.subscribers.time_of_last_event') %></g-th>
+            <g-th style="grid-column: span 2;"><%= I18n.t('aypex.admin.webhooks.subscribers.events') %></g-th>
+          </g-tr>
+        </g-thead>
+        <g-tbody>
+          <%= render partial: "subscriber_list" %>
+        </g-tbody>
+      </g-table>
+    </g-responsive>
+  <% else %>
+    <div class="text-center no-objects-found m-5">
+      <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Webhooks::Subscriber)) %>,
+      <%= link_to(Aypex.t(:add_one), new_object_url) if can? :create, Aypex::Webhooks::Subscriber %>!
+    </div>
+  <% end %>
+<% end %>
+
+<%#-------------------------------------------------%>
+<%# Render the index_table partial passing a        %>
+<%# search_field_value and search_field_placeholder %>
+<%# text if you want to add a search bar            %>
+<%#-------------------------------------------------%>
+<%= render partial: "aypex/admin/shared/index_table",
+           locals: { search_url: aypex.admin_webhooks_subscribers_path,
+                     search_record: :url_i_cont,
+                     search_placeholder: I18n.t('aypex.admin.webhooks.search_webhooks_by_url')} %>

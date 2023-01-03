@@ -1,0 +1,60 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_webhooks_subscribers_path, link_one_text: I18n.t('aypex.admin.webhooks.subscribers.subscribers'), current_page_name: I18n.t('aypex.admin.webhooks.subscribers.webhooks_events')) %>
+<% end %>
+
+<div class="card">
+  <g-responsive>
+    <g-table style="grid-template-columns: minmax(100px, 600px) minmax(100px, 600px);">
+      <g-tbody>
+        <g-tr>
+          <g-th><%= I18n.t('aypex.admin.url') %></g-th>
+          <g-td><code><%= @webhooks_subscriber.url %></code></g-td>
+        </g-tr>
+        <g-tr>
+          <g-th><%= I18n.t('aypex.admin.active') %></g-th>
+          <g-td><%= active_badge(@webhooks_subscriber.active) %></g-td>
+        </g-tr>
+        <g-tr>
+          <g-th><%= I18n.t('aypex.admin.webhooks.subscribers.subscriptions') %></g-th>
+          <g-td style="white-space: unset;"><%= @webhooks_subscriber.subscriptions&.join(', ') %></g-td>
+        </g-tr>
+      </g-tbody>
+    </g-table>
+  </g-responsive>
+</div>
+
+<% if @events.any? %>
+  <div class="table-responsive border rounded">
+    <table class="table">
+      <thead class="text-muted">
+      <tr>
+        <th><%= I18n.t('aypex.admin.name') %></th>
+        <th><%= I18n.t('aypex.admin.successful') %></th>
+        <th><%= I18n.t('aypex.admin.created_at') %></th>
+        <th><%= I18n.t('aypex.admin.response_code') %></th>
+        <th><%= I18n.t('aypex.admin.execution_time') %></th>
+        <th><%= I18n.t('aypex.admin.request_errors') %></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @events.each do |event| %>
+        <tr id="<%= dom_id(event) %>">
+          <td><%= event.name %></td>
+          <td><%= active_badge(event.success) %></td>
+          <td><%= event.created_at %></td>
+          <td><%= event.response_code %></td>
+          <td><%= event.execution_time %></td>
+          <td><%= sanitize event.request_errors.gsub('[SPREE WEBHOOKS]', '') %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= render 'aypex/admin/shared/index_table_options', collection: @events, simple: true %>
+
+<% else %>
+  <div class="text-center no-objects-found m-5">
+    <%= I18n.t('aypex.admin.webhooks.subscribers.no_events') %>
+  </div>
+<% end %>

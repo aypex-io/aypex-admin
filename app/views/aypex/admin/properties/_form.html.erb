@@ -1,0 +1,20 @@
+<div data-hook="admin_property_form" class="row">
+  <div class="col-12 col-md-6">
+    <%= f.field_container :name do %>
+      <%= f.text_field :name, required: true %>
+      <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+    <% end %>
+  </div>
+  <div class="col-12 col-md-6">
+    <%= f.field_container :presentation do %>
+      <%= f.text_field :presentation, required: true %>
+      <%= f.label :presentation, raw(Aypex.t(:presentation) + required_span_tag) %>
+    <% end %>
+  </div>
+  <div class="col-12 col-md-6">
+    <%= f.field_container :filterable, class: ["form-check"] do %>
+      <%= f.check_box :filterable %>
+      <%= f.label :filterable, Aypex.t(:filterable), class: 'form-check-label ' %>
+    <% end %>
+  </div>
+</div>

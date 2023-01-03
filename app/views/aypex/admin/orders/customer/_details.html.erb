@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-between">
+    <div>
+      <h6 class="text-uppercase">
+        <% if @order.user.first_name.present? || @order.user.last_name.present? %>
+          <%= @order.user.first_name %> <%= @order.user.last_name %>
+        <% else %>
+          <%= @order.email %>
+        <% end %>
+      </h6>
+      <%= pluralize( @order.user.order_count, I18n.t('aypex.admin.order.order') ) %>
+    </div>
+
+    <% unless @order.completed? %>
+      <div>
+        <%= form_with model: [:admin, @order], url: aypex.reset_customer_details_admin_order_path(@order), method: :put do |f| %>
+          <%= f.button (aypex_admin_svg_tag "x-lg.svg", size: '16px * 16px'), type: "submit", class: 'btn btn-secondary btn-sm' %>
+        <% end %>
+      </div>
+    <% end %>
+</div>
+
+<hr>
+
+<div>
+  <h6 class="text-uppercase">
+    <%= I18n.t('aypex.admin.orders.contact_information') %>
+  </h6>
+  <%= @order.email %>
+  <hr>
+</div>
+
+<% if (@order.bill_address.present? && @order.ship_address.present?) && (@order.bill_address == @order.ship_address) %>
+  <div class="my-3">
+    <h6 class="text-uppercase"> <%= I18n.t('aypex.admin.order.addresses') %></h6>
+    <h6><%= I18n.t('aypex.admin.billing_address') %></h6>
+    <div>
+      <%= render partial: 'aypex/admin/shared/address/card', locals: { address: @order.bill_address } %>
+    </div>
+    <%= link_to 'Edit', aypex.edit_admin_address_path(@order.bill_address), data: { turbo_frame: :modal } %>
+    <hr>
+  </div>
+
+  <div>
+    <h6><%= I18n.t('aypex.admin.shipping_address') %></h6>
+    <span class="text-muted"><%= I18n.t('aypex.admin.order.same_as_billing_address') %></span>
+  </div>
+<% else %>
+  <% if @order.bill_address.present? %>
+    <h6><%= I18n.t('aypex.admin.billing_address') %></h6>
+    <div>
+      <%= render partial: 'aypex/admin/shared/address/card', locals: { address: @order.bill_address } %>
+
+      <%#= link_to 'Edit', aypex.edit_modal_admin_address_path(@order.bill_address), data: { turbo_frame: :modal } %>
+    </div>
+    <hr>
+  <% else %>
+    <div class="call-out call-out-info my-3">
+      <h6>
+        <%= I18n.t('aypex.admin.billing_address') %>
+      </h6>
+      <small class="text-muted">
+       <%= I18n.t('aypex.admin.no_billing_address_has_been_added_to_this_order') %>
+      </small>
+    </div>
+  <% end %>
+
+  <% if @order.ship_address.present? %>
+    <h6><%= I18n.t('aypex.admin.shipping_address') %></h6>
+    <div>
+      <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @order.ship_address} %>
+
+      <%#= link_to 'Edit', aypex.edit_modal_admin_address_path(@order.ship_address), data: { turbo_frame: :modal } %>
+    </div>
+  <% else %>
+    <div class="call-out call-out-info my-3">
+      <h6>
+        <%= I18n.t('aypex.admin.shipping_address') %>
+      </h6>
+      <small class="text-muted">
+        <%= I18n.t('aypex.admin.no_shipping_address_has_been_added_to_this_order') %>
+      </small>
+    </div>
+  <% end %>
+<% end %>

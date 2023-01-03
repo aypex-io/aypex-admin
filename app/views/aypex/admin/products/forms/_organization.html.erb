@@ -1,0 +1,49 @@
+<%= turbo_frame_tag :product_organization do %>
+  <%= form_with model: [:admin, @product], method: :patch, data: {controller: "form-state", turbo_frame: :product_organization} do |f| %>
+    <div class="card">
+      <div class="card-header d-flex">
+        <div class="flex-fill">
+          <h5 class="card-title"><%= I18n.t('aypex.admin.organization') %></h5>
+        </div>
+        <div>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= f.field_container :taxons, data: { hook: "admin_product_form_taxons" } do %>
+          <% if can? :modify, Aypex::Classification %>
+            <%= f.select :taxon_ids, options_from_collection_for_select(@product.taxons, :id, :pretty_name, @product.taxon_ids),
+                                      { include_hidden: true },
+                                        multiple: true,
+                                        data: { controller: 'ts--search',
+                                                ts__search_endpoint_value: 'taxons',
+                                                ts__search_txt_value: 'pretty_name',
+                                                ts__search_fields_value: ['pretty_name'],
+                                                ts__search_ransack_value: ['pretty_name_i_cont'],
+                                                form_state_target: "watch"
+                                               } %>
+            <%= f.label :taxon_ids, Aypex.t(:taxons) %>
+
+          <% elsif @product.taxons.any? %>
+            <ul class="text_list">
+              <% @product.taxons.each do |taxon| %>
+                <li><%= taxon.name %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <div class="alert alert-info">
+              <%= Aypex.t(:no_resource_found, resource: :taxons) %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if @stores.count > 1 %>
+          <%= f.field_container :stores, data: { hook: "admin_product_form_stores" } do %>
+            <%= f.collection_select(:store_ids, @stores, :id, :unique_name, {}, {multiple: true}) %>
+            <%= f.label :product_stores, Aypex.t(:stores) %>
+          <% end %>
+        <% end %>
+        <%= render partial: 'aypex/admin/shared/resource_actions' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

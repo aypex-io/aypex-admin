@@ -1,0 +1,44 @@
+<%= turbo_frame_tag :user_orders do %>
+  <% content_for :index_table_filter_tabs do %>
+    <%= link_to Aypex.t('admin.orders.complete'), aypex.orders_admin_user_path(@user), class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:state_eq] == 'cart' || params[:q][:number_i_cont].present? }" %>
+    <%= link_to Aypex.t('admin.orders.draft'), params.merge({q: { completed_at_not_null: false, state_eq: 'cart' }}).permit!, class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:completed_at_not_null] == '1' || params[:q][:number_i_cont].present? }" %>
+    <%= link_to Aypex.t('admin.orders.unpaid'), params.merge({q: {payment_state_not_eq: :paid}}).permit!, class: "#{'active' if params[:q][:payment_state_not_eq] == 'paid' }" %>
+    <%= link_to Aypex.t('admin.orders.unfulfilled'), params.merge({q: {shipment_state_not_eq: :shipped}}).permit!, class: "#{'active' if params[:q][:shipment_state_not_eq] == 'shipped'}" %>
+  <% end %>
+
+  <% content_for :index_table do %>
+      <% if @orders.any? %>
+        <table class="table" id="listing_orders" data-hook>
+          <thead class="text-muted">
+            <tr data-hook="admin_orders_index_headers">
+              <th><%= sort_link @search, :number,         I18n.t(:number, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_number_title'} %></th>
+              <th><%= sort_link @search, :completed_at,   I18n.t(:completed_at, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_completed_at_title'} %></th>
+              <th><%= sort_link @search, :state,          I18n.t(:state, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_state_title'} %></th>
+              <th><%= sort_link @search, :total,          I18n.t(:total, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_total_title'} %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders.each do |order| %>
+              <tr data-hook="admin_orders_index_rows" class="state-<%= order.state.downcase %> <%= cycle('odd', 'even') %>">
+                <td class="order-number"><%= link_to order.number, aypex.edit_admin_order_path(order) %></td>
+                <td class="order-completed-at"><%= order_time(order.completed_at) if order.completed_at %></td>
+                <td class="order-state">
+                   <%= order.state %>
+                </td>
+                <td class="order-total"><%= order.display_total.to_html %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="text-center no-objects-found m-5">
+          <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Order)) %>
+        </div>
+      <% end %>
+  <% end %>
+
+  <%= render partial: "aypex/admin/shared/index_table",
+             locals: { search_record: :number_i_cont,
+                       search_placeholder: I18n.t('aypex.admin.users.search_by_order_number'),
+                       search_url: aypex.orders_admin_user_path(@user)} %>
+<% end %>

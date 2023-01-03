@@ -1,0 +1,27 @@
+<% content_for :page_title do %>
+  / <%= link_to "#{Aypex.t(:payment)} #{@refund.payment.id}", aypex.admin_order_payment_path(@refund.payment.order, @refund.payment) %>
+  / <%= Aypex.t(:refund) %> <%= @refund.id %>
+<% end %>
+
+<%= render 'aypex/admin/shared/error_messages', target: @refund %>
+
+<%= form_with model: [:admin, @refund.payment.order, @refund.payment, @refund] do |f| %>
+  <fieldset>
+    <div data-hook="admin_refund_form_fields">
+      <div class="form-group">
+        <%= f.label :amount, Aypex.t(:amount) %><br>
+        <%= @refund.amount %>
+      </div>
+      <div class="form-group">
+        <%= f.label :refund_reason_id, Aypex.t(:reason) %><br>
+        <%= f.collection_select(:refund_reason_id, refund_reasons, :id, :name, {}, {data: {controller: 'ts--select'}}) %>
+      </div>
+    </div>
+
+    <div class="form-actions" data-hook="buttons">
+      <%= button I18n.t('aypex.admin.actions.save'), 'save.svg' %>
+      <span class="or"><%= Aypex.t(:or) %></span>
+      <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.admin_order_payments_url(@refund.payment.order), icon: "delete.svg" %>
+    </div>
+  </fieldset>
+<% end %>

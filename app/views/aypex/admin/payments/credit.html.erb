@@ -1,0 +1,16 @@
+<% content_for :page_title do %>
+  <%= Aypex.t(:refund) %>
+<% end %>
+
+<%= form_tag do %>
+  <h3><%= Aypex.t(:refund) %></h3>
+  <fieldset data-hook="credit">
+    <p>
+      <%= label_tag :amount, Aypex.t(:amount) %>
+      <%= text_field_tag :amount, @payment.amount, autocomplete: false %>
+    </p>
+    <p class="form-actions">
+      <%= button Aypex.t(:make_refund) %>
+    </p>
+  </fieldset>
+<% end %>

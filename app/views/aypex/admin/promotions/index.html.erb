@@ -1,0 +1,48 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Aypex::Promotion) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon Aypex.t(:new_promotion), new_object_url, class: "btn-primary btn", icon: 'plus-square.svg' %>
+<% end if can?(:create, Aypex::Promotion) %>
+
+<% content_for :index_table_filter_buttons do %>
+  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_promotions_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
+<% end %>
+
+<% content_for :index_table do %>
+  <% if @promotions.any? %>
+    <g-responsive>
+      <g-table style="grid-template-columns: repeat(7, 1fr)">
+        <g-thead>
+          <g-tr>
+            <g-th><%= Aypex.t(:name) %></g-th>
+            <g-th><%= Aypex.t(:code) %></g-th>
+            <g-th><%= Aypex.t(:description) %></g-th>
+            <g-th><%= Aypex.t(:usage_limit) %></g-th>
+            <g-th><%= Aypex.t(:promotion_uses) %></g-th>
+            <g-th style="grid-column: span 2;"><%= Aypex.t(:expiration) %></g-th>
+          </g-tr>
+        </g-thead>
+        <g-tbody>
+          <%= render partial: "promotions_list" %>
+        </g-tbody>
+      </g-table>
+    </g-responsive>
+  <% else %>
+    <div class="text-center no-objects-found m-5">
+      <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Promotion)) %>,
+      <%= link_to Aypex.t(:add_one), new_object_url if can?(:create, Aypex::Promotion) %>!
+    </div>
+  <% end %>
+<% end %>
+
+<%#-------------------------------------------------%>
+<%# Render the index_table partial passing a        %>
+<%# search_field_value and search_field_placeholder %>
+<%# text if you want to add a search bar            %>
+<%#-------------------------------------------------%>
+<%= render partial: "aypex/admin/shared/index_table",
+           locals: { search_url: aypex.admin_promotions_path,
+                     search_record: :name_i_cont,
+                     search_placeholder: I18n.t('aypex.admin.users.search_for_promotion_by_name')} %>

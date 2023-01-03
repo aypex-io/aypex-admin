@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">
+      <%= Aypex.t(:footer) %>
+    </h5>
+  </div>
+  <div class="card-body">
+    <%= f.field_container :description do %>
+      <%= f.text_area :description %>
+      <%= f.label :description, Aypex.t(:description) %>
+    <% end %>
+
+    <%= f.field_container :address do %>
+      <%= f.text_area :address %>
+      <%= f.label :address, Aypex.t(:address) %>
+    <% end %>
+
+    <%= f.field_container :contact_phone do %>
+      <%= f.text_field :contact_phone %>
+      <%= f.label :contact_phone, Aypex.t(:contact_phone) %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">
+      <%= Aypex.t(:social) %>
+    </h5>
+  </div>
+  <div class="card-body">
+    <%= f.field_container :facebook do %>
+      <%= f.text_field :facebook %>
+      <%= f.label :facebook, Aypex.t(:facebook_username) %>
+    <% end %>
+
+    <%= f.field_container :twitter do %>
+      <%= f.text_field :twitter %>
+      <%= f.label :twitter, Aypex.t(:twitter_username) %>
+    <% end %>
+
+    <%= f.field_container :instagram do %>
+      <%= f.text_field :instagram %>
+      <%= f.label :instagram, Aypex.t(:instagram_username) %>
+    <% end %>
+  </div>
+</div>

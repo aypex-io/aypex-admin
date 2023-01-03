@@ -1,0 +1,10 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_tax_rates_path, link_one_text: Aypex.t(:tax_rates), current_page_name: @object.name) %>
+<% end %>
+
+<%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @tax_rate } %>
+
+<%= form_with model: [:admin, @tax_rate], data: {controller: "form-state"} do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= render partial: 'aypex/admin/shared/resource_actions' %>
+<% end %>

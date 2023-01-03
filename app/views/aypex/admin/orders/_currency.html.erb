@@ -1,0 +1,19 @@
+<sa-card>
+  <sa-header>
+    <h5><%= I18n.t('aypex.admin.order.currency') %></h5>
+    <h5><span class="badge rgb-hsl-success"><%= currency_symbol(@order.currency) %> <%= @order.currency %></span></h5>
+  </sa-header>
+  <sa-body>
+    <% currency_label_text = @order.item_count > 0 ? I18n.t('aypex.admin.order.the_order_currency_is_locked_once_items_are_added') : Aypex.t(:currency) %>
+    <%= form_with model: [:admin, @order], data: { controller: "form-validation" } do |f| %>
+      <%= f.field_container :currency do %>
+        <%= f.select :currency, supported_currency_options, { include_blank: false }, disabled: @order.item_count > 0,
+                                                              placeholder: I18n.t('aypex.admin.order.set_order_currency'),
+                                                              data: { controller: 'ts--select',
+                                                                      action: 'change->form-validation#validate' } %>
+        <%= f.label :currency, currency_label_text %>
+      <% end %>
+      <%= f.submit I18n.t('aypex.admin.order.set_order_currency'), class: 'btn btn-secondary', data: { form_validation_target: "submitBtn" } %>
+    <% end %>
+  </sa-body>
+</sa-card>

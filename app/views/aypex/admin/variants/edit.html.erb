@@ -1,0 +1,50 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_products_path, link_one_text:I18n.t('aypex.admin.products.all_products'),
+                         link_two_uri: aypex.edit_admin_product_path(@product), link_two_text: @product.name,
+                         current_page_name: I18n.t('aypex.admin.products.editing_variant')) %>
+<% end %>
+
+<%= form_with model: [:admin, @product, @variant], data: {controller: "form-state", turbo_frame: :product_variants} do |f| %>
+  <div class="card mb-0">
+    <div class="card-header d-flex">
+      <div class="flex-fill">
+        <h5 class="card-title"><%= @variant.sku || @variant.options_text %></h5>
+      </div>
+
+      <div>
+        <%= render partial: 'aypex/admin/shared/submit_button' %>
+      </div>
+    </div>
+
+    <div class="card-body" data-hook="admin_variant_edit_form">
+      <%= render partial: 'form', locals: { f: f } %>
+    </div>
+  </div>
+<% end %>
+
+<%= render partial: 'aypex/admin/products/forms/stock', locals: { variant: @variant } %>
+
+<%= form_with model: [:admin, @product], scope: :prices, url: aypex.admin_product_prices_path(@product), method: :post, data: {controller: "form-state", turbo_frame: :product_variants} do |f| %>
+  <div class="card">
+    <div class="card-header d-flex">
+      <div class="flex-fill">
+        <h5 class="card-title"><%= I18n.t('aypex.admin.products.international_pricing') %></h5>
+      </div>
+      <%= render partial: 'aypex/admin/shared/submit_button' %>
+    </div>
+
+    <div>
+      <div class="my-3">
+        <%= render 'aypex/admin/prices/variant_prices', variant: @variant %>
+      </div>
+    </div>
+  </div>
+<% end if can?(:admin, Aypex::Price) && !@product.deleted? %>
+
+<%= turbo_frame_tag :variant_digitals do %>
+  <%= form_with model: [admin: @product], scope: :digital, url: admin_product_digitals_path(@product), data: {turbo_frame: :variant_digitals} do |f| %>
+    <div class="col-12">
+      <%= render 'aypex/admin/digitals/form', f: f, variant: @variant %>
+    </div>
+  <% end %>
+<% end if can?(:admin, Aypex::Digital) && !@product.deleted? %>

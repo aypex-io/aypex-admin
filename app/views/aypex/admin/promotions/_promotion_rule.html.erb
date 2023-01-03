@@ -1,0 +1,22 @@
+<% type_name = promotion_rule.class.name.demodulize.underscore %>
+
+<sa-card class="dashed-card sub-card" id="<%= dom_id(promotion_rule) %>">
+  <sa-header>
+    <div class="flex-fill">
+      <h5>
+        <%= I18n.t("aypex.admin.promotion_rule_types.#{type_name}.name") %>
+      </h5>
+      <small class="text-muted">
+        <%= I18n.t("aypex.admin.promotion_rule_types.#{type_name}.description") %>
+      </small>
+    </div>
+
+    <div>
+      <%= link_to_with_icon nil, aypex.admin_promotion_promotion_rule_path(@promotion, promotion_rule), data: { turbo_method: :delete }, class: 'btn btn-secondary btn-sm me-0', icon: 'x-lg.svg', no_text: true %>
+    </div>
+  </sa-header>
+
+  <sa-body>
+    <%= render partial: "aypex/admin/promotions/rules/#{type_name}", locals: { promotion_rule: promotion_rule } %>
+  </sa-body>
+</sa-card>

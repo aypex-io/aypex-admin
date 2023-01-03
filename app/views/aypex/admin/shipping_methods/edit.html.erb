@@ -1,0 +1,14 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_shipping_methods_path, link_one_text: Aypex.t(:shipping_methods), current_page_name: @shipping_method.name) %>
+<% end %>
+
+<div data-hook="admin_shipping_method_edit_form_header">
+  <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @shipping_method } %>
+</div>
+
+<div data-hook="admin_shipping_method_edit_form">
+  <%= form_with model: [:admin, @shipping_method], data: { controller: 'form-state'} do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'aypex/admin/shared/resource_actions' %>
+  <% end %>
+</div>

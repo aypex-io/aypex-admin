@@ -1,0 +1,17 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_properties_path, link_one_text: Aypex.t(:all_properties), current_page_name: Aypex.t(:new_property)) %>
+<% end %>
+
+<%= form_with model: [:admin, @property], data: {controller: "input--required"} do |f| %>
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title"><%= I18n.t('aypex.admin.product_properties.property_details') %></h5>
+    </div>
+    <div class="card-body">
+      <fieldset data-hook="new_property">
+        <%= render partial: 'form', locals: { f: f } %>
+      </fieldset>
+    </div>
+  </div>
+  <%= render partial: 'aypex/admin/shared/resource_actions' %>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-header">
+    <h5><%= I18n.t("aypex.admin.products.overview") %></h5>
+  </div>
+  <div class="card-body">
+    <h5>
+      <span class="badge rgb-hsl-success animate__animated" id="productStatus" data-stream-enter-class="animate__pulse"><%= @product.status.capitalize %></span>
+
+    <span class="badge rgb-hsl-success">
+      <% if @product.digital? %>
+        <%= I18n.t('aypex.admin.product_kinds.digital') %>
+      <% else %>
+        <%= I18n.t('aypex.admin.product_kinds.physical') %>
+      <% end %>
+    </span>
+
+    <% if @product.has_variants? %>
+      <span class="badge rgb-hsl-success"><%= I18n.t("aypex.admin.product.has_variants") %></span>
+    <% end %>
+    </h5>
+  </div>
+</div>

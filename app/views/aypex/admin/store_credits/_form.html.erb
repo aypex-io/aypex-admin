@@ -1,0 +1,19 @@
+<div data-hook='admin_store_credit_form_fields'>
+  <%= f.field_container :amount do %>
+    <%= f.text_field :amount, data: {controller: "input--format-decimal"} %>
+    <%= f.label :amount, raw(Aypex.t(:amount) + required_span_tag) %>
+  <% end %>
+  <%= f.field_container :currency do %>
+    <%= f.select :currency, currency_options(f.object.currency), {} %>
+    <%= f.label :currency, raw(Aypex.t(:currency) + required_span_tag) %>
+  <% end %>
+  <%= f.field_container :category do %>
+    <%= f.select :category_id, options_from_collection_for_select(@credit_categories, :id, :name, f.object.category.try(:id)),
+        { include_blank: true }, { placeholder: Aypex.t(:select_a_store_credit_reason) } %>
+    <%= f.label :category, raw(Aypex.t(:category) + required_span_tag) %>
+  <% end %>
+  <%= f.field_container :memo do %>
+    <%= f.text_area :memo %>
+    <%= f.label :memo, Aypex.t(:memo) %>
+  <% end %>
+</div>

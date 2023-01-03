@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<%= csrf_meta_tags %>
+
+<title>
+  <% if content_for? :title %>
+    <%= yield :title %>
+  <% else %>
+    <%= "#{I18n.t('aypex.admin.aypex_administration')}: " %>
+    <%= Aypex.t(controller.controller_name, default: controller.controller_name.titleize) %>
+  <% end %>
+</title>
+
+<script>
+  window.addEventListener('turbo:load', function() {
+    /////////////////////
+    // API Information //
+    /////////////////////
+
+    // Localization
+    AypexAdmin.localization = <%== {
+      current_locale: I18n.locale,
+      default_locale: I18n.default_locale
+    }.to_json %>
+
+    // Path
+    AypexAdmin.paths = <%== {
+      platform_api_mounted_at: Rails.application.routes.url_helpers.aypex_path(trailing_slash: true)
+    }.to_json %>
+
+    // Authorization
+    <% if defined?(admin_oauth_token) %>
+      AypexAdmin.authorization = <%== { oauth_token: admin_oauth_token }.to_json %>
+    <% else %>
+      AypexAdmin.authorization = {}
+    <% end %>
+  })
+</script>
+
+<%= stylesheet_link_tag 'aypex/backend/aypex_admin.min', media: :all, data: { turbo_track: "reload" } %>
+<%= javascript_include_tag "aypex_admin.min", data: { turbo_track: "reload" }, defer: true %>
+
+<meta name="turbo-root" content="<%= Aypex.admin_path %>">
+
+<%= yield :head %>

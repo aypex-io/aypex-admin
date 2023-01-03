@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">
+      <%= I18n.t('aypex.admin.promotions.new_promotion_category') %>
+    </h5>
+
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <%= f.field_container :name do %>
+          <%= f.text_field :name, required: true %>
+          <%= f.label :name %>
+        <% end %>
+      </div>
+      <div class="col-6">
+        <%= f.field_container :code do %>
+          <%= f.text_field :code %>
+          <%= f.label :code %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

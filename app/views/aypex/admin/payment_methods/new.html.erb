@@ -1,0 +1,8 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_payment_methods_path, link_one_text: Aypex.t(:all_payment_methods), current_page_name:  Aypex.t(:new_payment_method)) %>
+<% end %>
+
+<%= form_with model: @payment_method, url: collection_url, data: {controller: "input--required"} do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'aypex/admin/shared/resource_actions' %>
+<% end %>

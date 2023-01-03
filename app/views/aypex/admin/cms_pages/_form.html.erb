@@ -1,0 +1,96 @@
+<div id="<%= "standard-page" if @cms_page.standard? %>" data-hook="admin_page_form_fields">
+  <div class="row sp-pb-0">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header d-flex">
+          <div id="pageVisibility" class="flex-fill">
+            <%= render 'visibility' %>
+          </div>
+
+          <div class="d-flex align-items-center">
+            <span class="badge rounded-pill rgb-hsl-secondary">
+              <%= aypex_admin_svg_tag "translate.svg", size: '18px * 18px' %> <%= locale_full_name(@cms_page.locale) %>
+            </span>
+          </div>
+        </div>
+
+        <%= form_with model: [:admin, @cms_page], scope: :cms_page, url: aypex.admin_cms_page_path(@cms_page), data: {controller: "form-state"}, id: "mainForm" do |f| %>
+          <div class="card-body pb-2">
+            <div class="row pb-0">
+
+              <div class="col-12 col-md-6">
+                <%= f.field_container :title do %>
+                  <%= f.text_field :title, required: true %>
+                  <%= f.label :title, raw(I18n.t('aypex.admin.cms.title') + required_span_tag) %>
+                <% end %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.field_container :type do %>
+                  <%= f.select(:type, aypex_humanize_dropdown_values('Aypex::CmsPage', {const: 'TYPES'}), {include_blank: false}) %>
+                  <%= f.label :type, I18n.t('aypex.admin.cms.page_type') %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="collapse" id="cmsPageSettings">
+              <div class="row pb-0">
+                <div class="col-12"><hr></div>
+
+                <div class="col-12 col-md-4">
+                  <%= f.field_container :meta_title do %>
+                    <%= f.text_field :meta_title %>
+                    <%= f.label :meta_title, I18n.t('aypex.admin.cms.meta_title') %>
+                  <% end %>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <%= f.field_container :slug do %>
+                    <%= f.text_field :slug, disabled: @cms_page.homepage? %>
+
+                    <% if @cms_page.homepage? %>
+                      <%= f.label :slug, I18n.t('aypex.admin.not_applicable') %>
+                    <% else %>
+                      <%= f.label :slug, I18n.t('aypex.admin.slug') %>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <%= f.field_container :locale do %>
+                    <%= f.select :locale, options_from_collection_for_select(supported_locales_options, :last, :first, @cms_page.locale || I18n.locale), {} %>
+                    <%= f.label :language %>
+                  <% end %>
+                </div>
+
+                <div class="col-12">
+                <%= f.field_container :meta_description do %>
+                  <%= f.text_area :meta_description, {style: 'height: 200px;'} %>
+                  <%= f.label :meta_description, I18n.t('aypex.admin.cms.meta_description') %>
+                <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row pb-0">
+              <div class="col-12 col-sm text-end">
+                <button id="toggleMorePageSettingsButton" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#cmsPageSettings" aria-expanded="false" aria-controls="collapsePageSettings">
+                  <%= raw I18n.t('aypex.admin.cms.more_page_settings') %>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <% if @cms_page.standard? %>
+            <div class="card-body">
+              <%= f.field_container :content, data: { controller: 'tiptap--editor'}, class: ['none'] do %>
+                <%= render partial: 'aypex/admin/shared/editor_buttons' %>
+                <%= f.text_field :content, { class: 'd-none', data: { tiptap__editor_target: "input", form_state_target: "watch" }} %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

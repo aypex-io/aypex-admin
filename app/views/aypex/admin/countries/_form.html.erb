@@ -1,0 +1,49 @@
+<sa-card data-hook="admin_country_form_fields">
+  <sa-header>
+    <h5><%= I18n.t('aypex.admin.details') %></h5>
+  </sa-header>
+  <sa-body class="row">
+    <div class="col-12">
+      <%= f.field_container :name do %>
+        <%= f.text_field :name, required: true %>
+        <%= f.label :name, raw(I18n.t('aypex.admin.name') + required_span_tag) %>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <%= f.field_container :iso_name do %>
+        <%= f.text_field :iso_name, required: true %>
+        <%= f.label :iso_name, raw(I18n.t('aypex.admin.countries.iso_name') + required_span_tag) %>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <%= f.field_container :iso do %>
+        <%= f.text_field :iso %>
+        <%= f.label :iso, raw(I18n.t('aypex.admin.countries.iso') + required_span_tag) %>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <%= f.field_container :iso3 do %>
+        <%= f.text_field :iso3, required: true %>
+        <%= f.label :iso3, raw(I18n.t('aypex.admin.countries.iso3') + required_span_tag) %>
+      <% end %>
+    </div>
+
+    <div class="col-12">
+      <%= f.field_container :states_required, class: ['form-check'] do %>
+        <%= f.check_box :states_required %>
+        <%= f.label :states_required, Aypex.t(:states_required), class: 'form-check-label' %>
+      <% end %>
+
+      <%= f.field_container :zipcode_required, class: ['form-check'] do %>
+        <%= f.check_box :zipcode_required %>
+        <%= f.label :zipcode_required, Aypex.t(:zipcode_required), class: 'form-check-label' %>
+      <% end %>
+    </div>
+  </sa-body>
+  <sa-footer>
+    <%= render partial: 'aypex/admin/shared/resource_actions' %>
+  </sa-footer>
+</sa-card>

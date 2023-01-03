@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">
+      <%= I18n.t('aypex.admin.store_form.branding') %>
+    </h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <% @store.build_logo unless @store.logo %>
+        <%= f.fields_for :logo do |ff| %>
+          <% if @store.logo.attachment&.attached? && @store.logo.attachment&.variable? %>
+            <%= image_tag main_app.cdn_image_url(@store.logo.attachment.variant(resize_to_limit: [244, 104])) %>
+          <% end %>
+          <%= f.field_container :logo do %>
+            <%= ff.file_field :attachment %>
+            <%= f.label :logo, Aypex.t(:logo) %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <% @store.build_mailer_logo unless @store.mailer_logo %>
+        <%= f.fields_for :mailer_logo do |ff| %>
+          <% if @store.mailer_logo.attachment&.attached? && @store.mailer_logo.attachment&.variable? %>
+            <%= image_tag main_app.cdn_image_url(@store.mailer_logo.attachment.variant(resize_to_limit: [244, 104])) %>
+          <% end %>
+          <%= f.field_container :mailer_logo do %>
+            <%= ff.file_field :attachment, accept: Aypex::StoreMailerLogo::VALID_CONTENT_TYPES.join(',') %>
+            <%= f.label :mailer_logo, Aypex.t(:mailer_logo) %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <% @store.build_favicon_image unless @store.favicon_image %>
+        <%= f.fields_for :favicon_image do |ff| %>
+          <% if @store.favicon_image.attachment&.attached? && @store.favicon_image.attachment&.variable? %>
+            <%= image_tag main_app.cdn_image_url(@store.favicon_image.attachment.variant(resize_to_limit: [104, 104])) %>
+          <% end %>
+          <%= f.field_container :favicon_image do %>
+            <%= ff.file_field :attachment, accept: Aypex::StoreFaviconImage::VALID_CONTENT_TYPES.join(',') %>
+            <%= f.label :favicon_image, Aypex.t(:favicon) %>
+            <small class="form-text text-muted">
+              <%= Aypex.t(:favicon_upload_info) %>
+            </small>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

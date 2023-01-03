@@ -1,0 +1,15 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_reimbursement_types_path, link_one_text: Aypex.t(:reimbursement_types), current_page_name: @reimbursement_type.name) %>
+<% end %>
+
+<%= form_with model: [:admin, @reimbursement_type], url: object_url, data: { controller: "form-state"} do |reimbursement_form| %>
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title"><%= I18n.t('aypex.admin.reimbursement_types.reimbursement_type') %> (<%= @reimbursement_type.type.demodulize %>)</h5>
+    </div>
+    <div class="card-body">
+      <%= render partial: 'form', locals: { f: reimbursement_form } %>
+    </div>
+  </div>
+  <%= render partial: 'aypex/admin/shared/resource_actions' %>
+<% end %>

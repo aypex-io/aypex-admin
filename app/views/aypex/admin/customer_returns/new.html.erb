@@ -1,0 +1,45 @@
+<% content_for :page_title do %>
+  / <%= Aypex.t(:new_customer_return) %>
+<% end %>
+
+<% if @rma_return_items.any? %>
+
+  <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @customer_return } %>
+
+  <%= form_with model: [:admin, @order, @customer_return] do |f| %>
+    <fieldset class="no-border-top">
+      <div data-hook="admin_customer_return_form_fields">
+        <fieldset>
+          <legend><%= Aypex.t(:items_in_rmas) %></legend>
+          <% if @rma_return_items.any? %>
+            <%= render partial: 'return_item_selection', locals: {f: f, return_items: @rma_return_items} %>
+          <% else %>
+            <div class="text-center no-objects-found m-5">
+              <%= Aypex.t(:none) %>
+            </div>
+          <% end %>
+        </fieldset>
+
+        <%= f.field_container :stock_location do %>
+          <%= f.label :stock_location, raw(Aypex.t(:stock_location) + required_span_tag) %>
+          <%= f.select :stock_location_id, Aypex::StockLocation.order_default.active.to_a.collect{|l|[l.name.humanize, l.id]}, {include_blank: true}, { data: {controller: 'ts--select', placeholder: Aypex.t(:select_a_stock_location) } } %>
+          <%= f.error_message_on :stock_location %>
+        <% end %>
+      </div>
+
+      <div class="form-actions" data-hook="buttons">
+        <%= button Aypex.t(:create), 'save' %>
+        <span class="or"><%= Aypex.t(:or) %></span>
+        <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.admin_order_customer_returns_url(@order), icon: 'cancel' %>
+      </div>
+    </fieldset>
+  <% end %>
+
+<% else %>
+
+  <div class="text-center no-objects-found m-5">
+    <%= Aypex.t(:all_items_have_been_returned) %>,
+    <%= link_to Aypex.t(:back_to_resource_list, resource: Aypex::CustomerReturn.model_name.human), aypex.admin_order_customer_returns_path(@order) %>.
+  </div>
+
+<% end %>

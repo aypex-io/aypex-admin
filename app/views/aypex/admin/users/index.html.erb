@@ -1,0 +1,48 @@
+<% content_for :page_title do %>
+  <%= Aypex.t(:users) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon Aypex.t(:new_user), aypex.new_admin_user_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_user_link', data: {turbo_frame: :modal} %>
+<% end if can? :create, Aypex::user_class %>
+
+<% content_for :index_table_filter_buttons do %>
+  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_users_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
+<% end %>
+
+<% content_for :index_table do %>
+  <% if @users.any? %>
+    <g-responsive>
+      <g-table id="listing_users" style="grid-template-columns: 2fr 2fr 1fr;">
+        <g-thead>
+          <g-tr>
+            <g-th>
+              <%= sort_link @search,:email, Aypex.t(:user), {title: 'users_email'} %>
+            </g-th>
+            <g-th style="grid-column: span 2;">
+              <%= sort_link @search,:created_at, Aypex.t(:created_at), {title: 'account_created'} %>
+            </g-th>
+          </g-tr>
+        </g-thead>
+        <g-tbody>
+          <%= render partial: "users_list" %>
+        </g-tbody>
+      </g-table>
+    </g-responsive>
+  <% else %>
+    <div class="text-center no-objects-found m-5">
+      <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex.user_class)) %>,
+      <%= link_to Aypex.t(:add_one), new_object_url %>!
+    </div>
+  <% end %>
+<% end %>
+
+<%#-------------------------------------------------%>
+<%# Render the index_table partial passing a        %>
+<%# search_field_value and search_field_placeholder %>
+<%# text if you want to add a search bar            %>
+<%#-------------------------------------------------%>
+<%= render partial: "aypex/admin/shared/index_table",
+           locals: { search_url: aypex.admin_users_path,
+                     search_record: :email_cont,
+                     search_placeholder: I18n.t('aypex.admin.users.search_for_users_by_email')} %>

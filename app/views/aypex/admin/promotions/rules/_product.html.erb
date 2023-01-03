@@ -1,0 +1,29 @@
+<%= form_with model: @promotion, url: object_url, method: :put, data: { controller: 'form-state' } do |f| %>
+  <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
+    <%= f.field_container :product_ids_string do %>
+      <%= pr.select :product_ids_string, options_from_collection_for_select(promotion_rule.products, :id, :name, promotion_rule.products.pluck(:id)), { include_hidden: false }, multiple: true,
+                                      placeholder: I18n.t('aypex.admin.order.search_products_by_name_or_sku'),
+                                      data: {
+                                              form_state_target: 'watch',
+                                              controller: 'ts--search',
+                                              ts__search_endpoint_value: 'products',
+                                              ts__search_fields_value: ['name', 'sku'],
+                                              ts__search_ransack_value: ['search_by_product_name_or_sku_returning_eligible_variants_only']
+                                            } %>
+
+      <%= pr.label :product_ids_string, I18n.t('aypex.admin.product_rule.products') %>
+    <% end %>
+
+    <%= f.field_container :preferred_match_policy do %>
+      <% opts = options_for_select( Aypex::Promotion::Rules::Product::MATCH_POLICIES.map { |s| [I18n.t("aypex.admin.product_rule.match_#{s}"), s] }, promotion_rule.preferred_match_policy) %>
+
+      <%= pr.select :preferred_match_policy, opts, { include_hidden: false, include_blank: false } %>
+      <%= pr.label :preferred_match_policy, I18n.t('aypex.admin.product_rule.label') %>
+    <% end %>
+  <% end %>
+
+  <div class="text-end">
+    <%= render partial: 'aypex/admin/shared/submit_button' %>
+  </div>
+<% end %>
+

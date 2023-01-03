@@ -1,0 +1,97 @@
+<%= turbo_frame_tag :product_variants do %>
+  <%= form_with model: [:admin, @product], method: :patch, data: {controller: "form-state", turbo_frame: :product_variants} do |f| %>
+    <div class="card">
+      <div class="card-header d-flex">
+        <div class="flex-fill">
+          <h5><%= I18n.t('aypex.admin.products.variants') %></h5>
+        </div>
+        <div>
+        </div>
+      </div>
+
+      <% if @product.has_variants? %>
+        <div class="table-responsive">
+          <table class="table">
+            <thead data-hook="variants_header" class="text-muted">
+              <tr>
+                <th class=""><%= aypex_admin_svg_tag("arrow-down-up.svg", style: "margin-left: 0.7rem") %></th>
+                <th><%= Aypex.t(:sku) %></th>
+                <th><%= Aypex.t(:options) %></th>
+                <th><%= Aypex.t(:kind) %></th>
+                <th class="actions text-end">
+                  <%= link_to_with_icon(Aypex.t(:new_variant), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if !@product.empty_option_values? and can? :create, Aypex::Variant %>
+                </th>
+              </tr>
+            </thead>
+            <tbody data-controller="sortable" data-sortable-resource-name-value="variant">
+            <% @product.variants.each do |variant| %>
+              <tr id="<%= dom_id(variant) %>" <%= 'style="color:red;"' if variant.deleted? %> data-hook="variants_row" data-sortable-update-url="<%= aypex.admin_product_variant_path(@product, variant) %>" data-stream-exit-class="animate__fadeOut">
+                <td class="move-handle">
+                  <% if can? :edit, variant %>
+                    <%= render 'aypex/admin/shared/drag_handle' %>
+                  <% end %>
+                </td>
+                <td><%= variant.sku %></td>
+                <td><%= variant.options_text %></td>
+                <td>
+                  <span class="badge rgb-hsl-success">
+                    <% if variant.digital? %>
+                      <%= I18n.t('aypex.admin.product_kinds.digital') %>
+                    <% else %>
+                      <%= I18n.t('aypex.admin.product_kinds.physical') %>
+                    <% end %>
+                  </span>
+                </td>
+                <td class="actions">
+                  <span class="d-flex justify-content-end">
+                    <%= link_to_edit(variant, url: aypex.edit_admin_product_variant_path(@product, variant), data: {turbo_frame: :_top}) if can?(:edit, variant) && !variant.deleted? %>
+                    <%= link_to_delete(variant, url: aypex.admin_product_variant_path(@product, variant)) if can?(:destroy, variant) && !variant.deleted? %>
+                  </span>
+                </td>
+              </tr>
+              <% end %>
+              <% unless @product.has_variants? %>
+                <tr>
+                  <td colspan="5"><%= Aypex.t(:none) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <div class="text-center no-objects-found mb-4">
+          <% if @product.empty_option_values? %>
+            <%= I18n.t('aypex.admin.add_option_types_to_this_product_to_begin_creating_variants') %>
+          <% else %>
+            <%= link_to_with_icon(I18n.t('aypex.admin.products.create_your_first_variant_for_this_product'), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if can? :create, Aypex::Variant %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="card-footer border-top">
+        <%= f.field_container :option_types, class: ["form-floating", "mb-0"], data: { hook: "admin_product_form_option_types" } do %>
+          <% if can? :modify, Aypex::ProductOptionType %>
+            <%= f.select :option_type_ids, options_from_collection_for_select(@product.option_types, :id, :name, @product.option_type_ids),
+                                      { include_hidden: true },
+                                        multiple: true,
+                                        data: { controller: 'ts--search',
+                                                ts__search_endpoint_value: 'option_types',
+                                                form_state_target: "watch"
+                                               } %>
+            <%= f.label :option_type_ids, Aypex.t(:option_types) %>
+          <% elsif @product.option_types.any? %>
+            <ul class="text_list">
+              <% @product.option_types.each do |type| %>
+                <li><%= type.presentation %> (<%= type.name %>)</li>
+              <% end %>
+            </ul>
+          <% else %>
+            <div class="alert alert-info"><%= Aypex.t(:no_resource_found, resource: :option_types) %></div>
+          <% end %>
+        <% end %>
+
+        <%= render partial: 'aypex/admin/shared/resource_actions' %>
+      </div>
+    </div>
+  <% end %>
+<% end if can?(:admin, Aypex::Variant) && !@product.deleted? %>

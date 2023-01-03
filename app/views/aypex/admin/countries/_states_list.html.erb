@@ -1,0 +1,41 @@
+<sa-card>
+  <sa-header>
+    <h5><%= I18n.t('aypex.admin.countries.states') %></h5>
+    <%= link_to I18n.t('aypex.admin.countries.add_new_state'), aypex.new_admin_country_state_path(@country), class: 'btn btn-sm btn-secondary', data: { turbo_frame: :modal } %>
+  </sa-header>
+  <g-responsive>
+    <g-table>
+      <g-thead>
+        <g-tr style="grid-template-columns: 1fr 2fr;">
+          <g-th>
+            <%= Aypex.t(:name) %>
+          </g-th>
+          <g-th>
+            <%= Aypex.t(:abbreviation) %>
+          </g-th>
+        </g-tr>
+      </g-thead>
+      <g-tbody>
+        <% @country.states.each do |state| %>
+          <g-tr style="grid-template-columns: 1fr 1fr 1fr;" id="<%= dom_id(state) %>" data-stream-exit-class="animate__fadeOut">
+            <g-td><%= state.name %></g-td>
+            <g-td><%= state.abbr %></g-td>
+            <g-td class="justify-content-end">
+              <div>
+                <%= link_to_edit(I18n.t('aypex.admin.countries.edit_state'), url: aypex.edit_admin_country_state_path(@country, state), data: {turbo_frame: :modal}) if can? :edit, state %>
+                <%= link_to_delete(state, url: aypex.admin_country_state_path(@country, state)) if can? :delete, state %>
+              </div>
+            </g-td>
+          </g-tr>
+        <% end %>
+        <% if @country.states.empty? %>
+          <g-tr>
+            <g-td>
+              <%= Aypex.t(:none) %>
+            </g-td>
+          </g-tr>
+        <% end %>
+      </g-tbody>
+    </g-table>
+  </g-responsive>
+</sa-card>

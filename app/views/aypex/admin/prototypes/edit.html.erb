@@ -1,0 +1,16 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_prototypes_path, link_one_text: Aypex.t(:all_prototypes), current_page_name: @prototype.name) %>
+<% end %>
+
+<div class="card">
+  <%= form_with model: [:admin, @prototype] do |f| %>
+    <div class="card-body">
+       <%= render partial: 'form', locals: { f: f } %>
+    </div>
+    <div class="card-body text-center">
+      <%= render partial: 'aypex/admin/shared/resource_actions' %>
+    </div>
+  <% end %>
+</div>
+
+

@@ -1,0 +1,22 @@
+<%= form_with model: @promotion, url: object_url, method: :put, data: { controller: 'form-state' } do |f| %>
+  <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
+    <%= f.field_container :user_ids_string do %>
+      <%= pr.select :user_ids_string, options_from_collection_for_select(promotion_rule.users, :id, :email, promotion_rule.users.pluck(:id)), { include_hidden: false }, multiple: true,
+                                      placeholder: I18n.t('aypex.admin.order.search_users_by_email'),
+                                      data: {
+                                              form_state_target: 'watch',
+                                              controller: 'ts--search',
+                                              ts__search_endpoint_value: 'users',
+                                              ts__search_txt_value: 'email',
+                                              ts__search_fields_value: ['email'],
+                                              ts__search_ransack_value: ['email_i_cont']
+                                            } %>
+
+      <%= pr.label :user_ids_string, I18n.t('aypex.admin.user_rule.users') %>
+    <% end %>
+  <% end %>
+
+  <div class="text-end">
+    <%= render partial: 'aypex/admin/shared/submit_button' %>
+  </div>
+<% end %>

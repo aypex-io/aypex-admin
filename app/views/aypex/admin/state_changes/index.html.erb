@@ -1,0 +1,46 @@
+<%= render partial: 'aypex/admin/shared/order_tabs', locals: { current: :state_changes } %>
+
+<% if @state_changes.any? %>
+<div class="table-responsive border rounded">
+  <table class="table" id="listing_order_state_changes" data-hook>
+    <thead class="text-muted">
+      <tr data-hook="admin_orders_state_changes_headers">
+        <th><%= Aypex::StateChange.human_attribute_name(:type) %></th>
+        <th><%= Aypex::StateChange.human_attribute_name(:state_from) %></th>
+        <th><%= Aypex::StateChange.human_attribute_name(:state_to) %></th>
+        <th><%= Aypex::StateChange.human_attribute_name(:user) %></th>
+        <th><%= Aypex::StateChange.human_attribute_name(:timestamp) %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @state_changes.each do |state_change| %>
+        <% scope = state_change.name == 'order'  ? "#{ state_change.name }_state" : "#{ state_change.name }_states" -%>
+        <tr>
+          <td><%= I18n.t("aypex.admin.state_machine_states.#{state_change.name}") %></td>
+          <td><%= state_change.previous_state ? Aypex.t(state_change.previous_state, scope: scope) : Aypex.t(:previous_state_missing) %></td>
+          <td><%= Aypex.t(state_change.next_state, scope: scope) %></td>
+          <td>
+            <% if state_change.user %>
+              <% user_login = state_change.user.try(:login) || state_change.user.try(:email) %>
+              <%= link_to user_login, aypex.admin_user_path(state_change.user) %>
+            <% end %>
+          </td>
+          <td>
+            <%= pretty_time(state_change.created_at) %>
+            <% if state_change.created_at != state_change.updated_at %>
+              <small><%= Aypex::StateChange.human_attribute_name(:updated) %>: <%= pretty_time(state_change.updated_at) %></small>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% else %>
+  <div class="text-center no-objects-found m-5">
+    <%= Aypex.t(:no_state_changes) %>
+  </div>
+<% end %>
+
+<%= render partial: 'aypex/admin/shared/order_summary' %>

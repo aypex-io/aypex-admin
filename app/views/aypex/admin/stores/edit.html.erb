@@ -1,0 +1,12 @@
+<% content_for :page_title do %>
+  <%= @store.name %>
+<% end %>
+
+<% content_for :additional_form_buttons do %>
+  <%= link_to_with_icon Aypex.t(:delete), aypex.admin_store_url(@store), { class: 'btn btn-danger', data: { confirm: Aypex.t(:are_you_sure), method: :delete }, icon: 'delete.svg' } if can?(:delete, @store) && @store.can_be_deleted? %>
+<% end %>
+
+<%= form_with model: [:admin, @store], data: {controller: "form-state"} do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= render partial: 'aypex/admin/shared/resource_actions' %>
+<% end %>

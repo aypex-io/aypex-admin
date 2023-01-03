@@ -1,0 +1,18 @@
+<% content_for :modal_header do %>
+  <h5 class="modal-title"><%= I18n.t('aypex.admin.user.add_store_credit') %></h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<% end %>
+
+<% content_for :modal_body do %>
+  <div class="container">
+    <%= form_with model: [:admin, @user, @store_credit], id: 'modalForm', data: { turbo_frame: :user_store_credits_wrapper, action: "turbo:submit-end->modal#submitEnd" } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+    <% end %>
+  </div>
+<% end %>
+
+<% content_for :modal_footer do %>
+  <%= button_tag(I18n.t('aypex.admin.actions.save'), class: "btn btn-primary", form: "modalForm") %>
+<% end %>
+
+<%= render partial: 'aypex/admin/shared/modal', locals: { modal_dialog_settings: 'modal-dialog-scrollable modal-dialog modal-dialog-centered modal-lg' } %>

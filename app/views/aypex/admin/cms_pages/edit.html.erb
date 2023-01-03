@@ -1,0 +1,36 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.cms.all_pages'), current_page_name: @cms_page.title) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= external_page_preview_link(@cms_page, { name: I18n.t('aypex.admin.cms.page') }) %>
+<% end %>
+
+<%= render partial: 'form' %>
+
+<% if @cms_page.sections? %>
+  <div class="card">
+    <div class="card-header d-flex">
+      <div class="flex-fill">
+        <%= link_to_with_icon(I18n.t('aypex.admin.cms.add_new_section'), aypex.new_admin_cms_page_cms_section_path(@cms_page), icon: 'plus-square.svg', class: 'text-nowrap btn btn-primary btn btn-sm align-self-center') %>
+      </div>
+      <div class="d-flex flex-row">
+        <div id="LiveViewSwitcher" class="btn-group" data-toggle="buttons">
+          <input class="btn-check" type="radio" name="options" id="mobile-live-view" autocomplete="off">
+          <label class="btn btn-sm btn-secondary">Mobile</label>
+
+          <input class="btn-check" type="radio" name="options" id="tablet-live-view" autocomplete="off">
+          <label class="btn btn btn-sm btn-secondary">Tablet</label>
+
+          <input class="btn-check" type="radio" name="options" id="desktop-live-view" autocomplete="off" checked>
+          <label class="btn btn btn-sm btn-secondary">Desktop</label>
+        </div>
+
+        <div class="ms-2">
+          <button id="cms-section-editor-full-screen" type="button" class="btn btn btn-sm btn-outline-primary text-nowrap" data-toggle="button" autocomplete="off"><%= raw I18n.t('aypex.admin.cms.full_screen_mode') %></button>
+        </div>
+      </div>
+    </div>
+    <%= render partial: 'live_preview_area' %>
+  </div>
+<% end %>

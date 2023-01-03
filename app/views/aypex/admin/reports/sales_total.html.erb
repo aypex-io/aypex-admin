@@ -1,0 +1,31 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_reports_path, link_one_text: Aypex.t(:reports), current_page_name: Aypex.t(:sales_totals)) %>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <%= render partial: 'aypex/admin/shared/report_order_criteria' %>
+  </div>
+</div>
+<div class="table-responsive border rounded">
+  <table class="table admin-report" data-hook="sales_total">
+    <thead class="text-muted">
+      <tr>
+        <th><%= Aypex.t(:currency) %></th>
+        <th><%= Aypex.t(:item_total) %></th>
+        <th><%= Aypex.t(:adjustment_total) %></th>
+        <th><%= Aypex.t(:sales_total) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @totals.each do |key, row| %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= Aypex::Money.new(row[:item_total], { currency: key }) %></td>
+          <td><%= Aypex::Money.new(row[:adjustment_total], { currency: key }) %></td>
+          <td><%= Aypex::Money.new(row[:sales_total], { currency: key }) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

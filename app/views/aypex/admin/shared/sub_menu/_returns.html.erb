@@ -1,0 +1,4 @@
+<ul id="sidebar-returns" class="collapse nav nav-pills " data-hook="admin_returns_sub_tabs">
+  <%= tab :return_authorizations, url: aypex.admin_return_authorizations_path, match_path: '/return_authorizations' if can?(:admin, Aypex::ReturnAuthorization) %>
+  <%= tab :customer_returns, url: aypex.admin_customer_returns_path, match_path: '/customer_returns' if can?(:admin, Aypex::CustomerReturn) %>
+</ul>

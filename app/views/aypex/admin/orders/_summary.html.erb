@@ -1,0 +1,81 @@
+<div class="card">
+  <div class="card-header d-flex">
+    <div class="flex-fill">
+      <h5 class="card-title">Summary</h5>
+    </div>
+
+    <div>
+     <h5 class="card-title">
+       <span class="badge <%= order_state_badge(@order.state) %>"><%= @order.state %></span>
+     </h5>
+    </div>
+  </div>
+  <div class="card-body" id="order_tab_summary">
+
+    <% if @order.state == 'cart' %>
+
+    <div class="call-out call-out-info my-3">
+      <h6>
+        <%= I18n.t('aypex.admin.orders.set_the_order_currency') %>
+      </h6>
+      <small class="text-muted">
+        <%= I18n.t('aypex.admin.order.instructions.currency') %>
+      </small>
+    </div>
+
+    <div class="call-out call-out-info my-3">
+      <h6>
+        <%= I18n.t('aypex.admin.orders.getting_started') %>
+      </h6>
+      <small class="text-muted">
+        <%= I18n.t('aypex.admin.order.instructions.cart') %>
+      </small>
+    </div>
+    <% end %>
+
+    <ul class="list-group list-group-flush">
+      <% if @order.completed? %>
+        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+          <small data-hook='admin_order_tab_date_completed_title'><%= Aypex.t(:date_completed) %></small>
+          <span class="text-end small font-weight-bold" id='date_complete'>
+            <%= pretty_time(@order.completed_at) %>
+          </span>
+        </li>
+      <% end %>
+
+      <% if @order.approved? %>
+        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+          <small><%= Aypex.t(:approved_at) %></small>
+          <span class="text-end small font-weight-bold">
+            <%= pretty_time(@order.approved_at) %>
+          </span>
+        </li>
+        <% if @order.approver.present? %>
+          <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+            <small><%= Aypex.t(:approver) %></small>
+            <span class="text-end small font-weight-bold">
+              <%= link_to @order.approver.email, aypex.admin_users_path(@order.approver) %>
+            </span>
+          </li>
+        <% end %>
+      <% end %>
+
+      <% if @order.canceled? && @order.canceled_at %>
+        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+          <small><%= Aypex.t(:canceled_at) %></small>
+          <span class="text-end small font-weight-bold">
+            <%= pretty_time(@order.canceled_at) %>
+          </span>
+        </li>
+        <% if @order.canceler.present? %>
+          <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+            <small><%= Aypex.t(:canceler) %></small>
+            <span class="text-end small font-weight-bold">
+              <%= link_to @order.canceler.email, aypex.admin_users_path(@order.canceler) %>
+            </span>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

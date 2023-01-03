@@ -1,0 +1,57 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Aypex::Order) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon Aypex.t(:new_order), new_admin_order_path, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_order' %>
+<% end if can? :create, Aypex::Order %>
+
+<%#-------------------------------------------------%>
+<%# Index Table                                     %>
+<%#-------------------------------------------------%>
+<% content_for :index_table_filter_tabs do %>
+  <%= link_to Aypex.t('admin.orders.all'), aypex.admin_orders_path, class: "#{'active' if params[:q][:payment_state_not_eq].blank? && params[:q][:shipment_state_not_eq].blank?}" %>
+  <%= link_to Aypex.t('admin.orders.unpaid'), params.merge({q: {payment_state_not_eq: :paid}}).permit!, class: "#{'active' if params[:q][:payment_state_not_eq] == 'paid'}" %>
+  <%= link_to Aypex.t('admin.orders.unfulfilled'), params.merge({q: {shipment_state_not_eq: :shipped}}).permit!, class: "#{'active' if params[:q][:shipment_state_not_eq] == 'shipped'}" %>
+<% end %>
+
+<% content_for :index_table_filter_buttons do %>
+  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_orders_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
+<% end %>
+
+<% content_for :index_table do %>
+  <% if @collection.any? %>
+    <g-responsive>
+      <g-table class="gridtable-hover" id="listing_orders">
+        <g-thead>
+          <g-tr style=" grid-template-columns: 2fr 3fr 2fr 1fr 1fr 1fr 1fr; ">
+            <g-th><%= I18n.t(:number, scope: 'activerecord.attributes.aypex/order') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.date') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.customer') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.risk') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.payment') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.shipment') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.total') %></g-th>
+          </g-tr>
+        </g-thead>
+
+        <g-tbody>
+          <%= render partial: "orders_list" %>
+        </g-tbody>
+      </g-table>
+    </g-responsive>
+  <% else %>
+    <div class="text-center no-objects-found m-5">
+      <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Order)) %>
+    </div>
+  <% end %>
+<% end %>
+
+<%#-------------------------------------------------%>
+<%# Render the index_table partial passing a        %>
+<%# search_field_value and search_field_placeholder %>
+<%# text if you want to add a search bar            %>
+<%#-------------------------------------------------%>
+  <%= render partial: "aypex/admin/shared/index_table",
+             locals: { search_record: :number_i_cont,
+                       search_placeholder: I18n.t('aypex.admin.products.search_all_orders_by_number') } %>

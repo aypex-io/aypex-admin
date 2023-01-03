@@ -1,0 +1,53 @@
+<div data-hook="admin_tax_rate_form_fields">
+  <div class="card mb-3" data-hook="tax_rates">
+    <div class="card-header">
+      <h5 class="card-title">
+        <%= Aypex.t(:general_settings) %>
+      </h5>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+      <div class="col-12 col-lg-6">
+        <%= f.field_container :name do %>
+          <%= f.text_field :name, required: true %>
+          <%= f.label :name, raw(I18n.t('aypex.admin.name') + required_span_tag) %>
+        <% end %>
+
+        <%= f.field_container :amount do %>
+          <%= f.text_field :amount, required: true %>
+          <%= f.label :name, raw(I18n.t('aypex.admin.tax_rates.rate') + required_span_tag) %>
+          <small class="form-text text-muted">
+            <%= Aypex.t(:tax_rate_amount_explanation) %>
+          </small>
+        <% end %>
+
+        <%= f.checkbox_container :show_rate_in_label do %>
+          <%= f.check_box :show_rate_in_label %>
+          <%= f.label :show_rate_in_label, Aypex.t(:show_rate_in_label), class: 'form-check-label' %>
+        <% end %>
+
+        <%= f.checkbox_container :included_in_price do %>
+          <%= f.check_box :included_in_price %>
+          <%= f.label :included_in_price, Aypex.t(:included_in_price), class: 'form-check-label' %>
+        <% end %>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <%= f.field_container :zone do %>
+          <%= f.collection_select(:zone_id, @available_zones, :id, :name, {}) %>
+          <%= f.label :zone, Aypex.t(:zone) %>
+        <% end %>
+
+        <%= f.field_container :tax_category_id do %>
+          <%= f.collection_select(:tax_category_id, @available_categories,:id, :name, {}) %>
+          <%= f.label :tax_category_id, Aypex.t(:tax_category) %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%= render 'aypex/admin/shared/calculator_fields', f: f %>

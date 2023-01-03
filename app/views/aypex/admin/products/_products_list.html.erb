@@ -1,0 +1,60 @@
+<%= turbo_frame_tag "#{plural_resource_name(@collection).downcase}-page-#{@pagy.page}" do %>
+  <% @collection.each do |product| %>
+    <% available_status = available_status(product) %>
+    <g-tr <%== "style='color: red;'" if product.deleted? %> id="<%= dom_id(product) %>" data-stream-exit-class="animate__fadeOut">
+      <g-td>
+        <div class="form-check d-flex justify-content-center m-0 ms-2">
+          <%= check_box_tag "product_ids[]", product.id, nil, {multiple: true, form: :bulk_actions_form,class: "form-check-input", multiple: true, form: :bulk_actions_form, data: { input__checkbox_state_target: "checkbox"} } %>
+        </div>
+      </g-td>
+
+      <%= link_to aypex.edit_admin_product_path(product), data: {turbo_frame: :_top} do %>
+        <%= small_image(product) %>
+      <% end %>
+
+      <%= link_to aypex.edit_admin_product_path(product), class: 'text-reset', data: {turbo_frame: :_top} do %>
+        <div class="text-start">
+          <%= product.name %>
+          <% if product.sku.present? %>
+            <br>
+            <small>SKU: <span class="text-secondary"><%= product.sku %></span></small>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if defined?(Aypex::Vendor) && can?(:manage, Aypex::Vendor) %>
+        <%= link_to aypex.edit_admin_product_path(product), data: {turbo_frame: :_top} do %>
+          <%= link_to product.vendor.name, aypex.admin_vendor_path(product.vendor_id) if product.vendor.present? %>
+        <% end %>
+      <% end %>
+
+      <%= link_to aypex.edit_admin_product_path(product), data: {turbo_frame: :_top} do %>
+        <span class="badge rounded-pill rgb-hsl-secondary">
+          <% if product.digital? %>
+            <%= I18n.t('aypex.admin.product_kinds.digital') %>
+          <% else %>
+            <%= I18n.t('aypex.admin.product_kinds.physical') %>
+          <% end %>
+        </span>
+      <% end %>
+
+      <%= link_to aypex.edit_admin_product_path(product), data: {turbo_frame: :_top} do %>
+        <%= active_badge(available_status == I18n.t('aypex.admin.products.active'), label: available_status) %>
+      <% end %>
+
+      <%= link_to aypex.edit_admin_product_path(product), class: 'text-reset', data: {turbo_frame: :_top} do %>
+        <%= display_price(product) %>
+      <% end %>
+
+      <g-td class="justify-content-end">
+        <div>
+          <%= link_to_clone(product) if can?(:clone, product) %>
+          <%= link_to_delete(product) if can?(:delete, product) && !product.deleted? %>
+        </div>
+      </g-td>
+    </g-tr>
+  <% end %>
+  <% unless @pagy.nil? %>
+    <%= render "aypex/admin/shared/next_page" %>
+  <% end %>
+<% end %>

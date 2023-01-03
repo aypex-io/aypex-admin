@@ -1,0 +1,45 @@
+<div class="table-responsive border rounded">
+  <table class="table rounded" id='payments' data-order-id='<%= @order.number %>'>
+    <thead class="text-muted">
+      <tr data-hook="payments_header">
+        <th><%= Aypex::Payment.human_attribute_name(:number) %></th>
+        <th><%= "#{I18n.t('aypex.admin.date')}/#{I18n.t('aypex.admin.time')}" %></th>
+        <th class="text-center"><%= Aypex.t(:amount) %></th>
+        <th class="text-center"><%= Aypex.t(:via) %></th>
+        <th class="text-center"><%= Aypex.t(:id) %></th>
+        <th class="text-center"><%= Aypex.t(:state) %></th>
+        <th class="actions text-center"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% payments.each do |payment| %>
+        <tr id="<%= dom_id(payment) %>" data-hook="payments_row" data-number="<%= payment.number %>" data-id="<%= payment.id %>">
+          <td><%= link_to payment.number, aypex.admin_order_payment_path(@order, payment) %></td>
+          <td><%= pretty_time(payment.created_at) %></td>
+          <td class="amount text-center"><%= payment.display_amount %></td>
+          <td class="text-center"><%= payment.payment_method.name %></td>
+          <td class="text-center"><%= payment.transaction_id %></td>
+          <td class="text-center">
+            <span class="badge rounded-pill bg-<%= payment.state %>">
+              <%= Aypex.t(payment.state, scope: :payment_states, default: payment.state.capitalize) %>
+            </span>
+          </td>
+          <td class="actions">
+            <span class="d-flex justify-content-center payment-action-buttons">
+              <% payment.actions.each do |action| %>
+                <% if action == 'credit' %>
+                  <%= link_to_with_icon(Aypex.t(:refund), aypex.new_admin_order_payment_refund_path(@order, payment), no_text: true, class: 'btn btn-secondary btn-sm', icon: 'exit.svg') if can?(:create, Aypex::Refund) %>
+                <% else %>
+                  <%= link_to_with_icon(Aypex.t(action), aypex.fire_admin_order_payment_path(@order, payment, e: action), no_text: true, class: 'btn btn-secondary btn-sm', data: {
+                                                                                                                                                                               turbo_method: :put,
+                                                                                                                                                                               turbo_confirm:  I18n.t("aypex.admin.are_you_sure_you_want_to",action: action, resource: aypex_humanize_type(payment.class.name))  },
+                                                                                                                                                                        icon: action + '.svg' ) if can?(action.to_sym, payment) %>
+                <% end %>
+              <% end %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

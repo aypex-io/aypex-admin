@@ -1,0 +1,104 @@
+<%#-------------------------------------------------%>
+<%# Content Header                                  %>
+<%#-------------------------------------------------%>
+<% content_for :page_title do %>
+  <%= plural_resource_name(Aypex::Product) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon Aypex.t(:new_product), new_object_url, { class: "btn btn-primary", icon: 'plus-square.svg', id: 'admin_new_product', data: {turbo_frame: :modal} } %>
+<% end if can?(:create, Aypex::Product) %>
+
+<%#-------------------------------------------------%>
+<%# Index Table                                     %>
+<%#-------------------------------------------------%>
+<% content_for :index_table_filter_tabs do %>
+  <%= link_to I18n.t('admin.product.all'),      aypex.admin_products_path,                          class: "#{'active' if params[:q][:status_eq].blank?}" %>
+  <%= link_to I18n.t('admin.product.active'),   params.merge({q: {status_eq: :active}}).permit!,    class: "#{'active' if params[:q][:status_eq] == 'active'}" %>
+  <%= link_to I18n.t('admin.product.draft'),    params.merge({q: {status_eq: :draft}}).permit!,     class: "#{'active' if params[:q][:status_eq] == 'draft'}" %>
+  <%= link_to I18n.t('admin.product.archived'), params.merge({q: {status_eq: :archived}}).permit!,  class: "#{'active' if params[:q][:status_eq] == 'archived'}" %>
+<% end %>
+
+<% content_for :index_table_filter_buttons do %>
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
+  <ul class="dropdown-menu">
+    <li><%= sort_link @search, :name, Aypex.t(:name), {}, {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
+    <li><%= sort_link @search, :master_default_price_amount, Aypex.t(:price), {}, {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
+    <li><%= sort_link @search, :status, Aypex.t(:status), {default_order: :asc}, {title: 'Sort by Status', class: 'dropdown-item'} %></li>
+  </ul>
+  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_products_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
+<% end %>
+
+  <% content_for :index_table do %>
+    <% if @collection.any? %>
+      <g-responsive>
+        <g-table class="gridtable-hover"
+                 id="listing_products"
+                 data-controller="input--checkbox-state"
+                 style="grid-template-columns: 65px 76px 3fr 1fr 1fr 1fr 1fr;">
+
+          <g-thead>
+            <g-tr>
+
+              <g-th>
+                <div class="form-check d-flex justify-content-center m-0 ms-2">
+                   <%= check_box_tag "select all", nil, nil, { class: "form-check-input", data: { input__checkbox_state_target: "checkboxAll"} } %>
+                </div>
+              </g-th>
+
+              <g-th data-input--checkbox-state-target="initialPanel">
+                <%# place holder %>
+              </g-th>
+
+              <g-th class="dropdown" style="display: none; grid-column: span 6;" data-input--checkbox-state-target="actionPanel">
+                <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= I18n.t('aypex.admin.bulk_actions') %>
+                </a>
+                <div class="dropdown-menu">
+                  <%= form_with url: aypex.bulk_update_status_admin_products_path, method: :patch, id: :bulk_actions_form, data: {turbo_frame: :index_table} do |form| %>
+                  <%= form.button "Active", value: "active",class: "dropdown-item" %>
+                  <%= form.button "Draft", value: "draft",class: "dropdown-item" %>
+                  <%= form.button "Archive", value: "archive",class: "dropdown-item" %>
+                  <% end %>
+                  <hr>
+                </div>
+              </g-th>
+
+              <g-th data-input--checkbox-state-target="initialPanel">
+                <%= Aypex.t(:name) %>
+              </g-th>
+
+              <g-th data-input--checkbox-state-target="initialPanel">
+                <%= I18n.t('aypex.admin.kind') %>
+              </g-th>
+
+              <g-th data-input--checkbox-state-target="initialPanel">
+                <%= Aypex.t(:status) %>
+              </g-th>
+
+              <g-th data-input--checkbox-state-target="initialPanel" style="grid-column: span 2;">
+                <%= Aypex.t(:price) %>
+              </g-th>
+            </g-tr>
+          </g-thead>
+
+          <g-tbody>
+            <%= render partial: "products_list" %>
+          </g-tbody>
+        </g-table>
+      </g-responsive>
+    <% else %>
+      <div class="text-center no-objects-found m-5">
+        <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Product)) %>
+      </div>
+    <% end %>
+  <% end %>
+
+<%#-------------------------------------------------%>
+<%# Render the index_table partial passing a        %>
+<%# search_field_value and search_field_placeholder %>
+<%# text if you want to add a search bar            %>
+<%#-------------------------------------------------%>
+  <%= render partial: "aypex/admin/shared/index_table",
+             locals: { search_record: :search_by_name,
+                       search_placeholder: I18n.t('aypex.admin.products.search_all_products_by_name_or_sku') } %>

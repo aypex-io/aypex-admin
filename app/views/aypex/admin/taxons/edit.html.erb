@@ -1,0 +1,17 @@
+<% content_for :page_title do %>
+  <% if @taxon.root? %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_taxonomies_path, link_one_text: I18n.t('aypex.admin.taxonomies.categories'), current_page_name: @taxon.name) %>
+  <% else %>
+    <%= breadcrumb_builder(link_one_uri: aypex.admin_taxonomies_path, link_one_text: I18n.t('aypex.admin.taxonomies.categories'),
+                           link_two_uri: aypex.edit_admin_taxonomy_url(@taxonomy), link_two_text: @taxonomy.root.name + "...", current_page_name: @taxon.name) %>
+  <% end %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= external_page_preview_link(@taxon) %>
+  <%= remote_form_submit_button(@object) %>
+<% end %>
+
+<%= form_with model: [:admin, @taxonomy, @taxon], method: :put, url: aypex.admin_taxonomy_taxon_path(@taxonomy.id, @taxon.id), data: {controller: "form-state"} do |f| %>
+  <%= render 'form', f: f %>
+<% end %>

@@ -1,0 +1,11 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_oauth_applications_url, link_one_text: I18n.t('aypex.admin.oauth_applications.list'), current_page_name: @oauth_application.name) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= remote_form_submit_button(@object) %>
+<% end %>
+
+<%= form_with model: [:admin, @oauth_application], data: {controller: "form-state"} do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

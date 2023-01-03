@@ -1,0 +1,41 @@
+<%= turbo_stream.replace "new_oauth_application" do %>
+  <div class="card">
+    <div class="card-header">
+      <h5><%= I18n.t('aypex.admin.details') %></h5>
+    </div>
+
+    <div class="card-body">
+      <div data-controller="clipboard" class="form-group">
+        <div class="input-group">
+          <div class="form-floating">
+            <%= text_field_tag :client_id, @object.uid, class: 'form-control', data: { clipboard_target: 'source' }, readonly: true, autocomplete: false %>
+            <%= label_tag :client_id, I18n.t('aypex.admin.oauth_applications.client_id') %>
+          </div>
+          <button data-action="clipboard#copy" class="btn btn-secondary">
+            <%= aypex_admin_svg_tag 'clone.svg', size: '16px * 16px' %>
+            <%= I18n.t("aypex.admin.copy_to_clipboard") %>
+          </button>
+        </div>
+      </div>
+
+      <div data-controller="clipboard" class="form-group">
+        <div class="input-group">
+          <div class="form-floating">
+            <%= text_field_tag :client_secret, @object.plaintext_secret, class: 'form-control', data: { clipboard_target: 'source' }, readonly: true, autocomplete: false %>
+            <%= label_tag :client_secret, I18n.t('aypex.admin.oauth_applications.client_secret') %>
+          </div>
+          <button data-action="clipboard#copy" class="btn btn-secondary">
+            <%= aypex_admin_svg_tag 'clone.svg', size: '16px * 16px' %>
+            <%= I18n.t("aypex.admin.copy_to_clipboard") %>
+          </button>
+        </div>
+        <small class="form-text text-muted mt-4">
+          This is your application's secret token, copy it now and keep it safe. It won't be shown again.
+        </small>
+      </div>
+      <hr>
+
+      <%= link_to 'Back to list', aypex.admin_oauth_applications_url %>
+    </div>
+  </div>
+<% end %>

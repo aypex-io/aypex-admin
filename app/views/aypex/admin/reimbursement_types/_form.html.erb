@@ -1,0 +1,29 @@
+<div data-hook="admin_reimbursement_type_form_fields" class="row">
+  <div class="col-12 col-md-6">
+    <%= f.field_container :name do %>
+      <%= f.text_field :name, required: true %>
+      <%= f.label :name, raw(I18n.t('aypex.admin.name') + required_span_tag) %>
+    <% end %>
+  </div>
+
+  <% if @reimbursement_type.new_record? %>
+    <div class="col-12 col-md-6">
+      <%= f.field_container :type do %>
+        <%= f.select :type, options_for_select(aypex_humanize_dropdown_values('Aypex::ReimbursementType', const: 'KINDS') ), { include_blank: false } %>
+        <%= f.label :type, Aypex.t(:type) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="col-12 col-md-6">
+    <%= f.field_container :active, class: ['form-check'] do %>
+      <%= f.check_box :active, class: 'form-check-input' %>
+      <%= f.label :active, Aypex.t(:active), class: 'form-check-label' %>
+    <% end %>
+
+    <%= f.field_container :mutable, class: ['form-check'] do %>
+      <%= f.check_box :mutable, class: 'form-check-input' %>
+      <%= f.label :mutable, Aypex.t(:mutable), class: 'form-check-label' %>
+    <% end %>
+  </div>
+</div>

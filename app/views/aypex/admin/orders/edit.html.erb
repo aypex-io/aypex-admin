@@ -1,0 +1,40 @@
+<% content_for :page_actions do %>
+  <% if @order.completed? %>
+    <% if can?(:fire, @order) %>
+      <%= event_links(@order, @order_events) %>
+    <% end %>
+  <% end %>
+
+  <% if (can? :update, @order) && @order.some_digital? %>
+    <%= link_to_with_icon I18n.t('aypex.admin.digitals.reset_download_links'),
+        reset_digitals_admin_order_url(@order),
+        icon: 'hdd.svg' %>
+  <% end %>
+<% end %>
+
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_orders_path, link_one_text: I18n.t("aypex.admin.orders.all_orders"), current_page_name: @order.number) %>
+<% end %>
+
+<div data-hook="admin_order_edit_header">
+  <%= render 'aypex/admin/shared/error_messages', target: @order %>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-8">
+    <%#= render 'add_line_item' if can?(:update, @order) %>
+    <%= render 'aypex/admin/orders/shipments/panel' if can?(:update, @order) %>
+    <%= render 'invoice' %>
+    <%= render 'aypex/admin/orders/payments/panel' %>
+
+  </div>
+  <div class="col-12 col-md-4">
+    <%#= render 'summary' %>
+    <%= render 'currency' if can?(:update, @order) %>
+    <%= render 'aypex/admin/orders/customer/panel' if can?(:update, @order) %>
+  </div>
+</div>
+
+<% if @order.payments.exists? && @order.considered_risky? %>
+  <%= render 'aypex/admin/orders/risk_analysis', latest_payment: @order.payments.order("created_at DESC").first %>
+<% end %>

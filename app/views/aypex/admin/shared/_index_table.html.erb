@@ -1,0 +1,20 @@
+<% search_record ||= nil %>
+<% search_placeholder ||= nil %>
+<% search_url ||= nil %>
+<% show_search = true if (!search_record.nil? && !search_placeholder.nil?) %>
+
+<div class="card no-shadow" style="padding-bottom: 55px;">
+  <%= render partial: 'aypex/admin/shared/index_table_filters', locals: {show_search: show_search, search_record: search_record, search_placeholder: search_placeholder, search_url:  search_url} %>
+
+  <%= turbo_frame_tag :index_table, target: :_top do %>
+    <div class="p-2 filters-in-use-container">
+      <% request.query_parameters[:q].sort.each do |filter| %>
+        <%= filters_in_use(filter) %>
+      <% end if request.query_parameters[:q] && request.parameters[:commit] == I18n.t('aypex.admin.actions.filter') %>
+    </div>
+    <div class="col-12 p-0">
+      <%= yield :index_table if content_for?(:index_table) %>
+    </div>
+      <%= flash_alert(flash, :index_table) %>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Aypex::Country) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon(Aypex.t(:new_country), new_object_url, { class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_country' }) %>
+<% end if can? :create, Aypex::Country %>
+
+<% content_for :index_table do %>
+  <g-responsive>
+    <g-table id='listing_countries'>
+      <g-thead>
+        <g-tr style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr ;">
+          <g-th><%= Aypex.t(:country_name) %></g-th>
+          <g-th class="text-center"><%= Aypex.t(:iso3) %></g-th>
+          <g-th class="text-center"><%= Aypex.t(:states_required) %></g-th>
+          <g-th class="text-center"><%= Aypex.t(:zipcode_required) %></g-th>
+          <g-th class="actions text-end"> </g-th>
+        </g-tr>
+      </g-thead>
+      <g-tbody>
+        <%= render partial: "countries_list" %>
+      </g-tbody>
+    </g-table>
+  </g-responsive>
+<% end %>
+
+<%#-------------------------------------------------%>
+<%# Render the index_table partial passing a        %>
+<%# search_field_value and search_field_placeholder %>
+<%# text if you want to add a search bar            %>
+<%#-------------------------------------------------%>
+  <%= render partial: "aypex/admin/shared/index_table",
+             locals: { search_record: :name_i_cont,
+                       search_placeholder: I18n.t('aypex.admin.countries.search_by_country_name') } %>

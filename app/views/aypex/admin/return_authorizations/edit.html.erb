@@ -1,0 +1,26 @@
+<% content_for :page_actions do %>
+  <% if @return_authorization.can_cancel? %>
+    <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), cancel_admin_order_return_authorization_url(@order, @return_authorization), method: :put, data: { confirm: Aypex.t(:are_you_sure) }, icon: "delete.svg" %>
+  <% end %>
+<% end %>
+
+<%= render partial: 'aypex/admin/shared/order_tabs', locals: { current: :return_authorizations } %>
+
+<% content_for :page_title do %>
+  / <%= link_to Aypex.t(:return_authorizations), aypex.admin_order_return_authorizations_url %>
+  / <%= @return_authorization.number %> (<%= Aypex.t(@return_authorization.state.downcase) %>)
+<% end %>
+
+<%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @return_authorization } %>
+
+<%= form_with model: [:admin, @order, @return_authorization] do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+
+    <div class="form-actions" data-hook="buttons">
+      <%= button I18n.t('aypex.admin.actions.update'), 'save.svg' %>
+      <span class="or"><%= Aypex.t(:or) %></span>
+      <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.admin_order_return_authorizations_url(@order), icon: 'x-lg.svg' %>
+    </div>
+  </fieldset>
+<% end %>

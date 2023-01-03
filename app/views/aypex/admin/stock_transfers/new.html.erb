@@ -1,0 +1,92 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_stock_transfers_path, link_one_text: Aypex.t(:stock_transfers), current_page_name: Aypex.t(:new_stock_transfer)) %>
+<% end %>
+
+<%= form_tag admin_stock_transfers_path, method: :post do %>
+  <div class="card mb-3">
+    <div class="card-header">
+      <h5 class="card-title mb-0 h6">
+        <%= Aypex.t(:transfer_stock) %>
+      </h5>
+    </div>
+
+    <div class="card-body">
+      <div data-hook="admin_stock_movements_form_fields">
+        <div class="form-group" id="stock_movement_reference_field">
+          <%= label_tag 'reference', raw("#{Aypex.t(:reference)} (#{Aypex.t(:optional)})") %>
+          <%= text_field_tag :reference, '', class: 'form-control' %>
+        </div>
+        <div class="form-group" id="receive_stock_field">
+          <div class="checkbox">
+            <label for="receive_stock">
+              <%= check_box_tag :transfer_receive_stock %>
+              <%= I18n.t('aypex.admin.receive_stock') %>
+            </label>
+          </div>
+        </div>
+        <div class="form-group" id="transfer_source_location_id_field">
+          <%= label_tag :transfer_source_location_id, Aypex.t(:source) %>
+          <%= select_tag :transfer_source_location_id, {}, data: {controller: 'ts--select'} %>
+        </div>
+        <div class="form-group" id="transfer_destination_location_id_field">
+          <%= label_tag :transfer_destination_location_id, Aypex.t(:destination) %>
+          <%= select_tag :transfer_destination_location_id, {}, data: {controller: 'ts--select'} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3" id="add-variant-to-transfer">
+    <div class="card-header">
+      <h5 class="card-title mb-0 h6">
+        <%= Aypex.t(:add_variant) %>
+      </h5>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <div class="form-group" id="stock_movement_variant_id_field">
+            <%= label_tag 'variant_id', Aypex.t(:variant) %>
+            <div class="input-group">
+              <%= select_tag 'transfer_variant', nil, class: 'd-block w-100', id: 'transfer_variant' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="form-group" id="stock_movement_quantity_field">
+            <%= label_tag :transfer_variant_quantity, Aypex.t(:quantity) %>
+            <div class="input-group">
+              <%= number_field_tag :transfer_variant_quantity, 1, class: 'form-control', min: 1 %>
+              <span class="input-group-btn ms-2">
+                <%= button Aypex.t(:add), 'plus-square.svg', 'submit', class: "transfer_add_variant" %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center no-objects-found m-5">
+    <%= Aypex.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.aypex/variant')) %>.
+  </div>
+
+  <div id="transfer-variants-table" style="display:none" class="table-responsive">
+    <table class="table border rounded sortable">
+      <thead data-hook="transfer_variants_header">
+        <th><%= Aypex.t(:name) %></th>
+        <th class="text-center"><%= Aypex.t(:quantity) %></th>
+        <th class="actions"></th>
+      </thead>
+      <tbody id="transfer_variants_tbody">
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-actions" data-hook="buttons">
+    <%= button Aypex.t(:transfer_stock), 'plus-square.svg', class: 'transfer_transfer' %>
+  </div>
+<% end %>

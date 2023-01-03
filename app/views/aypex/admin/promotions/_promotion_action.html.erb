@@ -1,0 +1,20 @@
+<sa-card class="dashed-card sub-card" id="<%= dom_id(promotion_action) %>">
+  <% type_name = promotion_action.class.name.demodulize.underscore %>
+
+  <sa-header>
+    <div class="flex-fill">
+      <h5>
+        <%= I18n.t("aypex.admin.promotion_action_types.#{type_name}.name") %>
+      </h5>
+      <small class="text-muted"><%= I18n.t("aypex.admin.promotion_action_types.#{type_name}.description") %></small>
+    </div>
+    <div>
+      <%= link_to_with_icon nil, aypex.admin_promotion_promotion_action_path(@promotion, promotion_action), data: {turbo_method: :delete}, class: 'btn btn-secondary btn-sm me-0', icon: 'x-lg.svg', no_text: true %>
+    </div>
+  </sa-header>
+
+  <% param_prefix = "promotion[promotion_actions_attributes][#{promotion_action.id}]" %>
+  <%= hidden_field_tag "#{param_prefix}[id]", promotion_action.id %>
+
+  <%= render partial: "aypex/admin/promotions/actions/#{type_name}", locals: { promotion_action: promotion_action, param_prefix: param_prefix } %>
+</sa-card>

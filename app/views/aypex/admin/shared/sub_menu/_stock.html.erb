@@ -1,0 +1,4 @@
+<ul id="sidebar-stock" class="collapse nav nav-pills " data-hook="admin_stock_sub_tabs">
+  <%= tab(:stock_transfers, aypex.admin_stock_transfers_path) if can? :manage, Aypex::StockTransfer %>
+  <%= tab(:stock_locations, aypex.admin_stock_locations_path) if can? :manage, Aypex::StockLocation %>
+</ul>

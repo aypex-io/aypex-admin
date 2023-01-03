@@ -1,0 +1,39 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Aypex::PromotionCategory) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon Aypex.t(:new_promotion_category), new_object_url, icon: 'plus-square.svg', class: 'btn-primary ' %>
+<% end if can?(:create, Aypex::PromotionCategory) %>
+
+<% if @promotion_categories.any? %>
+
+<div class="table-responsive border rounded">
+  <table class="table">
+    <thead class="text-muted">
+      <th><%= Aypex::PromotionCategory.human_attribute_name :name %></th>
+      <th><%= Aypex::PromotionCategory.human_attribute_name :code %></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @promotion_categories.each do |promotion_category| %>
+        <tr id="<%= dom_id(promotion_category) %>" data-stream-exit-class="animate__fadeOut">
+          <td><%= promotion_category.name %></td>
+          <td><%= promotion_category.code %></td>
+          <td class="actions">
+            <span class="d-flex justify-content-end">
+              <%= link_to_edit(promotion_category) if can?(:edit, promotion_category) %>
+              <%= link_to_delete(promotion_category) if can?(:delete, promotion_category) %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% else %>
+  <div class="text-center no-objects-found m-5">
+    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::PromotionCategory)) %>,
+    <%= link_to Aypex.t(:add_one), new_object_url %>!
+  </div>
+<% end %>

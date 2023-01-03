@@ -1,0 +1,32 @@
+<%= form_with model: @promotion, url: object_url, method: :put, data: { controller: 'form-state' } do |f| %>
+  <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
+    <div class="row mb-0">
+      <div class="col-8 mb-3">
+        <%= f.field_container :preferred_operator_min do %>
+          <%= pr.select :preferred_operator_min, options_for_select(Aypex::Promotion::Rules::ItemTotal::OPERATORS_MIN.map{|o| [I18n.t("aypex.admin.item_total_rule.operators.#{o}"),o]}, promotion_rule.preferred_operator_min), { include_hidden: false, include_blank: false } %>
+          <%= pr.label :preferred_operator_min, I18n.t('aypex.admin.item_total.preferred_operator_min') %>
+        <% end %>
+
+        <%= f.field_container :preferred_operator_max do %>
+          <%= pr.select :preferred_operator_max, options_for_select(Aypex::Promotion::Rules::ItemTotal::OPERATORS_MAX.map{|o| [I18n.t("aypex.admin.item_total_rule.operators.#{o}"),o]}, promotion_rule.preferred_operator_max), { include_hidden: false, include_blank: false } %>
+          <%= pr.label :preferred_operator_max, I18n.t('aypex.admin.item_total.preferred_operator_max') %>
+        <% end %>
+      </div>
+      <div class="col-4 mb-3">
+        <%= f.field_container :preferred_amount_min do %>
+          <%= pr.text_field :preferred_amount_min %>
+          <%= pr.label :preferred_amount_min, I18n.t('aypex.admin.item_total.preferred_amount_min') %>
+        <% end %>
+
+        <%= f.field_container :preferred_amount_max do %>
+          <%= pr.text_field :preferred_amount_max %>
+          <%= pr.label :preferred_amount_max, I18n.t('aypex.admin.item_total.preferred_amount_max') %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="text-end">
+    <%= render partial: 'aypex/admin/shared/submit_button' %>
+  </div>
+<% end %>

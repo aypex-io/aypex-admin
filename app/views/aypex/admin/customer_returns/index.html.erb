@@ -1,0 +1,56 @@
+<%= render partial: 'aypex/admin/shared/order_tabs', locals: { current: :customer_returns } %>
+
+<% content_for :page_actions do %>
+  <% if @order.shipments.any?(&:shipped?) && can?(:create, Aypex::CustomerReturn) %>
+    <%= link_to_with_icon(Aypex.t(:new_customer_return), aypex.new_admin_order_customer_return_path(@order), icon: 'plus-square.svg', class: 'btn-primary btn') %>
+  <% end %>
+<% end %>
+
+<% if @order.shipments.any?(&:shipped?) %>
+
+  <% if @customer_returns.any? %>
+  <div class="table-responsive border rounded">
+    <table class="table">
+      <thead data-hook="customer_return_header">
+        <tr>
+          <th><%= Aypex.t(:return_number) %></th>
+          <th><%= Aypex.t(:pre_tax_total) %></th>
+          <th><%= "#{I18n.t('aypex.admin.date')}/#{I18n.t('aypex.admin.time')}" %></th>
+          <th><%= Aypex.t(:reimbursement_status) %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customer_returns.each do |customer_return| %>
+          <tr id="<%= dom_id(customer_return) %>" data-hook="customer_return_row">
+            <td><%= link_to customer_return.number, aypex.edit_admin_order_customer_return_path(@order, customer_return) %></td>
+            <td><%= customer_return.display_pre_tax_total.to_html %></td>
+            <td><%= pretty_time(customer_return.created_at) %></td>
+            <td>
+              <% if customer_return.fully_reimbursed? %>
+                <small class="badge rounded-pill rgb-hsl-success"><%= Aypex.t(:reimbursed) %></small>
+              <% else %>
+                <small class="badge rounded-pill rgb-hsl-muted text-uppercase"><%= Aypex.t(:incomplete) %></small>
+              <% end %>
+            </td>
+            <td class='actions' data-hook="admin_orders_customer_returns_index_row_actions">
+              <span class="d-flex justify-content-end">
+                <%= link_to_edit(customer_return, url: aypex.edit_admin_order_customer_return_path(@order, customer_return)) if can?(:edit, customer_return) %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% else %>
+    <div class="text-center no-objects-found m-5">
+      <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::CustomerReturn)) %>,
+      <%= link_to(Aypex.t(:add_one), aypex.new_admin_order_customer_return_path(@order)) if can?(:create, Aypex::CustomerReturn) %>!
+    </div>
+  <% end %>
+<% else %>
+  <div data-hook="customer_return_cannot_create" class="text-center no-objects-found m-5">
+    <%= Aypex.t(:cannot_create_customer_returns) %>
+  </div>
+<% end %>

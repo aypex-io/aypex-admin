@@ -1,0 +1,38 @@
+<div class="card p-3" id="user-lifetime-stats">
+  <div class="row">
+    <div class="col-4 text-center">
+      <h3 class="fw-light">
+        <% if @user.report_values_for(:lifetime_value, current_store).any? %>
+          <% @user.report_values_for(:lifetime_value, current_store).each do |value| %>
+            <div>
+              <%= value %>
+            </div>
+          <% end %>
+        <% else %>
+        0
+        <% end %>
+      </h3>
+      <small class="text-muted fw-light"><%= Aypex.t(:total_sales) %></small>
+    </div>
+    <div class="col-4 text-center">
+      <h3 class="fw-light">
+        <%= @user.order_count(current_store) %>
+      </h3>
+      <small class="text-muted fw-light"><%= Aypex.t(:orders) %></small>
+    </div>
+    <div class="col-4 text-center">
+      <h3 class="fw-light">
+        <% if @user.report_values_for(:average_order_value, current_store).any? %>
+          <% @user.report_values_for(:average_order_value, current_store).each do |value| %>
+            <div>
+              <%= value %>
+            </div>
+          <% end %>
+        <% else %>
+        0
+        <% end %>
+      </h3>
+      <small class="text-muted fw-light"><%= Aypex.t(:average_order_value) %></small>
+    </div>
+  </div>
+</div>

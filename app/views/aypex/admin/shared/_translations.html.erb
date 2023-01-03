@@ -1,0 +1,76 @@
+<%
+  # Add dynamic translations used for I18n tasks
+  #
+  # i18n-tasks-use I18n.t('aypex.admin.payment_states.paid')
+  # i18n-tasks-use I18n.t('aypex.admin.payment_states.balance_due')
+  # i18n-tasks-use I18n.t('aypex.admin.payment_states.void')
+  # i18n-tasks-use I18n.t('aypex.admin.payment_states.credit_owed')
+  # i18n-tasks-use I18n.t('aypex.admin.payment_states.failed')
+
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.create_item_adjustments.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.create_line_items.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.free_shipping.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.create_adjustment.name')
+
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.create_item_adjustments.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.create_line_items.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.free_shipping.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_action_types.create_adjustment.description')
+
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.item_total.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.product.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.user.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.first_order.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.user_logged_in.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.one_use_per_user.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.taxon.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.option_value.name')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.country.name')
+
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.item_total.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.product.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.user.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.first_order.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.user_logged_in.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.one_use_per_user.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.taxon.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.option_value.description')
+  # i18n-tasks-use I18n.t('aypex.admin.promotion_rule_types.country.description')
+
+  # i18n-tasks-use I18n.t('aypex.admin.item_total_rule.operators.lt')
+  # i18n-tasks-use I18n.t('aypex.admin.item_total_rule.operators.lte')
+  # i18n-tasks-use I18n.t('aypex.admin.item_total_rule.operators.gt')
+  # i18n-tasks-use I18n.t('aypex.admin.item_total_rule.operators.gte')
+
+  # i18n-tasks-use I18n.t('aypex.admin.product_rule.match_any')
+  # i18n-tasks-use I18n.t('aypex.admin.product_rule.match_all')
+  # i18n-tasks-use I18n.t('aypex.admin.product_rule.match_none')
+
+  # i18n-tasks-use I18n.t('aypex.admin.taxon_rule.match_any')
+  # i18n-tasks-use I18n.t('aypex.admin.taxon_rule.match_all')
+
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.awaiting_return')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.cart')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.address')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.delivery')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.payment')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.confirm')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.complete')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.canceled')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.returned')
+  # i18n-tasks-use I18n.t('aypex.admin.order_state.resumed')
+
+  # i18n-tasks-use I18n.t('aypex.admin.shipment_states.partial')
+  # i18n-tasks-use I18n.t('aypex.admin.shipment_states.canceled')
+  # i18n-tasks-use I18n.t('aypex.admin.shipment_states.backorder')
+  # i18n-tasks-use I18n.t('aypex.admin.shipment_states.shipped')
+  # i18n-tasks-use I18n.t('aypex.admin.shipment_states.pending')
+  # i18n-tasks-use I18n.t('aypex.admin.shipment_states.ready')
+
+  # i18n-tasks-use I18n.t('aypex.admin.filters.payment_state_not_eq')
+  # i18n-tasks-use I18n.t('aypex.admin.filters.shipment_state_not_eq')
+  # i18n-tasks-use I18n.t('aypex.admin.filters.number_cont')
+  # i18n-tasks-use I18n.t('aypex.admin.filters.deleted_at_null')
+  # i18n-tasks-use I18n.t('aypex.admin.filters.variants_including_master_sku_cont')
+  # i18n-tasks-use I18n.t('aypex.admin.filters.search_by_name')
+%>

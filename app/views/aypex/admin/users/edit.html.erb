@@ -1,0 +1,117 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_users_path, link_one_text: I18n.t('aypex.admin.users.users'), current_page_name: @user.email) %>
+<% end %>
+
+<div class="row">
+  <div class="col-12 col-md-8">
+    <%= render 'lifetime_stats' %>
+
+    <div class="card">
+      <div class="card-header d-flex">
+        <div class="flex-fill">
+          <h5 class="card-title"><%= I18n.t('aypex.admin.user.orders') %></h5>
+        </div>
+        <div>
+          <%= link_to_with_icon Aypex.t(:create_new_order), aypex.new_admin_order_path(user_id: @user.id), class: "btn btn-sm btn-secondary", icon: 'plus-square.svg' if can?(:create, Aypex::Order) %>
+        </div>
+      </div>
+      <%= turbo_frame_tag :user_orders, src: aypex.orders_admin_user_path(@user), loading: :lazy %>
+    </div>
+
+    <div class="card">
+      <div class="card-header d-flex">
+        <div class="flex-fill">
+          <h5 class="card-title">
+            <%= I18n.t('aypex.admin.user.store_credits') %>
+          </h5>
+        </div>
+        <div>
+          <%= link_to_with_icon(Aypex.t(:add_store_credit), aypex.new_admin_user_store_credit_path(@user), class: "btn btn-sm btn-secondary", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can?(:create, Aypex::StoreCredit) %>
+        </div>
+      </div>
+      <%= turbo_frame_tag :user_store_credits_wrapper do %>
+        <%= turbo_frame_tag :user_store_credits, src: aypex.admin_user_store_credits_path(@user), loading: :lazy %>
+        <%= flash_alert(flash, :user_store_credits_wrapper) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <sa-card id="customerDetails">
+      <sa-header>
+        <h5><%= I18n.t('aypex.admin.user.customer') %></h5>
+        <%= link_to I18n.t('aypex.admin.actions.edit'), aypex.customer_details_admin_user_path(@user), class: "btn btn-sm btn-secondary", data: {turbo_frame: :modal} %>
+      </sa-header>
+
+      <sa-body>
+        <% if @user.first_name || @user.last_name %>
+          <%= @user.first_name %> <%= @user.last_name %><br>
+        <% end %>
+        <div class="d-flex" data-controller="clipboard">
+          <div class="flex-fill">
+            <%= hidden_field :user, :email, value: @user.email, placeholder: I18n.t("aypex.admin.user.user_email"), data: {clipboard_target: "source"} %>
+            <%= @user.email %>
+          </div>
+          <div>
+            <button data-action="clipboard#copy" class="btn btn-sm btn-link">
+              <%= aypex_admin_svg_tag 'clipboard2.svg', size: '16px * 16px' %>
+            </button>
+          </div>
+        </div>
+        <span class="text-muted"><%= I18n.t('aypex.admin.user.user_since') %>:</span> <%= pretty_date(@user.created_at) %>
+        <div class="mt-2">
+          <% @user.aypex_roles.each do |role| %>
+            <span class="badge rgb-hsl-secondary"><%= role.name %></span>
+          <% end %>
+        </div>
+      </sa-body>
+
+      <hr>
+
+      <sa-header id="customerAddresses">
+        <h5 class="card-title"><%= I18n.t('aypex.admin.user.addresses') %></h5>
+        <%= link_to I18n.t('aypex.admin.users.manage'), aypex.addresses_admin_user_path(@user), class: "btn btn-sm btn-secondary" %>
+      </sa-header>
+
+      <sa-body>
+        <% if @user.bill_address.present? %>
+          <% unless @user.bill_address == @user.ship_address %>
+            <h6><%= I18n.t('aypex.admin.user.billing_addresses') %></h6>
+          <% end %>
+
+          <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @user.bill_address} %>
+          <% if @user.bill_address == @user.ship_address %>
+            <small class="text-muted"><%= I18n.t('aypex.admin.address.used_for_billing_and_shipping') %></small>
+          <% end %>
+        <% else %>
+          <div class="call-out call-out-info my-3">
+            <h6>
+              <%= I18n.t('aypex.admin.user.billing_address') %>
+            </h6>
+            <small class="text-muted">
+             <%= I18n.t('aypex.admin.user.no_default_billing_address_set') %>
+            </small>
+          </div>
+        <% end %>
+
+        <% unless @user.bill_address == @user.ship_address && @user.ship_address.present? %>
+          <hr>
+          <% if @user.ship_address.present? %>
+            <h6><%= I18n.t('aypex.admin.user.shipping_addresses') %></h6>
+
+            <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @user.ship_address} %>
+          <% else %>
+            <div class="call-out call-out-info my-3">
+              <h6>
+                <%= I18n.t('aypex.admin.user.shipping_address') %>
+              </h6>
+              <small class="text-muted">
+               <%= I18n.t('aypex.admin.user.no_default_shipping_address_set') %>
+              </small>
+            </div>
+          <% end %>
+        <% end %>
+      </sa-body>
+    </sa-card>
+  </div>
+</div>
