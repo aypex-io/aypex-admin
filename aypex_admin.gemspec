@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
 
   s.files = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }
   s.require_path = "lib"
-  s.requirements << "none"
 
   s.add_dependency "inline_svg"
   s.add_dependency "pagy"
