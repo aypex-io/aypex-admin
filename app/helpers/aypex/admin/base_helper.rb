@@ -2,6 +2,7 @@ module Aypex
   module Admin
     module BaseHelper
       include Pagy::Frontend
+      include AddressHelper
 
       FLATPICKR_SUPPORTED_LOCALES = %w[
         ar at az be bg bn bs cs cy da de eo es et fa fi fo fr ga gr he

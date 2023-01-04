@@ -1,6 +1,6 @@
 module Aypex
   module Backend
-    VERSION = "5.0.0.alpha".freeze
+    VERSION = "0.1.0".freeze
 
     def self.version
       VERSION
