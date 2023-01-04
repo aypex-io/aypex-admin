@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     class CopyViewsGenerator < Rails::Generators::Base
       desc "Copies views from aypex admin to your application"
 

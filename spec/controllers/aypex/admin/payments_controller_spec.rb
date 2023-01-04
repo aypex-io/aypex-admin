@@ -41,12 +41,12 @@ module Aypex
       end
 
       # Regression test for #3233
-      xcontext "with a backend payment method" do
+      xcontext "with a admin payment method" do
         before do
           @payment_method = create(:check_payment_method, display_on: "back_end")
         end
 
-        it "loads backend payment methods" do
+        it "loads admin payment methods" do
           get :new, params: {order_id: order.number}
           expect(response.status).to eq(200)
           expect(assigns[:payment_methods]).to include(@payment_method)

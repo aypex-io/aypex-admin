@@ -6,12 +6,12 @@ require "inline_svg"
 require "responders"
 require "pagy"
 
-require "aypex/backend/action_callbacks"
-require "aypex/backend/callbacks"
+require "aypex/admin/action_callbacks"
+require "aypex/admin/callbacks"
 
 module Aypex
-  module Backend
+  module Admin
   end
 end
 
-require "aypex/backend/engine"
+require "aypex/admin/engine"

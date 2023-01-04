@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     module TestingSupport
       module CapybaraUtils
         def click_icon(type)

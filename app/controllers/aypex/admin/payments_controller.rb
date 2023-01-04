@@ -1,7 +1,7 @@
 module Aypex
   module Admin
     class PaymentsController < Aypex::Admin::BaseController
-      include Aypex::Backend::Callbacks
+      include Aypex::Admin::Callbacks
       include Aypex::Admin::OrderConcern
 
       before_action :load_order
@@ -97,7 +97,7 @@ module Aypex
 
       def load_data
         @amount = params[:amount] || load_order.total
-        @payment_methods = @order.collect_backend_payment_methods
+        @payment_methods = @order.collect_admin_payment_methods
         if @payment&.payment_method
           @payment_method = @payment.payment_method
         else

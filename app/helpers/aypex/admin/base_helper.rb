@@ -68,7 +68,7 @@ module Aypex
       end
 
       def aypex_admin_svg_tag(file_name, options = {})
-        prefixed_file = "aypex/backend/#{file_name}"
+        prefixed_file = "aypex/admin/#{file_name}"
 
         inline_svg_tag(prefixed_file, options)
       end

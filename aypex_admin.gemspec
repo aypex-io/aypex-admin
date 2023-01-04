@@ -1,9 +1,9 @@
-require_relative "lib/aypex/backend/version"
+require_relative "lib/aypex/admin/version"
 
 Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.name = "aypex_admin"
-  s.version = Aypex::Backend.version
+  s.version = Aypex::Admin.version
   s.authors = ["Matthew Kennedy"]
   s.email = "m.kennedy@me.com"
   s.summary = "Admin for Aypex eCommerce platform"

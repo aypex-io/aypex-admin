@@ -3,7 +3,7 @@ require "standard/rake"
 require "rake"
 require "rake/testtask"
 require "rspec/core/rake_task"
-require "aypex/backend/testing_support/aypex_admin_rake"
+require "aypex/admin/testing_support/aypex_admin_rake"
 
 RSpec::Core::RakeTask.new
 

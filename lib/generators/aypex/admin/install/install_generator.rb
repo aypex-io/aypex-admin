@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     module Generators
       class InstallGenerator < Rails::Generators::Base
         desc "Installs Aypex Admin"

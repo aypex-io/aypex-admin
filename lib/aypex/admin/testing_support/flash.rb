@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     module TestingSupport
       module Flash
         def assert_admin_flash_alert_success(message)

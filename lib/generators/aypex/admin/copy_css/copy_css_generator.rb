@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     class CopyCssGenerator < Rails::Generators::Base
       desc "Copies CSS from Aypex Admin to your applications vendor directory"
 
@@ -8,7 +8,7 @@ module Aypex
       end
 
       def copy_css
-        template "app/assets/stylesheets/aypex/backend/aypex_admin.css", "vendor/assets/stylesheets/aypex/backend/aypex_admin.css"
+        template "app/assets/stylesheets/aypex/admin/aypex_admin.css", "vendor/assets/stylesheets/aypex/admin/aypex_admin.css"
       end
     end
   end

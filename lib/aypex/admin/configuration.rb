@@ -1,15 +1,15 @@
 module Aypex
-  module Backend
+  module Admin
     class Configuration
       attr_writer :admin_path
 
       def admin_path
-        self.admin_path = '/admin' unless @admin_path
+        self.admin_path = "/admin" unless @admin_path
 
         if @admin_path.is_a?(String)
           @admin_path
         else
-          raise 'Aypex.admin_path MUST be an String'
+          raise "Aypex.admin_path MUST be an String"
         end
       end
 

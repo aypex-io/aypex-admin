@@ -2,14 +2,14 @@
   "name": "@matthewkennedy/aypex-admin",
   "version": "0.0.6",
   "description": "Admin UI for Aypex",
-  "module": "app/javascript/aypex/backend/index.js",
+  "module": "app/javascript/aypex/admin/index.js",
   "main": "app/assets/javascripts/aypex_admin.esm.js",
   "browser": "app/assets/javascripts/aypex_admin.min.js",
   "gem": "app/assets/javascripts/aypex_admin.js",
   "type": "module",
   "license": "MIT",
   "files": [
-    "app/javascript/aypex/backend"
+    "app/javascript/aypex/admin"
   ],
   "homepage": "https://github.com/matthewkennedy/aypex_admin.git",
   "repository": {
