@@ -2,7 +2,7 @@ require "aypex/admin"
 
 module Aypex
   def self.admin_path
-   Aypex::Backend::Config.admin_path
+    Aypex::Backend::Config.admin_path
   end
 
   # Used to configure admin_path for Aypex
@@ -15,5 +15,3 @@ module Aypex
     Aypex::Backend::Config.admin_path = path
   end
 end
-
-

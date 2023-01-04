@@ -1,9 +1,11 @@
+require "rails/engine"
 require_relative "configuration"
 
 module Aypex
   module Backend
-    class Engine < ::Rails::Engine
-      engine_name "aypex_admin"
+    class Engine < Rails::Engine
+      isolate_namespace Aypex
+      engine_name "aypex_backend"
 
       initializer "aypex.backend.environment", before: :load_config_initializers do |_app|
         Aypex::Backend::Config = Aypex::Backend::Configuration.new
