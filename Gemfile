@@ -49,7 +49,7 @@ group :test, :development do
   gem "i18n-tasks"
   gem "rubocop"
   gem "rubocop-rspec"
-  gem "standard", "~> 1.20.0"
+  gem "standard", "~> 1.0"
 end
 
 group :development do
@@ -57,10 +57,9 @@ group :development do
   gem "erb_lint"
 end
 
-aypex_local_opts = {path: "../aypex"}
-aypex_opts = {github: "aypex/aypex", branch: "main"}
+aypex_opts = {github: "aypex-io/aypex", branch: "main"}
 
-gem "aypex_api", aypex_local_opts
-gem "aypex_core", aypex_local_opts
+gem "aypex_api", aypex_opts
+gem "aypex_core", aypex_opts
 
 gemspec
