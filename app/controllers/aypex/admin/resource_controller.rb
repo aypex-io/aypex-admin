@@ -1,5 +1,5 @@
 class Aypex::Admin::ResourceController < Aypex::Admin::BaseController
-  include Aypex::Backend::Callbacks
+  include Aypex::Admin::Callbacks
 
   helper_method :new_object_url, :edit_object_url, :clone_object_url, :object_url, :collection_url
   before_action :load_resource

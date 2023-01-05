@@ -4,7 +4,7 @@ describe Aypex::Admin::StoresController do
   stub_authorization!
 
   let!(:store) { create(:store) }
-  let(:image_file) { Rack::Test::UploadedFile.new(Aypex::Backend::Engine.root.join("spec", "fixtures", "thinking-cat.jpg")) }
+  let(:image_file) { Rack::Test::UploadedFile.new(Aypex::Admin::Engine.root.join("spec", "fixtures", "thinking-cat.jpg")) }
   let(:store_with_logo) { create(:store, logo: image_file) }
 
   describe "#create" do

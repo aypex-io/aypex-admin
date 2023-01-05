@@ -100,7 +100,7 @@ describe "Homepage", type: :feature do
     let(:admin_token) { Aypex::OauthAccessToken.create!(application: admin_app, scopes: "admin").token }
 
     before do
-      allow_any_instance_of(Aypex::Admin::BaseController).to receive(:try_aypex_current_user).and_return(Aypex.user_class.new)
+      allow_any_instance_of(Aypex::Admin::BaseController).to receive(:aypex_current_user).and_return(Aypex.user_class.new)
       allow_any_instance_of(Aypex::Admin::BaseController).to receive(:admin_oauth_application).and_return(admin_app)
       allow_any_instance_of(Aypex::Admin::BaseController).to receive(:admin_oauth_token).and_return(admin_token)
     end

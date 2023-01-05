@@ -29,7 +29,7 @@ Pagy::DEFAULT[:size] = []
 # Extras
 # See https://ddnexus.github.io/pagy/extras
 
-# Backend Extras
+# Admin Extras
 
 # Array extra: Paginate arrays efficiently, avoiding expensive array-wrapping and without overriding
 # See https://ddnexus.github.io/pagy/extras/array

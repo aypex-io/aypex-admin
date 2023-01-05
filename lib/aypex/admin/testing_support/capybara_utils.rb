@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     module TestingSupport
       module CapybaraUtils
         def click_icon(type)
@@ -19,14 +19,6 @@ module Aypex
             find("td:nth-child(#{num})").text
           else
             all("td")[num - 1].text
-          end
-        end
-
-        # delay in seconds
-        def wait_for_ajax(delay = Capybara.default_max_wait_time)
-          Timeout.timeout(delay) do
-            active = page.evaluate_script('typeof jQuery !== "undefined" && jQuery.active')
-            active = page.evaluate_script('typeof jQuery !== "undefined" && jQuery.active') until active.nil? || active.zero?
           end
         end
 

@@ -28,7 +28,7 @@
 
 <% if can? :admin, Aypex::Admin::ReportsController %>
   <ul class="nav nav-sidebar" id="sidebarReport">
-    <%= tab *Aypex::Backend::Configuration::REPORT_TABS, icon: 'pie-chart-fill.svg' %>
+    <%= tab *Aypex::Admin::Configuration::REPORT_TABS, icon: 'pie-chart-fill.svg' %>
   </ul>
 <% end %>
 
@@ -46,7 +46,7 @@
 
 <% if Aypex.user_class && can?(:admin, Aypex.user_class) %>
   <ul class="nav nav-sidebar" id="sidebarUser">
-    <%= tab *Aypex::Backend::Configuration::USER_TABS, url: aypex.admin_users_path, icon: 'people-fill.svg' %>
+    <%= tab *Aypex::Admin::Configuration::USER_TABS, url: aypex.admin_users_path, icon: 'people-fill.svg' %>
   </ul>
 <% end %>
 

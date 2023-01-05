@@ -3,7 +3,7 @@ require "spec_helper"
 describe Aypex::Admin::ErrorsController, type: :controller do
   let(:user) { create(:user) }
 
-  before { allow(controller).to receive_messages(try_aypex_current_user: user) }
+  before { allow(controller).to receive_messages(aypex_current_user: user) }
 
   context "#forbidden" do
     shared_context "should be able to display forbidden page" do

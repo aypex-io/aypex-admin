@@ -25,12 +25,12 @@ group :test do
   gem "capybara"
   gem "capybara-screenshot"
   gem "database_cleaner"
-  gem "debug"
-  gem "email_spec"
+  gem "database_cleaner-active_record"
   gem "factory_bot_rails"
-  gem "jsonapi-rspec"
-  gem "multi_json"
+  gem "ffaker"
   gem "propshaft"
+  gem "puma"
+  gem "redis"
   gem "rails-controller-testing"
   gem "rspec-activemodel-mocks"
   gem "rspec_junit_formatter"
@@ -44,16 +44,13 @@ group :test do
 end
 
 group :test, :development do
-  gem "appraisal"
   gem "awesome_print"
-  gem "ffaker"
+  gem "debug"
   gem "gem-release"
   gem "i18n-tasks"
-  gem "puma"
-  gem "redis"
   gem "rubocop"
-  gem "rubocop-rspec", require: false
-  gem "standard", "~> 1.20.0"
+  gem "rubocop-rspec"
+  gem "standard", "~> 1.0"
 end
 
 group :development do
@@ -61,10 +58,11 @@ group :development do
   gem "erb_lint"
 end
 
-aypex_local_opts = {path: "../aypex"}
-aypex_opts = {github: "aypex/aypex", branch: "main"}
+# Local dev
+# aypex_opts = {path: "../aypex"}
+aypex_opts = {github: "aypex-io/aypex", branch: "main"}
 
-gem "aypex_api", aypex_local_opts
-gem "aypex_core", aypex_local_opts
+gem "aypex_api", aypex_opts
+gem "aypex_core", aypex_opts
 
 gemspec

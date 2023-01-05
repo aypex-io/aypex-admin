@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     module TestingSupport
       module FlatpickrCapybara
         def fill_in_date_manually(label_text, options = {})

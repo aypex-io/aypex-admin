@@ -10,7 +10,7 @@ if ENV["COVERAGE"]
     add_filter "/spec/"
     add_filter "/lib/generators/"
 
-    coverage_dir "#{ENV["COVERAGE_DIR"]}/backend" if ENV["COVERAGE_DIR"]
+    coverage_dir "#{ENV["COVERAGE_DIR"]}/admin" if ENV["COVERAGE_DIR"]
   end
 end
 
@@ -34,15 +34,15 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 require "database_cleaner"
 require "ffaker"
 
-require "aypex/backend/testing_support/flash"
-require "aypex/backend/testing_support/flatpickr_capybara"
+require "aypex/admin/testing_support/flash"
+require "aypex/admin/testing_support/flatpickr_capybara"
 
 require "aypex/testing_support/authorization_helpers"
 require "aypex/testing_support/controller_requests"
 require "aypex/testing_support/factories"
 require "aypex/testing_support/url_helpers"
 require "aypex/testing_support/order_walkthrough"
-require "aypex/backend/testing_support/capybara_utils"
+require "aypex/admin/testing_support/capybara_utils"
 require "aypex/testing_support/capybara_config"
 require "aypex/testing_support/rspec_retry_config"
 require "aypex/testing_support/image_helpers"
@@ -106,11 +106,11 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 
-  config.include Aypex::Backend::TestingSupport::CapybaraUtils
+  config.include Aypex::Admin::TestingSupport::CapybaraUtils
   config.include Aypex::TestingSupport::UrlHelpers
-  config.include Aypex::Backend::TestingSupport::Flash
+  config.include Aypex::Admin::TestingSupport::Flash
   config.include Aypex::TestingSupport::ImageHelpers
-  config.include Aypex::Backend::TestingSupport::FlatpickrCapybara
+  config.include Aypex::Admin::TestingSupport::FlatpickrCapybara
 
   config.include Aypex::TestingSupport::ControllerRequests, type: :controller
   config.include Aypex::Core::ControllerHelpers::StrongParameters, type: :controller

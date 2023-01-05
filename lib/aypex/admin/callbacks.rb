@@ -1,5 +1,5 @@
 module Aypex
-  module Backend
+  module Admin
     module Callbacks
       extend ActiveSupport::Concern
 

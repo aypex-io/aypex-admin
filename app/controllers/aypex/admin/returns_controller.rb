@@ -26,7 +26,7 @@ module Aypex
 
       # this is needed for proper permissions checking
       def model_class
-        action == :customer_returns ? Aypex::CustomerReturn : Aypex::ReturnAuthorization
+        (action == :customer_returns) ? Aypex::CustomerReturn : Aypex::ReturnAuthorization
       end
     end
   end
