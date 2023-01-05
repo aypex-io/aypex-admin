@@ -24,6 +24,7 @@ end
 group :test do
   gem "capybara"
   gem "capybara-screenshot"
+  gem "database_cleaner"
   gem "database_cleaner-active_record"
   gem "factory_bot_rails"
   gem "ffaker"
@@ -57,6 +58,7 @@ group :development do
   gem "erb_lint"
 end
 
+# aypex_opts = {path: "../aypex"}
 aypex_opts = {github: "aypex-io/aypex", branch: "main"}
 
 gem "aypex_api", aypex_opts

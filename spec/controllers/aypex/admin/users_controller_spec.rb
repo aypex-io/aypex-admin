@@ -7,7 +7,7 @@ describe Aypex::Admin::UsersController, type: :controller do
   let(:mock_user) { mock_model Aypex.user_class }
 
   before do
-    allow(controller).to receive_messages try_aypex_current_user: user
+    allow(controller).to receive_messages aypex_current_user: user
     user.aypex_roles.clear
     stub_const("Aypex::User", user.class)
   end

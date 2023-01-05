@@ -246,7 +246,7 @@ describe Aypex::Admin::OrdersController, type: :controller do
 
     before do
       allow(Aypex::Order).to receive_messages find: order
-      allow(controller).to receive_messages try_aypex_current_user: user
+      allow(controller).to receive_messages aypex_current_user: user
     end
 
     it "grants access to users with an admin role" do
@@ -282,7 +282,7 @@ describe Aypex::Admin::OrdersController, type: :controller do
     end
 
     it "denies access to not signed in users" do
-      allow(controller).to receive_messages try_aypex_current_user: nil
+      allow(controller).to receive_messages aypex_current_user: nil
       get :index
       expect(response).to redirect_to("/")
     end

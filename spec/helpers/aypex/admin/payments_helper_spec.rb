@@ -5,7 +5,7 @@ describe Aypex::Admin::PaymentsHelper, type: :helper do
 
   before do
     allow(helper).to receive(:current_store).and_return(store)
-    allow(helper).to receive(:try_aypex_current_user).and_return(user)
+    allow(helper).to receive(:aypex_current_user).and_return(user)
   end
 
   describe "#payment_method_name" do
