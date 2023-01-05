@@ -1,4 +1,4 @@
-# Aypex's rpsec controller tests get the Aypex::ControllerHacks
+# Aypex's rspec controller tests get the Aypex::ControllerHacks
 # we don't need those for the anonymous controller here, so
 # we call process directly instead of get
 require "spec_helper"
@@ -26,7 +26,7 @@ describe Aypex::Admin::BaseController, type: :controller do
 
     context "when logged in" do
       before do
-        allow(controller).to receive_messages(try_aypex_current_user: double("User", id: 1, last_incomplete_aypex_order: nil, persisted?: true))
+        allow(controller).to receive_messages(try_aypex_current_user: double("User", id: 1, last_incomplete_aypex_order: nil, persisted?: true, selected_locale: nil))
       end
 
       it "redirects forbidden path" do

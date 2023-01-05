@@ -58,6 +58,7 @@ group :development do
   gem "erb_lint"
 end
 
+# Local dev
 # aypex_opts = {path: "../aypex"}
 aypex_opts = {github: "aypex-io/aypex", branch: "main"}
 
