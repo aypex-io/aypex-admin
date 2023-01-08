@@ -13,49 +13,16 @@ platforms :jruby do
   gem "jruby-openssl"
 end
 
-platforms :ruby do
-  if ENV["DB"] == "mysql"
-    gem "mysql2"
-  else
-    gem "pg", "~> 1.1"
-  end
-end
-
-group :test do
-  gem "capybara"
-  gem "capybara-screenshot"
-  gem "database_cleaner"
-  gem "database_cleaner-active_record"
-  gem "factory_bot_rails"
-  gem "ffaker"
-  gem "propshaft"
-  gem "puma"
-  gem "redis"
-  gem "rails-controller-testing"
-  gem "rspec-activemodel-mocks"
-  gem "rspec_junit_formatter"
-  gem "rspec-rails"
-  gem "rspec-retry"
-  gem "rswag-specs"
-  gem "simplecov"
-  gem "timecop"
-  gem "webdrivers"
-  gem "webmock"
+if ENV["DB"] == "mysql"
+  gem "mysql2"
+else
+  gem "pg", "~> 1.1"
 end
 
 group :test, :development do
-  gem "awesome_print"
+  gem "aypex_dev_tools", github: "aypex-io/aypex-dev-tools"
   gem "debug"
-  gem "gem-release"
-  gem "i18n-tasks"
-  gem "rubocop"
-  gem "rubocop-rspec"
-  gem "standard", "~> 1.0"
-end
-
-group :development do
-  gem "solargraph"
-  gem "erb_lint"
+  gem "propshaft"
 end
 
 # Local dev

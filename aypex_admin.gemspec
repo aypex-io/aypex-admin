@@ -28,4 +28,6 @@ Gem::Specification.new do |s|
   s.add_dependency "responders"
   s.add_dependency "aypex"
   s.add_dependency "turbo-rails"
+
+  s.add_development_dependency "aypex_dev_tools"
 end
