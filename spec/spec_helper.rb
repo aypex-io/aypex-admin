@@ -1,123 +1,25 @@
-if ENV["COVERAGE"]
-  # Run Coverage report
-  require "simplecov"
-  SimpleCov.start "rails" do
-    add_group "Libraries", "lib/aypex"
+# Set environment to test
+ENV["RAILS_ENV"] = "test"
 
-    add_filter "/bin/"
-    add_filter "/db/"
-    add_filter "/script/"
-    add_filter "/spec/"
-    add_filter "/lib/generators/"
-
-    coverage_dir "#{ENV["COVERAGE_DIR"]}/admin" if ENV["COVERAGE_DIR"]
-  end
-end
-
-# This file is copied to ~/spec when you run 'ruby script/generate rspec'
-# from the project root directory.
-ENV["RAILS_ENV"] ||= "test"
-
+# Load the dummy test application.
 begin
   require File.expand_path("../../tmp/dummy/config/environment", __FILE__)
 rescue LoadError
   puts "Could not load dummy application. Please ensure you have run `bundle exec rake test_app`"
-  exit
 end
 
-require "rspec/rails"
+# Load the spec/support files.
+Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].sort.each { |f| require f }
 
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its sub-directories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+# Require the Aypex Developer Tools
+require "aypex_dev_tools/rspec/spec_helper"
 
-require "database_cleaner"
-require "ffaker"
-
+require "aypex/admin/testing_support/capybara_utils"
 require "aypex/admin/testing_support/flash"
 require "aypex/admin/testing_support/flatpickr_capybara"
 
-require "aypex/testing_support/authorization_helpers"
-require "aypex/testing_support/controller_requests"
-require "aypex/testing_support/factories"
-require "aypex/testing_support/url_helpers"
-require "aypex/testing_support/order_walkthrough"
-require "aypex/admin/testing_support/capybara_utils"
-require "aypex/testing_support/capybara_config"
-require "aypex/testing_support/rspec_retry_config"
-require "aypex/testing_support/image_helpers"
-
-require "aypex/api/testing_support/factories"
-require "aypex/core/controller_helpers/strong_parameters"
-
-require "webdrivers"
-
 RSpec.configure do |config|
-  config.color = true
-  config.default_formatter = "doc"
-  config.fail_fast = ENV["FAIL_FAST"] || false
-  config.infer_spec_type_from_file_location!
-  config.mock_with :rspec
-  config.raise_errors_for_deprecations!
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, comment the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = false
-
-  config.before :suite do
-    Capybara.match = :smart
-    DatabaseCleaner.clean_with :truncation
-    # Force jobs to be executed in a synchronous way
-    ActiveJob::Base.queue_adapter = :inline
-  end
-
-  config.before do
-    Rails.cache.clear
-    WebMock.disable!
-    DatabaseCleaner.strategy = if RSpec.current_example.metadata[:js]
-      :truncation
-    else
-      :transaction
-    end
-    # TODO: Find out why open_transactions ever gets below 0
-    # See issue #3428
-    ApplicationRecord.connection.increment_open_transactions if ApplicationRecord.connection.open_transactions < 0
-
-    DatabaseCleaner.start
-
-    create(:country, name: "United States of America", iso_name: "UNITED STATES", iso: "US", states_required: true)
-    create(:store, default: true)
-  end
-
-  config.after(:each, type: :feature) do |example|
-    if page&.body&.present?
-      missing_translations = page.body.scan(/translation missing: #{I18n.locale}\.(.*?)[\s<"&]/)
-      if missing_translations.any?
-        puts "Found missing translations: #{missing_translations.inspect}"
-        puts "In spec: #{example.location}"
-      end
-    end
-  end
-
-  config.append_after do
-    DatabaseCleaner.clean
-  end
-
-  config.include FactoryBot::Syntax::Methods
-
   config.include Aypex::Admin::TestingSupport::CapybaraUtils
-  config.include Aypex::TestingSupport::UrlHelpers
   config.include Aypex::Admin::TestingSupport::Flash
-  config.include Aypex::TestingSupport::ImageHelpers
   config.include Aypex::Admin::TestingSupport::FlatpickrCapybara
-
-  config.include Aypex::TestingSupport::ControllerRequests, type: :controller
-  config.include Aypex::Core::ControllerHelpers::StrongParameters, type: :controller
-
-  config.order = :random
-  Kernel.srand config.seed
-
-  config.filter_run_including focus: true unless ENV["CI"]
-  config.run_all_when_everything_filtered = true
 end
