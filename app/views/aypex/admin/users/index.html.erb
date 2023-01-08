@@ -4,7 +4,7 @@
 
 <% content_for :page_actions do %>
   <%= link_to_with_icon Aypex.t(:new_user), aypex.new_admin_user_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_user_link', data: {turbo_frame: :modal} %>
-<% end if can? :create, Aypex::user_class %>
+<% end if can? :create, Aypex::Config::user_class %>
 
 <% content_for :index_table_filter_buttons do %>
   <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_users_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
