@@ -10,7 +10,7 @@ module Aypex
       end
 
       def create
-        @user = Aypex.user_class.new(user_params)
+        @user = Aypex::Config.user_class.new(user_params)
         if @user.save
           flash_message_for(@user, :successfully_created)
           redirect_to aypex.edit_admin_user_path(@user)
@@ -72,7 +72,7 @@ module Aypex
       protected
 
       def model_class
-        Aypex.user_class
+        Aypex::Config.user_class
       end
 
       def collection

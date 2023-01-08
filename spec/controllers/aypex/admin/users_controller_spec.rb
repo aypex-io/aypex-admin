@@ -4,7 +4,7 @@ require "aypex/testing_support/bar_ability"
 describe Aypex::Admin::UsersController, type: :controller do
   let(:store) { Aypex::Store.default }
   let(:user) { create(:user) }
-  let(:mock_user) { mock_model Aypex.user_class }
+  let(:mock_user) { mock_model Aypex::Config.user_class }
 
   before do
     allow(controller).to receive_messages aypex_current_user: user
@@ -72,14 +72,14 @@ describe Aypex::Admin::UsersController, type: :controller do
     end
 
     it "can create a shipping_address" do
-      expect(Aypex.user_class).to receive(:new).with(ActionController::Parameters.new(
+      expect(Aypex::Config.user_class).to receive(:new).with(ActionController::Parameters.new(
         "ship_address_attributes" => {"city" => "New York"}
       ).permit(ship_address_attributes: permitted_address_attributes))
       post :create, params: {user: {ship_address_attributes: {city: "New York"}}}
     end
 
     it "can create a billing_address" do
-      expect(Aypex.user_class).to receive(:new).with(ActionController::Parameters.new(
+      expect(Aypex::Config.user_class).to receive(:new).with(ActionController::Parameters.new(
         "bill_address_attributes" => {"city" => "New York"}
       ).permit(bill_address_attributes: permitted_address_attributes))
       post :create, params: {user: {bill_address_attributes: {city: "New York"}}}
@@ -154,6 +154,6 @@ end
 
 def use_mock_user
   allow(mock_user).to receive(:save).and_return(true)
-  allow(Aypex.user_class).to receive(:find).with(mock_user.id.to_s).and_return(mock_user)
-  allow(Aypex.user_class).to receive(:new).and_return(mock_user)
+  allow(Aypex::Config.user_class).to receive(:find).with(mock_user.id.to_s).and_return(mock_user)
+  allow(Aypex::Config.user_class).to receive(:new).and_return(mock_user)
 end

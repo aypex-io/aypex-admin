@@ -13,7 +13,7 @@ module Aypex
 
           # TODO
           # Find an efficient way to ransack users by email even though they are encrypted.
-          # @user_list = Aypex.user_class.all.load
+          # @user_list = Aypex::Config.user_class.all.load
           # @search_result_users = @user_list.ransack(email_i_cont: params[:global_search_input]).result(distinct: true).limit(8)
         else
           []

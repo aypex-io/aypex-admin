@@ -44,7 +44,7 @@
   </ul>
 <% end %>
 
-<% if Aypex.user_class && can?(:admin, Aypex.user_class) %>
+<% if Aypex::Config.user_class && can?(:admin, Aypex::Config.user_class) %>
   <ul class="nav nav-sidebar" id="sidebarUser">
     <%= tab *Aypex::Admin::Configuration::USER_TABS, url: aypex.admin_users_path, icon: 'people-fill.svg' %>
   </ul>

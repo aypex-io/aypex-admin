@@ -70,7 +70,7 @@ module Aypex
       private
 
       def load_user
-        @user = Aypex.user_class.find_by(id: params[:user_id])
+        @user = Aypex::Config.user_class.find_by(id: params[:user_id])
 
         unless @user
           dispatch_notice(Aypex.t(:user_not_found), :error)

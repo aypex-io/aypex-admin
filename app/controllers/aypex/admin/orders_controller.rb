@@ -17,7 +17,7 @@ module Aypex
 
       def new
         @order = scope.create(order_params)
-        @user = Aypex.user_class.find(params[:user_id]) if params[:user_id].present?
+        @user = Aypex::Config.user_class.find(params[:user_id]) if params[:user_id].present?
 
         if @order.save
           sync_order
@@ -127,7 +127,7 @@ module Aypex
       end
 
       def load_user
-        @user = Aypex.user_class.find(params[:order][:user_id]) if params[:order][:user_id].present?
+        @user = Aypex::Config.user_class.find(params[:order][:user_id]) if params[:order][:user_id].present?
       end
 
       def scope
