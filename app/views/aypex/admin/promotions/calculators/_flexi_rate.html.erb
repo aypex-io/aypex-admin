@@ -1,0 +1,33 @@
+<%= fields_for @promotion do |promotion_form| %>
+  <%= promotion_form.fields_for :promotion_actions, promotion_action, child_index: promotion_action.id do |promotion_action_form| %>
+    <%= promotion_action_form.fields_for :calculator_attributes, promotion_action.calculator do |calculator_form| %>
+      <div class="col-12 col-lg-6 mb-3">
+        <div class="form-floating">
+          <%= calculator_form.text_field :first_item, data: {input_disable_target: "disable" } %>
+          <%= calculator_form.label :first_item %>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6 mb-3">
+        <div class="form-floating">
+          <%= calculator_form.text_field :additional_item, data: {input_disable_target: "disable" } %>
+          <%= calculator_form.label :additional_item %>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6 mb-3">
+        <div class="form-floating">
+          <%= calculator_form.text_field :max_items, data: {input_disable_target: "disable" } %>
+          <%= calculator_form.label :max_items %>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6 mb-3">
+        <div class="form-floating">
+          <%= calculator_form.text_field :currency, data: {input_disable_target: "disable" } %>
+          <%= calculator_form.label :currency %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

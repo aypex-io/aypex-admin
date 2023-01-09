@@ -22,6 +22,10 @@ module Aypex
 
       helper_method :admin_oauth_token, :stream_flash_alert
 
+      def path_for(obj)
+        obj.class.name.demodulize.underscore
+      end
+
       protected
 
       default_form_builder(Aypex::Dash::BootstrapBuilder)

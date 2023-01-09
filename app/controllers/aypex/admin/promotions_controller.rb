@@ -29,7 +29,7 @@ module Aypex
       def load_data
         @actions = Rails.application.config.aypex.promotions.actions
 
-        @calculators = Rails.application.config.aypex.calculators.promotion_actions_create_adjustments
+        @calculators = Rails.application.config.aypex.calculators.promotion_actions_create_item_adjustments
         @promotion_categories = Aypex::PromotionCategory.order(:name)
         @product_options = []
       end

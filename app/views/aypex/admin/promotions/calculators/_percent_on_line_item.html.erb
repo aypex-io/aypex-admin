@@ -1,0 +1,12 @@
+<%= fields_for @promotion do |promotion_form| %>
+  <%= promotion_form.fields_for :promotion_actions, promotion_action, child_index: promotion_action.id do |promotion_action_form| %>
+    <%= promotion_action_form.fields_for :calculator_attributes, promotion_action.calculator do |calculator_form| %>
+      <div class="col-12 mb-3">
+        <div class="form-floating">
+          <%= calculator_form.text_field :percent, data: {input_disable_target: "disable" } %>
+          <%= calculator_form.label :percent %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
