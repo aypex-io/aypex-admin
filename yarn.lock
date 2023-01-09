@@ -226,7 +226,7 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@tiptap/core@^2.0.0-beta.205", "@tiptap/core@^2.0.0-beta.209":
+"@tiptap/core@^2.0.0-beta.209":
   version "2.0.0-beta.209"
   resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.0.0-beta.209.tgz#fd0edb8f87a5eea70c6a11e0d7e628738a10ef3f"
   integrity sha512-DOOzfo2XKD5Qt2oEGW33/6ugwSnvpl4WbxtlKdPadLoApk6Kja3K1Eps3pihBgIGmo4tkctkCzmj8wNWS7KeWg==
@@ -291,7 +291,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-horizontal-rule/-/extension-horizontal-rule-2.0.0-beta.209.tgz#06d8c9ca43933e338fca31963332639d8dcbe7e8"
   integrity sha512-53RU9kDVb1jowJ3Frx8QW0E05uEOCpeG3HfUCMjz8anGtefxFtMS7xYZ9sC+niJeVmXC+mUSjFGageL4iRIdqA==
 
-"@tiptap/extension-image@^2.0.0-beta.205":
+"@tiptap/extension-image@^2.0.0-beta.209":
   version "2.0.0-beta.209"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-image/-/extension-image-2.0.0-beta.209.tgz#8e8a9316d4f2a3168cd21c8faea52d569102dace"
   integrity sha512-Erjs9/vRud5TYATt7gJ1cBPNp0LAxtQ4mYZ+6Avpu0FfOWDv9WHXGtV85vJnbqKkRBf031L3dfLnYZPhTkS2sQ==
@@ -301,7 +301,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-italic/-/extension-italic-2.0.0-beta.209.tgz#892ff90de43a5e1e88197e7a9839bbd877027321"
   integrity sha512-KnRdbqfD01tcCnUNypA3TX3FqmQSFwu7/9YU3vwS8Zyaz+OIc/g/vJai5twg1DzFAvIcYWzRFPTFcqkjwkcW1w==
 
-"@tiptap/extension-link@^2.0.0-beta.205":
+"@tiptap/extension-link@^2.0.0-beta.209":
   version "2.0.0-beta.209"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-link/-/extension-link-2.0.0-beta.209.tgz#a441f5ead858ea54b88fa7e1a8b5e02e8f671678"
   integrity sha512-X+iPnKWTb8nuZ7xieemPxZOiCQiaQw4z3RVJ7Hz4/T+ujxfxu7MJhBzjyw9htGPmUijyN4zt0NPjZ089yMzAxQ==
@@ -333,7 +333,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-text/-/extension-text-2.0.0-beta.209.tgz#f34a6cda849c16d7dbf9677e2cf6242cc6987a9e"
   integrity sha512-12PTPTQViDR7xDLwxGMPiYaV89E9olH/+4Zfoh6QiOjHqhmgYu3+/c8YZ3eARgXnfpy/EzUD0PBxiAyDZJ1vdw==
 
-"@tiptap/starter-kit@^2.0.0-beta.205":
+"@tiptap/starter-kit@^2.0.0-beta.209":
   version "2.0.0-beta.209"
   resolved "https://registry.yarnpkg.com/@tiptap/starter-kit/-/starter-kit-2.0.0-beta.209.tgz#cc21d50b826abf02c97ea426f8fb04cf516f8606"
   integrity sha512-uR68ZfDZ5PeygGey3xc9ZuFIP+K7VRElrABnZcM6t9/Crrs70UFwSTNlkS0ezx9woj8h+8N78a6r8W1YC04TOw==
@@ -942,10 +942,10 @@ domhandler@^4.2.0, domhandler@^4.3.1:
   dependencies:
     domelementtype "^2.2.0"
 
-dompurify@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.4.1.tgz#f9cb1a275fde9af6f2d0a2644ef648dd6847b631"
-  integrity sha512-ewwFzHzrrneRjxzmK6oVz/rZn9VWspGFRDb4/rRtIsM1n36t9AKma/ye8syCpcw+XJ25kOK/hOG7t1j2I2yBqA==
+dompurify@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.4.3.tgz#f4133af0e6a50297fc8874e2eaedc13a3c308c03"
+  integrity sha512-q6QaLcakcRjebxjg8/+NP+h0rPfatOgOzc46Fst9VAA3jF2ApfKBNKMzdP4DYTqtUMXSCd5pRS/8Po/OmoCHZQ==
 
 domutils@^2.8.0:
   version "2.8.0"
@@ -3168,7 +3168,7 @@ standard@^17.0.0:
     eslint-plugin-react "^7.28.0"
     standard-engine "^15.0.0"
 
-stimulus-checkbox-select-all@^5.1.0:
+stimulus-checkbox-select-all@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/stimulus-checkbox-select-all/-/stimulus-checkbox-select-all-5.2.0.tgz#5ce778e5241978c0b6cdc2b000092c7e3dc357a2"
   integrity sha512-gONmYrkWMkw5adNUAX8UnS5riCiO//qLpqtVcFaD63ffMmNLAbS8N03Q/e4eCjvFPTfP5tOSI0TLFNx7MRq9aA==
@@ -3180,7 +3180,7 @@ stimulus-flatpickr@^3.0.0-0:
   dependencies:
     "@hotwired/stimulus" "^3.0.0"
 
-stimulus-sortable@^4.0.0:
+stimulus-sortable@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/stimulus-sortable/-/stimulus-sortable-4.1.0.tgz#d989b6e4828f23522a2981eaa571220592584591"
   integrity sha512-g98+WRMlGXp2dcACzk8Z0bNyVzFbypUVwm9y+dv6jiLdw3Rh3WG5zQQX0ePe++TEqiUf3aBI6lrjXLsJtZdO6w==
