@@ -1,15 +1,12 @@
 require "aypex"
 require "aypex/api"
 require "aypex/admin/engine"
-
-require "turbo-rails"
-require "inline_svg"
-require "aypex"
-require "aypex/api"
 require "aypex/admin/action_callbacks"
 require "aypex/admin/callbacks"
 require "aypex/admin/configuration"
-require "aypex/admin/engine"
+
+require "turbo-rails"
+require "inline_svg"
 require "responders"
 require "pagy"
 
