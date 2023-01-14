@@ -1,5 +1,5 @@
 Aypex::Engine.add_routes do
-  namespace :admin, path: Aypex.admin_path do
+  namespace :admin, path: Aypex::Admin::Config.admin_path do
     root to: "dashboard#show"
 
     # Addresses
@@ -283,5 +283,5 @@ Aypex::Engine.add_routes do
     resources :zones
   end
 
-  get Aypex.admin_path, to: "admin/dashboard#show", as: :admin
+  get Aypex::Admin::Config.admin_path, to: "admin/dashboard#show", as: :admin
 end

@@ -8,12 +8,12 @@ module Aypex
       end
 
       it "routes to the the configured path" do
-        Aypex.admin_path = "/secret"
+        Aypex::Admin::Config.admin_path = "/secret"
         Rails.application.reload_routes!
         expect(aypex.admin_path).to eq("/secret")
 
         # restore the path for other tests
-        Aypex.admin_path = "/admin"
+        Aypex::Admin::Config.admin_path = "/admin"
         Rails.application.reload_routes!
         expect(aypex.admin_path).to eq("/admin")
       end
