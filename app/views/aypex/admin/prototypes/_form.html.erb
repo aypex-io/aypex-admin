@@ -38,18 +38,18 @@
   </div>
 
   <div class="col-12 col-md-4">
-    <%= f.field_container :taxon_ids do %>
-      <%= f.select :taxon_ids, options_from_collection_for_select(f.object.taxons, :id, :pretty_name, f.object.taxon_ids),
+    <%= f.field_container :category_ids do %>
+      <%= f.select :category_ids, options_from_collection_for_select(f.object.categories, :id, :pretty_name, f.object.category_ids),
                                 { include_hidden: true },
                                   multiple: true,
                                   class:'form-select',
                                   data: { controller: 'ts--search',
-                                          ts__search_endpoint_value: 'taxons',
+                                          ts__search_endpoint_value: 'categories',
                                           ts__search_txt_value: 'pretty_name',
                                           ts__search_fields_value: ['pretty_name'],
                                           ts__search_ransack_value: ['pretty_name_i_cont']
                                          } %>
-      <%= f.label :taxon_ids, I18n.t('aypex.admin.taxons.taxons') %>
+      <%= f.label :category_ids, I18n.t('aypex.admin.categories.categories') %>
     <% end %>
   </div>
 </div>

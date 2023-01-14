@@ -1,4 +1,4 @@
-require "aypex/core"
+require "aypex"
 require "aypex/api"
 
 require "turbo-rails"

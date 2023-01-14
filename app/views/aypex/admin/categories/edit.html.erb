@@ -1,0 +1,17 @@
+<% content_for :page_title do %>
+  <% if @category.root? %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_base_categories_path, link_one_text: I18n.t('aypex.admin.base_categories.categories'), current_page_name: @category.name) %>
+  <% else %>
+    <%= breadcrumb_builder(link_one_uri: aypex.admin_base_categories_path, link_one_text: I18n.t('aypex.admin.base_categories.categories'),
+                           link_two_uri: aypex.edit_admin_base_category_url(@base_category), link_two_text: @base_category.root.name + "...", current_page_name: @category.name) %>
+  <% end %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= external_page_preview_link(@category) %>
+  <%= remote_form_submit_button(@object) %>
+<% end %>
+
+<%= form_with model: [:admin, @base_category, @category], method: :put, url: aypex.admin_base_category_category_path(@base_category.id, @category.id), data: {controller: "form-state"} do |f| %>
+  <%= render 'form', f: f %>
+<% end %>

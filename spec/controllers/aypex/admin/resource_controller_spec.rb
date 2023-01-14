@@ -20,7 +20,7 @@ describe Aypex::Admin::DummyModelsController, type: :controller do
   end
 
   before do
-    Aypex::Core::Engine.routes.draw do
+    Aypex::Engine.routes.draw do
       namespace :admin do
         resources :dummy_models do
           post :reposition, on: :member

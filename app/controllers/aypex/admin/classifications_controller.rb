@@ -4,7 +4,7 @@ module Aypex
       private
 
       def load_resource
-        @object ||= Classification.find_by(taxon_id: params[:taxon_id], product_id: params[:product_id])
+        @object ||= Classification.find_by(category_id: params[:category_id], product_id: params[:product_id])
       end
     end
   end

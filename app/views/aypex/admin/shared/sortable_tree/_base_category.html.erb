@@ -1,0 +1,32 @@
+<% base_category = parent_resource %>
+<% category = child_resource %>
+
+<div id="<%= dom_id(category) %>" class="sortable-tree-item-row d-flex flex-nowrap p-1 align-items-center" data-stream-exit-class="animate__fadeOut">
+  <%= render 'aypex/admin/shared/drag_handle' %>
+
+  <div class="d-flex align-items-center overflow-hidden w-100">
+    <div class="overflow-hidden">
+      <%= category.name %> <br>
+
+      <h6 class="form-text text-muted m-0">
+        <%= turbo_frame_tag :path do %>
+          <span class="badge rgb-hsl-secondary">
+            <%= aypex_admin_svg_tag('link.svg', size: '16px * 16px') %> <span id="<%= dom_id(category) %>_permalink"><%= category.permalink %></span>
+          </span>
+        <% end %>
+      </h6>
+    </div>
+    <% if category.icon.present? %>
+      <div class="ms-2">
+        <div class="item-image-holder">
+          <%= image_tag main_app.cdn_image_url(category.icon.attachment) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="d-flex align-items-center space-buttons px-2">
+    <%= link_to_edit(category, url: aypex.edit_admin_base_category_category_path(base_category, category.id)) %>
+    <%= link_to_delete(category, url: aypex.admin_base_category_category_path(base_category, category.id)) if can?(:destroy, category) %>
+  </div>
+</div>

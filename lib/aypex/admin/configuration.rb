@@ -17,8 +17,8 @@ module Aypex
         :shipments, :credit_cards, :return_authorizations,
         :customer_returns, :adjustments, :customer_details]
       PRODUCT_TABS = [:products, :option_types, :properties, :prototypes,
-        :variants, :product_properties, :taxonomies,
-        :taxons]
+        :variants, :product_properties, :base_categories,
+        :categories]
       REPORT_TABS = [:reports]
       CONFIGURATION_TABS = [:configurations, :general_settings, :tax_categories,
         :tax_rates, :zones, :countries, :states,

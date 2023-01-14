@@ -33,8 +33,8 @@ module Aypex
       end
 
       def update
-        if params[:product][:taxon_ids].present?
-          params[:product][:taxon_ids] = params[:product][:taxon_ids].reject(&:empty?)
+        if params[:product][:category_ids].present?
+          params[:product][:category_ids] = params[:product][:category_ids].reject(&:empty?)
         end
         if params[:product][:option_type_ids].present?
           params[:product][:option_type_ids] = params[:product][:option_type_ids].reject(&:empty?)
@@ -68,15 +68,15 @@ module Aypex
         end
       end
 
-      def remove_from_taxon
-        @taxon = Taxon.find(params[:taxon_id])
+      def remove_from_category
+        @category = Category.find(params[:category_id])
 
-        if @object.taxons.delete(@taxon)
+        if @object.categories.delete(@category)
           respond_to do |format|
-            format.turbo_stream { render "aypex/admin/taxons/remove_from_taxon" }
+            format.turbo_stream { render "aypex/admin/categories/remove_from_category" }
           end
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.products.errors.could_not_remove_from_taxon"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.products.errors.could_not_remove_from_category"), kind: :error)
         end
       end
 
@@ -112,7 +112,7 @@ module Aypex
       end
 
       def load_data
-        @taxons = Taxon.order(:name)
+        @categories = Category.order(:name)
         @option_types = OptionType.order(:name)
         @tax_categories = TaxCategory.order(:name)
         @shipping_categories = ShippingCategory.order(:name)

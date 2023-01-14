@@ -1,10 +1,10 @@
 <%= f.field_container save_to do %>
-  <%= f.label save_to, I18n.t('aypex.admin.cms.link_to_taxon') %>
+  <%= f.label save_to, I18n.t('aypex.admin.cms.link_to_category') %>
   <%= f.select save_to, options_from_collection_for_select([resource], save_to, save_to, resource.send(save_to) || nil), { include_blank: true },
                           id: "cms_section_#{save_to}",
-                          data: { autocomplete_placeholder_value: I18n.t('aypex.admin.navigation.search_for_a_taxon'),
+                          data: { autocomplete_placeholder_value: I18n.t('aypex.admin.navigation.search_for_a_category'),
                                   autocomplete_clear_value: true,
-                                  autocomplete_url_value: 'taxons_api_v2',
+                                  autocomplete_url_value: 'categories_api_v2',
                                   autocomplete_return_attr_value: 'pretty_name',
                                   autocomplete_custom_return_id_value: 'permalink' } %>
 
@@ -15,7 +15,7 @@
   <script>
     populateSelectOptionsFromApi({
       targetElement: "#cms_section_<%= save_to %>",
-      apiUrl: Aypex.routes.taxons_api_v2 + "?filter[permalink_matches]=<%= resource.send(save_to) %>",
+      apiUrl: Aypex.routes.categories_api_v2 + "?filter[permalink_matches]=<%= resource.send(save_to) %>",
       returnValueFromAttributes: 'permalink',
       returnOptionText: 'pretty_name',
 

@@ -1,5 +1,5 @@
 require "spec_helper"
-require "aypex/testing_support/bar_ability"
+require "testing_support/bar_ability"
 
 describe Aypex::Admin::UsersController, type: :controller do
   let(:store) { Aypex::Store.default }

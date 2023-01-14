@@ -2,7 +2,7 @@ require_relative "lib/aypex/admin/version"
 
 Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
-  s.name = "aypex_admin"
+  s.name = "aypex-admin"
   s.version = Aypex::Admin.version
   s.authors = ["Matthew Kennedy"]
   s.email = "m.kennedy@me.com"
@@ -23,10 +23,11 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }
   s.require_path = "lib"
 
+  s.add_dependency "aypex"
+  s.add_dependency "aypex-api"
   s.add_dependency "inline_svg"
   s.add_dependency "pagy"
   s.add_dependency "responders"
-  s.add_dependency "aypex"
   s.add_dependency "turbo-rails"
 
   s.add_development_dependency "aypex_dev_tools"

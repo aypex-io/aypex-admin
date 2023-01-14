@@ -3,7 +3,7 @@ require "standard/rake"
 require "rake"
 require "rake/testtask"
 require "rspec/core/rake_task"
-require "aypex/testing_support/common_rake"
+require "testing_support/common_rake"
 
 RSpec::Core::RakeTask.new
 

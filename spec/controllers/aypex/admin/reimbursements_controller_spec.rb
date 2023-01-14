@@ -52,10 +52,10 @@ describe Aypex::Admin::ReimbursementsController, type: :controller do
       expect(payment.refunds.last.amount).to eq return_items.to_a.sum(&:total)
     end
 
-    context "a Aypex::Core::GatewayError is raised" do
+    context "a Aypex::GatewayError is raised" do
       before do
         def controller.perform
-          raise Aypex::Core::GatewayError, "An error has occurred"
+          raise Aypex::GatewayError, "An error has occurred"
         end
       end
 

@@ -9,29 +9,29 @@
         </div>
       </div>
       <div class="card-body">
-        <%= f.field_container :taxons, data: { hook: "admin_product_form_taxons" } do %>
+        <%= f.field_container :categories, data: { hook: "admin_product_form_categories" } do %>
           <% if can? :modify, Aypex::Classification %>
-            <%= f.select :taxon_ids, options_from_collection_for_select(@product.taxons, :id, :pretty_name, @product.taxon_ids),
+            <%= f.select :category_ids, options_from_collection_for_select(@product.categories, :id, :pretty_name, @product.category_ids),
                                       { include_hidden: true },
                                         multiple: true,
                                         data: { controller: 'ts--search',
-                                                ts__search_endpoint_value: 'taxons',
+                                                ts__search_endpoint_value: 'categories',
                                                 ts__search_txt_value: 'pretty_name',
                                                 ts__search_fields_value: ['pretty_name'],
                                                 ts__search_ransack_value: ['pretty_name_i_cont'],
                                                 form_state_target: "watch"
                                                } %>
-            <%= f.label :taxon_ids, Aypex.t(:taxons) %>
+            <%= f.label :category_ids, Aypex.t(:categories) %>
 
-          <% elsif @product.taxons.any? %>
+          <% elsif @product.categories.any? %>
             <ul class="text_list">
-              <% @product.taxons.each do |taxon| %>
-                <li><%= taxon.name %></li>
+              <% @product.categories.each do |category| %>
+                <li><%= category.name %></li>
               <% end %>
             </ul>
           <% else %>
             <div class="alert alert-info">
-              <%= Aypex.t(:no_resource_found, resource: :taxons) %>
+              <%= Aypex.t(:no_resource_found, resource: :categories) %>
             </div>
           <% end %>
         <% end %>

@@ -6,7 +6,7 @@ module Aypex
 
       helper_method :refund_reasons
 
-      rescue_from Aypex::Core::GatewayError, with: :aypex_core_gateway_error
+      rescue_from Aypex::GatewayError, with: :aypex_core_gateway_error
 
       private
 

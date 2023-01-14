@@ -1,26 +1,26 @@
 <%= form_with model: @promotion, url: object_url, method: :put, data: { controller: 'form-state' } do |f| %>
   <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
-    <%= f.field_container :taxon_ids do %>
-      <%= pr.select :taxon_ids, options_from_collection_for_select(promotion_rule.taxons, :id, :pretty_name, promotion_rule.taxon_ids), { include_hidden: false }, multiple: true,
+    <%= f.field_container :category_ids do %>
+      <%= pr.select :category_ids, options_from_collection_for_select(promotion_rule.categories, :id, :pretty_name, promotion_rule.category_ids), { include_hidden: false }, multiple: true,
                                       placeholder: I18n.t('aypex.admin.tee.search_products_by_name_or_sku'),
                                       data: {
                                               form_state_target: 'watch',
                                               controller: 'ts--search',
-                                              ts__search_endpoint_value: 'taxons',
+                                              ts__search_endpoint_value: 'categories',
                                               ts__search_txt_value: 'pretty_name',
                                               ts__search_fields_value: ['pretty_name'],
                                               ts__search_ransack_value: ['pretty_name_i_cont']
                                             } %>
 
-      <%= pr.label :taxon_ids, I18n.t('aypex.admin.taxon_rule.choose_taxons') %>
+      <%= pr.label :category_ids, I18n.t('aypex.admin.category_rule.choose_categories') %>
     <% end %>
 
 
     <%= f.field_container :preferred_match_policy do %>
-      <% opts = options_for_select(Aypex::Promotion::Rules::Taxon::MATCH_POLICIES.map{ |s| [I18n.t("aypex.admin.taxon_rule.match_#{s}"), s] }, promotion_rule.preferred_match_policy) %>
+      <% opts = options_for_select(Aypex::Promotion::Rules::Category::MATCH_POLICIES.map{ |s| [I18n.t("aypex.admin.category_rule.match_#{s}"), s] }, promotion_rule.preferred_match_policy) %>
 
       <%= pr.select :preferred_match_policy, opts, { include_hidden: false, include_blank: false } %>
-      <%= pr.label :preferred_match_policy, I18n.t('aypex.admin.taxon_rule.label') %>
+      <%= pr.label :preferred_match_policy, I18n.t('aypex.admin.category_rule.label') %>
     <% end %>
   <% end %>
 

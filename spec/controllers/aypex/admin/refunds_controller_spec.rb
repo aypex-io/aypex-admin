@@ -4,7 +4,7 @@ describe Aypex::Admin::RefundsController do
   stub_authorization!
 
   describe "POST create" do
-    context "a Aypex::Core::GatewayError is raised" do
+    context "a Aypex::GatewayError is raised" do
       subject do
         post :create, params: {
           refund: {amount: "50.0", refund_reason_id: "1"},
@@ -17,7 +17,7 @@ describe Aypex::Admin::RefundsController do
 
       before do
         def controller.create
-          raise Aypex::Core::GatewayError, "An error has occurred"
+          raise Aypex::GatewayError, "An error has occurred"
         end
       end
 

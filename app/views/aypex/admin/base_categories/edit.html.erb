@@ -1,0 +1,30 @@
+<% content_for :page_title do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_base_categories_path, link_one_text: I18n.t('aypex.admin.base_categories.categories'), current_page_name: @object.name) %>
+<% end %>
+
+<div id="sortable-tree-area">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <div class="row pb-0">
+            <div class="col d-flex my-1">
+              <%= link_to_with_icon I18n.t('aypex.admin.base_categories.edit_root_base_category', name: @base_category.root.name ), aypex.edit_admin_base_category_category_path(@base_category, @base_category.root.id), icon: 'edit.svg', class: 'text-nowrap btn btn-secondary btn-sm align-self-center' %>
+            </div>
+            <div class="col d-flex my-1 justify-content-end">
+              <%= link_to_with_icon I18n.t('aypex.admin.base_categories.add_new_category'), aypex.new_admin_base_category_category_path(@base_category.id), icon: 'plus-square.svg', class: 'text-nowrap btn btn-sm btn-primary align-self-center' %>
+            </div>
+          </div>
+        </div>
+
+        <% if @base_category.root.present? %>
+        <div id="<%= dom_id(@base_category) %>_sortable_tree_area">
+          <%= render 'aypex/admin/base_categories/tree' %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

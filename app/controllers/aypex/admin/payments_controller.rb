@@ -57,7 +57,7 @@ module Aypex
 
             render :new, status: :unprocessable_entity
           end
-        rescue Aypex::Core::GatewayError => e
+        rescue Aypex::GatewayError => e
           invoke_callbacks(:create, :fails)
           dispatch_notice(e.message.to_s, :error)
 
@@ -75,7 +75,7 @@ module Aypex
         else
           dispatch_notice(Aypex.t(:cannot_perform_operation), :error)
         end
-      rescue Aypex::Core::GatewayError => ge
+      rescue Aypex::GatewayError => ge
         dispatch_notice(ge.message.to_s, :error)
       ensure
         redirect_to aypex.admin_order_payments_path(@order)

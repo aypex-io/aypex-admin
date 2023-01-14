@@ -20,16 +20,12 @@ else
 end
 
 group :test, :development do
-  gem "aypex_dev_tools", github: "aypex-io/aypex-dev-tools"
+  gem "aypex_dev_tools", github: "aypex-io/aypex_dev_tools"
   gem "debug"
   gem "propshaft"
 end
 
-# Local dev
-# aypex_opts = {path: "../aypex"}
-aypex_opts = {github: "aypex-io/aypex", branch: "main"}
-
-gem "aypex_api", aypex_opts
-gem "aypex_core", aypex_opts
+gem "aypex", github: "aypex-io/aypex", branch: "main"
+gem "aypex-api", github: "aypex-io/aypex-api", branch: "main"
 
 gemspec

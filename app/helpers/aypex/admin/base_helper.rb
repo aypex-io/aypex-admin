@@ -321,8 +321,8 @@ module Aypex
         current_store.admin_product_wysiwyg_editor_enabled
       end
 
-      def taxon_wysiwyg_editor_enabled?
-        current_store.admin_taxon_wysiwyg_editor_enabled
+      def category_wysiwyg_editor_enabled?
+        current_store.admin_category_wysiwyg_editor_enabled
       end
     end
   end

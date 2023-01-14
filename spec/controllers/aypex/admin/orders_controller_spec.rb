@@ -1,6 +1,6 @@
 require "spec_helper"
 require "cancan"
-require "aypex/testing_support/bar_ability"
+require "testing_support/bar_ability"
 
 # Ability to test access to specific model instances
 class OrderSpecificAbility

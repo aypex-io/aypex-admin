@@ -1,7 +1,7 @@
 module Aypex
   module Admin
     class UsersController < ResourceController
-      rescue_from Aypex::Core::DestroyWithOrdersError, with: :user_destroy_with_orders_error
+      rescue_from Aypex::DestroyWithOrdersError, with: :user_destroy_with_orders_error
       after_action :sign_in_if_change_own_password, only: :update
       before_action :other_addresses, only: [:addresses, :update_address]
 

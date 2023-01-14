@@ -1,0 +1,18 @@
+<% if @base_category.root.children.present? %>
+<div class="card-body p-0 bg-light"
+     data-controller="sortable-tree"
+     data-sortable-response-kind-value="turbo_stream">
+
+  <div data-sortable-tree-parent-id-value="<%= @base_category.root.id %>">
+    <% @base_category.root.children.each do |root_children| %>
+      <%= build_sortable_tree(@base_category, root_children) %>
+    <% end %>
+  </div>
+</div>
+<% else %>
+  <div class="card-body">
+    <div class="alert alert-info text-center m-5">
+      <%= raw I18n.t('aypex.admin.base_categories.no_categories', base_category: @base_category.root.name ) %>
+    </div>
+  </div>
+<% end %>

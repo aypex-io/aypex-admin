@@ -14,7 +14,7 @@ module Aypex
         s.boolean :admin_show_version, default: true, null: true
         s.boolean :admin_product_wysiwyg_editor_enabled, default: true, null: true
 
-        s.boolean :admin_taxon_wysiwyg_editor_enabled, default: true, null: true
+        s.boolean :admin_category_wysiwyg_editor_enabled, default: true, null: true
         s.boolean :admin_show_only_complete_orders_by_default, default: true, null: true
       end
     end

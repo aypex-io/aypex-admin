@@ -1,0 +1,31 @@
+<div class="table-responsive border rounded">
+  <table class="table sortable" id='listing_base_categories'>
+    <thead class="text-muted">
+      <tr data-hook="base_categories_header">
+        <th>
+          <%= aypex_admin_svg_tag("arrow-down-up.svg", style: "margin-left: 0.7rem") %>
+        </th>
+        <th><%= Aypex.t(:name) %></th>
+        <th class="actions text-end">
+          <%= link_to_with_icon(I18n.t('aypex.admin.base_categories.add_new_category'), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_base_category_link', data: {turbo_frame: :modal}) if can?(:create, Aypex::BaseCategory) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody data-controller="sortable" data-sortable-resource-name-value="base_category">
+      <% @base_categories.each do |base_category| %>
+        <tr id="<%= dom_id(base_category) %>" data-sortable-update-url="<%= aypex.admin_base_category_path(base_category) %>" data-stream-exit-class="animate__fadeOut">
+          <td class="move-handle">
+            <%= render 'aypex/admin/shared/drag_handle' %>
+          </td>
+          <td><%= base_category.name %></td>
+          <td class="actions">
+            <span class="d-flex justify-content-end">
+              <%= link_to_edit(base_category.id) if can?(:edit, base_category) %>
+              <%= link_to_delete(base_category) if can?(:delete, base_category) %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

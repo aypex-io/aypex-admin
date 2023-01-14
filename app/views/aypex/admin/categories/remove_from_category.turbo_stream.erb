@@ -1,0 +1,9 @@
+<%= turbo_stream.remove dom_id(@object) %>
+
+<% if @category.products.empty? %>
+  <%= turbo_stream.append "categories" do %>
+    <%= render partial: "aypex/admin/categories/instructions" %>
+  <% end %>
+<% end %>
+
+<%= stream_flash_alert(message: I18n.t("aypex.admin.categories.messages.product_removed")) %>

@@ -55,10 +55,28 @@ en:
         street_address_matches_but_5-digit_and_9_digit_postal_code_do_not_match: Street address matches, but 5-digit and 9-digit postal code do not match.
         street_address_matches_but_postal_code_not_verified: Street address matches, but postal code not verified.
       aypex_administration: Aypex administration
+      base_categories:
+        add_new_category: Add a new Category
+        categories: Categories
+        edit_root_base_category: Edit %{name}
+        no_categories: "<b>%{base_category}</b> has no Sub Categories. Click the <b>Add a new Category</b> button, to begin."
       billing_address: Billing address
       bulk_actions: Bulk actions
       calculators:
         if_you_change_the_calculator: Click update to save the new calculator.
+      categories:
+        categories: Categories
+        hide_from_sub_navigation: Hide from sub navigation
+        messages:
+          product_removed: Product removed
+        nested_under_info: Nest this Category within the BaseCategory tree.
+        permalink: Permalink
+        use_the_search_box_above_to_search_for_categories: Use the search box above to search for a Category.
+      category_rule:
+        choose_categories: Categories
+        label: The promotion applies to products
+        match_all: In all of the selected categories
+        match_any: In any of the selected categories
       cms:
         add_new_page: Add New Page
         add_new_section: Add New Section
@@ -80,8 +98,8 @@ en:
           layout_style: Layout Style
           square_image: Please use an image with an aspect ratio of 18:13 (1080px x 780px).
           tall_image: Please use an image with an aspect ratio of 27:40 (1080px x 1600px).
+        link_to_category: Link to Category
         link_to_product: Link to Product
-        link_to_taxon: Link to Taxon
         meta_description: Meta Description
         meta_title: Meta Title
         more_page_settings: <span class="more">More</span><span class="less">Less</span> Page Settings
@@ -200,7 +218,7 @@ en:
         item_type: Item Type
         link_settings: Link Settings
         link_to: Link To
-        link_to_info: Link to Pages, Products, Taxons or external URL's.
+        link_to_info: Link to Pages, Products, Categories or external URL's.
         menu_item_icon: Menu item icon
         menu_items: "%{menu_name} Items"
         menus: Menus
@@ -211,10 +229,10 @@ en:
         no_menu_items: "<b>%{menu}</b> has no items. Click the <b>Add New Item</b> button to begin adding links to this menu."
         open_link_in_new_window: Open this link in a new window
         public_details: Public Details
+        search_categories: Search categories
+        search_for_a_category: Search for a Category
         search_for_a_page: Search for a page
         search_for_a_product: Search for a Product
-        search_for_a_taxon: Search for a Taxon
-        search_taxons: Search taxons
         set_a_code: Adding a code is optional but can be useful if you need to identify this menu item. When building the Aypex main menu use the code <b>category</b> or <b>promo</b> to create the containers that organize links and promotions appropriately. To learn more view the documentation by <a href='https://guides.aypexcommerce.org/user/navigation/add_menu_items.html' target='_blank' class='alert-link'>clicking here</a>.
         settings: Settings
         subtitle: Subtitle
@@ -240,7 +258,7 @@ en:
         list: oAuth applications
         new: New oAuth application
         scope: Scope
-      option_type_filterable_info: When an option type is filterable, your storefront visitors are presented with the option to filter a collection of products based on the option type. A typical example of this would be to filter clothing by size and color.<br><br><b>Please Note:</b> Filters will only be visible in the storefront taxons that contain products with this option type set.
+      option_type_filterable_info: When an option type is filterable, your storefront visitors are presented with the option to filter a collection of products based on the option type. A typical example of this would be to filter clothing by size and color.<br><br><b>Please Note:</b> Filters will only be visible in the storefront categories that contain products with this option type set.
       option_types: Option types
       option_values_rule:
         options: Options
@@ -348,7 +366,7 @@ en:
         editing_variant: Editing Variant
         errors:
           cost_currency_could_not_be_updated: Cost currency could not be updated. %{error}
-          could_not_remove_from_taxon: Could not remove from taxon
+          could_not_remove_from_category: Could not remove from category
           promotionable_could_not_be_updated: Promotionable could not be updated. %{error}
           status_could_not_be_updated: 'Status could not be updated. Reason: %{error}'
         images: Images
@@ -391,6 +409,9 @@ en:
       promotion_cloned: Promotion cloned
       promotion_not_cloned: Promotion not cloned
       promotion_rule_types:
+        category:
+          description: The promtion applies to the products found within the selected categories
+          name: Categories
         country:
           description: Applies to user from country.
           name: Country
@@ -409,9 +430,6 @@ en:
         product:
           description: Applies to the selected product(s)
           name: Product(s)
-        taxon:
-          description: The promtion applies to the products found within the selected categories
-          name: Categories
         user:
           description: Applies to the selected user(s)
           name: User(s)
@@ -547,24 +565,6 @@ en:
       tax_and_shipping: Tax & Shipping
       tax_rates:
         rate: Rate
-      taxon_rule:
-        choose_taxons: Categories
-        label: The promotion applies to products
-        match_all: In all of the selected categories
-        match_any: In any of the selected categories
-      taxonomies:
-        add_new_taxon: Add a new Category
-        categories: Categories
-        edit_root_taxonomy: Edit %{name}
-        no_taxons: "<b>%{taxonomy}</b> has no Sub Categories. Click the <b>Add a new Category</b> button, to begin."
-      taxons:
-        hide_from_sub_navigation: Hide from sub navigation
-        messages:
-          product_removed: Product removed
-        nested_under_info: Nest this Taxon within the Taxonomy tree.
-        permalink: Permalink
-        taxons: Taxons
-        use_the_search_box_above_to_search_for_taxons: Use the search box above to search for a Taxon.
       tee:
         search_products_by_name_or_sku: Search products by name or sku
       this_order_has_already_received_a_refund: This order has already received a refund
@@ -625,6 +625,9 @@ en:
           addresses: Addresses
           all_events: All Events
           assets: Assets
+          base_categories: BaseCategories
+          categories: Categories
+          category_images: Category Images
           cms_pages: CMS Pages
           cms_section_images: CMS Section Images
           credit_cards: Credit Cards
@@ -671,9 +674,6 @@ en:
           subscriptions: Subscriptions
           tax_categories: Tax Categories
           tax_rates: Tax Rates
-          taxon_images: Taxon Images
-          taxonomies: Taxonomies
-          taxons: Taxons
           time_of_last_event: Time of Last Event
           variants: Variants
           webhooks_events: Webhooks Events

@@ -3,12 +3,12 @@ module Aypex
     class BaseController < ApplicationController
       include Pagy::Backend
 
-      include Aypex::Core::ControllerHelpers::Auth
-      include Aypex::Core::ControllerHelpers::Search
-      include Aypex::Core::ControllerHelpers::Store
-      include Aypex::Core::ControllerHelpers::StrongParameters
-      include Aypex::Core::ControllerHelpers::Locale
-      include Aypex::Core::ControllerHelpers::Currency
+      include Aypex::ControllerHelpers::Auth
+      include Aypex::ControllerHelpers::Search
+      include Aypex::ControllerHelpers::Store
+      include Aypex::ControllerHelpers::StrongParameters
+      include Aypex::ControllerHelpers::Locale
+      include Aypex::ControllerHelpers::Currency
 
       respond_to :html
 

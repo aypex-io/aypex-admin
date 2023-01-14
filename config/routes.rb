@@ -1,4 +1,4 @@
-Aypex::Core::Engine.add_routes do
+Aypex::Engine.add_routes do
   namespace :admin, path: Aypex.admin_path do
     root to: "dashboard#show"
 
@@ -18,7 +18,7 @@ Aypex::Core::Engine.add_routes do
     end
 
     # Classifications
-    patch :classification, path: "classification/taxon/:taxon_id/product/:product_id", to: "classifications#update"
+    patch :classification, path: "classification/category/:category_id/product/:product_id", to: "classifications#update"
 
     # CMS Pages
     resources :cms_pages do
@@ -123,7 +123,7 @@ Aypex::Core::Engine.add_routes do
         post :update_availability
         post :update_cost_currency
         post :update_promotionable
-        patch :remove_from_taxon
+        patch :remove_from_category
         post :clone
         get :add_stock, path: "/add_stock/:variant_id"
       end
@@ -245,16 +245,16 @@ Aypex::Core::Engine.add_routes do
     resources :tax_rates
     resources :tax_categories
 
-    # Taxonomies / Taxons
-    resources :taxonomies do
-      resources :taxons do
+    # BaseCategories / Categories
+    resources :base_categories do
+      resources :categories do
         member do
           patch :reposition
           delete :remove_icon
         end
       end
     end
-    resources :taxons, only: [:index, :show] do
+    resources :categories, only: [:index, :show] do
       collection do
         post :products_panel
       end
