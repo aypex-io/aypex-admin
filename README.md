@@ -1,7 +1,7 @@
-[![CI](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/ci.yml/badge.svg)](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/ci.yml)
-[![Standard RB](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/standardrb.yml/badge.svg)](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/standardrb.yml)
-[![Standard JS](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/standardjs.yml/badge.svg)](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/standardjs.yml)
-[![StyleLint](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/stylelint.yml/badge.svg)](https://github.com/MatthewKennedy/aypex_admin/actions/workflows/stylelint.yml)
+[![CI](https://github.com/aypex-io/aypex-admin/actions/workflows/ci.yml/badge.svg)](https://github.com/aypex-io/aypex-admin/actions/workflows/ci.yml)
+[![Standard RB](https://github.com/aypex-io/aypex-admin/actions/workflows/standardrb.yml/badge.svg)](https://github.com/aypex-io/aypex-admin/actions/workflows/standardrb.yml)
+[![Standard JS](https://github.com/aypex-io/aypex-admin/actions/workflows/standardjs.yml/badge.svg)](https://github.com/aypex-io/aypex-admin/actions/workflows/standardjs.yml)
+[![StyleLint](https://github.com/aypex-io/aypex-admin/actions/workflows/stylelint.yml/badge.svg)](https://github.com/aypex-io/aypex-admin/actions/workflows/stylelint.yml)
 
 # Aypex Admin
 
@@ -25,10 +25,9 @@ completely modernizing the tech stack for the developers happiness.
 Starting with a freshly generated Rails 7 app running Propshaft, add the following gems to your Gemfile:
 
 ```ruby
-# USE THESE FOR NOW...
-gem 'aypex',             github: 'MatthewKennedy/aypex',             branch: 'custom/aypex_admin'
-gem 'aypex_admin',       github: 'MatthewKennedy/aypex_admin',       branch: 'main'
-gem 'aypex_auth_devise', github: 'MatthewKennedy/aypex_auth_devise', branch: 'custom/aypex_admin'
+gem 'aypex',             github: 'aypex-io/aypex'
+gem 'aypex-admin',       github: 'aypex-io/aypex_admin'
+gem 'aypex-auth_devise', github: 'aypex-io/aypex-auth_devise'
 ```
 
 From the command line run the following commands:
@@ -47,7 +46,7 @@ bin/rails g aypex:auth:install
 
 If you are using NPM to manage your javascript and want to import the javascript via node_modules run:
 ```bash
-yarn add @matthewkennedy/aypex-admin
+yarn add @aypex/aypex-admin
 ```
 And then create a new file in `app/javascript` called `aypex_admin.js` and then import `import '@matthewkennedy/aypex-admin'`.
 
@@ -61,7 +60,7 @@ And then create a new file in `app/javascript` called `aypex_admin.js` and then 
 
 ### Run in Dev Mode
 
-From the root of `aypex_admin` run:
+From the root of `aypex-admin` run:
 
 ```bash
 yarn watch
@@ -70,7 +69,7 @@ yarn watch
 
 ### Running tests
 ```bash
-cd aypex_admin
+cd aypex-admin
 bundle update
 yarn build
 bundle exec rake test_app
