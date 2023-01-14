@@ -9,7 +9,7 @@ module Aypex
         if @admin_path.is_a?(String)
           @admin_path
         else
-          raise "Aypex.admin_path MUST be an String"
+          raise "Aypex::Admin::Config.admin_path MUST be an String"
         end
       end
 
