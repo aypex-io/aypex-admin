@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
     "source_code_uri" => "https://github.com/MatthewKennedy/aypex_admin/tree/v#{s.version}"
   }
 
-  s.required_ruby_version = ">= 2.7"
+  s.required_ruby_version = ">= 3.2"
 
   s.files = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }
   s.require_path = "lib"
