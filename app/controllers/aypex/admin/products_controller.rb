@@ -2,6 +2,7 @@ module Aypex
   module Admin
     class ProductsController < ResourceController
       include Aypex::Admin::ProductConcern
+
       helper "aypex/admin/products"
 
       before_action :load_data, except: [:index, :bulk_update_status]
