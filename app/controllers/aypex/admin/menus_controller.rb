@@ -1,6 +1,8 @@
 module Aypex
   module Admin
     class MenusController < ResourceController
+      helper "aypex/admin/sortable_tree"
+
       def index
       end
 

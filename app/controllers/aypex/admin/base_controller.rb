@@ -16,6 +16,7 @@ module Aypex
       helper "aypex/admin/navigation"
       helper "aypex/locale"
       helper "aypex/currency"
+
       layout "aypex/layouts/admin"
 
       before_action :authorize_admin, :load_stores, :load_main_menu_panel
