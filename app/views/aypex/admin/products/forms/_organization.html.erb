@@ -21,7 +21,7 @@
                                                 ts__search_ransack_value: ['pretty_name_i_cont'],
                                                 form_state_target: "watch"
                                                } %>
-            <%= f.label :category_ids, Aypex.t(:categories) %>
+            <%= f.label :category_ids, I18n.t("aypex.admin.categories") %>
 
           <% elsif @product.categories.any? %>
             <ul class="text_list">
@@ -31,7 +31,7 @@
             </ul>
           <% else %>
             <div class="alert alert-info">
-              <%= Aypex.t(:no_resource_found, resource: :categories) %>
+              <%= I18n.t("aypex.admin.no_resource_found", resource: :categories) %>
             </div>
           <% end %>
         <% end %>
@@ -39,7 +39,7 @@
         <% if @stores.count > 1 %>
           <%= f.field_container :stores, data: { hook: "admin_product_form_stores" } do %>
             <%= f.collection_select(:store_ids, @stores, :id, :unique_name, {}, {multiple: true}) %>
-            <%= f.label :product_stores, Aypex.t(:stores) %>
+            <%= f.label :product_stores, I18n.t("aypex.admin.stores") %>
           <% end %>
         <% end %>
         <%= render partial: 'aypex/admin/shared/resource_actions' %>

@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_stores_path(@store), link_one_text: Aypex.t(:stores), current_page_name: Aypex.t(:add_store)) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_stores_path(@store), link_one_text: I18n.t("aypex.admin.stores"), current_page_name: Aypex.t(:add_store)) %>
 <% end %>
 
 <%= form_with model: [:admin, @store], data: { turbo: false } do |f| %>

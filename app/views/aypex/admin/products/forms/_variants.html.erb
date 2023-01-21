@@ -15,9 +15,9 @@
             <thead data-hook="variants_header" class="text-muted">
               <tr>
                 <th class=""><%= aypex_admin_svg_tag("arrow-down-up.svg", style: "margin-left: 0.7rem") %></th>
-                <th><%= Aypex.t(:sku) %></th>
+                <th><%= I18n.t("aypex.admin.sku") %></th>
                 <th><%= Aypex.t(:options) %></th>
-                <th><%= Aypex.t(:kind) %></th>
+                <th><%= I18n.t("aypex.admin.kind") %></th>
                 <th class="actions text-end">
                   <%= link_to_with_icon(Aypex.t(:new_variant), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if !@product.empty_option_values? and can? :create, Aypex::Variant %>
                 </th>
@@ -52,7 +52,7 @@
               <% end %>
               <% unless @product.has_variants? %>
                 <tr>
-                  <td colspan="5"><%= Aypex.t(:none) %></td>
+                  <td colspan="5"><%= I18n.t("aypex.admin.none") %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -86,7 +86,7 @@
               <% end %>
             </ul>
           <% else %>
-            <div class="alert alert-info"><%= Aypex.t(:no_resource_found, resource: :option_types) %></div>
+            <div class="alert alert-info"><%= I18n.t("aypex.admin.no_resource_found", resource: :option_types) %></div>
           <% end %>
         <% end %>
 

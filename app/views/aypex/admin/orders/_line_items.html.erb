@@ -3,9 +3,9 @@
     <table class="table line-items" data-hook="line-items">
       <thead class="text-muted">
         <tr>
-          <th colspan="2"><%= Aypex.t(:name) %></th>
-          <th class="text-center"><%= Aypex.t(:price) %></th>
-          <th class="text-center"><%= Aypex.t(:quantity) %></th>
+          <th colspan="2"><%= I18n.t("aypex.admin.name") %></th>
+          <th class="text-center"><%= I18n.t("aypex.admin.price") %></th>
+          <th class="text-center"><%= I18n.t("aypex.admin.quantity") %></th>
           <th class="text-center"><%= Aypex.t(:total_price) %></th>
           <th class="orders-actions text-center" data-hook="admin_order_form_line_items_header_actions"></th>
         </tr>

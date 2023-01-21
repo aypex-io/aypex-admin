@@ -3,11 +3,11 @@
     <span class="input-group-text"><%= currency_symbol(@order.currency) %></span>
       <div class="form-floating col" data-hook="amount">
         <%= f.text_field :amount, value: @order.display_outstanding_balance.money, class: 'form-control rounded-0',
-                                  placeholder: Aypex.t(:amount),
+                                  placeholder: I18n.t("aypex.admin.amount"),
                                   required: true,
                                   data: { controller: 'input-formatting',
                                           input_formatting_options_value: { numeral: true, numeralThousandsGroupStyle: 'thousand'} } %>
-        <%= f.label :amount, Aypex.t(:amount), class: 'form-label' %>
+        <%= f.label :amount, I18n.t("aypex.admin.amount"), class: 'form-label' %>
       </div>
     <span class="input-group-text"><%= @order.currency %></span>
   </div>

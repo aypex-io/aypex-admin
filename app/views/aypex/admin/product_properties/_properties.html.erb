@@ -15,8 +15,8 @@
 
           <div class="col-6">
             <div class="form-group form-floating">
-              <%= text_field_tag "product[product_properties_attributes][#{index}][value]", nil, value: nil, autocomplete: false, required: true, placeholder: raw(Aypex.t(:value) + required_span_tag), class: 'form-control' %>
-              <%= label_tag :property_name, raw(Aypex.t(:value) + required_span_tag) %>
+              <%= text_field_tag "product[product_properties_attributes][#{index}][value]", nil, value: nil, autocomplete: false, required: true, placeholder: raw(I18n.t("aypex.admin.value") + required_span_tag), class: 'form-control' %>
+              <%= label_tag :property_name, raw(I18n.t("aypex.admin.value") + required_span_tag) %>
             </div>
           </div>
         </div>

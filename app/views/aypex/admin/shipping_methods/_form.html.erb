@@ -22,7 +22,7 @@
       <div data-hook="admin_shipping_method_form_display_field" class="col-12 col-lg-6">
         <%= f.field_container :display_on do %>
           <%= f.select(:display_on, Aypex::ShippingMethod::DISPLAY.collect { |display| [I18n.t("aypex.admin.display_on.#{display}"), display.to_s] }, { selected: :both, include_blank: false }) %>
-          <%= f.label :display_on, Aypex.t(:display) %>
+          <%= f.label :display_on, I18n.t("aypex.admin.display") %>
         <% end %>
       </div>
     </div>
@@ -38,7 +38,7 @@
       <div data-hook="admin_shipping_method_form_code" class="col-12 col-lg-4">
         <%= f.field_container :code do %>
           <%= f.text_field :code %>
-          <%= f.label :code, Aypex.t(:code) %>
+          <%= f.label :code, I18n.t("aypex.admin.code") %>
         <% end %>
       </div>
 

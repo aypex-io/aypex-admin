@@ -6,6 +6,7 @@ en:
       accept: Accept
       acceptance_errors: Acceptance errors
       accepted: Accepted
+      action: Action
       actions:
         add: Add
         cancel: Cancel
@@ -55,10 +56,13 @@ en:
       all_countries: All countries
       all_items_have_been_returned: All items have been returned
       all_loaded: All Loaded
+      alt_text: Alt text
       amount: Amount
       apis: API's
       are_you_sure_you_want_to: Are you sure you want to %{action} this %{resource}
       authorization_failure: Authorization failure
+      availability: Availability
+      available_on: Available on
       avs_responses:
         street_address_matches_but_5-digit_and_9_digit_postal_code_do_not_match: Street address matches, but 5-digit and 9-digit postal code do not match.
         street_address_matches_but_postal_code_not_verified: Street address matches, but postal code not verified.
@@ -69,6 +73,7 @@ en:
       bulk_actions: Bulk actions
       calculators:
         if_you_change_the_calculator: Click update to save the new calculator.
+      canceled_at: Canceled at
       cannot_create_customer_returns: Cannot create customer returns
       cannot_perform_operation: Cannot perform operation
       categories:
@@ -137,6 +142,7 @@ en:
           position_could_not_be_updated: Position could not be updated
         hero_image:
           hero_image_info: Hero image info
+      code: Code
       continue: Continue
       copy_to_clipboard: Copy to clipboard
       could_not_create_stock_movement: Could not create stock movement
@@ -178,6 +184,7 @@ en:
         front_end: Storefront
       download_sdk: Download SDK
       edit_root_base_category: Edit root base category
+      error: Error
       error_user_destroy_with_orders: Error user destroy with orders
       errors:
         error_reposition_failed: Error reposition failed
@@ -188,6 +195,7 @@ en:
       execution_time: Execution Time
       expires_at: Expires at
       fill_in_customer_info: Fill in customer info
+      filterable: Filterable
       filters:
         bill_address_company_cont: Company
         bill_address_firstname_cont: First Name
@@ -200,6 +208,8 @@ en:
         shipment_state_not_eq: Shipment State Not Equal
         variants_including_master_sku_cont: SKU
       header_banner: Header banner
+      id: Id
+      image_filter: Image filter
       incomplete: Incomplete
       invalid_payment_provider: Invalid payment provider
       invalid_promotion_action: Invalid promotion action
@@ -224,6 +234,9 @@ en:
       limit_usage_to: Limit usage to
       load_more: Load More
       location: Location
+      log_entries: Log entries
+      logs: Logs
+      make_active_at: Make active at
       make_sure_the_above_reimbursement_amount_is_correct: Make sure the above reimbursement amount is correct
       manual_intervention_required: Manual intervention required
       match_choices:
@@ -273,6 +286,8 @@ en:
       new_adjustment: New adjustment
       new_country: New country
       new_customer_return: New customer return
+      new_image: New image
+      new_option_type: New option type
       no_billing_address_has_been_added_to_this_order: No billing address has been added to this order
       no_categories: "<b>%{base_category}</b> has no Sub Categories. Click the <b>Add a new Category</b> button, to begin."
       no_message_set: No Message Set
@@ -280,6 +295,7 @@ en:
       no_resource_found: No resource found
       no_shipping_address_has_been_added_to_this_order: No shipping address has been added to this order
       none: None
+      not: Not
       not_applicable: Not applicable
       not_found: "%{resource} is not found"
       note: Note
@@ -386,12 +402,14 @@ en:
       pre_tax_total: Pre tax total
       preferred_reimbursement_type: Preferred reimbursement type
       presentation: Presentation
+      price: Price
       product:
         active: Active
         all: All
         archived: Archived
         draft: Draft
         has_variants: Has variants
+      product_image: Product image
       product_kinds:
         digital: Digital
         physical: Physical
@@ -525,7 +543,9 @@ en:
       sales_total_description: Sales Total For All Orders
       say_no: 'No'
       say_yes: 'Yes'
+      scopes: Scopes
       search: Search
+      select: Select
       select_a_stock_location: Select a stock location
       seo: SEO
       settings: Settings
@@ -542,6 +562,7 @@ en:
         tax_categories: Tax Categories
         tax_rates: Tax Rates
         zones: Zones
+      ship_total: Ship total
       shipment: Shipment
       shipment_states:
         backorder: Backorder
@@ -571,6 +592,7 @@ en:
       slug: Slug
       specifications: Specifications
       starts_at: Starts at
+      state: State
       states_required: States required
       status: Status
       stock_location: Stock location
@@ -619,6 +641,8 @@ en:
         language: Language
         not_limited_to_any_zone: Not limited to any zone
         store: Store
+      subtotal: Subtotal
+      success: Success
       successful: Successful
       successfully_created: "%{resource} has been successfully created!"
       successfully_removed: "%{resource} has been successfully removed!"
@@ -640,7 +664,9 @@ en:
         returns: Returns
         stock: Stock
         tax_and_shipping: Tax & Shipping
+      tax: Tax
       tax_and_shipping: Tax & Shipping
+      tax_included: Tax included
       tax_rates:
         rate: Rate
       tee:
@@ -700,6 +726,7 @@ en:
         users: Users
       utilities:
         preview: Preview %{name}
+      value: Value
       variant: Variant
       webhooks:
         search_webhooks_by_url: Search webhooks by url
@@ -762,4 +789,5 @@ en:
           wished_items: Wished Items
           wishlists: Wishlists
           zones: Zones
+      your_order_is_empty_add_product: Your order is empty add product
       zipcode_required: Zipcode required

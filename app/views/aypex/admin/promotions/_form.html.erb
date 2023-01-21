@@ -51,7 +51,7 @@
         <% if @stores.count > 1 %>
           <%= f.field_container :stores do %>
             <%= f.collection_select(:store_ids, @stores, :id, :unique_name, {}, { multiple: true }) %>
-            <%= f.label :promotion_stores, Aypex.t(:stores) %>
+            <%= f.label :promotion_stores, I18n.t("aypex.admin.stores") %>
           <% end %>
         <% end %>
       </div>

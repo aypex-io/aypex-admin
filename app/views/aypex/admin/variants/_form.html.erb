@@ -16,12 +16,12 @@
 
       <%= f.field_container :sku do %>
         <%= f.text_field :sku %>
-        <%= f.label :sku, Aypex.t(:sku) %>
+        <%= f.label :sku, I18n.t("aypex.admin.sku") %>
       <% end %>
 
       <%= f.field_container :price do %>
         <%= f.text_field :price, value: number_to_currency(@variant.price, unit: '') %>
-        <%= f.label :price, Aypex.t(:price) %>
+        <%= f.label :price, I18n.t("aypex.admin.price") %>
       <% end %>
 
       <%= f.field_container :compare_at_price do %>

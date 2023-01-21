@@ -7,17 +7,17 @@
   <div class="card-body">
     <%= f.field_container :name do %>
       <%= f.text_field :name, required: true %>
-      <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+      <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
     <% end %>
 
     <%= f.field_container :code do %>
       <%= f.text_field :code, required: true %>
-      <%= f.label :code, raw(Aypex.t(:code) + required_span_tag) %>
+      <%= f.label :code, raw(I18n.t("aypex.admin.code") + required_span_tag) %>
     <% end %>
 
     <%= f.field_container :url do %>
       <%= f.text_field :url, required: true %>
-      <%= f.label :url, raw(Aypex.t(:url) + required_span_tag) %>
+      <%= f.label :url, raw(I18n.t("aypex.admin.url") + required_span_tag) %>
     <% end %>
   </div>
 </div>

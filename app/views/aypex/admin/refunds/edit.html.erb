@@ -9,7 +9,7 @@
   <fieldset>
     <div data-hook="admin_refund_form_fields">
       <div class="form-group">
-        <%= f.label :amount, Aypex.t(:amount) %><br>
+        <%= f.label :amount, I18n.t("aypex.admin.amount") %><br>
         <%= @refund.amount %>
       </div>
       <div class="form-group">
@@ -20,7 +20,7 @@
 
     <div class="form-actions" data-hook="buttons">
       <%= button I18n.t('aypex.admin.actions.save'), 'save.svg' %>
-      <span class="or"><%= Aypex.t(:or) %></span>
+      <span class="or"><%= I18n.t("aypex.admin.or") %></span>
       <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.admin_order_payments_url(@refund.payment.order), icon: "delete.svg" %>
     </div>
   </fieldset>

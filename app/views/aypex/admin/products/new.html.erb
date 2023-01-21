@@ -8,7 +8,7 @@
     <%= form_with model: [:admin, @product], method: :post, class: 'row', data: { hook: 'new_product_form', action: "turbo:submit-end->modal#submitEnd", turbo_frame: :inner_main_content, controller: "input--required", input__required_save_button_id_value: "globalFormSubmitButton"}, id: "mainForm" do |f| %>
       <div class="col-12 col-md-8">
         <%= f.field_container :name, data: { hook: "admin_product_form_name" } do %>
-          <%= f.text_field :name, class: 'form-control title', placeholder: raw(Aypex.t(:name) + required_span_tag), required: true %>
+          <%= f.text_field :name, class: 'form-control title', placeholder: raw(I18n.t("aypex.admin.name") + required_span_tag), required: true %>
           <%= f.label :name, raw(I18n.t('aypex.admin.name') + required_span_tag) %>
         <% end %>
       </div>

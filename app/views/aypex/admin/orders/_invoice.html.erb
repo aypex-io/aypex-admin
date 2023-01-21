@@ -11,7 +11,7 @@
   <div class="card-body" id="order_tab_summary">
     <ul class="list-group list-group-flush">
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span data-hook='admin_order_tab_subtotal_title'><%= Aypex.t(:subtotal) %></span>
+        <span data-hook='admin_order_tab_subtotal_title'><%= I18n.t("aypex.admin.subtotal") %></span>
         <span id='item_total'>
           <%= @order.display_item_total.to_html %>
         </span>
@@ -19,7 +19,7 @@
 
       <% if @order.ship_total > 0 %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <small data-hook='admin_order_tab_ship_total_title'><%= Aypex.t(:ship_total) %></small>
+          <small data-hook='admin_order_tab_ship_total_title'><%= I18n.t("aypex.admin.ship_total") %></small>
           <span id='ship_total'>
             <%= @order.display_ship_total.to_html %>
           </span>
@@ -28,7 +28,7 @@
 
       <% if @order.included_tax_total != 0 %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <small data-hook='admin_order_tab_included_tax_title'><%= Aypex.t(:tax_included) %></small>
+          <small data-hook='admin_order_tab_included_tax_title'><%= I18n.t("aypex.admin.tax_included") %></small>
           <span class="badge rounded-pill rgb-hsl-secondary" id='included_tax_total'>
             <%= @order.display_included_tax_total.to_html %>
           </span>
@@ -37,7 +37,7 @@
 
       <% if @order.additional_tax_total != 0 %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <small data-hook='admin_order_tab_additional_tax_title'><%= Aypex.t(:tax) %></small>
+          <small data-hook='admin_order_tab_additional_tax_title'><%= I18n.t("aypex.admin.tax") %></small>
           <span class="badge rounded-pill rgb-hsl-secondary" id='additional_tax_total'>
             <%= @order.display_additional_tax_total.to_html %>
           </span>
@@ -45,7 +45,7 @@
       <% end %>
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <small data-hook='admin_order_tab_total_title'><%= Aypex.t(:total) %></small>
+        <small data-hook='admin_order_tab_total_title'><%= I18n.t("aypex.admin.total") %></small>
         <span id='order_total'>
           <%= @order.display_total.to_html %>
         </span>

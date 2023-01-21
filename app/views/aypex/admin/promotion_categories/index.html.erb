@@ -33,7 +33,7 @@
 </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::PromotionCategory)) %>,
-    <%= link_to Aypex.t(:add_one), new_object_url %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::PromotionCategory)) %>,
+    <%= link_to I18n.t("aypex.admin.add_one"), new_object_url %>!
   </div>
 <% end %>

@@ -2,7 +2,7 @@
   <div class='col-12 col-md-4'>
     <%= f.field_container :name do %>
       <%= f.text_field :name, required: true %>
-      <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+      <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
     <% end %>
   </div>
   <div class='col-12 col-md-4'>

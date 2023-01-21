@@ -31,8 +31,8 @@
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
           <div class="accordion-body">
             <%= f.field_container :variants_including_master_sku_cont do %>
-              <%= f.text_field :variants_including_master_sku_cont, placeholder: Aypex.t(:sku), class: "form-control", data: { action: 'form--autosave#save' } %>
-              <%= f.label :variants_including_master_sku_cont, Aypex.t(:sku) %>
+              <%= f.text_field :variants_including_master_sku_cont, placeholder: I18n.t("aypex.admin.sku"), class: "form-control", data: { action: 'form--autosave#save' } %>
+              <%= f.label :variants_including_master_sku_cont, I18n.t("aypex.admin.sku") %>
             <% end %>
 
             <%= f.field_container :search_by_name do %>

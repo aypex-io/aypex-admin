@@ -13,7 +13,7 @@
         </div>
       </div>
       <div data-hook="admin_products_index_search_buttons" class="form-actions">
-        <%= button Aypex.t(:search), 'search.svg' %>
+        <%= button I18n.t("aypex.admin.search"), 'search.svg' %>
       </div>
     <% end %>
   </div>
@@ -25,10 +25,10 @@
     <thead class="text-muted">
       <tr data-hook="admin_payment_methods_index_headers">
         <th><%= aypex_admin_svg_tag("arrow-down-up.svg", style: "margin-left: 0.7rem") %></th>
-        <th><%= Aypex.t(:name) %></th>
+        <th><%= I18n.t("aypex.admin.name") %></th>
         <th><%= Aypex.t(:provider) %></th>
-        <th class="text-center"><%= Aypex.t(:display) %></th>
-        <th class="text-center"><%= Aypex.t(:active) %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.display") %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.active") %></th>
         <th class="actions text-end">
           <%= link_to_with_icon Aypex.t(:new_payment_method), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_payment_methods_link' if can? :create, Aypex::PaymentMethod %>
         </th>
@@ -59,7 +59,7 @@
   </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::PaymentMethod)) %>,
-    <%= link_to(Aypex.t(:add_one), new_object_url) if can? :create, Aypex::PaymentMethod %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::PaymentMethod)) %>,
+    <%= link_to(I18n.t("aypex.admin.add_one"), new_object_url) if can? :create, Aypex::PaymentMethod %>!
   </div>
 <% end %>

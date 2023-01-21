@@ -17,8 +17,8 @@
     <thead class="text-muted">
       <tr data-hook="admin_stock_movements_index_headers">
         <th><%= Aypex.t(:variant) %>
-        <th><%= Aypex.t(:quantity) %></th>
-        <th><%= Aypex.t(:action) %></th>
+        <th><%= I18n.t("aypex.admin.quantity") %></th>
+        <th><%= I18n.t("aypex.admin.action") %></th>
       </tr>
     </thead>
     <tbody>
@@ -36,8 +36,8 @@
 </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::StockMovement)) %>,
-    <%= link_to Aypex.t(:add_one), aypex.new_admin_stock_location_stock_movement_path(@stock_location) %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::StockMovement)) %>,
+    <%= link_to I18n.t("aypex.admin.add_one"), aypex.new_admin_stock_location_stock_movement_path(@stock_location) %>!
   </div>
 <% end %>
 

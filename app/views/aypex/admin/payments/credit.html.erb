@@ -6,7 +6,7 @@
   <h3><%= Aypex.t(:refund) %></h3>
   <fieldset data-hook="credit">
     <p>
-      <%= label_tag :amount, Aypex.t(:amount) %>
+      <%= label_tag :amount, I18n.t("aypex.admin.amount") %>
       <%= text_field_tag :amount, @payment.amount, autocomplete: false %>
     </p>
     <p class="form-actions">

@@ -4,7 +4,7 @@
     <h5><span class="badge rgb-hsl-success"><%= currency_symbol(@order.currency) %> <%= @order.currency %></span></h5>
   </sa-header>
   <sa-body>
-    <% currency_label_text = @order.item_count > 0 ? I18n.t('aypex.admin.order.the_order_currency_is_locked_once_items_are_added') : Aypex.t(:currency) %>
+    <% currency_label_text = @order.item_count > 0 ? I18n.t('aypex.admin.order.the_order_currency_is_locked_once_items_are_added') : I18n.t("aypex.admin.currency") %>
     <%= form_with model: [:admin, @order], data: { controller: "form-validation" } do |f| %>
       <%= f.field_container :currency do %>
         <%= f.select :currency, supported_currency_options, { include_blank: false }, disabled: @order.item_count > 0,

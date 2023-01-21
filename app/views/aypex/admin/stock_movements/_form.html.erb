@@ -1,6 +1,6 @@
 <div data-hook="admin_stock_movements_form_fields">
   <%= f.field_container :quantity do %>
-    <%= f.label :quantity, Aypex.t(:quantity) %>
+    <%= f.label :quantity, I18n.t("aypex.admin.quantity") %>
     <%= f.text_field :quantity, class: 'form-control' %>
   <% end %>
   <%= f.field_container :stock_item_id do %>

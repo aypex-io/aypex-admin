@@ -17,8 +17,8 @@
 
           <div class="col-12 col-md-6">
             <%= f.field_container :value do %>
-              <%= pp_form.text_field :value, class: 'form-control', required: true, placeholder: raw(Aypex.t(:value) + required_span_tag) %>
-              <%= pp_form.label :value, raw(Aypex.t(:value) + required_span_tag) %>
+              <%= pp_form.text_field :value, class: 'form-control', required: true, placeholder: raw(I18n.t("aypex.admin.value") + required_span_tag) %>
+              <%= pp_form.label :value, raw(I18n.t("aypex.admin.value") + required_span_tag) %>
             <% end %>
           </div>
 

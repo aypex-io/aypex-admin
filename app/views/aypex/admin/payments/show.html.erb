@@ -5,7 +5,7 @@
              } %>
 
   <div class="alert alert-success" data-hook="amount">
-    <%= Aypex.t(:amount) %>: <%= @payment.display_amount.to_html %>
+    <%= I18n.t("aypex.admin.amount") %>: <%= @payment.display_amount.to_html %>
   </div>
 
   <%= render 'aypex/admin/payments/capture_events' %>

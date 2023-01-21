@@ -20,7 +20,7 @@
         </div>
       </div>
       <div data-hook="admin_return_authorisations_index_filters_buttons" class="form-actions">
-        <%= button Aypex.t(:search), 'search.svg' %>
+        <%= button I18n.t("aypex.admin.search"), 'search.svg' %>
       </div>
     <% end %>
   </div>
@@ -59,7 +59,7 @@
   </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::ReturnAuthorization)) %>.
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::ReturnAuthorization)) %>.
   </div>
 <% end %>
 

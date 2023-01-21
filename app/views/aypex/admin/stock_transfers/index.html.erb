@@ -84,8 +84,8 @@
 </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::StockTransfer)) %>,
-    <%= link_to(Aypex.t(:add_one), new_admin_stock_transfer_path) if can? :create, Aypex::StockTransfer %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::StockTransfer)) %>,
+    <%= link_to(I18n.t("aypex.admin.add_one"), new_admin_stock_transfer_path) if can? :create, Aypex::StockTransfer %>!
   </div>
 <% end %>
 

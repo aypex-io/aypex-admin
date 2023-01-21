@@ -28,8 +28,8 @@
 
     <div class="col-12">
       <%= field_container('card_name', nil, data: { hook: 'card_name' }) do %>
-        <%= text_field_tag "#{param_prefix}[name]", '', id: "card_name#{payment_method.id}", class: 'form-control', maxlength: 19, placeholder: Aypex.t(:name), required: true %>
-        <%= label_tag "card_name#{payment_method.id}", raw(Aypex.t(:name) + required_span_tag), class: 'form-label' %>
+        <%= text_field_tag "#{param_prefix}[name]", '', id: "card_name#{payment_method.id}", class: 'form-control', maxlength: 19, placeholder: I18n.t("aypex.admin.name"), required: true %>
+        <%= label_tag "card_name#{payment_method.id}", raw(I18n.t("aypex.admin.name") + required_span_tag), class: 'form-label' %>
       <% end %>
     </div>
 

@@ -9,7 +9,7 @@
         <br>
         <%= "(#{item.variant.options_text})" if item.variant.options_text.present? %>
         <% if item.variant.sku.present? %>
-          <strong><%= Aypex.t(:sku) %>:</strong> <%= item.variant.sku %>
+          <strong><%= I18n.t("aypex.admin.sku") %>:</strong> <%= item.variant.sku %>
         <% end %>
         <br>
         <%= item.line_item.single_money.to_html %>

@@ -11,8 +11,8 @@
   <table class="table" id='listing_reimbursement_types' data-hook>
     <thead class="text-muted">
       <tr data-hook="reimbursement_types_header">
-        <th><%= Aypex.t(:name) %></th>
-        <th><%= Aypex.t(:type) %></th>
+        <th><%= I18n.t("aypex.admin.name") %></th>
+        <th><%= I18n.t("aypex.admin.type") %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -38,6 +38,6 @@
   </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::ReimbursementType)) %>
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::ReimbursementType)) %>
   </div>
 <% end %>

@@ -18,13 +18,13 @@
 
         <div class="card-body">
           <%= zone_form.field_container :name do %>
-            <%= zone_form.text_field :name, class: 'form-control', placeholder: raw(Aypex.t(:name) + required_span_tag), required: true, data: {form_state_target: "watch"} %>
-            <%= zone_form.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+            <%= zone_form.text_field :name, class: 'form-control', placeholder: raw(I18n.t("aypex.admin.name") + required_span_tag), required: true, data: {form_state_target: "watch"} %>
+            <%= zone_form.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
           <% end %>
 
           <%= zone_form.field_container :description do %>
-            <%= zone_form.text_field :description, class: 'form-control', placeholder: Aypex.t(:description), data: {form_state_target: "watch"} %>
-            <%= zone_form.label :description, Aypex.t(:description) %>
+            <%= zone_form.text_field :description, class: 'form-control', placeholder: I18n.t("aypex.admin.description"), data: {form_state_target: "watch"} %>
+            <%= zone_form.label :description, I18n.t("aypex.admin.description") %>
           <% end %>
 
           <%= zone_form.checkbox_container :default_tax, class: ['form-check'] do %>
@@ -34,7 +34,7 @@
 
           <div data-hook="type" class="form-group mt-4">
             <h6>
-              <%= Aypex.t(:type) %>
+              <%= I18n.t("aypex.admin.type") %>
             </h6>
             <%= zone_form.checkbox_container :country_based, class: ['form-check'] do %>
               <%= zone_form.radio_button('kind', 'country', { class: 'form-check-input' ,id: 'country_based', data: {form_state_target: "watch"} }) %>

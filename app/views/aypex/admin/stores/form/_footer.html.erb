@@ -7,7 +7,7 @@
   <div class="card-body">
     <%= f.field_container :description do %>
       <%= f.text_area :description %>
-      <%= f.label :description, Aypex.t(:description) %>
+      <%= f.label :description, I18n.t("aypex.admin.description") %>
     <% end %>
 
     <%= f.field_container :address do %>

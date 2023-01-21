@@ -14,8 +14,8 @@
     <% end %>
 
     <%= f.field_container :description do %>
-      <%= f.text_field :description, class: 'form-control', placeholder: Aypex.t(:description) %>
-      <%= f.label :description, Aypex.t(:description) %>
+      <%= f.text_field :description, class: 'form-control', placeholder: I18n.t("aypex.admin.description") %>
+      <%= f.label :description, I18n.t("aypex.admin.description") %>
     <% end %>
 
     <%= f.checkbox_container :is_default, class: ['checkbox'] do %>

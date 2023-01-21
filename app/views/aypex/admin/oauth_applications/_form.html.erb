@@ -6,12 +6,12 @@
   <div class="card-body">
     <%= f.field_container :name, data_hook: "oauth_application_name" do %>
       <%= f.text_field :name, required: true %>
-      <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+      <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
     <% end %>
 
     <%= f.field_container :scopes, data_hook: "oauth_application_scopes" do %>
       <%= f.text_field :scopes %>
-      <%= f.label :scopes, raw(Aypex.t(:scopes) + required_span_tag) %>
+      <%= f.label :scopes, raw(I18n.t("aypex.admin.scopes") + required_span_tag) %>
       <small class="form-text text-muted">
         Possible values:
         <ul>

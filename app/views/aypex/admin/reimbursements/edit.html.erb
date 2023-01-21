@@ -17,7 +17,7 @@
             <th><%= Aypex.t(:preferred_reimbursement_type) %></th>
             <th><%= Aypex.t(:reimbursement_type_override) %></th>
             <th><%= Aypex.t(:pre_tax_refund_amount) %></th>
-            <th><%= Aypex.t(:total) %></th>
+            <th><%= I18n.t("aypex.admin.total") %></th>
             <th><%= Aypex.t(:exchange_for) %></th>
           </tr>
         </thead>
@@ -73,8 +73,8 @@
       <thead data-hook="customer_return_header">
         <tr>
           <th><%= Aypex.t(:reimbursement_type) %></th>
-          <th><%= Aypex.t(:description) %></th>
-          <th><%= Aypex.t(:amount) %></th>
+          <th><%= I18n.t("aypex.admin.description") %></th>
+          <th><%= I18n.t("aypex.admin.amount") %></th>
         </tr>
       </thead>
       <tbody>
@@ -99,7 +99,7 @@
         <span class="icon icon-save"></span>
         <%= Aypex.t(:reimburse) %>
       <% end %>
-      <span class="or"><%= Aypex.t(:or) %></span>
+      <span class="or"><%= I18n.t("aypex.admin.or") %></span>
       <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.edit_admin_order_customer_return_path(@order, @reimbursement.customer_return), icon: 'cancel' %>
     <% end %>
   </div>

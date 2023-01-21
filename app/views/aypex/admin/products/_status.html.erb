@@ -2,11 +2,11 @@
   <hr>
 
   <%= field_container 'product', 'make_active_at', data: { hook: "admin_product_form_make_active_at" } do %>
-    <%= label_tag 'product[make_active_at]', Aypex.t(:make_active_at) %>
+    <%= label_tag 'product[make_active_at]', I18n.t("aypex.admin.make_active_at") %>
     <% if can?(:activate, @product) %>
       <%= render partial: 'aypex/admin/shared/date_picker', locals: { field: 'product[make_active_at]',
                                                                       value: datepicker_field_value(@product.make_active_at),
-                                                                      placeholder: Aypex.t(:make_active_at) } %>    <% else %>
+                                                                      placeholder: I18n.t("aypex.admin.make_active_at") } %>    <% else %>
       <%= text_field_tag :make_active_at, value: datepicker_field_value(@product.make_active_at), class: 'form-control', disabled: true, autocomplete: false %>
     <% end %>
   <% end %>
@@ -27,12 +27,12 @@
   <hr>
 
   <%= field_container 'product', 'available_on', data: { hook: "admin_product_form_available_on" } do %>
-    <%= label_tag 'product[available_on]', Aypex.t(:available_on) %>
+    <%= label_tag 'product[available_on]', I18n.t("aypex.admin.available_on") %>
     <%= render partial: 'aypex/admin/shared/date_picker_from', locals: { from_field: 'product[available_on]',
                                                                          to_field: 'product[discontinue_on]',
                                                                          value: datepicker_field_value(@product.available_on),
                                                                          data_max_date: @product.discontinue_on,
-                                                                         placeholder: Aypex.t(:available_on) } %>
+                                                                         placeholder: I18n.t("aypex.admin.available_on") } %>
   <% end %>
 
   <%= field_container 'product', 'discontinue_on', data: { hook: "admin_product_form_discontinue_on" } do %>

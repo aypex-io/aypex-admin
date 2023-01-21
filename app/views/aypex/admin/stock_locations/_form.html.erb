@@ -3,7 +3,7 @@
     <div class="col-12 col-md-9" data-hook="stock_location_names">
       <div data-hook="stock_location_name">
         <%= f.field_container :name  do %>
-          <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+          <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
           <%= f.text_field :name, class: 'form-control', required: true %>
           <%= f.error_message_on :name %>
         <% end %>
@@ -21,7 +21,7 @@
       <div class="checkbox my-2" data-hook="stock_location_active">
         <%= label_tag :active do %>
           <%= f.check_box :active %>
-          <%= Aypex.t(:active) %>
+          <%= I18n.t("aypex.admin.active") %>
         <% end %>
       </div>
       <div class="checkbox my-2" data-hook="stock_location_default">
@@ -77,7 +77,7 @@
 
   <div class="form-group" data-hook="stock_location_state">
     <% if f.object.country %>
-      <%= f.label :state_id, Aypex.t(:state) %>
+      <%= f.label :state_id, I18n.t("aypex.admin.state") %>
       <span id="state" class="region">
         <%= f.text_field :state_name, style: "#{f.object.country.states.empty? ? '' : 'display: none;'}", disabled: !f.object.country.states.empty?, class: 'state_name form-control' %>
         <%= f.collection_select :state_id, f.object.country.states.sort, :id, :name, { include_blank: true }, { data: { controller: 'ts--select' }, style: "#{f.object.country.states.empty? ? 'display: none;' : '' };", disabled: f.object.country.states.empty?} %>

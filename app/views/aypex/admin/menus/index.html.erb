@@ -20,20 +20,20 @@
         </div>
         <div class="col-12 col-lg-4">
           <div class="form-group">
-            <%= label_tag :q_location_eq, Aypex.t(:location) %><%= f.select :location_eq, aypex_humanize_dropdown_values('Aypex::Menu', { const: 'MENU_LOCATIONS', paramterize_values: true }), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
+            <%= label_tag :q_location_eq, I18n.t("aypex.admin.location") %><%= f.select :location_eq, aypex_humanize_dropdown_values('Aypex::Menu', { const: 'MENU_LOCATIONS', paramterize_values: true }), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
           </div>
         </div>
 
         <div class="col-12 col-lg-4">
          <div class="form-group">
-           <%= label_tag :q_locale_eq, Aypex.t(:language) %>
+           <%= label_tag :q_locale_eq, I18n.t("aypex.admin.language") %>
            <%= f.select :locale_eq, all_locales_options, { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
          </div>
         </div>
       </div>
 
       <div data-hook="admin_menus_index_search_buttons" class="form-actions">
-        <%= button Aypex.t(:search), 'search.svg' %>
+        <%= button I18n.t("aypex.admin.search"), 'search.svg' %>
       </div>
     <% end %>
   </div>
@@ -46,7 +46,7 @@
 
         <g-thead>
           <g-tr style="grid-template-columns: 1fr 1fr 1fr 2fr;">
-            <g-th><%= Aypex.t(:name) %></g-th>
+            <g-th><%= I18n.t("aypex.admin.name") %></g-th>
             <g-th><%= I18n.t('aypex.admin.location') %></g-th>
             <g-th><%= I18n.t('aypex.admin.language') %></g-th>
             <g-th><%= I18n.t('aypex.admin.default') %></g-th>

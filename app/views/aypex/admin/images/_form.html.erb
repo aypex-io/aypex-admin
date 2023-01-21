@@ -2,7 +2,7 @@
   <div class="col-12">
     <%= f.field_container :attachment do %>
       <%= f.file_field :attachment %>
-      <%= f.label :attachment, Aypex.t(:product_image) %>
+      <%= f.label :attachment, I18n.t("aypex.admin.product_image") %>
     <% end %>
 
     <%#= f.fields_for :private_metadata do |private_metadata| %>
@@ -30,7 +30,7 @@
 
     <%= f.field_container :alt do %>
       <%= f.text_area :alt, rows: 4 %>
-      <%= f.label :alt, Aypex.t(:alt_text) %>
+      <%= f.label :alt, I18n.t("aypex.admin.alt_text") %>
     <% end %>
   </div>
 </div>

@@ -2,21 +2,21 @@
   <div class="col-12 col-md-6">
     <%= f.field_container :name do %>
       <%= f.text_field :name, required: true %>
-      <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+      <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
     <% end %>
   </div>
 
   <div class="col-12 col-md-6">
     <%= f.field_container :presentation do %>
       <%= f.text_field :presentation, required: true %>
-      <%= f.label :presentation, raw(Aypex.t(:presentation) + required_span_tag) %>
+      <%= f.label :presentation, raw(I18n.t("aypex.admin.presentation") + required_span_tag) %>
     <% end %>
   </div>
 
   <div class="col-12 col-md-6">
     <%= f.field_container :filterable, class: ['form-switch', 'mb-0'] do %>
       <%= f.check_box :filterable %>
-      <%= f.label :filterable, Aypex.t(:filterable), class: 'form-check-label' %>
+      <%= f.label :filterable, I18n.t("aypex.admin.filterable"), class: 'form-check-label' %>
       <a data-bs-toggle="collapse" href="#optionTypeFilterInformation" role="button" aria-expanded="false" aria-controls="optionTypeFilterInformation" class="align-self-center">
         <%= aypex_admin_svg_tag "info-circle.svg", size: '14px * 14px', class: 'ms-1 shim-bottom' %>
       </a>
@@ -32,7 +32,7 @@
   <div class="col-12 col-md-6">
     <%= f.field_container :image_filter, class: ['form-switch', 'mb-0'] do %>
       <%= f.check_box :image_filter %>
-      <%= f.label :image_filter, Aypex.t(:image_filter), class: 'form-check-label' %>
+      <%= f.label :image_filter, I18n.t("aypex.admin.image_filter"), class: 'form-check-label' %>
       <a data-bs-toggle="collapse" href="#optionTypeFilterInformation" role="button" aria-expanded="false" aria-controls="optionTypeFilterInformation" class="align-self-center">
         <%= aypex_admin_svg_tag "info-circle.svg", size: '14px * 14px', class: 'ms-1 shim-bottom' %>
       </a>

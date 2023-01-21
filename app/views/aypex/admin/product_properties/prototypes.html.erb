@@ -13,7 +13,7 @@
         <table class="table">
           <thead class="text-muted">
             <tr data-hook="available_header">
-              <th><%= Aypex.t(:name) %></th>
+              <th><%= I18n.t("aypex.admin.name") %></th>
               <th class="actions"></th>
             </tr>
           </thead>
@@ -26,7 +26,7 @@
                   </td>
                   <td>
                     <span class="d-flex justify-content-end">
-                      <%= link_to_with_icon(Aypex.t(:select), aypex.prototype_properties_admin_product_product_properties_path(@product, prototype_id: prototype), class: 'btn btn-primary btn-sm', no_text: true, icon: 'save.svg', data: { turbo_method: :post, turbo_frame: :modal }) %>
+                      <%= link_to_with_icon(I18n.t("aypex.admin.select"), aypex.prototype_properties_admin_product_product_properties_path(@product, prototype_id: prototype), class: 'btn btn-primary btn-sm', no_text: true, icon: 'save.svg', data: { turbo_method: :post, turbo_frame: :modal }) %>
                     </span>
                   </td>
                 </tr>
@@ -35,7 +35,7 @@
             <% if @prototypes.empty? %>
               <tr>
                 <td colspan="2">
-                  <% Aypex.t(:none) %>
+                  <% I18n.t("aypex.admin.none") %>
                 </td>
               </tr>
             <% end %>

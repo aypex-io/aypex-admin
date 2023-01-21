@@ -7,7 +7,7 @@
         <td><%= payment.source.display_amount_used %></td>
       </tr>
       <tr>
-        <th><%= Aypex.t(:amount) %>:</th>
+        <th><%= I18n.t("aypex.admin.amount") %>:</th>
         <td><%= payment.source.display_amount %></td>
       </tr>
       <tr>
@@ -15,7 +15,7 @@
         <td><%= payment.source.memo %></td>
       </tr>
       <tr>
-        <th><%= Aypex.t(:type) %>:</th>
+        <th><%= I18n.t("aypex.admin.type") %>:</th>
         <td><%= payment.source.category_name %></td>
       </tr>
       <tr>

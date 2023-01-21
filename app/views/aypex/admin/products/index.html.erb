@@ -22,8 +22,8 @@
 <% content_for :index_table_filter_buttons do %>
   <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
   <ul class="dropdown-menu">
-    <li><%= sort_link @search, :name, Aypex.t(:name), {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
-    <li><%= sort_link @search, :master_default_price_amount, Aypex.t(:price), {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
+    <li><%= sort_link @search, :name, I18n.t("aypex.admin.name"), {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
+    <li><%= sort_link @search, :master_default_price_amount, I18n.t("aypex.admin.price"), {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
     <li><%= sort_link @search, :status, Aypex.t(:status), {default_order: :asc, title: 'Sort by Status', class: 'dropdown-item'} %></li>
   </ul>
   <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_products_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
@@ -65,7 +65,7 @@
               </g-th>
 
               <g-th data-input--checkbox-state-target="initialPanel">
-                <%= Aypex.t(:name) %>
+                <%= I18n.t("aypex.admin.name") %>
               </g-th>
 
               <g-th data-input--checkbox-state-target="initialPanel">
@@ -77,7 +77,7 @@
               </g-th>
 
               <g-th data-input--checkbox-state-target="initialPanel" style="grid-column: span 2;">
-                <%= Aypex.t(:price) %>
+                <%= I18n.t("aypex.admin.price") %>
               </g-th>
             </g-tr>
           </g-thead>
@@ -89,7 +89,7 @@
       </g-responsive>
     <% else %>
       <div class="text-center no-objects-found m-5">
-        <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Product)) %>
+        <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::Product)) %>
       </div>
     <% end %>
   <% end %>

@@ -7,7 +7,7 @@
   <table class="table" id='listing_named_types' data-hook>
     <thead class="text-muted">
       <tr data-hook="named_types_header">
-        <th><%= Aypex.t(:name) %></th>
+        <th><%= I18n.t("aypex.admin.name") %></th>
         <th><%= Aypex.t(:status) %></th>
         <th class="actions text-end">
           <%= link_to_with_icon(new_button_text, new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, resource %>
@@ -38,7 +38,7 @@
 </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: resource_name) %>,
-    <%= link_to(Aypex.t(:add_one), new_object_url) if can? :create, resource %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: resource_name) %>,
+    <%= link_to(I18n.t("aypex.admin.add_one"), new_object_url) if can? :create, resource %>!
   </div>
 <% end %>

@@ -56,7 +56,7 @@
 
         <div class="col-12 col-lg-4">
           <div class="form-group" id="stock_movement_quantity_field">
-            <%= label_tag :transfer_variant_quantity, Aypex.t(:quantity) %>
+            <%= label_tag :transfer_variant_quantity, I18n.t("aypex.admin.quantity") %>
             <div class="input-group">
               <%= number_field_tag :transfer_variant_quantity, 1, class: 'form-control', min: 1 %>
               <span class="input-group-btn ms-2">
@@ -70,14 +70,14 @@
   </div>
 
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.aypex/variant')) %>.
+    <%= I18n.t("aypex.admin.no_resource_found", resource: I18n.t(:other, scope: 'activerecord.models.aypex/variant')) %>.
   </div>
 
   <div id="transfer-variants-table" style="display:none" class="table-responsive">
     <table class="table border rounded sortable">
       <thead data-hook="transfer_variants_header">
-        <th><%= Aypex.t(:name) %></th>
-        <th class="text-center"><%= Aypex.t(:quantity) %></th>
+        <th><%= I18n.t("aypex.admin.name") %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.quantity") %></th>
         <th class="actions"></th>
       </thead>
       <tbody id="transfer_variants_tbody">

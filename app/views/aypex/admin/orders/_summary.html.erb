@@ -62,7 +62,7 @@
 
       <% if @order.canceled? && @order.canceled_at %>
         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-          <small><%= Aypex.t(:canceled_at) %></small>
+          <small><%= I18n.t("aypex.admin.canceled_at") %></small>
           <span class="text-end small font-weight-bold">
             <%= pretty_time(@order.canceled_at) %>
           </span>

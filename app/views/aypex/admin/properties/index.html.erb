@@ -14,14 +14,14 @@
       <div class="row">
         <div class="col-12 col-lg-6">
           <div data-hook="admin_property_index_search" class="form-group">
-            <%= f.label :name_cont, Aypex.t(:name) %>
+            <%= f.label :name_cont, I18n.t("aypex.admin.name") %>
             <%= f.text_field :name_cont, class: "form-control js-quick-search-target js-filterable" %>
           </div>
         </div>
 
         <div class="col-12 col-lg-6">
           <div class="form-group">
-            <%= f.label :presentation_cont, Aypex.t(:presentation) %>
+            <%= f.label :presentation_cont, I18n.t("aypex.admin.presentation") %>
             <%= f.text_field :presentation_cont, class: "form-control js-filterable" %>
           </div>
         </div>
@@ -37,7 +37,7 @@
       </div>
 
       <div class="form-actions" data-hook="admin_pproperties_index_search_buttons">
-        <%= button Aypex.t(:search), 'search.svg' %>
+        <%= button I18n.t("aypex.admin.search"), 'search.svg' %>
       </div>
     <% end %>
   </div>
@@ -48,8 +48,8 @@
     <table class="table" id='listing_properties' data-hook>
       <thead class="text-muted">
         <tr data-hook="listing_properties_header">
-          <th><%= Aypex.t(:name) %></th>
-          <th><%= Aypex.t(:presentation) %></th>
+          <th><%= I18n.t("aypex.admin.name") %></th>
+          <th><%= I18n.t("aypex.admin.presentation") %></th>
           <th><%= Aypex.t(:filterable) %></th>
           <th><%= Aypex.t(:filter_param) %></th>
           <th class="actions"></th>
@@ -75,8 +75,8 @@
   </div>
 <% else %>
   <div class="text-center w-100 no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Property)) %>,
-    <%= link_to Aypex.t(:add_one), new_object_url if can?(:create, Aypex::OptionType) %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::Property)) %>,
+    <%= link_to I18n.t("aypex.admin.add_one"), new_object_url if can?(:create, Aypex::OptionType) %>!
   </div>
 <% end %>
 

@@ -4,10 +4,10 @@
       <tr data-hook="payments_header">
         <th><%= Aypex::Payment.human_attribute_name(:number) %></th>
         <th><%= "#{I18n.t('aypex.admin.date')}/#{I18n.t('aypex.admin.time')}" %></th>
-        <th class="text-center"><%= Aypex.t(:amount) %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.amount") %></th>
         <th class="text-center"><%= Aypex.t(:via) %></th>
-        <th class="text-center"><%= Aypex.t(:id) %></th>
-        <th class="text-center"><%= Aypex.t(:state) %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.id") %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.state") %></th>
         <th class="actions text-center"></th>
       </tr>
     </thead>

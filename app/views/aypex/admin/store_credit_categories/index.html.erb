@@ -7,7 +7,7 @@
   <table class="table">
     <thead class="text-muted">
       <tr data-hook="admin_store_credit_categories_index_headers">
-        <th><%= Aypex.t(:name) %></th>
+        <th><%= I18n.t("aypex.admin.name") %></th>
         <th class="actions text-end">
           <%= link_to_with_icon(Aypex.t(:new_store_credit_category), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, Aypex::StoreCreditCategory %>
         </th>
@@ -30,7 +30,7 @@
 </div>
 <% else %>
   <div class="alert alert-warning">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::StoreCreditCategory)) %>,
-    <%= link_to(Aypex.t(:add_one), new_object_url) if can? :create, Aypex::StoreCreditCategory %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::StoreCreditCategory)) %>,
+    <%= link_to(I18n.t("aypex.admin.add_one"), new_object_url) if can? :create, Aypex::StoreCreditCategory %>!
   </div>
 <% end %>

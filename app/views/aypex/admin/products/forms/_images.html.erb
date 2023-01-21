@@ -13,7 +13,7 @@
     <div>
       <% unless @product.variant_images.any? %>
         <div class="text-center no-objects-found mb-4">
-          <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Image)) %>.
+          <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::Image)) %>.
         </div>
       <% else %>
         <div class="table-responsive rounded bg-white">
@@ -30,7 +30,7 @@
                   </th>
                 <% end %>
                 <th>
-                  <%= Aypex.t(:alt_text) %>
+                  <%= I18n.t("aypex.admin.alt_text") %>
                 </th>
                 <th class="actions text-end">
                 </th>

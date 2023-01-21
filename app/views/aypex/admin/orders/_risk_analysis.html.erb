@@ -1,5 +1,5 @@
 <fieldset id="risk_analysis">
-  <legend><%= "#{Aypex.t(:risk_analysis)}: #{Aypex.t(:not) unless @order.is_risky?} #{Aypex.t(:risky)}" %></legend>
+  <legend><%= "#{Aypex.t(:risk_analysis)}: #{I18n.t("aypex.admin.not") unless @order.is_risky?} #{Aypex.t(:risky)}" %></legend>
   <div class="table-responsive border rounded">
     <table class="table table-condensed border rounded">
       <thead class="text-muted">
@@ -23,9 +23,9 @@
           <td>
             <span class="badge rounded-pill bg-<%= latest_payment.is_avs_risky? ? 'void' : 'complete' %>">
               <% if latest_payment.is_avs_risky? %>
-                <%= "#{Aypex.t(:error)}: #{avs_response_code[latest_payment.avs_response]}" %>
+                <%= "#{I18n.t("aypex.admin.error")}: #{avs_response_code[latest_payment.avs_response]}" %>
               <% else %>
-                <%= Aypex.t(:success) %>
+                <%= I18n.t("aypex.admin.success") %>
               <% end %>
             </span>
           </td>
@@ -36,9 +36,9 @@
           <td>
             <span class="badge rounded-pill bg-<%= latest_payment.is_cvv_risky? ? 'void' : 'complete' %>">
               <% if latest_payment.is_cvv_risky? %>
-                <%= "#{Aypex.t(:error)}: #{cvv_response_code[latest_payment.cvv_response_code]}" %>
+                <%= "#{I18n.t("aypex.admin.error")}: #{cvv_response_code[latest_payment.cvv_response_code]}" %>
               <% else %>
-                <%= Aypex.t(:success) %>
+                <%= I18n.t("aypex.admin.success") %>
               <% end %>
             </span>
           </td>

@@ -1,6 +1,6 @@
 <div id="add-line-item" data-hook class="card">
   <div class="card-header">
-    <h5 class="card-title"><%= Aypex.t(:products) %></h5>
+    <h5 class="card-title"><%= I18n.t("aypex.admin.products") %></h5>
   </div>
   <div class="card-body">
     <div data-hook="add_product_name" class="form-group">
@@ -30,7 +30,7 @@
 
     <% if @order.line_items.empty? %>
       <div class="alert alert-warning mb-0">
-        <%= Aypex.t(:your_order_is_empty_add_product) %>
+        <%= I18n.t("aypex.admin.your_order_is_empty_add_product") %>
       </div>
     <% else %>
       <%= render partial: 'line_items', locals: { order: @order} %>

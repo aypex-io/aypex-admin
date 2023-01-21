@@ -1,12 +1,12 @@
 <% content_for :page_title do %>
   /
-  <%= I18n.t(:one, scope: "activerecord.models.aypex/payment") %>
+  <%= I18n.t("aypex.admin.payment") %>
   /
-  <%= Aypex.t(:log_entries) %>
+  <%= I18n.t("aypex.admin.log_entries") %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon Aypex.t(:logs), aypex.admin_order_payment_log_entries_url(@order, @payment), icon: 'file.svg' %>
+  <%= link_to_with_icon I18n.t("aypex.admin.logs"), aypex.admin_order_payment_log_entries_url(@order, @payment), icon: 'file.svg' %>
 <% end %>
 <div class="table-responsive border rounded">
 <table class="table" id='listing_log_entries'>

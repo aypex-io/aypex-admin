@@ -12,7 +12,7 @@
       <div class="card-body">
         <%= f.field_container :name do %>
           <%= f.text_field :name, required: true %>
-          <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+          <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
         <% end %>
 
         <%= f.field_container :slug do %>
@@ -27,7 +27,7 @@
           <% end %>
         <% else %>
           <%= f.field_container :description do %>
-            <%= f.label :description, Aypex.t(:description) %>
+            <%= f.label :description, I18n.t("aypex.admin.description") %>
             <%= f.text_area :description, {rows: 15, form_state_target: "watch" } %>
           <% end %>
         <% end %>

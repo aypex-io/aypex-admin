@@ -19,7 +19,7 @@
 
     <div class="form-actions" data-hook="buttons">
       <%= button I18n.t('aypex.admin.actions.update'), 'save.svg' %>
-      <span class="or"><%= Aypex.t(:or) %></span>
+      <span class="or"><%= I18n.t("aypex.admin.or") %></span>
       <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.admin_order_return_authorizations_url(@order), icon: 'x-lg.svg' %>
     </div>
   </fieldset>
