@@ -1,14 +1,14 @@
 <div class="card-header">
-  <h3 class="card-title mb-0 h6"><%= Aypex.t(:order_adjustments) %></h3>
+  <h3 class="card-title mb-0 h6"><%= I18n.t("aypex.admin.order_adjustments") %></h3>
 </div>
 <div class="table-responsive border rounded">
   <table class="table border rounded adjustments" data-hook="adjustments">
     <thead data-hook="adjustmment_head">
       <tr>
-        <th><%= Aypex.t(:adjustable) %></th>
-        <th><%= Aypex.t(:description) %></th>
-        <th class="text-center"><%= Aypex.t(:amount) %></th>
-        <th class="text-center"><%= Aypex.t(:status) %></th>
+        <th><%= I18n.t("aypex.admin.adjustable") %></th>
+        <th><%= I18n.t("aypex.admin.description") %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.amount") %></th>
+        <th class="text-center"><%= I18n.t("aypex.admin.status") %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -21,10 +21,10 @@
   <div class="card-footer">
     <div class="row text-center pb-0">
       <div class="col-12 col-lg-6">
-        <%= button_to Aypex.t(:open_all_adjustments), open_adjustments_admin_order_path(@order), method: :put, class: "btn btn-primary " %>
+        <%= button_to I18n.t("aypex.admin.open_all_adjustments"), open_adjustments_admin_order_path(@order), method: :put, class: "btn btn-primary " %>
       </div>
       <div class="col-12 col-lg-6">
-        <%= button_to Aypex.t(:close_all_adjustments), close_adjustments_admin_order_path(@order), method: :put, class: "btn btn-danger" %>
+        <%= button_to I18n.t("aypex.admin.close_all_adjustments"), close_adjustments_admin_order_path(@order), method: :put, class: "btn btn-danger" %>
       </div>
     </div>
   </div>

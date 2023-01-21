@@ -13,10 +13,10 @@
 <%# Index Table                                     %>
 <%#-------------------------------------------------%>
 <% content_for :index_table_filter_tabs do %>
-  <%= link_to I18n.t('admin.product.all'),      aypex.admin_products_path,                          class: "#{'active' if params[:q][:status_eq].blank?}" %>
-  <%= link_to I18n.t('admin.product.active'),   params.merge({q: {status_eq: :active}}).permit!,    class: "#{'active' if params[:q][:status_eq] == 'active'}" %>
-  <%= link_to I18n.t('admin.product.draft'),    params.merge({q: {status_eq: :draft}}).permit!,     class: "#{'active' if params[:q][:status_eq] == 'draft'}" %>
-  <%= link_to I18n.t('admin.product.archived'), params.merge({q: {status_eq: :archived}}).permit!,  class: "#{'active' if params[:q][:status_eq] == 'archived'}" %>
+  <%= link_to I18n.t('aypex.admin.product.all'),      aypex.admin_products_path,                          class: "#{'active' if params[:q][:status_eq].blank?}" %>
+  <%= link_to I18n.t('aypex.admin.product.active'),   params.merge({q: {status_eq: :active}}).permit!,    class: "#{'active' if params[:q][:status_eq] == 'active'}" %>
+  <%= link_to I18n.t('aypex.admin.product.draft'),    params.merge({q: {status_eq: :draft}}).permit!,     class: "#{'active' if params[:q][:status_eq] == 'draft'}" %>
+  <%= link_to I18n.t('aypex.admin.product.archived'), params.merge({q: {status_eq: :archived}}).permit!,  class: "#{'active' if params[:q][:status_eq] == 'archived'}" %>
 <% end %>
 
 <% content_for :index_table_filter_buttons do %>

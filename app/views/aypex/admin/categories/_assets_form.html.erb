@@ -1,7 +1,7 @@
 <%= f.field_container :icon do %>
   <% if @category.icon.present? %>
   <span class="ms-2">
-    <%= link_to Aypex.t(:remove_image), remove_icon_admin_base_category_category_url(@base_category.id, @category.id), method: :delete %>
+    <%= link_to I18n.t("aypex.admin.remove_image"), remove_icon_admin_base_category_category_url(@base_category.id, @category.id), method: :delete %>
   </span>
     <div class="product-image-container mb-3">
       <%= image_tag(main_app.cdn_image_url(@category.icon.try(:attachment)), class: 'w-100') if @category.icon %>
@@ -9,5 +9,5 @@
   <% end %>
 <% end %>
 
-<%= f.label :icon, Aypex.t(:header_banner) %>
+<%= f.label :icon, I18n.t("aypex.admin.header_banner") %>
 <%= f.file_field :icon %>

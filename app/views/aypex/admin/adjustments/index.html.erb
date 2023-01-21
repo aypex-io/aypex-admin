@@ -1,7 +1,7 @@
 <%= render partial: 'aypex/admin/shared/order_tabs', locals: { current: :adjustments} %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon(Aypex.t(:new_adjustment), new_admin_order_adjustment_url(@order), class: "btn btn-primary ", icon: 'plus-square.svg') if can? :create, Aypex::Adjustment %>
+  <%= link_to_with_icon(I18n.t("aypex.admin.new_adjustment"), new_admin_order_adjustment_url(@order), class: "btn btn-primary ", icon: 'plus-square.svg') if can? :create, Aypex::Adjustment %>
 <% end %>
 
 <% if @adjustments.present? %>
@@ -10,7 +10,7 @@
   </div>
 <% else %>
   <div class="text-center m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::Adjustment)) %>
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::Adjustment)) %>
   </div>
 <% end %>
 
@@ -18,9 +18,9 @@
   <div class="card bg-light mb-3" data-hook="adjustments_new_coupon_code">
     <div class="card-body">
       <div class="form-group">
-        <%= text_field_tag "coupon_code", "", placeholder: Aypex.t(:coupon_code), class: "form-control", autocomplete: false %>
+        <%= text_field_tag "coupon_code", "", placeholder: I18n.t("aypex.admin.coupon_code"), class: "form-control", autocomplete: false %>
       </div>
-      <%= button Aypex.t(:add_coupon_code), 'plus-square.svg', 'submit', id: "add_coupon_code" %>
+      <%= button I18n.t("aypex.admin.add_coupon_code"), 'plus-square.svg', 'submit', id: "add_coupon_code" %>
     </div>
   </div>
 <% end %>

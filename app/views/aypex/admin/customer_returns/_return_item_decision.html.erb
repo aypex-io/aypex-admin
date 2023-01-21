@@ -2,12 +2,12 @@
   <table class="show return-items-table table table-condensed border rounded index">
     <thead class="text-muted">
       <tr>
-        <th><%= Aypex.t(:product) %></th>
-        <th><%= Aypex.t(:sku) %></th>
-        <th><%= Aypex.t(:pre_tax_amount) %></th>
-        <th><%= Aypex.t(:preferred_reimbursement_type) %></th>
-        <th><%= Aypex.t(:exchange_for) %></th>
-        <th><%= Aypex.t(:acceptance_errors) %></th>
+        <th><%= I18n.t("aypex.admin.product") %></th>
+        <th><%= I18n.t("aypex.admin.sku") %></th>
+        <th><%= I18n.t("aypex.admin.pre_tax_amount") %></th>
+        <th><%= I18n.t("aypex.admin.preferred_reimbursement_type") %></th>
+        <th><%= I18n.t("aypex.admin.exchange_for") %></th>
+        <th><%= I18n.t("aypex.admin.acceptance_errors") %></th>
         <% if show_decision %>
           <th></th>
         <% end %>
@@ -40,11 +40,11 @@
           <% if show_decision %>
             <td class='actions'>
               <span class="d-flex justify-content-end">
-                <%= button_to [:admin, return_item], { class: 'with-tip display-inline btn btn-primary  btn-sm', params: { "return_item[acceptance_status]" => 'accepted' }, "data-action" => 'save', title: Aypex.t(:accept), method: 'put' } do %>
-                  <%= Aypex.t(:accept) %>
+                <%= button_to [:admin, return_item], { class: 'with-tip display-inline btn btn-primary  btn-sm', params: { "return_item[acceptance_status]" => 'accepted' }, "data-action" => 'save', title: I18n.t("aypex.admin.accept"), method: 'put' } do %>
+                  <%= I18n.t("aypex.admin.accept") %>
                 <% end if can?(:accept, return_item) %>
-                <%= button_to [:admin, return_item], { class: 'with-tip display-inline btn btn-danger btn-sm', params: { "return_item[acceptance_status]" => 'rejected' }, "data-action" => 'remove', title: Aypex.t(:reject), method: 'put' } do %>
-                  <%= Aypex.t(:reject) %>
+                <%= button_to [:admin, return_item], { class: 'with-tip display-inline btn btn-danger btn-sm', params: { "return_item[acceptance_status]" => 'rejected' }, "data-action" => 'remove', title: I18n.t("aypex.admin.reject"), method: 'put' } do %>
+                  <%= I18n.t("aypex.admin.reject") %>
                 <% end if can?(:reject, return_item) %>
               </span>
             </td>

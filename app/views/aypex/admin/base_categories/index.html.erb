@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= I18n.t('aypex.admin.base_categories.categories') %>
+  <%= I18n.t('aypex.admin.categories') %>
 <% end %>
 
 <% if @base_categories.any? %>
@@ -8,7 +8,7 @@
   </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_resource_found, resource: plural_resource_name(Aypex::BaseCategory)) %>,
-    <%= link_to Aypex.t(:add_one), new_object_url if can?(:create, Aypex::BaseCategory) %>!
+    <%= I18n.t("aypex.admin.no_resource_found", resource: plural_resource_name(Aypex::BaseCategory)) %>,
+    <%= link_to I18n.t("aypex.admin.add_one"), new_object_url if can?(:create, Aypex::BaseCategory) %>!
   </div>
 <% end %>

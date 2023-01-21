@@ -16,13 +16,13 @@
         <div class="col-12 col-md-6">
           <%= f.field_container :name do %>
             <%= f.text_field :name, required: true %>
-            <%= f.label :name, raw(Aypex.t(:name) + required_span_tag) %>
+            <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
           <% end %>
         </div>
         <div class="col-12 col-md-6">
           <%= f.field_container :type do %>
             <%= f.select(:type, aypex_humanize_dropdown_values('Aypex::CmsSection', {const: 'TYPES'}), {include_blank: false}) %>
-            <%= f.label :type, Aypex.t('admin.cms.section_type') %>
+            <%= f.label :type, I18n.t('aypex.admin.cms.section_type') %>
           <% end %>
         </div>
       </div>

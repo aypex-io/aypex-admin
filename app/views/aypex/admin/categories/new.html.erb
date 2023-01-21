@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= link_to Aypex.t(:base_categories), aypex.admin_base_categories_url %> /
+  <%= link_to I18n.t("aypex.admin.base_categories"), aypex.admin_base_categories_url %> /
   <%= link_to @base_category.root.name, aypex.edit_admin_base_category_url(@base_category) %> / New
 <% end %>
 
@@ -8,7 +8,7 @@
 
   <div class="form-actions" data-hook="buttons">
     <%= button I18n.t('aypex.admin.actions.create'), 'save.svg' %>
-    <span class="or"><%= Aypex.t(:or) %></span>
+    <span class="or"><%= I18n.t("aypex.admin.or") %></span>
     <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.edit_admin_base_category_url(@base_category), icon: "x-lg.svg" %>
   </div>
 <% end %>

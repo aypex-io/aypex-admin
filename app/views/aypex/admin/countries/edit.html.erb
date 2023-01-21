@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_countries_path, link_one_text: Aypex.t(:all_countries), current_page_name: @country.name) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_countries_path, link_one_text: I18n.t("aypex.admin.all_countries"), current_page_name: @country.name) %>
 <% end %>
 
 <%= form_with model: [:admin, @country], data: {controller: "form-state"} do |f| %>

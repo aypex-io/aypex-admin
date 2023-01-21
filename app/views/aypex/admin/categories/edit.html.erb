@@ -1,8 +1,8 @@
 <% content_for :page_title do %>
   <% if @category.root? %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_base_categories_path, link_one_text: I18n.t('aypex.admin.base_categories.categories'), current_page_name: @category.name) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_base_categories_path, link_one_text: I18n.t('aypex.admin.categories'), current_page_name: @category.name) %>
   <% else %>
-    <%= breadcrumb_builder(link_one_uri: aypex.admin_base_categories_path, link_one_text: I18n.t('aypex.admin.base_categories.categories'),
+    <%= breadcrumb_builder(link_one_uri: aypex.admin_base_categories_path, link_one_text: I18n.t('aypex.admin.categories'),
                            link_two_uri: aypex.edit_admin_base_category_url(@base_category), link_two_text: @base_category.root.name + "...", current_page_name: @category.name) %>
   <% end %>
 <% end %>

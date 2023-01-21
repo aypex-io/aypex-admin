@@ -34,12 +34,12 @@
     <div class="col-12">
       <%= f.field_container :states_required, class: ['form-check'] do %>
         <%= f.check_box :states_required %>
-        <%= f.label :states_required, Aypex.t(:states_required), class: 'form-check-label' %>
+        <%= f.label :states_required, I18n.t("aypex.admin.states_required"), class: 'form-check-label' %>
       <% end %>
 
       <%= f.field_container :zipcode_required, class: ['form-check'] do %>
         <%= f.check_box :zipcode_required %>
-        <%= f.label :zipcode_required, Aypex.t(:zipcode_required), class: 'form-check-label' %>
+        <%= f.label :zipcode_required, I18n.t("aypex.admin.zipcode_required"), class: 'form-check-label' %>
       <% end %>
     </div>
   </sa-body>

@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_countries_path, link_one_text: Aypex.t(:all_countries), current_page_name: Aypex.t(:new_country)) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_countries_path, link_one_text: I18n.t("aypex.admin.all_countries"), current_page_name: I18n.t("aypex.admin.new_country")) %>
 <% end %>
 
 <%= form_with model: [:admin, @country], data: {controller: "input--required"} do |f| %>

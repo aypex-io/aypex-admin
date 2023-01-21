@@ -5,9 +5,9 @@
         <th>
           <%= aypex_admin_svg_tag("arrow-down-up.svg", style: "margin-left: 0.7rem") %>
         </th>
-        <th><%= Aypex.t(:name) %></th>
+        <th><%= I18n.t("aypex.admin.name") %></th>
         <th class="actions text-end">
-          <%= link_to_with_icon(I18n.t('aypex.admin.base_categories.add_new_category'), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_base_category_link', data: {turbo_frame: :modal}) if can?(:create, Aypex::BaseCategory) %>
+          <%= link_to_with_icon(I18n.t('aypex.admin.add_new_category'), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_base_category_link', data: {turbo_frame: :modal}) if can?(:create, Aypex::BaseCategory) %>
         </th>
       </tr>
     </thead>

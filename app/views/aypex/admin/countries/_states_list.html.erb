@@ -8,10 +8,10 @@
       <g-thead>
         <g-tr style="grid-template-columns: 1fr 2fr;">
           <g-th>
-            <%= Aypex.t(:name) %>
+            <%= I18n.t("aypex.admin.name") %>
           </g-th>
           <g-th>
-            <%= Aypex.t(:abbreviation) %>
+            <%= I18n.t("aypex.admin.abbreviation") %>
           </g-th>
         </g-tr>
       </g-thead>
@@ -31,7 +31,7 @@
         <% if @country.states.empty? %>
           <g-tr>
             <g-td>
-              <%= Aypex.t(:none) %>
+              <%= I18n.t("aypex.admin.none") %>
             </g-td>
           </g-tr>
         <% end %>
