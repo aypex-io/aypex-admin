@@ -2,7 +2,7 @@
   <% if previous_cards.any? %>
     <div class="card my-3">
       <div class="card-header">
-        <h5 class="card-title mb-0 h6"><%= Aypex.t(:previously_used_card) %></h5>
+        <h5 class="card-title mb-0 h6"><%= I18n.t("aypex.admin.previously_used_card") %></h5>
       </div>
         <div class="form-group previous-cards card-body mb-0" data-hook="previous_cards">
           <ul class="m-0 p-0">
@@ -16,7 +16,7 @@
               <li>
                 <hr>
                 <label>
-                  <%= radio_button_tag :card, 'new', false, { id: "card_new#{payment_method.id}" } %> <%= Aypex.t(:use_new_cc) %>
+                  <%= radio_button_tag :card, 'new', false, { id: "card_new#{payment_method.id}" } %> <%= I18n.t("aypex.admin.use_new_cc") %>
                 </label>
               </li>
           </ul>
@@ -35,15 +35,15 @@
 
     <div class="col-12">
       <%= field_container('card_number', nil, data: { hook: 'card_number' }) do %>
-        <%= text_field_tag "#{param_prefix}[number]", '', class: 'form-control', id: "card_number#{payment_method.id}", maxlength: 19, placeholder: Aypex.t(:card_number), required: true, data: { card_formatting_target: 'number' } %>
-        <%= label_tag "card_number#{payment_method.id}", raw(Aypex.t(:card_number) + required_span_tag), class: 'form-label' %>
+        <%= text_field_tag "#{param_prefix}[number]", '', class: 'form-control', id: "card_number#{payment_method.id}", maxlength: 19, placeholder: I18n.t("aypex.admin.card_number"), required: true, data: { card_formatting_target: 'number' } %>
+        <%= label_tag "card_number#{payment_method.id}", raw(I18n.t("aypex.admin.card_number") + required_span_tag), class: 'form-label' %>
       <% end %>
     </div>
 
     <div class="col-6">
       <%= field_container('card_expiration', nil, data: { hook: 'card_expiration' }) do %>
         <%= text_field_tag "#{param_prefix}[expiry]", '', id: "card_expiry#{payment_method.id}", class: "form-control", placeholder: "MM/YYYY", required: true, data: { card_formatting_target: 'exp' } %>
-        <%= label_tag "card_expiry#{payment_method.id}", raw(Aypex.t(:expiration) + required_span_tag), class: 'form-label' %>
+        <%= label_tag "card_expiry#{payment_method.id}", raw(I18n.t("aypex.admin.expiration") + required_span_tag), class: 'form-label' %>
       <% end %>
     </div>
 

@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  / <%= Aypex.t(:edit_reimbursement) %>
+  / <%= I18n.t("aypex.admin.edit_reimbursement") %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @customer_return } %>
@@ -9,7 +9,7 @@
       <tr>
         <th><%= I18n.t("aypex.admin.id") %></th>
         <th><%= I18n.t("aypex.admin.total") %></th>
-        <th><%= Aypex.t(:status) %></th>
+        <th><%= I18n.t("aypex.admin.status") %></th>
         <th><%= "#{I18n.t('aypex.admin.date')}/#{I18n.t('aypex.admin.time')}" %></th>
       </tr>
     </thead>

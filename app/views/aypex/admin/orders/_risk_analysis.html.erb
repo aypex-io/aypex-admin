@@ -1,5 +1,5 @@
 <fieldset id="risk_analysis">
-  <legend><%= "#{Aypex.t(:risk_analysis)}: #{I18n.t("aypex.admin.not") unless @order.is_risky?} #{Aypex.t(:risky)}" %></legend>
+  <legend><%= "#{I18n.t("aypex.admin.risk_analysis")}: #{I18n.t("aypex.admin.not") unless @order.is_risky?} #{I18n.t("aypex.admin.risky")}" %></legend>
   <div class="table-responsive border rounded">
     <table class="table table-condensed border rounded">
       <thead class="text-muted">
@@ -9,17 +9,17 @@
       <tbody id="risk-analysis" data-hook="order_details_adjustments" class="with-border">
         <tr>
           <td>
-            <strong><%= Aypex.t(:failed_payment_attempts) %>:</strong>
+            <strong><%= I18n.t("aypex.admin.failed_payment_attempts") %>:</strong>
           </td>
           <td>
             <span class="badge rounded-pill bg-<%= @order.payments.failed.size > 0 ? 'void' : 'complete' %>">
-              <%= link_to "#{Aypex.t 'payments_count', count: @order.payments.failed.size, default: pluralize(@order.payments.failed.size, Aypex.t(:payment))}", aypex.admin_order_payments_path(@order) %>
+              <%= link_to "#{I18n.t("aypex.admin.payments_count", count: @order.payments.failed.size, default: pluralize(@order.payments.failed.size, I18n.t("aypex.admin.payment"))}"), aypex.admin_order_payments_path(@order) %>
             </span>
           </td>
         </tr>
 
         <tr>
-          <td><strong><%= Aypex.t(:avs_response) %>:</strong></td>
+          <td><strong><%= I18n.t("aypex.admin.avs_response") %>:</strong></td>
           <td>
             <span class="badge rounded-pill bg-<%= latest_payment.is_avs_risky? ? 'void' : 'complete' %>">
               <% if latest_payment.is_avs_risky? %>
@@ -32,7 +32,7 @@
         </tr>
 
         <tr>
-          <td><strong><%= Aypex.t(:cvv_response) %>:</strong></td>
+          <td><strong><%= I18n.t("aypex.admin.cvv_response") %>:</strong></td>
           <td>
             <span class="badge rounded-pill bg-<%= latest_payment.is_cvv_risky? ? 'void' : 'complete' %>">
               <% if latest_payment.is_cvv_risky? %>

@@ -9,7 +9,7 @@ describe Aypex::Admin::ProductsHelper, type: :helper do
 
     context "product is available" do
       it "has available status" do
-        expect(status).to eq(I18n.t("aypex.admin.products.active"))
+        expect(status).to eq(I18n.t("aypex.admin.active"))
       end
     end
 
@@ -19,7 +19,7 @@ describe Aypex::Admin::ProductsHelper, type: :helper do
       end
 
       it "has deleted status" do
-        expect(status).to eq(I18n.t("aypex.admin.products.deleted"))
+        expect(status).to eq(I18n.t("aypex.admin.deleted"))
       end
     end
 
@@ -29,7 +29,7 @@ describe Aypex::Admin::ProductsHelper, type: :helper do
       end
 
       it "has discontinued status" do
-        expect(status).to eq(I18n.t("aypex.admin.products.archived"))
+        expect(status).to eq(I18n.t("aypex.admin.archived"))
       end
     end
 
@@ -39,7 +39,7 @@ describe Aypex::Admin::ProductsHelper, type: :helper do
       end
 
       it "has draft status" do
-        expect(status).to eq(I18n.t("aypex.admin.products.draft"))
+        expect(status).to eq(I18n.t("aypex.admin.draft"))
       end
     end
   end

@@ -9,7 +9,7 @@
         <div class="card-body">
           <%= f.field_container :type do %>
             <%= f.select(:type, @providers.collect {|p| [ p.to_s, p.name ] }, {}) %>
-            <%= f.label :type, Aypex.t(:provider) %>
+            <%= f.label :type, I18n.t("aypex.admin.provider") %>
           <% end %>
 
           <hr class="my-4">
@@ -37,8 +37,8 @@
           <% end %>
 
           <%= f.field_container :auto_capture do %>
-            <%= f.select(:auto_capture, [["#{Aypex.t(:use_app_default)}: (#{Aypex::Config.auto_capture})", ''], [I18n.t("aypex.admin.say_yes"), true], [I18n.t("aypex.admin.say_no"), false]], {}) %>
-            <%= f.label :auto_capture, Aypex.t(:auto_capture) %>
+            <%= f.select(:auto_capture, [["#{I18n.t("aypex.admin.use_app_default")}: (#{Aypex::Config.auto_capture})", ''], [I18n.t("aypex.admin.say_yes"), true], [I18n.t("aypex.admin.say_no"), false]], {}) %>
+            <%= f.label :auto_capture, I18n.t("aypex.admin.auto_capture") %>
           <% end %>
 
           <%= f.field_container :active, class: ["form-group"] do %>
@@ -60,7 +60,7 @@
     <div class="col-12 col-md-6">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title"><%= Aypex.t(:payment_provider_settings) %></h5>
+          <h5 class="card-title"><%= I18n.t("aypex.admin.payment_provider_settings") %></h5>
         </div>
         <div class="card-body">
           <div id="preference-settings" data-hook class="form-group">
@@ -73,7 +73,7 @@
                 <% end %>
                 <%= preference_fields(@object, f) %>
                 <% if @object.respond_to?(:preferences) %>
-                  <div id="gateway-settings-warning" class="info warning"><%= Aypex.t(:provider_settings_warning) %></div>
+                  <div id="gateway-settings-warning" class="info warning"><%= I18n.t("aypex.admin.provider_settings_warning") %></div>
                 <% end %>
               <% end %>
             <% end %>

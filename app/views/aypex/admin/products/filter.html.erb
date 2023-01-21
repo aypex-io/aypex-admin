@@ -16,7 +16,7 @@
             <%= f.field_container :deleted_at_null do %>
               <div class="form-check">
                 <%= f.check_box :deleted_at_null, {checked: params[:q][:deleted_at_null] == '0', class: "form-check-input", data: { action: 'form--autosave#save' }}, '0', '1' %>
-                <%= f.label :deleted_at_null, Aypex.t(:show_deleted), class: 'form-check-label' %>
+                <%= f.label :deleted_at_null, I18n.t("aypex.admin.show_deleted"), class: 'form-check-label' %>
               </div>
             <% end %>
           </div>
@@ -25,7 +25,7 @@
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
           <button class="accordion-button btn btn-secondary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-            <%= I18n.t('aypex.admin.products.search') %>
+            <%= I18n.t('aypex.admin.search') %>
           </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
@@ -36,8 +36,8 @@
             <% end %>
 
             <%= f.field_container :search_by_name do %>
-              <%= f.text_field :search_by_name, placeholder: Aypex.t(:product_name), class: "form-control", data: { action: 'form--autosave#save' } %>
-              <%= f.label :search_by_name, Aypex.t(:product_name) %>
+              <%= f.text_field :search_by_name, placeholder: I18n.t("aypex.admin.product_name"), class: "form-control", data: { action: 'form--autosave#save' } %>
+              <%= f.label :search_by_name, I18n.t("aypex.admin.product_name") %>
             <% end %>
           </div>
         </div>

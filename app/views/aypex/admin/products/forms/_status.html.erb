@@ -16,7 +16,7 @@
           <% select_html = { data: { controller: 'ts--select', action: 'change->form-validation#validate' } } %>
 
           <%= f.select :status, options, { include_blank: false, selected: @product.status }, select_html %>
-          <%= f.label :status, Aypex.t(:status) %>
+          <%= f.label :status, I18n.t("aypex.admin.status") %>
           <%= submit_tag "Update Product Status", formaction: aypex.update_availability_admin_product_path(@product), formmethod: "post", data: { form_validation_target: "submitBtn" } %>
         <% end %>
 

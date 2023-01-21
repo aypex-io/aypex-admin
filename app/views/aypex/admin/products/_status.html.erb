@@ -19,7 +19,7 @@
   <%= field_container 'product', 'promotionable', class: ['form-check', 'form-switch', 'mb-0'], data: { hook: "admin_product_form_promotionable", controller: "form-validation" } do %>
     <%= hidden_field_tag 'product[promotionable]', nil, id: 'product_promotionable_hidden' %>
     <%= check_box_tag 'product[promotionable]', 1, @product.promotionable, class: 'form-check-input', data: { action: 'change->form-validation#validate' } %>
-    <%= label_tag 'product[promotionable]', Aypex.t(:promotionable), class: 'form-check-label' %>
+    <%= label_tag 'product[promotionable]', I18n.t("aypex.admin.promotionable"), class: 'form-check-label' %>
 
     <%= submit_tag "Update Product Status", formaction: aypex.update_promotionable_admin_product_path(@product), formmethod: "post", data: { form_validation_target: "submitBtn" } %>
   <% end %>
@@ -36,12 +36,12 @@
   <% end %>
 
   <%= field_container 'product', 'discontinue_on', data: { hook: "admin_product_form_discontinue_on" } do %>
-   <%= label_tag 'product[discontinue_on]', Aypex.t(:discontinue_on) %>
+   <%= label_tag 'product[discontinue_on]', I18n.t("aypex.admin.discontinue_on") %>
     <%= render partial: 'aypex/admin/shared/date_picker_to',  locals: { to_field: 'product[discontinue_on]',
                                                                         from_field: 'product[available_on]',
                                                                         value: datepicker_field_value(@product.discontinue_on),
                                                                         data_min_date: @product.available_on,
-                                                                        placeholder: Aypex.t(:discontinue_on) } %>
+                                                                        placeholder: I18n.t("aypex.admin.discontinue_on") } %>
   <% end %>
   <%= render partial: 'aypex/admin/shared/resource_actions' %>
 <% end %>

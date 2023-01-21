@@ -1,6 +1,6 @@
 <%= render partial: 'aypex/admin/shared/named_types/index', locals: {
   page_title: plural_resource_name(Aypex::RefundReason),
-  new_button_text: Aypex.t(:new_refund_reason),
+  new_button_text: I18n.t("aypex.admin.new_refund_reason"),
   resource_name: plural_resource_name(Aypex::RefundReason),
   resource: Aypex::RefundReason
 } %>

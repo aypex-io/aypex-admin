@@ -1,5 +1,5 @@
 <% content_for :modal_header do %>
-  <h5 class="modal-title"><%= I18n.t('aypex.admin.products.add_stock') %></h5>
+  <h5 class="modal-title"><%= I18n.t('aypex.admin.add_stock') %></h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 <% end %>
 
@@ -19,7 +19,7 @@
         <div class="col">
           <%= f.field_container :stock_location_id do %>
             <%= f.select :stock_location_id, options_from_collection_for_select(@stock_locations, :id, :name), {} %>
-            <%= f.label :stock_location_id, Aypex.t(:stock_location) %>
+            <%= f.label :stock_location_id, I18n.t("aypex.admin.stock_location") %>
           <% end %>
         </div>
       </div>

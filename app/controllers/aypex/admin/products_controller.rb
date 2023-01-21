@@ -22,7 +22,7 @@ module Aypex
           @selected_products.update_all(status: :archived)
         end
 
-        dispatch_notice("#{@selected_products.count} #{I18n.t("aypex.admin.products.products_marked_as")} #{params[:button].capitalize}", :success)
+        dispatch_notice("#{@selected_products.count} #{I18n.t("aypex.admin.products_marked_as")} #{params[:button].capitalize}", :success)
         redirect_to action: :index
       end
 
@@ -75,28 +75,28 @@ module Aypex
             format.turbo_stream { render "aypex/admin/categories/remove_from_category" }
           end
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.products.errors.could_not_remove_from_category"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.errors.could_not_remove_from_category"), kind: :error)
         end
       end
 
       def update_availability
         if @object.update(status: permitted_resource_params[:status])
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.products.errors.status_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.errors.status_could_not_be_updated"), kind: :error)
         end
       end
 
       def update_cost_currency
         if @object.update(cost_currency: permitted_resource_params[:cost_currency])
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.products.errors.cost_currency_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.errors.cost_currency_could_not_be_updated"), kind: :error)
         end
       end
 
       def update_promotionable
         if @object.update(promotionable: permitted_resource_params[:promotionable])
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.products.errors.promotionable_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.errors.promotionable_could_not_be_updated"), kind: :error)
         end
       end
 

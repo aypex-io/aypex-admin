@@ -7,7 +7,7 @@
         <%= select_tag field_name,
                        options_from_collection_for_select(@calculators, :to_s, :description, promotion_action.calculator.type),
                        class: 'form-select' %>
-        <%= label_tag field_name, Aypex.t(:calculator) %>
+        <%= label_tag field_name, I18n.t("aypex.admin.calculator") %>
       </div>
     </div>
     <% unless promotion_action.new_record? %>

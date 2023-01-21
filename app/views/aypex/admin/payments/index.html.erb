@@ -3,7 +3,7 @@
   <% if @order.outstanding_balance? %>
     <div class="alert alert-info outstanding-balance d-flex">
       <div class="flex-fill align-self-center">
-        <%= @order.outstanding_balance < 0 ? Aypex.t(:credit_owed) : Aypex.t(:balance_due) %>: <strong><%= @order.display_outstanding_balance %></strong>
+        <%= @order.outstanding_balance < 0 ? I18n.t("aypex.admin.credit_owed") : I18n.t("aypex.admin.balance_due") %>: <strong><%= @order.display_outstanding_balance %></strong>
       </div>
       <% if @order.outstanding_balance? && can?(:create, Aypex::Payment) %>
         <% if @payment_methods.any? %>
@@ -24,7 +24,7 @@
 
     <% if @refunds.any? %>
       <fieldset data-hook="payment_list" class="no-border-bottom">
-        <legend><%= Aypex.t(:refunds) %></legend>
+        <legend><%= I18n.t("aypex.admin.refunds") %></legend>
         <%= render partial: 'aypex/admin/shared/refunds', locals: { refunds: @refunds, show_actions: true } %>
       </fieldset>
     <% end %>

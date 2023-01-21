@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header d-flex">
         <div class="flex-fill">
-          <h5><%= I18n.t('aypex.admin.products.variants') %></h5>
+          <h5><%= I18n.t('aypex.admin.variants') %></h5>
         </div>
         <div>
         </div>
@@ -16,10 +16,10 @@
               <tr>
                 <th class=""><%= aypex_admin_svg_tag("arrow-down-up.svg", style: "margin-left: 0.7rem") %></th>
                 <th><%= I18n.t("aypex.admin.sku") %></th>
-                <th><%= Aypex.t(:options) %></th>
+                <th><%= I18n.t("aypex.admin.options") %></th>
                 <th><%= I18n.t("aypex.admin.kind") %></th>
                 <th class="actions text-end">
-                  <%= link_to_with_icon(Aypex.t(:new_variant), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if !@product.empty_option_values? and can? :create, Aypex::Variant %>
+                  <%= link_to_with_icon(I18n.t("aypex.admin.new_variant"), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if !@product.empty_option_values? and can? :create, Aypex::Variant %>
                 </th>
               </tr>
             </thead>
@@ -63,7 +63,7 @@
           <% if @product.empty_option_values? %>
             <%= I18n.t('aypex.admin.add_option_types_to_this_product_to_begin_creating_variants') %>
           <% else %>
-            <%= link_to_with_icon(I18n.t('aypex.admin.products.create_your_first_variant_for_this_product'), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if can? :create, Aypex::Variant %>
+            <%= link_to_with_icon(I18n.t('aypex.admin.create_your_first_variant_for_this_product'), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if can? :create, Aypex::Variant %>
           <% end %>
         </div>
       <% end %>
@@ -78,7 +78,7 @@
                                                 ts__search_endpoint_value: 'option_types',
                                                 form_state_target: "watch"
                                                } %>
-            <%= f.label :option_type_ids, Aypex.t(:option_types) %>
+            <%= f.label :option_type_ids, I18n.t("aypex.admin.option_types") %>
           <% elsif @product.option_types.any? %>
             <ul class="text_list">
               <% @product.option_types.each do |type| %>

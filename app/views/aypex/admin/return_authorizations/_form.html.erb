@@ -10,14 +10,14 @@
             <%= check_box_tag 'select-all' %>
           <% end %>
         </th>
-        <th><%= Aypex.t(:product) %></th>
-        <th><%= Aypex.t(:status) %></th>
-        <th><%= Aypex.t(:charged) %></th>
-        <th><%= Aypex.t(:purchased_quantity) %></th>
-        <th style="min-width:130px;"><%= Aypex.t(:return_quantity) %></th>
-        <th style="min-width:150px;"><%= Aypex.t(:pre_tax_refund_amount) %></th>
-        <th><%= Aypex.t(:reimbursement_type) %></th>
-        <th><%= Aypex.t(:exchange_for) %></th>
+        <th><%= I18n.t("aypex.admin.product") %></th>
+        <th><%= I18n.t("aypex.admin.status") %></th>
+        <th><%= I18n.t("aypex.admin.charged") %></th>
+        <th><%= I18n.t("aypex.admin.purchased_quantity") %></th>
+        <th style="min-width:130px;"><%= I18n.t("aypex.admin.return_quantity") %></th>
+        <th style="min-width:150px;"><%= I18n.t("aypex.admin.pre_tax_refund_amount") %></th>
+        <th><%= I18n.t("aypex.admin.reimbursement_type") %></th>
+        <th><%= I18n.t("aypex.admin.exchange_for") %></th>
       </tr>
     </thead>
     <tbody>
@@ -79,28 +79,28 @@
   </table>
 </div>
   <%= f.field_container :amount, class: ['alert alert-info'] do %>
-    <%= Aypex.t(:total_pre_tax_refund) %>: <span id="total_pre_tax_refund">0.00</span>
+    <%= I18n.t("aypex.admin.total_pre_tax_refund") %>: <span id="total_pre_tax_refund">0.00</span>
   <% end %>
 
   <%= f.field_container :stock_location do %>
-    <%= f.label :stock_location, raw(Aypex.t(:stock_location) + required_span_tag) %>
-    <%= f.select :stock_location_id, Aypex::StockLocation.order_default.active.to_a.collect{|l|[l.name, l.id]}, {include_blank: true}, { data: { controller: 'ts--select', placeholder: Aypex.t(:select_a_stock_location) } %>
+    <%= f.label :stock_location, raw(I18n.t("aypex.admin.stock_location") + required_span_tag) %>
+    <%= f.select :stock_location_id, Aypex::StockLocation.order_default.active.to_a.collect{|l|[l.name, l.id]}, {include_blank: true}, { data: { controller: 'ts--select', placeholder: I18n.t("aypex.admin.select_a_stock_location") } %>
     <%= f.error_message_on :stock_location %>
   <% end %>
 
   <%= f.field_container :reason do %>
-    <%= f.label :reason,raw(Aypex.t(:reason) + required_span_tag) %>
-    <%= f.select :return_authorization_reason_id, @reasons.collect{|r|[r.name, r.id]}, {include_blank: true}, { data: { controller: 'ts--select', placeholder: Aypex.t(:select_a_return_authorization_reason) } } %>
+    <%= f.label :reason,raw(I18n.t("aypex.admin.reason") + required_span_tag) %>
+    <%= f.select :return_authorization_reason_id, @reasons.collect{|r|[r.name, r.id]}, {include_blank: true}, { data: { controller: 'ts--select', placeholder: I18n.t("aypex.admin.select_a_return_authorization_reason") } } %>
     <%= f.error_message_on :reason %>
   <% end %>
 
   <%= f.field_container :memo do %>
-    <%= f.label :memo, Aypex.t(:memo) %>
+    <%= f.label :memo, I18n.t("aypex.admin.memo") %>
     <%= f.text_area :memo, class: 'form-control' %>
     <%= f.error_message_on :memo %>
   <% end %>
 </div>
 
 <% if Aypex::Config[:expedited_exchanges] %>
-  <div class="expedited-exchanges-warning"><%= Aypex.t(:expedited_exchanges_warning, days_window: Aypex::Config[:expedited_exchanges_days_window]) %></div>
+  <div class="expedited-exchanges-warning"><%= I18n.t("aypex.admin.expedited_exchanges_warning", days_window: Aypex::Config[:expedited_exchanges_days_window]) %></div>
 <% end %>

@@ -6,7 +6,7 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon Aypex.t(:new_product), new_object_url, { class: "btn btn-primary", icon: 'plus-square.svg', id: 'admin_new_product', data: {turbo_frame: :modal} } %>
+  <%= link_to_with_icon I18n.t("aypex.admin.new_product"), new_object_url, { class: "btn btn-primary", icon: 'plus-square.svg', id: 'admin_new_product', data: {turbo_frame: :modal} } %>
 <% end if can?(:create, Aypex::Product) %>
 
 <%#-------------------------------------------------%>
@@ -24,7 +24,7 @@
   <ul class="dropdown-menu">
     <li><%= sort_link @search, :name, I18n.t("aypex.admin.name"), {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
     <li><%= sort_link @search, :master_default_price_amount, I18n.t("aypex.admin.price"), {title: 'admin_products_listing_price_title', class: 'dropdown-item'} %>
-    <li><%= sort_link @search, :status, Aypex.t(:status), {default_order: :asc, title: 'Sort by Status', class: 'dropdown-item'} %></li>
+    <li><%= sort_link @search, :status, I18n.t("aypex.admin.status"), {default_order: :asc, title: 'Sort by Status', class: 'dropdown-item'} %></li>
   </ul>
   <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_products_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
 <% end %>
@@ -73,7 +73,7 @@
               </g-th>
 
               <g-th data-input--checkbox-state-target="initialPanel">
-                <%= Aypex.t(:status) %>
+                <%= I18n.t("aypex.admin.status") %>
               </g-th>
 
               <g-th data-input--checkbox-state-target="initialPanel" style="grid-column: span 2;">
@@ -101,4 +101,4 @@
 <%#-------------------------------------------------%>
   <%= render partial: "aypex/admin/shared/index_table",
              locals: { search_record: :search_by_name,
-                       search_placeholder: I18n.t('aypex.admin.products.search_all_products_by_name_or_sku') } %>
+                       search_placeholder: I18n.t('aypex.admin.search_all_products_by_name_or_sku') } %>

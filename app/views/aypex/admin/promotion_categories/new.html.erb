@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_promotion_categories_path, link_one_text: Aypex.t(:all_promotion_categories), current_page_name: I18n.t('aypex.admin.promotions.new_promotion_category')) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_promotion_categories_path, link_one_text: I18n.t("aypex.admin.all_promotion_categories"), current_page_name: I18n.t('aypex.admin.promotions.new_promotion_category')) %>
 <% end %>
 
 <%= form_with model: [:admin, @promotion_category], data: {controller: "input--required"}  do |f| %>

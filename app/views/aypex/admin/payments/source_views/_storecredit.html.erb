@@ -1,9 +1,9 @@
 <fieldset data-hook="store_credit">
-  <legend><%= Aypex.t(:store_credit_name) %></legend>
+  <legend><%= I18n.t("aypex.admin.store_credit_name") %></legend>
   <div class="table-responsive border rounded">
     <table class="table table-condensed border rounded">
       <tr>
-        <th width="20%"><%= Aypex.t(:used) %>:</th>
+        <th width="20%"><%= I18n.t("aypex.admin.used") %>:</th>
         <td><%= payment.source.display_amount_used %></td>
       </tr>
       <tr>
@@ -11,7 +11,7 @@
         <td><%= payment.source.display_amount %></td>
       </tr>
       <tr>
-        <th><%= Aypex.t(:memo) %>:</th>
+        <th><%= I18n.t("aypex.admin.memo") %>:</th>
         <td><%= payment.source.memo %></td>
       </tr>
       <tr>
@@ -19,11 +19,11 @@
         <td><%= payment.source.category_name %></td>
       </tr>
       <tr>
-        <th><%= Aypex.t(:created_by) %>:</th>
+        <th><%= I18n.t("aypex.admin.created_by") %>:</th>
         <td><%= payment.source.created_by_email %></td>
       </tr>
       <tr>
-        <th><%= Aypex.t(:issued_on) %>:</th>
+        <th><%= I18n.t("aypex.admin.issued_on") %>:</th>
         <td><%= pretty_time(payment.source.created_at) %></td>
       </tr>
     </table>

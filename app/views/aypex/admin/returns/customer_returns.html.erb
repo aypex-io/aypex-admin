@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-12">
           <div class="form-group">
-            <%= f.label :number_cont, Aypex.t(:number) %>
+            <%= f.label :number_cont, I18n.t("aypex.admin.number") %>
             <%= f.text_field :number_cont, class: "form-control js-quick-search-target js-filterable" %>
           </div>
         </div>
@@ -25,11 +25,11 @@
   <table class="table">
     <thead class="text-muted">
       <tr data-hook="rate_header">
-        <th><%= Aypex.t(:created_at) %></th>
-        <th><%= Aypex.t(:number) %></th>
-        <th><%= Aypex.t(:order) %></th>
-        <th><%= Aypex.t(:reimbursement_status) %></th>
-        <th><%= Aypex.t(:pre_tax_total) %></th>
+        <th><%= I18n.t("aypex.admin.created_at") %></th>
+        <th><%= I18n.t("aypex.admin.number") %></th>
+        <th><%= I18n.t("aypex.admin.order") %></th>
+        <th><%= I18n.t("aypex.admin.reimbursement_status") %></th>
+        <th><%= I18n.t("aypex.admin.pre_tax_total") %></th>
         <th></th>
       </tr>
     </thead>
@@ -41,9 +41,9 @@
           <td><%= link_to customer_return.order.number, aypex.edit_admin_order_path(customer_return.order) %></td>
           <td>
             <% if customer_return.fully_reimbursed? %>
-              <span class="badge rounded-pill rgb-hsl-success"><%= Aypex.t(:reimbursed) %></span>
+              <span class="badge rounded-pill rgb-hsl-success"><%= I18n.t("aypex.admin.reimbursed") %></span>
             <% else %>
-              <span class="badge rounded-pill rgb-hsl-muted"><%= Aypex.t(:incomplete) %></span>
+              <span class="badge rounded-pill rgb-hsl-muted"><%= I18n.t("aypex.admin.incomplete") %></span>
             <% end %>
           </td>
           <td><%= customer_return.display_pre_tax_total.to_html %></td>

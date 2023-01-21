@@ -13,17 +13,17 @@
       <div class="card-body">
         <%= f.field_container :meta_title, data: { hook: "admin_product_form_meta_title" }  do %>
           <%= f.text_field :meta_title %>
-          <%= f.label :meta_title, Aypex.t(:meta_title) %>
+          <%= f.label :meta_title, I18n.t("aypex.admin.meta_title") %>
         <% end %>
 
         <%= f.field_container :meta_keywords, data: { hook: "admin_product_form_meta_keywords" } do %>
           <%= f.text_field :meta_keywords %>
-          <%= f.label :meta_keywords, Aypex.t(:meta_keywords) %>
+          <%= f.label :meta_keywords, I18n.t("aypex.admin.meta_keywords") %>
         <% end %>
 
         <%= f.field_container :meta_description, data: { hook: "admin_product_form_meta_description" } do %>
           <%= f.text_area :meta_description, style: "height: 100px" %>
-          <%= f.label :meta_description, Aypex.t(:meta_description) %>
+          <%= f.label :meta_description, I18n.t("aypex.admin.meta_description") %>
         <% end %>
 
         <%= render partial: 'aypex/admin/shared/resource_actions' %>

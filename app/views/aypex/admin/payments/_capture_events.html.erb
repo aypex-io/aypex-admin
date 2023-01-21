@@ -1,5 +1,5 @@
 <% if @payment.capture_events.exists? %>
-  <h3><%= Aypex.t(:capture_events) %></h3>
+  <h3><%= I18n.t("aypex.admin.capture_events") %></h3>
   <div class="table-responsive border rounded">
     <table class="table table-condensed border rounded" id="capture_events">
       <thead class="text-muted">

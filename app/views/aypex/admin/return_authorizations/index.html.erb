@@ -1,6 +1,6 @@
 <% content_for :page_actions do %>
   <% if @order.shipments.any?(&:shipped?) && can?(:create, Aypex::ReturnAuthorization) %>
-    <%= link_to_with_icon Aypex.t(:new_return_authorization), new_admin_order_return_authorization_url(@order), class: "btn-primary btn", icon: 'plus-square.svg' %>
+    <%= link_to_with_icon I18n.t("aypex.admin.new_return_authorization"), new_admin_order_return_authorization_url(@order), class: "btn-primary btn", icon: 'plus-square.svg' %>
   <% end %>
 <% end %>
 
@@ -9,9 +9,9 @@
   <table class="table">
     <thead data-hook="rma_header">
       <tr>
-        <th><%= Aypex.t(:rma_number) %></th>
-        <th><%= Aypex.t(:status) %></th>
-        <th><%= Aypex.t(:pre_tax_total) %></th>
+        <th><%= I18n.t("aypex.admin.rma_number") %></th>
+        <th><%= I18n.t("aypex.admin.status") %></th>
+        <th><%= I18n.t("aypex.admin.pre_tax_total") %></th>
         <th><%= "#{I18n.t('aypex.admin.date')}/#{I18n.t('aypex.admin.time')}" %></th>
         <th></th>
       </tr>
@@ -46,6 +46,6 @@
   </div>
 <% else %>
   <div data-hook="rma_cannot_create" class="text-center no-objects-found m-5">
-    <%= Aypex.t(:cannot_create_returns) %>
+    <%= I18n.t("aypex.admin.cannot_create_returns") %>
   </div>
 <% end %>

@@ -11,12 +11,12 @@
       <div class="card-body">
         <%= f.field_container :shipping_category, data: { hook: "admin_product_form_shipping_categories" } do %>
           <%= f.collection_select(:shipping_category_id, @shipping_categories, :id, :name, {}) %>
-          <%= f.label :shipping_category_id, Aypex.t(:shipping_category) %>
+          <%= f.label :shipping_category_id, I18n.t("aypex.admin.shipping_category") %>
         <% end %>
 
         <%= f.field_container :tax_category, data: { hook: "admin_product_form_tax_category" } do %>
           <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { include_blank: I18n.t('aypex.admin.match_choices.none') }) %>
-          <%= f.label :tax_category_id, Aypex.t(:tax_category) %>
+          <%= f.label :tax_category_id, I18n.t("aypex.admin.tax_category") %>
         <% end %>
 
         <%= render partial: 'aypex/admin/shared/resource_actions' %>

@@ -1,6 +1,6 @@
 <div class="card-header">
   <h5 class="card-title">
-    <%= Aypex.t(:rules) %>
+    <%= I18n.t("aypex.admin.rules") %>
   </h5>
 </div>
 <div id="rule_fields" class="card-body">
@@ -9,7 +9,7 @@
       <div class="input-group">
         <div class="form-floating">
           <%= select_tag('promotion_rule[type]', options_for_promotion_rule_types(@promotion), include_blank: true, class: "form-select",  data: { controller: 'ts--select' }) %>
-          <%= label_tag :promotion_rule_type, Aypex.t(:add_rule_of_type) %>
+          <%= label_tag :promotion_rule_type, I18n.t("aypex.admin.add_rule_of_type") %>
         </div>
         <%= button '', 'plus-lg.svg', 'submit', class: "btn btn-secondary input-group-text" %>
       </div>
@@ -34,7 +34,7 @@
         <%= render partial: 'promotion_rule', collection: @promotion.rules, locals: {} %>
       <% else %>
         <div class="alert alert-warning">
-          <%= Aypex.t(:no_rules_added) %>
+          <%= I18n.t("aypex.admin.no_rules_added") %>
         </div>
       <% end %>
     </div>

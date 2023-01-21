@@ -1,7 +1,7 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_products_path, link_one_text:I18n.t('aypex.admin.products.all_products'),
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_products_path, link_one_text:I18n.t('aypex.admin.all_products'),
                          link_two_uri: aypex.edit_admin_product_path(@product), link_two_text: @product.name,
-                         current_page_name: I18n.t('aypex.admin.products.new_variant')) %>
+                         current_page_name: I18n.t('aypex.admin.new_variant')) %>
 <% end %>
 
 <%= form_with model: [:admin, @product, @variant] do |f| %>

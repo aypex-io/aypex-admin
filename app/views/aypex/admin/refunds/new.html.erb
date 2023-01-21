@@ -1,8 +1,8 @@
 <%= render partial: 'aypex/admin/shared/order_tabs', locals: {current: :payments} %>
 
 <% content_for :page_title do %>
-  / <%= link_to "#{Aypex.t(:payment)} #{@refund.payment.id}", aypex.admin_order_payment_path(@refund.payment.order, @refund.payment) %>
-  / <%= Aypex.t(:new_refund) %>
+  / <%= link_to "#{I18n.t("aypex.admin.payment")} #{@refund.payment.id}", aypex.admin_order_payment_path(@refund.payment.order, @refund.payment) %>
+  / <%= I18n.t("aypex.admin.new_refund") %>
 <% end %>
 
 <%= render 'aypex/admin/shared/error_messages', target: @refund %>
@@ -11,11 +11,11 @@
   <fieldset>
     <div data-hook="admin_refund_form_fields">
       <div class="form-group">
-        <%= f.label :payment_amount, Aypex.t(:payment_amount) %><br>
+        <%= f.label :payment_amount, I18n.t("aypex.admin.payment_amount") %><br>
         <%= @refund.payment.amount %>
       </div>
       <div class="form-group">
-        <%= f.label :credit_allowed, Aypex.t(:credit_allowed) %><br>
+        <%= f.label :credit_allowed, I18n.t("aypex.admin.credit_allowed") %><br>
         <%= @refund.payment.credit_allowed %>
       </div>
       <%= f.field_container :amount do %>
@@ -24,14 +24,14 @@
         <%= f.error_message_on :amount %>
       <% end %>
       <%= f.field_container :reason do %>
-        <%= f.label :refund_reason_id, Aypex.t(:reason) %>
+        <%= f.label :refund_reason_id, I18n.t("aypex.admin.reason") %>
         <%= f.collection_select(:refund_reason_id, refund_reasons, :id, :name, {include_blank: true}, {data: {controller: 'ts--select'}}) %>
         <%= f.error_message_on :reason %>
       <% end %>
     </div>
 
     <div class="form-actions" data-hook="buttons">
-      <%= button Aypex.t(:refund), 'save.svg' %>
+      <%= button I18n.t("aypex.admin.refund"), 'save.svg' %>
       <span class="or"><%= I18n.t("aypex.admin.or") %></span>
       <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.admin_order_payments_url(@refund.payment.order), icon: "x-lg.svg" %>
     </div>

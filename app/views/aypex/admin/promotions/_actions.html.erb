@@ -1,6 +1,6 @@
 <div class="card-header">
   <h5 class="card-title">
-    <%= Aypex.t(:promotion_actions) %>
+    <%= I18n.t("aypex.admin.promotion_actions") %>
   </h5>
 </div>
 <div id="action_fields" class="card-body">
@@ -11,7 +11,7 @@
       <div class="input-group">
         <div class="form-floating">
           <%= select_tag 'action_type', options, class: "form-select", include_blank: true, data: {controller: 'ts--select'} %>
-          <%= label_tag :action_type, Aypex.t(:add_action_of_type) %>
+          <%= label_tag :action_type, I18n.t("aypex.admin.add_action_of_type") %>
         </div>
         <%= button '', 'plus-lg.svg', 'submit', class: "btn btn-secondary input-group-text" %>
       </div>
@@ -23,7 +23,7 @@
           <%= render partial: 'promotion_action',  collection: @promotion.actions %>
         <% else %>
           <div class="alert alert-warning">
-            <%= Aypex.t(:no_actions_added) %>
+            <%= I18n.t("aypex.admin.no_actions_added") %>
           </div>
         <% end %>
       </div>

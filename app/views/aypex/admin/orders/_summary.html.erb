@@ -36,7 +36,7 @@
     <ul class="list-group list-group-flush">
       <% if @order.completed? %>
         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-          <small data-hook='admin_order_tab_date_completed_title'><%= Aypex.t(:date_completed) %></small>
+          <small data-hook='admin_order_tab_date_completed_title'><%= I18n.t("aypex.admin.date_completed") %></small>
           <span class="text-end small font-weight-bold" id='date_complete'>
             <%= pretty_time(@order.completed_at) %>
           </span>
@@ -45,14 +45,14 @@
 
       <% if @order.approved? %>
         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-          <small><%= Aypex.t(:approved_at) %></small>
+          <small><%= I18n.t("aypex.admin.approved_at") %></small>
           <span class="text-end small font-weight-bold">
             <%= pretty_time(@order.approved_at) %>
           </span>
         </li>
         <% if @order.approver.present? %>
           <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-            <small><%= Aypex.t(:approver) %></small>
+            <small><%= I18n.t("aypex.admin.approver") %></small>
             <span class="text-end small font-weight-bold">
               <%= link_to @order.approver.email, aypex.admin_users_path(@order.approver) %>
             </span>
@@ -69,7 +69,7 @@
         </li>
         <% if @order.canceler.present? %>
           <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-            <small><%= Aypex.t(:canceler) %></small>
+            <small><%= I18n.t("aypex.admin.canceler") %></small>
             <span class="text-end small font-weight-bold">
               <%= link_to @order.canceler.email, aypex.admin_users_path(@order.canceler) %>
             </span>

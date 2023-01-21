@@ -15,35 +15,35 @@
             <div class="col-12 col-md-6">
               <%= f.field_container :weight, data: { hook: "admin_product_form_weight" } do %>
                 <%= f.text_field :weight, value: number_with_precision(@product.weight, precision: 2), data: {controller: "input--format-decimal"} %>
-                <%= f.label :weight, Aypex.t(:weight) %>
+                <%= f.label :weight, I18n.t("aypex.admin.weight") %>
               <% end %>
             </div>
 
             <div class="col-12 col-md-6">
               <%= f.field_container :height, data: { hook: "admin_product_form_height" } do %>
                 <%= f.text_field :height, value: number_with_precision(@product.height, precision: 2), data: {controller: "input--format-decimal"} %>
-                <%= f.label :height, Aypex.t(:height) %>
+                <%= f.label :height, I18n.t("aypex.admin.height") %>
               <% end %>
             </div>
 
             <div class="col-12 col-md-6">
               <%= f.field_container :width, data: { hook: "admin_product_form_width" } do %>
                 <%= f.text_field :width, value: number_with_precision(@product.width, precision: 2), data: {controller: "input--format-decimal"} %>
-                <%= f.label :width, Aypex.t(:width) %>
+                <%= f.label :width, I18n.t("aypex.admin.width") %>
               <% end %>
             </div>
 
             <div class="col-12 col-md-6">
               <%= f.field_container :depth, data: { hook: "admin_product_form_depth" } do %>
                 <%= f.text_field :depth, value: number_with_precision(@product.depth, precision: 2), data: {controller: "input--format-decimal"} %>
-                <%= f.label :depth, Aypex.t(:depth) %>
+                <%= f.label :depth, I18n.t("aypex.admin.depth") %>
               <% end %>
             </div>
           </div>
 
           <%= f.field_container :master_sku, data: { hook: "admin_product_form_sku" }  do %>
             <%= f.text_field :sku %>
-            <%= f.label :master_sku, Aypex.t(:master_sku) %>
+            <%= f.label :master_sku, I18n.t("aypex.admin.master_sku") %>
           <% end %>
 
           <%= render partial: 'aypex/admin/shared/resource_actions' %>

@@ -39,7 +39,7 @@
       <% end %>
 
       <%= link_to aypex.edit_admin_product_path(product), data: {turbo_frame: :_top} do %>
-        <%= active_badge(available_status == I18n.t('aypex.admin.products.active'), label: available_status) %>
+        <%= active_badge(available_status == I18n.t('aypex.admin.active'), label: available_status) %>
       <% end %>
 
       <%= link_to aypex.edit_admin_product_path(product), class: 'text-reset', data: {turbo_frame: :_top} do %>

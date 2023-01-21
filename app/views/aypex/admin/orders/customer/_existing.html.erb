@@ -11,7 +11,7 @@
                                                                   ts__search_user_ransack_value: ['email_i_cont', 'addresses_firstname', 'addresses_lastname'],
                                                                   ts__search_user_include_value: 'ship_address.country,bill_address.country' } %>
 
-      <%= f.label :user_id, Aypex.t(:user_id), class: 'form-label' %>
+      <%= f.label :user_id, I18n.t("aypex.admin.user_id"), class: 'form-label' %>
     </div>
 
     <%= f.submit I18n.t('aypex.admin.order.add_user_to_order'), class: 'btn btn-secondary', data: { form_validation_target: "submitBtn" } %>

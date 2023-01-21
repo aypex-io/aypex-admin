@@ -17,7 +17,7 @@
 
         <%= f.field_container :slug do %>
           <%= f.text_field :slug, required: true %>
-          <%= f.label :slug, raw(Aypex.t(:slug) + required_span_tag) %>
+          <%= f.label :slug, raw(I18n.t("aypex.admin.slug") + required_span_tag) %>
         <% end %>
 
         <% if product_wysiwyg_editor_enabled? %>

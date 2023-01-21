@@ -95,7 +95,7 @@
                 <table class="table stock-contents" data-hook="stock-contents">
                   <thead class="text-muted">
                     <tr>
-                      <th colspan="2"><%= Aypex.t(:item) %></th>
+                      <th colspan="2"><%= I18n.t("aypex.admin.item") %></th>
                       <th class="text-center"><%= I18n.t("aypex.admin.quantity") %></th>
                       <th class="text-center"><%= I18n.t("aypex.admin.availability") %></th>
                       <th class="text-center"><%= I18n.t("aypex.admin.total") %></th>
@@ -113,7 +113,7 @@
 
               <%= field_container :selected_shipping_rate_id, nil do %>
                 <%= select_tag :selected_shipping_rate_id, options_for_select(shipment.shipping_rates.map {|sr| ["#{sr.name} #{sr.display_price}", sr.id] }, shipment.selected_shipping_rate_id), { disabled: (shipment.shipped? or cannot? :update, shipment), class: 'form-select'} %>
-                <%= label_tag 'selected_shipping_rate_id', Aypex.t(:shipping_method) %>
+                <%= label_tag 'selected_shipping_rate_id', I18n.t("aypex.admin.shipping_method") %>
               <% end %>
 
               <%= turbo_frame_tag(shipment) do %>
@@ -167,7 +167,7 @@
 
     <% if @order.special_instructions.present? %>
       <div class='special_instructions'>
-        <strong><%= Aypex.t(:special_instructions) %>:&nbsp;</strong><%= @order.special_instructions %>
+        <strong><%= I18n.t("aypex.admin.special_instructions") %>:&nbsp;</strong><%= @order.special_instructions %>
       </div>
     <% end %>
   </div>

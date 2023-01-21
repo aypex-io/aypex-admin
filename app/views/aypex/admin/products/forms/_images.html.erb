@@ -2,11 +2,11 @@
   <div class="card">
     <div class="card-header d-flex">
       <div class="flex-fill">
-        <h5 class="card-title"><%= I18n.t('aypex.admin.products.images') %></h5>
+        <h5 class="card-title"><%= I18n.t('aypex.admin.images') %></h5>
       </div>
 
       <div>
-        <%= link_to_with_icon(Aypex.t(:new_image), aypex.new_admin_product_image_url(@product), { class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'new_image_link', data: {turbo_frame: :modal} }) if can? :create, Aypex::Image %>
+        <%= link_to_with_icon(I18n.t("aypex.admin.new_image"), aypex.new_admin_product_image_url(@product), { class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'new_image_link', data: {turbo_frame: :modal} }) if can? :create, Aypex::Image %>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
               <tr data-hook="images_header">
                 <th class=""><%= aypex_admin_svg_tag("arrow-down-up.svg", style: "margin-left: 0.7rem") %></th>
                 <th class="text-center">
-                  <%= Aypex.t(:thumbnail) %>
+                  <%= I18n.t("aypex.admin.thumbnail") %>
                 </th>
                 <% if @product.has_variants? %>
                   <th class="text-center">
