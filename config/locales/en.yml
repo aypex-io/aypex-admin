@@ -191,6 +191,7 @@ en:
       code_info: Code info
       company: Company
       compare_at_price: Compare at price
+      complete: Complete
       confirm_password: Confirm password
       contact_details: Contact details
       contact_information: Contact information
@@ -550,7 +551,7 @@ en:
       pending: Pending
       phone: Phone
       platform_api: Platform API
-      post_code: Post code
+      post_code: Post Code
       pre_tax_amount: Pre tax amount
       pre_tax_refund_amount: Pre tax refund amount
       pre_tax_total: Pre tax total

@@ -1,9 +1,9 @@
 <%= turbo_frame_tag :user_orders do %>
   <% content_for :index_table_filter_tabs do %>
-    <%= link_to I18n.t("aypex.admin.complete'), aypex.orders_admin_user_path(@user), class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:state_eq] == 'cart' || params[:q][:number_i_cont].present? }" %>
-    <%= link_to I18n.t("aypex.admin.draft'), params.merge({q: { completed_at_not_null: false, state_eq: 'cart' }}).permit!, class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:completed_at_not_null] == '1' || params[:q][:number_i_cont].present? }" %>
-    <%= link_to I18n.t("aypex.admin.unpaid'), params.merge({q: {payment_state_not_eq: :paid}}).permit!, class: "#{'active' if params[:q][:payment_state_not_eq] == 'paid' }" %>
-    <%= link_to I18n.t("aypex.admin.unfulfilled'), params.merge({q: {shipment_state_not_eq: :shipped}}).permit!, class: "#{'active' if params[:q][:shipment_state_not_eq] == 'shipped'}" %>
+    <%= link_to I18n.t("aypex.admin.complete"), aypex.orders_admin_user_path(@user), class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:state_eq] == 'cart' || params[:q][:number_i_cont].present? }" %>
+    <%= link_to I18n.t("aypex.admin.draft"), params.merge({q: { completed_at_not_null: false, state_eq: 'cart' }}).permit!, class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:completed_at_not_null] == '1' || params[:q][:number_i_cont].present? }" %>
+    <%= link_to I18n.t("aypex.admin.unpaid"), params.merge({q: {payment_state_not_eq: :paid}}).permit!, class: "#{'active' if params[:q][:payment_state_not_eq] == 'paid' }" %>
+    <%= link_to I18n.t("aypex.admin.unfulfilled"), params.merge({q: {shipment_state_not_eq: :shipped}}).permit!, class: "#{'active' if params[:q][:shipment_state_not_eq] == 'shipped'}" %>
   <% end %>
 
   <% content_for :index_table do %>
@@ -11,10 +11,10 @@
         <table class="table" id="listing_orders" data-hook>
           <thead class="text-muted">
             <tr data-hook="admin_orders_index_headers">
-              <th><%= sort_link @search, :number,         I18n.t(:number, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_number_title'} %></th>
-              <th><%= sort_link @search, :completed_at,   I18n.t(:completed_at, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_completed_at_title'} %></th>
-              <th><%= sort_link @search, :state,          I18n.t(:state, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_state_title'} %></th>
-              <th><%= sort_link @search, :total,          I18n.t(:total, scope: 'activerecord.attributes.aypex/order'), {title: 'orders_total_title'} %></th>
+              <th><%= sort_link @search, :number,         name: I18n.t(:number, scope: 'activerecord.attributes.aypex/order'), title: 'orders_number_title' %></th>
+              <th><%= sort_link @search, :completed_at,   name: I18n.t(:completed_at, scope: 'activerecord.attributes.aypex/order'), title: 'orders_completed_at_title' %></th>
+              <th><%= sort_link @search, :state,          name: I18n.t(:state, scope: 'activerecord.attributes.aypex/order'), title: 'orders_state_title' %></th>
+              <th><%= sort_link @search, :total,          name: I18n.t(:total, scope: 'activerecord.attributes.aypex/order'), title: 'orders_total_title' %></th>
             </tr>
           </thead>
           <tbody>
