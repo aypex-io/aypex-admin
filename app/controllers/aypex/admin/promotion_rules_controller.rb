@@ -1,6 +1,4 @@
 class Aypex::Admin::PromotionRulesController < Aypex::Admin::BaseController
-  helper "aypex/admin/promotion_rules"
-
   before_action :load_promotion, only: [:create, :destroy, :product_options, :get_product_option_values]
   before_action :validate_promotion_rule_type, only: :create
 

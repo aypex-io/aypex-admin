@@ -3,8 +3,6 @@ module Aypex
     class PromotionsController < ResourceController
       before_action :load_data, except: :clone
 
-      helper "aypex/admin/promotion_rules"
-
       def clone
         promotion = current_store.promotions.find(params[:id])
         duplicator = Aypex::PromotionHandler::PromotionDuplicator.new(promotion)

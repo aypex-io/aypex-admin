@@ -12,10 +12,15 @@ module Aypex
 
       respond_to :html
 
-      helper "aypex/base"
-      helper "aypex/admin/navigation"
-      helper "aypex/locale"
-      helper "aypex/currency"
+      # Imported from Aypex
+      helper "aypex/base", "aypex/currency", "aypex/locale", "aypex/admin/navigation"
+
+      # Imported from Aypex::Admin
+      helper "aypex/admin/address", "aypex/admin/adjustments", "aypex/admin/base", "aypex/admin/categories", "aypex/admin/cms",
+        "aypex/admin/customer_returns", "aypex/admin/digital", "aypex/admin/images", "aypex/admin/menu", "aypex/admin/navigation",
+        "aypex/admin/orders", "aypex/admin/payments", "aypex/admin/products", "aypex/admin/promotion_rules", "aypex/admin/reimbursement_type",
+        "aypex/admin/reimbursements", "aypex/admin/sortable_tree", "aypex/admin/stock_locations", "aypex/admin/stock_movements",
+        "aypex/admin/stores", "aypex/admin/webhooks_subscribers"
 
       layout "aypex/layouts/admin"
 

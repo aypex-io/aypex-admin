@@ -4,8 +4,6 @@ module Aypex
       belongs_to "aypex/menu"
       before_action :load_data
 
-      helper "aypex/admin/menu"
-
       def collection_url
         aypex.edit_admin_menu_path(@menu)
       end
