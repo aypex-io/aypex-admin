@@ -31,7 +31,7 @@
       <div data-hook="admin_shipping_method_form_internal_name_field" class="col-12 col-lg-4">
         <%= f.field_container :admin_name do %>
           <%= f.text_field :admin_name %>
-          <%= f.label :admin_name, Aypex.t(:internal_name) %>
+          <%= f.label :admin_name, I18n.t("aypex.admin.internal_name") %>
         <% end %>
       </div>
 
@@ -45,7 +45,7 @@
       <div data-hook="admin_shipping_method_form_tracking_url_field" class="col-12 col-lg-4">
         <%= f.field_container :tracking_url do %>
           <%= f.text_field :tracking_url %>
-          <%= f.label :tracking_url, Aypex.t(:tracking_url) %>
+          <%= f.label :tracking_url, I18n.t("aypex.admin.tracking_url") %>
         <% end %>
       </div>
     </div>
@@ -53,36 +53,36 @@
     <div class="collapse" id="shippingMethodDetailsInfo">
         <div class="call-out call-out-info my-0">
           <h6>
-             <%= I18n.t('aypex.admin.shipping_methods.display') %>
+             <%= I18n.t('aypex.admin.display') %>
           </h6>
           <small class="text-muted">
-            <%= raw I18n.t('aypex.admin.shipping_methods.display_info') %>
+            <%= raw I18n.t('aypex.admin.display_info') %>
           </small>
           <hr>
 
           <h6>
-             <%= I18n.t('aypex.admin.shipping_methods.internal_name') %>
+             <%= I18n.t('aypex.admin.internal_name') %>
           </h6>
           <small class="text-muted">
-            <%= raw I18n.t('aypex.admin.shipping_methods.internal_name_info') %>
-          </small>
-
-          <hr>
-
-          <h6>
-             <%= I18n.t('aypex.admin.shipping_methods.code') %>
-          </h6>
-          <small class="text-muted">
-            <%= raw I18n.t('aypex.admin.shipping_methods.code_info') %>
+            <%= raw I18n.t('aypex.admin.internal_name_info') %>
           </small>
 
           <hr>
 
           <h6>
-             <%= I18n.t('aypex.admin.shipping_methods.tracking_url') %>
+             <%= I18n.t('aypex.admin.code') %>
           </h6>
           <small class="text-muted">
-            <%= raw I18n.t('aypex.admin.shipping_methods.tracking_url_info') %>
+            <%= raw I18n.t('aypex.admin.code_info') %>
+          </small>
+
+          <hr>
+
+          <h6>
+             <%= I18n.t('aypex.admin.tracking_url') %>
+          </h6>
+          <small class="text-muted">
+            <%= raw I18n.t('aypex.admin.tracking_url_info') %>
           </small>
         </div>
     </div>
@@ -96,7 +96,7 @@
       <div class="card-header d-flex">
         <div class="flex-fill">
           <h5 class="card-title">
-            <%= Aypex.t(:shipping_categories) %>
+            <%= I18n.t("aypex.admin.shipping_categories") %>
           </h5>
         </div>
 
@@ -119,10 +119,10 @@
           <div>
             <div class="call-out call-out-info my-0">
               <h6>
-                 <%= I18n.t('aypex.admin.shipping_methods.categories') %>
+                 <%= I18n.t('aypex.admin.categories') %>
               </h6>
               <small class="text-muted">
-                <%= raw I18n.t('aypex.admin.shipping_methods.categories_info') %>
+                <%= raw I18n.t('aypex.admin.categories_info') %>
               </small>
             </div>
           </div>
@@ -139,7 +139,7 @@
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">
-          <%= Aypex.t(:zones) %>
+          <%= I18n.t("aypex.admin.zones") %>
         </h5>
       </div>
 
@@ -156,7 +156,7 @@
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">
-          <%= Aypex.t(:tax_category) %>
+          <%= I18n.t("aypex.admin.tax_category") %>
         </h5>
       </div>
 

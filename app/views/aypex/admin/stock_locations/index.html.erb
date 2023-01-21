@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon Aypex.t(:new_stock_location), new_object_url, { class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_stock_location' } %>
+  <%= link_to_with_icon I18n.t("aypex.admin.new_stock_location"), new_object_url, { class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_stock_location' } %>
 <% end if can? :create, Aypex::StockLocation %>
 
 <% if @stock_locations.any? %>
@@ -12,8 +12,8 @@
     <thead class="text-muted">
       <tr data-hook="stock_locations_header">
         <th><%= I18n.t("aypex.admin.name") %></th>
-        <th><%= Aypex.t(:stock_movements) %></th>
-        <th><%= Aypex.t(:status) %></th>
+        <th><%= I18n.t("aypex.admin.stock_movements") %></th>
+        <th><%= I18n.t("aypex.admin.status") %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -24,8 +24,8 @@
 
         <tr id="<%= dom_id(stock_location) %>" data-hook="stock_location_row" data-stream-exit-class="animate__fadeOut">
           <td><%= display_name(stock_location) %></td>
-          <td><%= link_to Aypex.t(:stock_movements), aypex.admin_stock_location_stock_movements_path(stock_location.id) %> </td>
-          <td><%= active_badge(stock_location.active, label: Aypex.t(state(stock_location))) %></td>
+          <td><%= link_to I18n.t("aypex.admin.stock_movements"), aypex.admin_stock_location_stock_movements_path(stock_location.id) %> </td>
+          <td><%= active_badge(stock_location.active, label: I18n.t("aypex.admin.#{state(stock_location)}") ) %></td>
           <td class="actions">
             <span class="d-flex justify-content-end">
               <%= link_to_edit(stock_location) if can? :create, stock_location %>

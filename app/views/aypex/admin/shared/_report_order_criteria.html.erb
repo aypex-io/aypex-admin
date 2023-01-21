@@ -1,6 +1,6 @@
 <%= search_form_for @search, url: aypex.sales_total_admin_reports_path  do |s| %>
   <div class="form-group date-range-filter">
-    <%= label_tag nil, Aypex.t(:date_range) %>
+    <%= label_tag nil, I18n.t("aypex.admin.date_range") %>
     <div class="date-range-filter row">
       <div class="col-12 col-md-6 mb-3 mb-md-0">
         <%= render partial: 'aypex/admin/shared/date_picker_from',  locals: { f: s,

@@ -8,7 +8,7 @@
 
 <% content_for :page_title do %>
   / <%= link_to I18n.t("aypex.admin.return_authorizations"), aypex.admin_order_return_authorizations_url %>
-  / <%= @return_authorization.number %> (<%= Aypex.t(@return_authorization.state.downcase) %>)
+  / <%= @return_authorization.number %> (<%= I18n.t("aypex.admin.#{@return_authorization.state.downcase}") %>)
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @return_authorization } %>

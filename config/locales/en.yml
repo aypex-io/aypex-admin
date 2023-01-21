@@ -2,6 +2,9 @@
 en:
   aypex:
     admin:
+      '':
+        all: All
+      abandoned_checkouts: Abandoned checkouts
       abbreviation: Abbreviation
       accept: Accept
       acceptance_errors: Acceptance errors
@@ -23,6 +26,7 @@ en:
         update: Update
         upload: Upload
       active: Active
+      add: Add
       add_a_new_billing_address: Add a new billing address
       add_a_new_option_value: Add a new option value
       add_a_new_property: Add a new property
@@ -31,17 +35,32 @@ en:
       add_action_of_type: Add action of type
       add_coupon_code: Add coupon code
       add_first_property: Add first property
+      add_new_address: Add new address
       add_new_category: Add new category
       add_new_properties_from_prototype: Add new properties from prototype
       add_new_property: Add new property
+      add_new_state: Add new state
+      add_new_store: Add new store
       add_one: Add one
       add_option_types_to_this_product_to_begin_creating_variants: Add option types to this product to begin creating variants
       add_option_value: Add option value
       add_rule_of_type: Add rule of type
       add_stock: Add stock
+      add_store: Add store
+      add_store_credit: Add store credit
+      add_variant: Add variant
       address: Address
       address_cont: Address cont
       address_label: Address label
+      addresses:
+        billing_address: Billing address
+        no_addresses_set: No addresses set
+        other_addresses: Other addresses
+        shipping_address: Shipping address
+        this_user_has_no_addresses_click_add_new_address_to_add_a_new_address: This user has no addresses click add new address to add a new address
+        you_have_no_default_billing_addresses_set: You have no default billing addresses set
+        you_have_no_default_shipping_addresses_set: You have no default shipping addresses set
+        you_have_no_unused_addresses: You have no unused addresses
       adjustable: Adjustable
       adjustment_total: Adjustment total
       advertise: Advertise
@@ -52,6 +71,7 @@ en:
       all_items_have_been_returned: All items have been returned
       all_loaded: All Loaded
       all_option_types: All option types
+      all_orders: All orders
       all_payment_methods: All payment methods
       all_products: All products
       all_promotion_categories: All promotion categories
@@ -59,6 +79,7 @@ en:
       all_properties: All properties
       all_prototypes: All prototypes
       alt_text: Alt text
+      alternative_phone: Alternative phone
       amount: Amount
       amount_max: Amount max
       amount_min: Amount min
@@ -72,6 +93,7 @@ en:
       auto_capture: Auto capture
       availability: Availability
       available_on: Available on
+      average_order_value: Average order value
       avs_response: Avs response
       avs_responses:
         street_address_matches_but_5-digit_and_9_digit_postal_code_do_not_match: Street address matches, but 5-digit and 9-digit postal code do not match.
@@ -79,8 +101,10 @@ en:
       aypex_administration: Aypex administration
       back_to_resource_list: Back to resource list
       backorderable: Backorderable
+      backorderable_default: Backorderable default
       balance_due: Balance due
       base_categories: Base categories
+      basic_information: Basic information
       billing_address: Billing address
       bulk_actions: Bulk actions
       calculated_reimbursements: Calculated reimbursements
@@ -103,6 +127,8 @@ en:
         nested_under_info: Nest this Category within the BaseCategory tree.
         permalink: Permalink
         use_the_search_box_above_to_search_for_categories: Use the search box above to search for a Category.
+      categories_info: Categories info
+      category: Category
       category_rule:
         choose_categories: Categories
         label: The promotion applies to products
@@ -164,9 +190,13 @@ en:
         hero_image:
           hero_image_info: Hero image info
       code: Code
+      code_info: Code info
       company: Company
       compare_at_price: Compare at price
+      confirm_password: Confirm password
       contact_details: Contact details
+      contact_information: Contact information
+      contact_phone: Contact phone
       continue: Continue
       copy_to_clipboard: Copy to clipboard
       cost_currency: Cost currency
@@ -174,18 +204,13 @@ en:
       could_not_create_stock_movement: Could not create stock movement
       could_not_update_stock_item: Could not update stock item
       count_on_hand: Count on hand
-      countries:
-        add_new_state: Add new state
-        edit_state: Edit state
-        iso: ISO
-        iso3: ISO3
-        iso_name: ISO Name
-        search_by_country_name: Search by country name
-        states: States
+      countries: Countries
       country: Country
+      country_based: Country based
       country_name: Country name
       coupon_code: Coupon code
       create: Create
+      create_new_order: Create new order
       create_platform_application: Create platform application
       create_reimbursement: Create reimbursement
       create_webhook_subscriber: Create webhook subscriber
@@ -195,19 +220,25 @@ en:
       credit_allowed: Credit allowed
       credit_card: Credit card
       credit_owed: Credit owed
+      credited: Credited
       credits: Credits
       currency: Currency
       current_promotion_usage: Current promotion usage
       customer: Customer
+      customer_support_email: Customer support email
       cvv_response: Cvv response
       dashboard: Dashboard
       date: Date
       date_completed: Date completed
+      date_range: Date range
       default: Default
       default_country: Default country
+      default_tax_zone: Default tax zone
+      delete: Delete
       deleted: Deleted
       depth: Depth
       description: Description
+      destination: Destination
       details: Details
       digitals:
         add_new_file: Add a new digital asset.
@@ -216,17 +247,24 @@ en:
         reset_download_links: Reset Digital Download Links
       discontinue_on: Discontinue on
       display: Display
+      display_info: Display info
       display_on:
         back_end: Admin Panel
         both: All
         front_end: Storefront
       download_sdk: Download SDK
       draft: Draft
+      draft_orders: Draft orders
+      edit: Edit
       edit_address: Edit address
       edit_reimbursement: Edit reimbursement
       edit_root_base_category: Edit root base category
+      edit_state: Edit state
       editing_variant: Editing variant
+      email: Email
+      email_address: Email address
       emirate: Emirate
+      ending_at: Ending at
       error: Error
       error_user_destroy_with_orders: Error user destroy with orders
       errors:
@@ -238,14 +276,20 @@ en:
           cannot_remove_icon: Cannot remove icon
         promotionable_could_not_be_updated: Promotionable could not be updated
         status_could_not_be_updated: Status could not be updated
+      errors_prohibited_this_record_from_being_saved: Errors prohibited this record from being saved
       exchange_for: Exchange for
       execution_time: Execution Time
+      existing: Existing
       expedited_exchanges_warning: Expedited exchanges warning
       expiration: Expiration
       expires_at: Expires at
+      facebook_username: Facebook username
       failed_payment_attempts: Failed payment attempts
+      favicon: Favicon
+      favicon_upload_info: Favicon upload info
       fill_in_customer_info: Fill in customer info
       filter_param: Filter param
+      filter_results: Filter results
       filterable: Filterable
       filterable_status: Filterable status
       filters:
@@ -260,18 +304,28 @@ en:
         shipment_state_not_eq: Shipment State Not Equal
         variants_including_master_sku_cont: SKU
       first_name: First name
+      footer: Footer
+      general_settings: General settings
       generate_code: Generate code
+      getting_started: Getting started
       header_banner: Header banner
       height: Height
       id: Id
       image_filter: Image filter
       images: Images
+      included_in_price: Included in price
       incomplete: Incomplete
+      instagram_username: Instagram username
+      internal_name: Internal name
+      internal_name_info: Internal name info
       international_pricing: International pricing
+      internationalization: Internationalization
       invalid_payment_provider: Invalid payment provider
       invalid_promotion_action: Invalid promotion action
       invalid_promotion_rule: Invalid promotion rule
+      iso: Iso
       iso3: Iso3
+      iso_name: Iso name
       issued_on: Issued on
       item: Item
       item_total: Item total
@@ -294,10 +348,14 @@ en:
       load_more: Load More
       location: Location
       log_entries: Log entries
+      logo: Logo
       logs: Logs
+      mail_from_address: Mail from address
+      mailer_logo: Mailer logo
       make_active_at: Make active at
       make_refund: Make refund
       make_sure_the_above_reimbursement_amount_is_correct: Make sure the above reimbursement amount is correct
+      manage: Manage
       manual_intervention_required: Manual intervention required
       master_sku: Master sku
       match_choices:
@@ -313,8 +371,10 @@ en:
       meta_keywords: Meta keywords
       meta_title: Meta title
       more_filters: More Filters
+      move_stock_between_locations: Move stock between locations
       mutable: Mutable
       name: Name
+      name_and_email: Name and email
       name_on_card: Name on card
       navigation:
         add_new_item: Add New Item
@@ -352,6 +412,7 @@ en:
         url: URL
         url_info: The URL field can link to an external website using <b>https://example.com</b>, link to an otherwise unreachable internal path using <b>/policies/privacy</b>, launch an email client using <b>mailto:sales@example.com</b> or used to create a clickable phone number with <b>tel:123456789</b>
         you_have_no_menus: You have no Menus, click the Add New Menu button to create your first Menu.
+      new: New
       new_address: New address
       new_adjustment: New adjustment
       new_country: New country
@@ -359,6 +420,7 @@ en:
       new_image: New image
       new_option_type: New option type
       new_order: New order
+      new_order_notifications_email: New order notifications email
       new_payment_method: New payment method
       new_product: New product
       new_product_details: New product details
@@ -372,7 +434,18 @@ en:
       new_reimbursement_type: New reimbursement type
       new_return_authorization: New return authorization
       new_rma_reason: New rma reason
+      new_role: New role
+      new_shipping_category: New shipping category
+      new_shipping_method: New shipping method
+      new_stock_location: New stock location
+      new_stock_movement: New stock movement
+      new_stock_transfer: New stock transfer
+      new_store_credit_category: New store credit category
+      new_tax_category: New tax category
+      new_tax_rate: New tax rate
+      new_user: New user
       new_variant: New variant
+      new_zone: New zone
       no_actions_added: No actions added
       no_billing_address_has_been_added_to_this_order: No billing address has been added to this order
       no_categories: "<b>%{base_category}</b> has no Sub Categories. Click the <b>Add a new Category</b> button, to begin."
@@ -381,10 +454,12 @@ en:
       no_resource_found: No resource found
       no_rules_added: No rules added
       no_shipping_address_has_been_added_to_this_order: No shipping address has been added to this order
+      no_state_changes: No state changes
       non_filterable: Non filterable
       none: None
       not: Not
       not_applicable: Not applicable
+      not_available: Not available
       not_found: "%{resource} is not found"
       note: Note
       notice_messages:
@@ -407,6 +482,7 @@ en:
       option_values_rule:
         options: Options
         product: Product
+      optional: Optional
       options: Options
       or: Or
       order:
@@ -439,6 +515,7 @@ en:
       order_approved: Order approved
       order_canceled: Order canceled
       order_email_resent: Order email resent
+      order_number: Order number
       order_resumed: Order resumed
       order_state:
         address: Address
@@ -451,29 +528,17 @@ en:
         payment: Payment
         resumed: Resumed
         returned: Returned
-      orders:
-        abandoned_checkouts: Abandoned Checkouts
-        all_orders: All Orders
-        contact_information: Contact information
-        draft_orders: Draft Orders
-        email: Email
-        email_address: Email address
-        existing: Existing
-        getting_started: Getting Started
-        new: New
-        order_number: Order number
-        order_state: Order state
-        payment_state: Payment state
-        set_the_order_currency: Set the order currency
-        shipment_state: Shipment state
-        state: State
+      orders: Orders
       organization: Organization
       overview: Overview
+      password: Password
       payment: Payment
       payment_amount: Payment amount
       payment_could_not_be_created: Payment could not be created
+      payment_identifier: Payment identifier
       payment_method: Payment method
       payment_provider_settings: Payment provider settings
+      payment_state: Payment state
       payment_states:
         balance_due: Balance due
         credit_owed: Credit owed
@@ -493,6 +558,7 @@ en:
       pre_tax_total: Pre tax total
       preferred_reimbursement_type: Preferred reimbursement type
       presentation: Presentation
+      previous_state_missing: Previous state missing
       previously_used_card: Previously used card
       price: Price
       price_now: Price now
@@ -576,6 +642,7 @@ en:
         organizations: Organizations
         path: Path
         promotions: Promotions
+      propagate_all_variants: Propagate all variants
       properties: Properties
       property_name: Property name
       provider: Provider
@@ -584,6 +651,8 @@ en:
       quantity: Quantity
       reason: Reason
       receive_stock: Receive stock
+      reference: Reference
+      reference_contains: Reference contains
       refund: Refund
       refund_reasons: Refund reasons
       refunds: Refunds
@@ -612,21 +681,33 @@ en:
       risk_analysis: Risk analysis
       risky: Risky
       rma_number: Rma number
+      role_id: Role
+      roles: Roles
       rules: Rules
       safe: Safe
       sales_total: Sales total
       sales_total_description: Sales Total For All Orders
+      sales_totals: Sales totals
       say_no: 'No'
       say_yes: 'Yes'
       scopes: Scopes
       search: Search
       search_all_orders_by_number: Search all orders by number
       search_all_products_by_name_or_sku: Search all products by name or sku
+      search_by_country_name: Search by country name
+      search_by_order_number: Search by order number
+      search_for_promotion_by_name: Search for promotion by name
+      search_for_users_by_email: Search for users by email
       select: Select
+      select_a_date: Select a date
       select_a_return_authorization_reason: Select a return authorization reason
       select_a_stock_location: Select a stock location
+      select_a_store_credit_reason: Select a store credit reason
       select_from_prototype: Select from prototype
       seo: SEO
+      seo_robots: Seo robots
+      seo_title: Seo title
+      set_the_order_currency: Set the order currency
       settings: Settings
       settings_menu:
         countries: Countries
@@ -643,6 +724,7 @@ en:
         zones: Zones
       ship_total: Ship total
       shipment: Shipment
+      shipment_state: Shipment state
       shipment_states:
         backorder: Backorder
         canceled: Cancelled
@@ -657,39 +739,42 @@ en:
         new_shipping_category: New shipping category
       shipping_category: Shipping category
       shipping_method: Shipping method
-      shipping_methods:
-        categories: Setting Categories
-        categories_info: Choose what categories this shipping method is used for.
-        code: Code
-        code_info: Adding a code to your shipping method helps integrations and other APIs identify the shipping method.
-        display: Display
-        display_info: Select where this shipping method is shown, on the storefront, admin or both.
-        internal_name: Internal name
-        internal_name_info: Set an internal name for this shipping method.
-        tracking_url: Tracking url
-        tracking_url_info: Set a tracking URL that will be sent along with the tracking number when a customer receives their shipping confirmation email.
+      shipping_methods: Shipping methods
+      shipping_zone: Shipping zone
       show: Show
       show_deleted: Show deleted
       show_property: Show property
+      show_rate_in_label: Show rate in label
       size: Size
       sku: Sku
       slug: Slug
+      social: Social
+      source: Source
       special_instructions: Special instructions
       specifications: Specifications
+      starting_from: Starting from
       starts_at: Starts at
       state: State
+      state_based: State based
       state_territory: State territory
+      states: States
       states_required: States required
       status: Status
       stock: Stock
+      stock_item_id: Stock item
       stock_location: Stock location
+      stock_locations: Stock locations
       stock_locations_need_a_default_country: Stock locations need a default country
       stock_management_requires_a_stock_location: Stock management requires a stock location
+      stock_movements: Stock movements
+      stock_movements_for_stock_location: Stock movements for stock location
       stock_successfully_transferred: Stock successfully transferred
       stock_transfer:
         errors:
           must_have_variant: Must have variant
           variants_unavailable: Variants unavailable
+      stock_transfer_name: Stock transfer name
+      stock_transfers: Stock transfers
       store:
         digital_settings:
           digital_asset_authorized_clicks:
@@ -730,12 +815,15 @@ en:
         not_limited_to_any_zone: Not limited to any zone
         store: Store
       street: Street
+      street_address: Street address
+      street_address_2: Street address 2
       subtotal: Subtotal
       success: Success
       successful: Successful
       successfully_created: "%{resource} has been successfully created!"
       successfully_removed: "%{resource} has been successfully removed!"
       successfully_updated: "%{resource} has been successfully updated!"
+      supported_currencies: Supported currencies
       tab:
         applications: Applications
         apps: Apps
@@ -755,10 +843,12 @@ en:
         tax_and_shipping: Tax & Shipping
       tax: Tax
       tax_and_shipping: Tax & Shipping
+      tax_categories: Tax categories
       tax_category: Tax category
+      tax_code: Tax code
       tax_included: Tax included
-      tax_rates:
-        rate: Rate
+      tax_rate_amount_explanation: Tax rate amount explanation
+      tax_rates: Tax rates
       tee:
         search_products_by_name_or_sku: Search products by name or sku
       this_order_has_already_received_a_refund: This order has already received a refund
@@ -768,9 +858,19 @@ en:
       total: Total
       total_pre_tax_refund: Total pre tax refund
       total_price: Total price
+      total_sales: Total sales
       track_inventory: Track inventory
+      tracking_url: Tracking url
+      tracking_url_info: Tracking url info
+      transaction_id: Transaction
+      transfer_from_location: Transfer from location
+      transfer_stock: Transfer stock
+      transfer_to_location: Transfer to location
+      twitter_username: Twitter username
       type: Type
       unable_to_create_reimbursements: Unable to create reimbursements
+      unfulfilled: Unfulfilled
+      unpaid: Unpaid
       url: URL
       usage_limit: Usage limit
       use_app_default: Use app default
@@ -778,52 +878,12 @@ en:
       used: Used
       used_for_billing_and_shipping: Used for billing and shipping
       user:
-        add_store_credit: Add store credit
-        addresses: Addresses
-        available_store_credit: User has %{amount} in Store Credit available.
-        billing_address: Billing address
-        billing_addresses: Billing Addresses
         create_a_new_user: Create a new user
-        customer: Customer
-        customer_details: Customer details
-        default_addresses: Default Addresses
-        edit_store_credit: Edit store credit
-        no_default_billing_address_set: No default billing address set
-        no_default_shipping_address_set: No default shipping address set
-        no_store_credit: User has no Store Credit available.
-        orders: Orders
-        other_addresses: Other Addresses
-        password: Password
-        roles: Roles
-        shipping_address: Shipping address
-        shipping_addresses: Shipping Addresses
-        store_credits: Store Credits
-        user_email: User email
-        user_since: User since
       user_id: User
       user_not_found: User not found
       user_rule:
         users: Users
-      users:
-        addresses:
-          billing_address: Billing address
-          no_addresses_set: No addresses set
-          other_addresses: Other addresses
-          shipping_address: Shipping address
-          this_user_has_no_addresses_click_add_new_address_to_add_a_new_address: This user has no addresses, click Add New Address to create a new address.
-          you_have_no_default_billing_addresses_set: You have no default billing addresses set
-          you_have_no_default_shipping_addresses_set: You have no default shipping addresses set
-          you_have_no_unused_addresses: You have no unused addresses
-        company: Company
-        email: Email
-        first_name: First name
-        last_name: Last name
-        manage: Manage
-        name_and_email: Name and email
-        search_by_order_number: Search by order number
-        search_for_promotion_by_name: Search for promotion by name
-        search_for_users_by_email: Search for users by email
-        users: Users
+      users: Users
       utilities:
         preview: Preview %{name}
       value: Value
@@ -831,7 +891,10 @@ en:
         this_option_types: This option types
       variant: Variant
       variants: Variants
+      vendor: Vendor
+      vendors: Vendors
       via: Via
+      view: View
       webhooks:
         search_webhooks_by_url: Search webhooks by url
         subscribers:
@@ -896,5 +959,8 @@ en:
       weight: Weight
       width: Width
       your_order_is_empty_add_product: Your order is empty add product
+      zip: Zip
       zipcode: Zipcode
       zipcode_required: Zipcode required
+      zone: Zone
+      zones: Zones

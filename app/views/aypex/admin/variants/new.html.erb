@@ -7,7 +7,7 @@
 <%= form_with model: [:admin, @product, @variant] do |f| %>
   <div class="card mb-3">
     <div class="card-header">
-      <h5 class="mb-0"><%= Aypex.t(:new_variant) %></h5>
+      <h5 class="mb-0"><%= I18n.t("aypex.admin.new_variant") %></h5>
     </div>
     <div class="card-body">
       <div data-hook="admin_variant_new_form">

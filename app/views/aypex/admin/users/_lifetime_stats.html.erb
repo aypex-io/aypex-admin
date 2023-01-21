@@ -12,13 +12,13 @@
         0
         <% end %>
       </h3>
-      <small class="text-muted fw-light"><%= Aypex.t(:total_sales) %></small>
+      <small class="text-muted fw-light"><%= I18n.t("aypex.admin.total_sales") %></small>
     </div>
     <div class="col-4 text-center">
       <h3 class="fw-light">
         <%= @user.order_count(current_store) %>
       </h3>
-      <small class="text-muted fw-light"><%= Aypex.t(:orders) %></small>
+      <small class="text-muted fw-light"><%= I18n.t("aypex.admin.orders") %></small>
     </div>
     <div class="col-4 text-center">
       <h3 class="fw-light">
@@ -32,7 +32,7 @@
         0
         <% end %>
       </h3>
-      <small class="text-muted fw-light"><%= Aypex.t(:average_order_value) %></small>
+      <small class="text-muted fw-light"><%= I18n.t("aypex.admin.average_order_value") %></small>
     </div>
   </div>
 </div>

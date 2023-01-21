@@ -3,11 +3,11 @@
     <thead class="text-muted">
       <tr data-hook="refunds_header">
         <th><%= "#{I18n.t('aypex.admin.date')}/#{I18n.t('aypex.admin.time')}" %></th>
-        <th><%= Aypex.t(:payment_identifier) %></th>
+        <th><%= I18n.t("aypex.admin.payment_identifier") %></th>
         <th><%= I18n.t("aypex.admin.amount") %></th>
-        <th><%= Aypex.t(:payment_method) %></th>
-        <th><%= Aypex.t(:transaction_id) %></th>
-        <th><%= Aypex.t(:reason) %></th>
+        <th><%= I18n.t("aypex.admin.payment_method") %></th>
+        <th><%= I18n.t("aypex.admin.transaction_id") %></th>
+        <th><%= I18n.t("aypex.admin.reason") %></th>
         <% if show_actions %>
           <th></th>
         <% end %>
@@ -25,7 +25,7 @@
           <% if show_actions %>
             <td class="actions">
               <span class="d-flex justify-content-end">
-                <%= link_to_with_icon(Aypex.t(:edit), aypex.edit_admin_order_payment_refund_path(refund.payment.order, refund.payment, refund), no_text: true, class: "btn btn-secondary btn-sm", icon: 'edit.svg') if can?(:edit, refund) %>
+                <%= link_to_with_icon(I18n.t("aypex.admin.edit"), aypex.edit_admin_order_payment_refund_path(refund.payment.order, refund.payment, refund), no_text: true, class: "btn btn-secondary btn-sm", icon: 'edit.svg') if can?(:edit, refund) %>
               </span>
             </td>
           <% end %>

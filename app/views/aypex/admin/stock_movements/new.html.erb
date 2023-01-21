@@ -1,7 +1,7 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_stock_locations_path, link_one_text: Aypex.t(:stock_locations),
-                         link_two_uri: aypex.admin_stock_location_stock_movements_path(stock_location), link_two_text: Aypex.t(:stock_movements),
-                           current_page_name: Aypex.t(:new_stock_movement)) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_stock_locations_path, link_one_text: I18n.t("aypex.admin.stock_locations"),
+                         link_two_uri: aypex.admin_stock_location_stock_movements_path(stock_location), link_two_text: I18n.t("aypex.admin.stock_movements"),
+                           current_page_name: I18n.t("aypex.admin.new_stock_movement")) %>
 <% end %>
 
 <%= form_with model: [:admin, stock_location, @stock_movement] do |f| %>

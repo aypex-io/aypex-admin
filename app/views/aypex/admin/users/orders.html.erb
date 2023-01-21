@@ -1,9 +1,9 @@
 <%= turbo_frame_tag :user_orders do %>
   <% content_for :index_table_filter_tabs do %>
-    <%= link_to Aypex.t('admin.orders.complete'), aypex.orders_admin_user_path(@user), class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:state_eq] == 'cart' || params[:q][:number_i_cont].present? }" %>
-    <%= link_to Aypex.t('admin.orders.draft'), params.merge({q: { completed_at_not_null: false, state_eq: 'cart' }}).permit!, class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:completed_at_not_null] == '1' || params[:q][:number_i_cont].present? }" %>
-    <%= link_to Aypex.t('admin.orders.unpaid'), params.merge({q: {payment_state_not_eq: :paid}}).permit!, class: "#{'active' if params[:q][:payment_state_not_eq] == 'paid' }" %>
-    <%= link_to Aypex.t('admin.orders.unfulfilled'), params.merge({q: {shipment_state_not_eq: :shipped}}).permit!, class: "#{'active' if params[:q][:shipment_state_not_eq] == 'shipped'}" %>
+    <%= link_to I18n.t("aypex.admin.complete'), aypex.orders_admin_user_path(@user), class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:state_eq] == 'cart' || params[:q][:number_i_cont].present? }" %>
+    <%= link_to I18n.t("aypex.admin.draft'), params.merge({q: { completed_at_not_null: false, state_eq: 'cart' }}).permit!, class: "#{'active' unless params[:q][:payment_state_not_eq] == 'paid' || params[:q][:shipment_state_not_eq] == 'shipped' || params[:q][:completed_at_not_null] == '1' || params[:q][:number_i_cont].present? }" %>
+    <%= link_to I18n.t("aypex.admin.unpaid'), params.merge({q: {payment_state_not_eq: :paid}}).permit!, class: "#{'active' if params[:q][:payment_state_not_eq] == 'paid' }" %>
+    <%= link_to I18n.t("aypex.admin.unfulfilled'), params.merge({q: {shipment_state_not_eq: :shipped}}).permit!, class: "#{'active' if params[:q][:shipment_state_not_eq] == 'shipped'}" %>
   <% end %>
 
   <% content_for :index_table do %>
@@ -39,6 +39,6 @@
 
   <%= render partial: "aypex/admin/shared/index_table",
              locals: { search_record: :number_i_cont,
-                       search_placeholder: I18n.t('aypex.admin.users.search_by_order_number'),
+                       search_placeholder: I18n.t('aypex.admin.search_by_order_number'),
                        search_url: aypex.orders_admin_user_path(@user)} %>
 <% end %>

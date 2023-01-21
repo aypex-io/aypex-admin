@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-header d-flex">
           <div class="flex-fill">
-            <h5 class="card-title"><%= Aypex.t(:general_settings) %></h5>
+            <h5 class="card-title"><%= I18n.t("aypex.admin.general_settings") %></h5>
           </div>
           <div>
           </div>
@@ -29,7 +29,7 @@
 
           <%= zone_form.checkbox_container :default_tax, class: ['form-check'] do %>
             <%= zone_form.check_box :default_tax, class: 'form-check-input', data: {form_state_target: "watch"} %>
-            <%= zone_form.label :default_tax, Aypex.t(:default_tax_zone), class: 'form-check-label' %>
+            <%= zone_form.label :default_tax, I18n.t("aypex.admin.default_tax_zone"), class: 'form-check-label' %>
           <% end %>
 
           <div data-hook="type" class="form-group mt-4">
@@ -38,12 +38,12 @@
             </h6>
             <%= zone_form.checkbox_container :country_based, class: ['form-check'] do %>
               <%= zone_form.radio_button('kind', 'country', { class: 'form-check-input' ,id: 'country_based', data: {form_state_target: "watch"} }) %>
-              <%= zone_form.label :country_based, Aypex.t(:country_based), for: 'country_based', class: 'form-check-label' %>
+              <%= zone_form.label :country_based, I18n.t("aypex.admin.country_based"), for: 'country_based', class: 'form-check-label' %>
             <% end %>
 
             <%= zone_form.checkbox_container :state_based, class: ['form-check'] do %>
               <%= zone_form.radio_button('kind', 'state', { class: 'form-check-input', id: 'state_based', data: {form_state_target: "watch"} }) %>
-              <%= zone_form.label :state_based, Aypex.t(:state_based), for: 'state_based', class: 'form-check-label' %>
+              <%= zone_form.label :state_based, I18n.t("aypex.admin.state_based"), for: 'state_based', class: 'form-check-label' %>
             <% end %>
           </div>
         </div>

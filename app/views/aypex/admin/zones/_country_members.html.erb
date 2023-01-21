@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header d-flex">
       <div class="flex-fill">
-        <h5 class="card-title"><%= Aypex.t(:countries) %></h5>
+        <h5 class="card-title"><%= I18n.t("aypex.admin.countries") %></h5>
       </div>
       <div>
       </div>
@@ -11,7 +11,7 @@
     <div class="card-body">
       <%= zone_form.field_container :country_ids do %>
         <%= zone_form.collection_select :country_ids, @countries, :id, :name, {}, { disabled: @zone.new_record?, multiple: true } %>
-        <%= zone_form.label :country_ids, Aypex.t(:countries) %>
+        <%= zone_form.label :country_ids, I18n.t("aypex.admin.countries") %>
       <% end %>
     </div>
     <div class="card-footer">

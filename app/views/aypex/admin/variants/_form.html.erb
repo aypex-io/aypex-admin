@@ -26,17 +26,17 @@
 
       <%= f.field_container :compare_at_price do %>
         <%= f.text_field :compare_at_price, value: number_to_currency(@variant.compare_at_price, unit: '') %>
-        <%= f.label :compare_at_price, Aypex.t(:compare_at_price) %>
+        <%= f.label :compare_at_price, I18n.t("aypex.admin.compare_at_price") %>
       <% end %>
 
       <%= f.field_container :cost_price do %>
         <%= f.text_field :cost_price, value: number_to_currency(@variant.cost_price, unit: '') %>
-        <%= f.label :cost_price, Aypex.t(:cost_price) %>
+        <%= f.label :cost_price, I18n.t("aypex.admin.cost_price") %>
       <% end %>
 
       <%= f.field_container :tax_category_id do %>
         <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { include_blank: I18n.t('aypex.admin.match_choices.none') }) %>
-        <%= f.label :tax_category_id, Aypex.t(:tax_category) %>
+        <%= f.label :tax_category_id, I18n.t("aypex.admin.tax_category") %>
       <% end %>
 
       <div class="form-group" data-hook="discontinue_on">
@@ -52,7 +52,7 @@
       <div class="form-group form-floating" data-hook="<%= field %>">
         <% value = number_with_precision(@variant.send(field), precision: 2) %>
         <%= f.text_field field, value: value %>
-        <%= f.label field, Aypex.t(field) %>
+        <%= f.label field, I18n.t("aypex.admin.#{field}") %>
       </div>
     <% end %>
   </div>

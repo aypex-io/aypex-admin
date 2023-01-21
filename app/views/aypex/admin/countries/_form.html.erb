@@ -13,21 +13,21 @@
     <div class="col-12 col-md-4">
       <%= f.field_container :iso_name do %>
         <%= f.text_field :iso_name, required: true %>
-        <%= f.label :iso_name, raw(I18n.t('aypex.admin.countries.iso_name') + required_span_tag) %>
+        <%= f.label :iso_name, raw(I18n.t('aypex.admin.iso_name') + required_span_tag) %>
       <% end %>
     </div>
 
     <div class="col-12 col-md-4">
       <%= f.field_container :iso do %>
         <%= f.text_field :iso %>
-        <%= f.label :iso, raw(I18n.t('aypex.admin.countries.iso') + required_span_tag) %>
+        <%= f.label :iso, raw(I18n.t('aypex.admin.iso') + required_span_tag) %>
       <% end %>
     </div>
 
     <div class="col-12 col-md-4">
       <%= f.field_container :iso3 do %>
         <%= f.text_field :iso3, required: true %>
-        <%= f.label :iso3, raw(I18n.t('aypex.admin.countries.iso3') + required_span_tag) %>
+        <%= f.label :iso3, raw(I18n.t('aypex.admin.iso3') + required_span_tag) %>
       <% end %>
     </div>
 

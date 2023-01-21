@@ -21,7 +21,7 @@
           <td class="text-center"><%= payment.transaction_id %></td>
           <td class="text-center">
             <span class="badge rounded-pill bg-<%= payment.state %>">
-              <%= Aypex.t(payment.state, scope: :payment_states, default: payment.state.capitalize) %>
+              <%= I18n.t("aypex.admin.payment_states.#{payment.state}", default: payment.state.capitalize) %>
             </span>
           </td>
           <td class="actions">

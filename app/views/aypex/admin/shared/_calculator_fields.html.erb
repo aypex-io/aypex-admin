@@ -1,14 +1,14 @@
 <div id="calculator_fields" data-hook class="card">
   <div class="card-header">
     <h5 class="card-title">
-      <%= Aypex.t(:calculator) %>
+      <%= I18n.t("aypex.admin.calculator") %>
     </h5>
   </div>
 
   <div id="preference-settings" class="card-body" data-controller="input-disable">
     <div class="form-group form-floating">
       <%= f.select(:calculator_type, @calculators.map { |c| [c.description, c.name] }, {}, {class: 'form-select',id: 'calc_type', data: {controller: 'ts--select', form_state_target: "watch", action: "change->form-state#checkForChanges change->input-disable#checkForChanges" }}) %>
-      <%= f.label(:calculator_type, Aypex.t(:calculator), for: 'calc_type') %>
+      <%= f.label(:calculator_type, I18n.t("aypex.admin.calculator"), for: 'calc_type') %>
     </div>
 
     <% if !@object.new_record? %>

@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= Aypex.t(:zones) %>
+  <%= I18n.t("aypex.admin.zones") %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon Aypex.t(:new_zone), new_object_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_zone_link' %>
+  <%= link_to_with_icon I18n.t("aypex.admin.new_zone"), new_object_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_zone_link' %>
 <% end if can? :create, Aypex::Zone %>
 
 <% if @zones.any? %>
@@ -15,7 +15,7 @@
         <th>
           <%= sort_link @search,:description, I18n.t("aypex.admin.description"), {}, {title: 'zones_order_by_description_title'} %>
         </th>
-        <th><%= Aypex.t(:default_tax_zone) %></th>
+        <th><%= I18n.t("aypex.admin.default_tax_zone") %></th>
         <th class="actions"></th>
       </tr>
     </thead>

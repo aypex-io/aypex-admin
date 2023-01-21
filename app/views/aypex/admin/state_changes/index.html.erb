@@ -18,8 +18,8 @@
         <% scope = state_change.name == 'order'  ? "#{ state_change.name }_state" : "#{ state_change.name }_states" -%>
         <tr>
           <td><%= I18n.t("aypex.admin.state_machine_states.#{state_change.name}") %></td>
-          <td><%= state_change.previous_state ? Aypex.t(state_change.previous_state, scope: scope) : Aypex.t(:previous_state_missing) %></td>
-          <td><%= Aypex.t(state_change.next_state, scope: scope) %></td>
+          <td><%= state_change.previous_state ? I18n.t("aypex.admin.#{state_change.previous_state}") : I18n.t("aypex.admin.previous_state_missing") %></td>
+          <td><%= I18n.t("aypex.admin.#{state_change.next_state}") %></td>
           <td>
             <% if state_change.user %>
               <% user_login = state_change.user.try(:login) || state_change.user.try(:email) %>
@@ -39,7 +39,7 @@
 </div>
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= Aypex.t(:no_state_changes) %>
+    <%= I18n.t("aypex.admin.no_state_changes") %>
   </div>
 <% end %>
 

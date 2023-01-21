@@ -9,11 +9,11 @@
   <% end %>
   <%= f.field_container :category do %>
     <%= f.select :category_id, options_from_collection_for_select(@credit_categories, :id, :name, f.object.category.try(:id)),
-        { include_blank: true }, { placeholder: Aypex.t(:select_a_store_credit_reason) } %>
-    <%= f.label :category, raw(Aypex.t(:category) + required_span_tag) %>
+        { include_blank: true }, { placeholder: I18n.t("aypex.admin.select_a_store_credit_reason") } %>
+    <%= f.label :category, raw(I18n.t("aypex.admin.category") + required_span_tag) %>
   <% end %>
   <%= f.field_container :memo do %>
     <%= f.text_area :memo %>
-    <%= f.label :memo, Aypex.t(:memo) %>
+    <%= f.label :memo, I18n.t("aypex.admin.memo") %>
   <% end %>
 </div>

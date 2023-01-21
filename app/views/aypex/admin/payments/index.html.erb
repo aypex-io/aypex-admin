@@ -9,7 +9,7 @@
         <% if @payment_methods.any? %>
           <div class="btn-group" role="group" aria-label="Basic outlined example">
             <% @payment_methods.each do |method| %>
-              <%= link_to Aypex.t(method.name, scope: :payment_methods, default: method.name), aypex.new_admin_order_payment_path(@order, payment_method_id: method.id), class: "btn btn-outline-primary", data: { turbo_frame: :modal } %>
+              <%= link_to I18n.t("aypex.admin.payment_methods.#{method.name}", default: method.name), aypex.new_admin_order_payment_path(@order, payment_method_id: method.id), class: "btn btn-outline-primary", data: { turbo_frame: :modal } %>
             <% end %>
           </div>
         <% end %>

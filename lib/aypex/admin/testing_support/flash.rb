@@ -29,7 +29,7 @@ module Aypex
         private
 
         def convert_flash(flash)
-          flash = Aypex.t(flash) if flash.is_a?(Symbol)
+          flash = I18n.t("aypex.admin.#{flash}") if flash.is_a?(Symbol)
           flash
         end
       end

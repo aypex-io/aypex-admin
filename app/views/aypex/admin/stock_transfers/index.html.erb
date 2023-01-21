@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon Aypex.t(:new_stock_transfer), new_admin_stock_transfer_path, { icon: 'plus-square.svg', class: 'btn-primary ' } %>
+  <%= link_to_with_icon I18n.t("aypex.admin.new_stock_transfer"), new_admin_stock_transfer_path, { icon: 'plus-square.svg', class: 'btn-primary ' } %>
 <% end if can? :create, Aypex::StockTransfer %>
 
 <% content_for :table_filter do %>
@@ -12,14 +12,14 @@
       <div class="row mb-0">
         <div class="col-12 col-lg-4">
           <div class="form-group">
-            <%= f.label :reference_cont, Aypex.t(:reference_contains) %>
+            <%= f.label :reference_cont, I18n.t("aypex.admin.reference_contains") %>
             <%= f.text_field :reference_cont, class: 'form-control js-filterable js-quick-search-target' %>
           </div>
         </div>
 
         <div class="col-12 col-lg-4">
           <div class="form-group">
-            <%= f.label :source_location, Aypex.t(:source) %>
+            <%= f.label :source_location, I18n.t("aypex.admin.source") %>
             <%= f.select :source_location_id_eq,
                 options_from_collection_for_select(@stock_locations, :id, :name, @q.source_location_id_eq),
                 { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
@@ -28,7 +28,7 @@
 
         <div class="col-12 col-lg-4">
           <div class="form-group">
-            <%= f.label :destination_location, Aypex.t(:destination) %>
+            <%= f.label :destination_location, I18n.t("aypex.admin.destination") %>
             <%= f.select :destination_location_id_eq,
                 options_from_collection_for_select(@stock_locations, :id, :name, @q.destination_location_id_eq),
                 { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
@@ -37,7 +37,7 @@
       </div>
 
       <div class="form-actions" data-hook="admin_stock_transfers_index_search_buttons">
-        <%= button Aypex.t(:filter_results), 'search.svg' %>
+        <%= button I18n.t("aypex.admin.filter_results"), 'search.svg' %>
       </div>
     <% end %>
   </div>
@@ -48,11 +48,11 @@
   <table class="table" id='listing_stock_transfers' data-hook>
     <thead class="text-muted">
       <tr data-hook='stock_transfers_header'>
-        <th><%= Aypex.t(:number) %></th>
-        <th><%= Aypex.t(:reference) %></th>
-        <th><%= Aypex.t(:source) %></th>
-        <th><%= Aypex.t(:destination) %></th>
-        <th><%= Aypex.t(:created_at) %></th>
+        <th><%= I18n.t("aypex.admin.number") %></th>
+        <th><%= I18n.t("aypex.admin.reference") %></th>
+        <th><%= I18n.t("aypex.admin.source") %></th>
+        <th><%= I18n.t("aypex.admin.destination") %></th>
+        <th><%= I18n.t("aypex.admin.created_at") %></th>
         <th class='actions'></th>
       </tr>
     </thead>
@@ -74,7 +74,7 @@
           <td><%= stock_transfer.created_at.strftime('%F %T %Z') %></td>
           <td class="actions">
             <span class="d-flex justify-content-end">
-              <%= link_to_with_icon Aypex.t(:show), admin_stock_transfer_path(stock_transfer), class: 'btn btn-secondary btn-sm', no_text: true, data: {action: 'view'}, icon: 'eye.svg' %>
+              <%= link_to_with_icon I18n.t("aypex.admin.show"), admin_stock_transfer_path(stock_transfer), class: 'btn btn-secondary btn-sm', no_text: true, data: {action: 'view'}, icon: 'eye.svg' %>
             </span>
           </td>
         </tr>

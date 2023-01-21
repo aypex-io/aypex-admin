@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">
     <h5 class="card-title">
-      <%= Aypex.t(:footer) %>
+      <%= I18n.t("aypex.admin.footer") %>
     </h5>
   </div>
   <div class="card-body">
@@ -12,12 +12,12 @@
 
     <%= f.field_container :address do %>
       <%= f.text_area :address %>
-      <%= f.label :address, Aypex.t(:address) %>
+      <%= f.label :address, I18n.t("aypex.admin.address") %>
     <% end %>
 
     <%= f.field_container :contact_phone do %>
       <%= f.text_field :contact_phone %>
-      <%= f.label :contact_phone, Aypex.t(:contact_phone) %>
+      <%= f.label :contact_phone, I18n.t("aypex.admin.contact_phone") %>
     <% end %>
   </div>
 </div>

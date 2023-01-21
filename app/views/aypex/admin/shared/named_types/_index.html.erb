@@ -8,7 +8,7 @@
     <thead class="text-muted">
       <tr data-hook="named_types_header">
         <th><%= I18n.t("aypex.admin.name") %></th>
-        <th><%= Aypex.t(:status) %></th>
+        <th><%= I18n.t("aypex.admin.status") %></th>
         <th class="actions text-end">
           <%= link_to_with_icon(new_button_text, new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, resource %>
         </th>
@@ -21,7 +21,7 @@
             <%= named_type.name %>
           </td>
           <td class="align-center">
-            <%= active_badge(named_type.active, label: Aypex.t(named_type.active? ? :active : :inactive)) %>
+            <%= active_badge(named_type.active, label: I18n.t("aypex.admin.#{named_type.active? ? :active : :inactive}")) %>
           </td>
           <td class="actions">
             <span class="d-flex justify-content-end">

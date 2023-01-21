@@ -7,8 +7,8 @@
   </div>
   <div class="col-12 col-md-6">
     <%= f.field_container :abbr do %>
-      <%= f.text_field :abbr, class: 'form-control', placeholder: Aypex.t(:abbreviation), required: true %>
-      <%= f.label :abbr, Aypex.t(:abbreviation) %>
+      <%= f.text_field :abbr, class: 'form-control', placeholder: I18n.t("aypex.admin.abbreviation"), required: true %>
+      <%= f.label :abbr, I18n.t("aypex.admin.abbreviation") %>
     <% end %>
   </div>
 </div>

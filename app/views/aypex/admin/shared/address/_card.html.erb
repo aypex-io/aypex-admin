@@ -39,7 +39,7 @@
     <% end %>
     <% unless address.alternative_phone.blank? %>
       <div class="alternative-phone tel">
-        <span class="type"><%= Aypex.t(:alternative_phone) %></span>
+        <span class="type"><%= I18n.t("aypex.admin.alternative_phone") %></span>
         <%= address.alternative_phone %>
       </div>
     <% end %>

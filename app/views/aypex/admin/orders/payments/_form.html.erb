@@ -6,7 +6,7 @@
   <div class="form-group">
     <strong><%= I18n.t("aypex.admin.payment_method") %></strong>
     <% @payment_methods.each do |method| %>
-      <div class="radio" data-id="<%= Aypex.t(method.name, scope: :payment_methods, default: method.name).parameterize %>">
+      <div class="radio" data-id="<%= I18n.t("aypex.admin.payment_methods.#{method.name}", default: method.name).parameterize %>">
         <label data-hook="payment_method_field">
           <%= radio_button_tag 'payment[payment_method_id]', method.id, method == @payment_method, { class: "payment_methods_radios" } %>
           <%= I18n.t("aypex.admin.payment_methods.#{method.name}", default: method.name) %>

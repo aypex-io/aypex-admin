@@ -1,22 +1,22 @@
 <div data-hook="admin_user_form_fields" class="row">
   <div class="col-12">
     <%= f.field_container :email do %>
-      <%= f.email_field :email, class: 'form-control', placeholder: Aypex.t(:email) %>
-      <%= f.label :email, Aypex.t(:email), class: 'form-label' %>
+      <%= f.email_field :email, class: 'form-control', placeholder: I18n.t("aypex.admin.email") %>
+      <%= f.label :email, I18n.t("aypex.admin.email"), class: 'form-label' %>
     <% end %>
   </div>
 
   <div class="col-12 col-md-6">
     <%= f.field_container :first_name do %>
-      <%= f.text_field :first_name, class: 'form-control', placeholder: Aypex.t(:first_name) %>
-      <%= f.label :first_name, Aypex.t(:first_name), class: 'form-label' %>
+      <%= f.text_field :first_name, class: 'form-control', placeholder: I18n.t("aypex.admin.first_name") %>
+      <%= f.label :first_name, I18n.t("aypex.admin.first_name"), class: 'form-label' %>
     <% end %>
   </div>
 
   <div class="col-12 col-md-6">
     <%= f.field_container :last_name do %>
-      <%= f.text_field :last_name, class: 'form-control', placeholder: Aypex.t(:last_name) %>
-      <%= f.label :last_name, Aypex.t(:last_name), class: 'form-label' %>
+      <%= f.text_field :last_name, class: 'form-control', placeholder: I18n.t("aypex.admin.last_name") %>
+      <%= f.label :last_name, I18n.t("aypex.admin.last_name"), class: 'form-label' %>
     <% end %>
   </div>
 
@@ -41,15 +41,15 @@
     <h6 class="text-muted"><%= I18n.t('aypex.admin.user.password') %></h6>
     <div class="col-12 col-md-6">
       <%= f.field_container :password do %>
-        <%= f.password_field :password, class: 'form-control', placeholder: Aypex.t(:password) %>
-        <%= f.label :password, Aypex.t(:password), class: 'form-label' %>
+        <%= f.password_field :password, class: 'form-control', placeholder: I18n.t("aypex.admin.password") %>
+        <%= f.label :password, I18n.t("aypex.admin.password"), class: 'form-label' %>
       <% end %>
     </div>
 
     <div class="col-12 col-md-6">
       <%= f.field_container :password_confirmation do %>
-        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: Aypex.t(:confirm_password) %>
-        <%= f.label :password_confirmation, Aypex.t(:confirm_password), class: 'form-label' %>
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t("aypex.admin.confirm_password") %>
+        <%= f.label :password_confirmation, I18n.t("aypex.admin.confirm_password"), class: 'form-label' %>
       <% end %>
     </div>
   </div>

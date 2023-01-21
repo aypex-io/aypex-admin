@@ -9,8 +9,8 @@
     <% end %>
 
     <%= f.field_container :tax_code do %>
-      <%= f.text_field :tax_code, class: 'form-control', placeholder:Aypex.t(:tax_code) %>
-      <%= f.label :tax_code, Aypex.t(:tax_code) %>
+      <%= f.text_field :tax_code, class: 'form-control', placeholder: I18n.t("aypex.admin.tax_code") %>
+      <%= f.label :tax_code, I18n.t("aypex.admin.tax_code") %>
     <% end %>
 
     <%= f.field_container :description do %>
@@ -20,7 +20,7 @@
 
     <%= f.checkbox_container :is_default, class: ['checkbox'] do %>
       <%= f.check_box :is_default, class: 'form-check-input' %>
-      <%= f.label :is_default, Aypex.t(:default), class: 'form-check-label' %>
+      <%= f.label :is_default, I18n.t("aypex.admin.default"), class: 'form-check-label' %>
     <% end %>
   </div>
 </div>

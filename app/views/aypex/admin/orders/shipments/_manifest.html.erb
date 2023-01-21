@@ -33,7 +33,7 @@
 
     <td class="text-center">
       <% item.states.each do |state, count| %>
-        <%= Aypex.t(state).downcase %>
+        <%= I18n.t("aypex.admin.#{state}").downcase %>
       <% end %>
     </td>
 

@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_stock_locations_path, link_one_text: Aypex.t(:stock_locations), current_page_name: Aypex.t(:stock_movements_for_stock_location, stock_location_name: @stock_location.name)) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_stock_locations_path, link_one_text: I18n.t("aypex.admin.stock_locations"), current_page_name: I18n.t("aypex.admin.stock_movements_for_stock_location", stock_location_name: @stock_location.name)) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon Aypex.t(:new_stock_movement), new_admin_stock_location_stock_movement_path(@stock_location), icon: 'plus-square.svg', class: 'btn-primary ', id: 'admin_new_stock_movement_link' %>
+  <%= link_to_with_icon I18n.t("aypex.admin.new_stock_movement"), new_admin_stock_location_stock_movement_path(@stock_location), icon: 'plus-square.svg', class: 'btn-primary ', id: 'admin_new_stock_movement_link' %>
 <% end %>
 
 <% if @stock_movements.any? %>
@@ -16,7 +16,7 @@
     </colgroup>
     <thead class="text-muted">
       <tr data-hook="admin_stock_movements_index_headers">
-        <th><%= Aypex.t(:variant) %>
+        <th><%= I18n.t("aypex.admin.variant") %>
         <th><%= I18n.t("aypex.admin.quantity") %></th>
         <th><%= I18n.t("aypex.admin.action") %></th>
       </tr>

@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">
     <h5 class="card-title">
-      <%= Aypex.t(:internationalization) %>
+      <%= I18n.t("aypex.admin.internationalization") %>
     </h5>
   </div>
   <div class="card-body">
@@ -13,14 +13,14 @@
 
     <%= f.field_container :supported_currencies do %>
       <%= f.select :supported_currencies, currency_options(@store.supported_currencies&.split(',')), { prompt: false }, {multiple: true } %>
-      <%= f.label :supported_currencies, Aypex.t(:supported_currencies) %>
+      <%= f.label :supported_currencies, I18n.t("aypex.admin.supported_currencies") %>
     <% end %>
 
     <hr>
     <h6><%= I18n.t('aypex.admin.stores.checkout') %></h6>
     <%= f.field_container :checkout_zone_id do %>
       <%= f.select :checkout_zone_id, options_for_select(@zones), { include_blank: I18n.t('aypex.admin.stores.not_limited_to_any_zone') } %>
-      <%= f.label :checkout_zone_id, Aypex.t(:shipping_zone) %>
+      <%= f.label :checkout_zone_id, I18n.t("aypex.admin.shipping_zone") %>
     <% end %>
 
     <%= f.field_container :default_country_id do %>

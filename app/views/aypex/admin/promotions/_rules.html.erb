@@ -20,7 +20,7 @@
         <% Aypex::Promotion::MATCH_POLICIES.each do |policy| %>
           <div class="form-check">
             <%= f.radio_button :match_policy, policy, data: { action: 'form--autosave#save'} %>
-            <%= f.label "match_policy_#{policy}", Aypex.t("promotion_form.match_policies.#{policy}") %>
+            <%= f.label "match_policy_#{policy}", I18n.t("aypex.admin.promotion_form.match_policies.#{policy}") %>
           </div>
         <% end %>
       </div>

@@ -1,6 +1,6 @@
 <% date_time ||= false %>
 <% value ||= nil %>
-<% placeholder ||= Aypex.t(:starting_from) %>
+<% placeholder ||= I18n.t("aypex.admin.starting_from") %>
 <% f ||= nil %>
 
 <div id="<%= "datePickerFrom_#{from_field.to_s}" %>" class="input-group" data-controller="datepicker"

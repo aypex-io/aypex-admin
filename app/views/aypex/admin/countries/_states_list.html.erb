@@ -1,7 +1,7 @@
 <sa-card>
   <sa-header>
-    <h5><%= I18n.t('aypex.admin.countries.states') %></h5>
-    <%= link_to I18n.t('aypex.admin.countries.add_new_state'), aypex.new_admin_country_state_path(@country), class: 'btn btn-sm btn-secondary', data: { turbo_frame: :modal } %>
+    <h5><%= I18n.t('aypex.admin.states') %></h5>
+    <%= link_to I18n.t('aypex.admin.add_new_state'), aypex.new_admin_country_state_path(@country), class: 'btn btn-sm btn-secondary', data: { turbo_frame: :modal } %>
   </sa-header>
   <g-responsive>
     <g-table>
@@ -22,7 +22,7 @@
             <g-td><%= state.abbr %></g-td>
             <g-td class="justify-content-end">
               <div>
-                <%= link_to_edit(I18n.t('aypex.admin.countries.edit_state'), url: aypex.edit_admin_country_state_path(@country, state), data: {turbo_frame: :modal}) if can? :edit, state %>
+                <%= link_to_edit(I18n.t('aypex.admin.edit_state'), url: aypex.edit_admin_country_state_path(@country, state), data: {turbo_frame: :modal}) if can? :edit, state %>
                 <%= link_to_delete(state, url: aypex.admin_country_state_path(@country, state)) if can? :delete, state %>
               </div>
             </g-td>

@@ -8,7 +8,7 @@
   <div class="input-group">
     <%= form.field_container :email do %>
       <%= form.text_field :email, required: true %>
-      <%= form.label :email, raw(I18n.t('aypex.admin.orders.email')) + required_span_tag %>
+      <%= form.label :email, raw(I18n.t('aypex.admin.email')) + required_span_tag %>
     <% end %>
     <%= button_tag(I18n.t('aypex.admin.actions.save'), {data: { input__required_target: "saveButton", form_state_target: "saveButton"}, class: 'btn-secondary btn'}) %>
   </div>

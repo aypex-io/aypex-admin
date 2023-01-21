@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= Aypex.t(:return_authorizations) %>
+  <%= I18n.t("aypex.admin.return_authorizations") %>
 <% end %>
 
 <% content_for :table_filter do %>
@@ -8,13 +8,13 @@
       <div class="row">
         <div class="col-12 col-lg-6">
           <div class="form-group">
-            <%= f.label :number_cont, Aypex.t(:return_number) %>
+            <%= f.label :number_cont, I18n.t("aypex.admin.return_number") %>
             <%= f.text_field :number_cont, class: "form-control js-quick-search-target js-filterable" %>
           </div>
         </div>
         <div class="col-12 col-lg-6">
           <div class="form-group">
-            <%= label_tag :q_state_eq, Aypex.t(:status) %>
+            <%= label_tag :q_state_eq, I18n.t("aypex.admin.status") %>
             <%= f.select :state_eq, Aypex::ReturnAuthorization.state_machines[:state].states.collect {|s| [I18n.t("aypex.admin.return_authorization_states.#{s.name}"), s.value]}, {include_blank: true}, class: 'js-filterable', data: { controller: 'ts--select' } %>
           </div>
         </div>
@@ -31,10 +31,10 @@
     <table class="table">
       <thead class="text-muted">
         <tr data-hook="rate_header">
-          <th><%= Aypex.t(:created_at) %></th>
-          <th><%= Aypex.t(:number) %></th>
-          <th><%= Aypex.t(:order) %></th>
-          <th><%= Aypex.t(:status) %></th>
+          <th><%= I18n.t("aypex.admin.created_at") %></th>
+          <th><%= I18n.t("aypex.admin.number") %></th>
+          <th><%= I18n.t("aypex.admin.order") %></th>
+          <th><%= I18n.t("aypex.admin.status") %></th>
           <th></th>
         </tr>
       </thead>

@@ -9,7 +9,7 @@
     <%= yield :title %>
   <% else %>
     <%= "#{I18n.t('aypex.admin.aypex_administration')}: " %>
-    <%= Aypex.t(controller.controller_name, default: controller.controller_name.titleize) %>
+    <%= I18n.t("aypex.admin.#{controller.controller_name}", default: controller.controller_name.titleize) %>
   <% end %>
 </title>
 

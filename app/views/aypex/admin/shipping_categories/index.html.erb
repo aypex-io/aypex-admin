@@ -11,7 +11,7 @@
           <%= I18n.t("aypex.admin.name") %>
         </th>
         <th class="actions text-end">
-          <%= link_to_with_icon(Aypex.t(:new_shipping_category), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, Aypex::ShippingCategory %>
+          <%= link_to_with_icon(I18n.t("aypex.admin.new_shipping_category"), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, Aypex::ShippingCategory %>
         </th>
       </tr>
     </thead>

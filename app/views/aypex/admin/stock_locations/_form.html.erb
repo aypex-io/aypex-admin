@@ -10,14 +10,14 @@
       </div>
       <div data-hook="stock_location_admin_name">
         <%= f.field_container :admin_name  do %>
-        <%= f.label :admin_name, Aypex.t(:internal_name) %>
+        <%= f.label :admin_name, I18n.t("aypex.admin.internal_name") %>
         <%= f.text_field :admin_name, class: 'form-control', label: false %>
         <% end %>
       </div>
     </div>
 
     <div class="col-12 col-md-3" data-hook="stock_location_status">
-      <strong><%= Aypex.t(:status) %></strong>
+      <strong><%= I18n.t("aypex.admin.status") %></strong>
       <div class="checkbox my-2" data-hook="stock_location_active">
         <%= label_tag :active do %>
           <%= f.check_box :active %>
@@ -27,51 +27,51 @@
       <div class="checkbox my-2" data-hook="stock_location_default">
         <%= label_tag :default do %>
           <%= f.check_box :default %>
-          <%= Aypex.t(:default) %>
+          <%= I18n.t("aypex.admin.default") %>
         <% end %>
       </div>
       <div class="checkbox my-2" data-hook="stock_location_backorderable_default">
         <%= label_tag :backorderable_default do %>
           <%= f.check_box :backorderable_default %>
-          <%= Aypex.t(:backorderable_default) %>
+          <%= I18n.t("aypex.admin.backorderable_default") %>
         <% end %>
       </div>
       <div class="checkbox my-2" data-hook="stock_location_propagate_all_variants">
         <%= label_tag :propagate_all_variants do %>
           <%= f.check_box :propagate_all_variants %>
-          <%= Aypex.t(:propagate_all_variants) %>
+          <%= I18n.t("aypex.admin.propagate_all_variants") %>
         <% end %>
       </div>
     </div>
   </div>
 
   <div class="form-group" data-hook="stock_location_address1">
-    <%= f.label :address1, Aypex.t(:street_address) %>
+    <%= f.label :address1, I18n.t("aypex.admin.street_address") %>
     <%= f.text_field :address1, class: 'form-control' %>
   </div>
 
   <div class="form-group" data-hook="stock_location_city">
-    <%= f.label :city, Aypex.t(:city) %>
+    <%= f.label :city, I18n.t("aypex.admin.city") %>
     <%= f.text_field :city, class: 'form-control' %>
   </div>
 
   <div class="form-group" data-hook="stock_location_address2">
-    <%= f.label :address2, Aypex.t(:street_address_2) %>
+    <%= f.label :address2, I18n.t("aypex.admin.street_address_2") %>
     <%= f.text_field :address2, class: 'form-control' %>
   </div>
 
   <div class="form-group" data-hook="stock_location_zipcode">
-    <%= f.label :zipcode, Aypex.t(:zip) %>
+    <%= f.label :zipcode, I18n.t("aypex.admin.zip") %>
     <%= f.text_field :zipcode, class: 'form-control' %>
   </div>
 
   <div class="form-group" data-hook="stock_location_phone">
-    <%= f.label :phone, Aypex.t(:phone) %>
+    <%= f.label :phone, I18n.t("aypex.admin.phone") %>
     <%= f.phone_field :phone, class: 'form-control' %>
   </div>
 
   <div class="form-group" data-hook="stock_location_country">
-    <%= f.label :country_id, Aypex.t(:country) %>
+    <%= f.label :country_id, I18n.t("aypex.admin.country") %>
     <span id="country"><%= f.collection_select :country_id, available_countries, :id, :name, {}, { data: {controller: 'ts--select'} } %></span>
   </div>
 

@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= Aypex.t(:users) %>
+  <%= I18n.t("aypex.admin.users") %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon Aypex.t(:new_user), aypex.new_admin_user_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_user_link', data: {turbo_frame: :modal} %>
+  <%= link_to_with_icon I18n.t("aypex.admin.new_user"), aypex.new_admin_user_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_user_link', data: {turbo_frame: :modal} %>
 <% end if can? :create, Aypex::Config::user_class %>
 
 <% content_for :index_table_filter_buttons do %>
@@ -17,10 +17,10 @@
         <g-thead>
           <g-tr>
             <g-th>
-              <%= sort_link @search,:email, Aypex.t(:user), {title: 'users_email'} %>
+              <%= sort_link @search,:email, I18n.t("aypex.admin.user"), {title: 'users_email'} %>
             </g-th>
             <g-th style="grid-column: span 2;">
-              <%= sort_link @search,:created_at, Aypex.t(:created_at), {title: 'account_created'} %>
+              <%= sort_link @search,:created_at, I18n.t("aypex.admin.created_at"), {title: 'account_created'} %>
             </g-th>
           </g-tr>
         </g-thead>
@@ -45,4 +45,4 @@
 <%= render partial: "aypex/admin/shared/index_table",
            locals: { search_url: aypex.admin_users_path,
                      search_record: :email_cont,
-                     search_placeholder: I18n.t('aypex.admin.users.search_for_users_by_email')} %>
+                     search_placeholder: I18n.t('aypex.admin.search_for_users_by_email')} %>

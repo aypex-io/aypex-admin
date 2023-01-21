@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= Aypex.t(:roles) %>
+  <%= I18n.t("aypex.admin.roles") %>
 <% end %>
 
 <% if @roles.any? %>
@@ -7,9 +7,9 @@
     <table class="table">
       <thead class="text-muted">
         <tr data-hook="admin_roles_index_headers">
-          <th><%= Aypex.t(:role_id) %></th>
+          <th><%= I18n.t("aypex.admin.role_id") %></th>
           <th class="actions text-end">
-            <%= link_to_with_icon(Aypex.t(:new_role), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, Aypex::Role %>
+            <%= link_to_with_icon(I18n.t("aypex.admin.new_role"), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, Aypex::Role %>
           </th>
         </tr>
       </thead>

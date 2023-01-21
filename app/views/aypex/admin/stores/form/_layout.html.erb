@@ -14,7 +14,7 @@
           <% end %>
           <%= f.field_container :logo do %>
             <%= ff.file_field :attachment %>
-            <%= f.label :logo, Aypex.t(:logo) %>
+            <%= f.label :logo, I18n.t("aypex.admin.logo") %>
           <% end %>
         <% end %>
       </div>
@@ -27,7 +27,7 @@
           <% end %>
           <%= f.field_container :mailer_logo do %>
             <%= ff.file_field :attachment, accept: Aypex::StoreMailerLogo::VALID_CONTENT_TYPES.join(',') %>
-            <%= f.label :mailer_logo, Aypex.t(:mailer_logo) %>
+            <%= f.label :mailer_logo, I18n.t("aypex.admin.mailer_logo") %>
           <% end %>
         <% end %>
       </div>
@@ -40,9 +40,9 @@
           <% end %>
           <%= f.field_container :favicon_image do %>
             <%= ff.file_field :attachment, accept: Aypex::StoreFaviconImage::VALID_CONTENT_TYPES.join(',') %>
-            <%= f.label :favicon_image, Aypex.t(:favicon) %>
+            <%= f.label :favicon_image, I18n.t("aypex.admin.favicon") %>
             <small class="form-text text-muted">
-              <%= Aypex.t(:favicon_upload_info) %>
+              <%= I18n.t("aypex.admin.favicon_upload_info") %>
             </small>
           <% end %>
         <% end %>

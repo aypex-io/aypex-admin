@@ -13,7 +13,7 @@
 <% end %>
 
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_orders_path, link_one_text: I18n.t("aypex.admin.orders.all_orders"), current_page_name: @order.number) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_orders_path, link_one_text: I18n.t("aypex.admin.all_orders"), current_page_name: @order.number) %>
 <% end %>
 
 <div data-hook="admin_order_edit_header">
