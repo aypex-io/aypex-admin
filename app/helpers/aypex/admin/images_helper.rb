@@ -9,7 +9,7 @@ module Aypex
             image.viewable.sku_and_options_text
           end
         else
-           I18n.t("aypex.admin.all")
+          I18n.t("aypex.admin.all")
         end
       end
     end
