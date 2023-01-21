@@ -53,6 +53,7 @@ en:
       all_adjustments_closed: All adjustments successfully closed!
       all_adjustments_opened: All adjustments successfully opened!
       all_countries: All countries
+      all_items_have_been_returned: All items have been returned
       all_loaded: All Loaded
       amount: Amount
       apis: API's
@@ -62,6 +63,7 @@ en:
         street_address_matches_but_5-digit_and_9_digit_postal_code_do_not_match: Street address matches, but 5-digit and 9-digit postal code do not match.
         street_address_matches_but_postal_code_not_verified: Street address matches, but postal code not verified.
       aypex_administration: Aypex administration
+      back_to_resource_list: Back to resource list
       base_categories: Base categories
       billing_address: Billing address
       bulk_actions: Bulk actions
@@ -151,6 +153,7 @@ en:
       country: Country
       country_name: Country name
       coupon_code: Coupon code
+      create: Create
       create_platform_application: Create platform application
       create_reimbursement: Create reimbursement
       create_webhook_subscriber: Create webhook subscriber
@@ -213,6 +216,7 @@ en:
           gte: Is greater than or equal to
           lt: Is less than
           lte: Is less than or equal to
+      items_in_rmas: Items in rmas
       kind: Kind
       label: Label
       language: Language
@@ -270,7 +274,7 @@ en:
       new_country: New country
       new_customer_return: New customer return
       no_billing_address_has_been_added_to_this_order: No billing address has been added to this order
-      no_categories: <b>%{base_category}</b> has no Sub Categories. Click the <b>Add a new Category</b> button, to begin.
+      no_categories: "<b>%{base_category}</b> has no Sub Categories. Click the <b>Add a new Category</b> button, to begin."
       no_message_set: No Message Set
       no_payment_provider_settings_message: No payment provider settings message
       no_resource_found: No resource found
@@ -522,6 +526,7 @@ en:
       say_no: 'No'
       say_yes: 'Yes'
       search: Search
+      select_a_stock_location: Select a stock location
       seo: SEO
       settings: Settings
       settings_menu:
@@ -568,6 +573,7 @@ en:
       starts_at: Starts at
       states_required: States required
       status: Status
+      stock_location: Stock location
       stock_locations_need_a_default_country: Stock locations need a default country
       stock_management_requires_a_stock_location: Stock management requires a stock location
       stock_successfully_transferred: Stock successfully transferred
