@@ -49,7 +49,7 @@ describe Aypex::Admin::OrdersController, type: :controller do
     describe "#approve" do
       it "approves an order" do
         put :approve, params: {id: order.number}
-        expect(flash[:message]).to eq Aypex.t(:order_approved)
+        expect(flash[:message]).to eq I18n.t("aypex.admin.order_approved")
         order.reload
         expect(order.approved?).to eq true
         expect(order.approver).to eq admin_user
@@ -61,7 +61,7 @@ describe Aypex::Admin::OrdersController, type: :controller do
 
       it "cancels an order" do
         put :cancel, params: {id: order.number}
-        expect(flash[:message]).to eq Aypex.t(:order_canceled)
+        expect(flash[:message]).to eq I18n.t("aypex.admin.order_canceled")
         order.reload
         expect(order.canceled?).to eq true
         expect(order.canceler).to eq admin_user
@@ -75,7 +75,7 @@ describe Aypex::Admin::OrdersController, type: :controller do
         put :resume, params: {id: order.number}
         order.reload
         expect(order.resumed?).to eq(true)
-        expect(flash[:message]).to eq Aypex.t(:order_resumed)
+        expect(flash[:message]).to eq I18n.t("aypex.admin.order_resumed")
       end
     end
 
@@ -84,7 +84,7 @@ describe Aypex::Admin::OrdersController, type: :controller do
 
       it "resends order mailer" do
         put :resend, params: {id: order.number}
-        expect(flash[:message]).to eq Aypex.t(:order_email_resent)
+        expect(flash[:message]).to eq I18n.t("aypex.admin.order_email_resent")
       end
     end
 

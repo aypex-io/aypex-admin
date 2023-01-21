@@ -576,9 +576,9 @@ en:
         not_limited_to_any_zone: Not limited to any zone
         store: Store
       successful: Successful
-      successfully_created: Successfully created
+      successfully_created: "%{resource} has been successfully created!"
       successfully_removed: "%{resource} has been successfully removed!"
-      successfully_updated: Successfully updated
+      successfully_updated: "%{resource} has been successfully updated!"
       tab:
         applications: Applications
         apps: Apps
