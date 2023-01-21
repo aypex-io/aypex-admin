@@ -2,8 +2,6 @@
 en:
   aypex:
     admin:
-      '':
-        all: All
       abandoned_checkouts: Abandoned checkouts
       abbreviation: Abbreviation
       accept: Accept

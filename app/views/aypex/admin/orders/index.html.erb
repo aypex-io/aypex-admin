@@ -10,7 +10,7 @@
 <%# Index Table                                     %>
 <%#-------------------------------------------------%>
 <% content_for :index_table_filter_tabs do %>
-  <%= link_to I18n.t("aypex.admin..all"), aypex.admin_orders_path, class: "#{'active' if params[:q][:payment_state_not_eq].blank? && params[:q][:shipment_state_not_eq].blank?}" %>
+  <%= link_to I18n.t("aypex.admin.all"), aypex.admin_orders_path, class: "#{'active' if params[:q][:payment_state_not_eq].blank? && params[:q][:shipment_state_not_eq].blank?}" %>
   <%= link_to I18n.t("aypex.admin.unpaid"), params.merge({q: {payment_state_not_eq: :paid}}).permit!, class: "#{'active' if params[:q][:payment_state_not_eq] == 'paid'}" %>
   <%= link_to I18n.t("aypex.admin.unfulfilled"), params.merge({q: {shipment_state_not_eq: :shipped}}).permit!, class: "#{'active' if params[:q][:shipment_state_not_eq] == 'shipped'}" %>
 <% end %>
