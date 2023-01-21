@@ -52,7 +52,7 @@ module Aypex
 
       def redirect_unauthorized_access
         if try_aypex_current_user
-          dispatch_notice(Aypex.t(:authorization_failure), :error)
+          dispatch_notice(I18n.t("aypex.admin.authorization_failure"), :error)
           redirect_to aypex.admin_forbidden_path
         else
           store_location
@@ -72,7 +72,8 @@ module Aypex
         resource_desc = object.class.model_name.human
         resource_desc += " \"#{object.name}\"" if (object.persisted? || object.destroyed?) && object.respond_to?(:name) && object.name.present? && !object.is_a?(Aypex::Order)
 
-        dispatch_notice(Aypex.t(event_sym, resource: resource_desc), kind)
+        # i18n-tasks-use I18n.t("aypex.admin.not_found")
+        dispatch_notice(I18n.t("aypex.admin.#{event_sym}", resource: resource_desc), kind)
       end
 
       def dispatch_notice(message, kind)
@@ -105,7 +106,7 @@ module Aypex
 
       def can_not_transition_without_customer_info
         unless @order.billing_address.present?
-          dispatch_notice(Aypex.t(:fill_in_customer_info), :notice)
+          dispatch_notice(I18n.t("aypex.admin.fill_in_customer_info"), :notice)
           redirect_to aypex.edit_admin_order_url(@order)
         end
       end

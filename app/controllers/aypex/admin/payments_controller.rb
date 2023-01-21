@@ -53,7 +53,7 @@ module Aypex
           else
             @payment ||= @order.payments.build(object_params)
             invoke_callbacks(:create, :fails)
-            dispatch_notice(Aypex.t(:payment_could_not_be_created), :error)
+            dispatch_notice(I18n.t("aypex.admin.payment_could_not_be_created"), :error)
 
             render :new, status: :unprocessable_entity
           end
@@ -71,9 +71,9 @@ module Aypex
         # Because we have a transition method also called void, we do this to avoid conflicts.
         event = "void_transaction" if event == "void"
         if @payment.send("#{event}!")
-          dispatch_notice(Aypex.t(:payment_updated), :success)
+          dispatch_notice(I18n.t("aypex.admin.payment_updated"), :success)
         else
-          dispatch_notice(Aypex.t(:cannot_perform_operation), :error)
+          dispatch_notice(I18n.t("aypex.admin.cannot_perform_operation"), :error)
         end
       rescue Aypex::GatewayError => ge
         dispatch_notice(ge.message.to_s, :error)

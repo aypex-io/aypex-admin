@@ -31,7 +31,7 @@ module Aypex
         if @payment_method.update(attributes)
           set_current_store
           invoke_callbacks(:update, :after)
-          dispatch_notice(Aypex.t(:successfully_updated, resource: Aypex.t(:payment_method)), :success)
+          dispatch_notice(I18n.t("aypex.admin.successfully_updated", resource: I18n.t("aypex.admin.payment_method")), :success)
 
           redirect_to aypex.edit_admin_payment_method_path(@payment_method)
         else
@@ -69,7 +69,7 @@ module Aypex
       def validate_payment_method_provider
         valid_payment_methods = Rails.application.config.aypex.payment_methods.map(&:to_s)
         unless valid_payment_methods.include?(params[:payment_method][:type])
-          dispatch_notice(Aypex.t(:invalid_payment_provider), :error)
+          dispatch_notice(I18n.t("aypex.admin.invalid_payment_provider"), :error)
           redirect_to aypex.new_admin_payment_method_path
         end
       end

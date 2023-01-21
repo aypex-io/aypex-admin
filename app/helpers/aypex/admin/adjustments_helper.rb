@@ -24,11 +24,11 @@ module Aypex
       end
 
       def display_shipment(shipment)
-        "#{Aypex.t(:shipment)} ##{shipment.number}<br>#{shipment.display_cost}".html_safe
+        "#{I18n.t("aypex.admin.shipment")} ##{shipment.number}<br>#{shipment.display_cost}".html_safe
       end
 
       def display_order(_order)
-        Aypex.t(:order)
+        I18n.t("aypex.admin.order")
       end
     end
   end

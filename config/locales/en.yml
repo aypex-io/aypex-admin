@@ -47,10 +47,14 @@ en:
         street: Street
         used_for_billing_and_shipping: Used for billing and shipping
         zipcode: Zipcode
+      all: All
+      all_adjustments_closed: All adjustments successfully closed!
+      all_adjustments_opened: All adjustments successfully opened!
       all_loaded: All Loaded
       amount: Amount
       apis: API's
       are_you_sure_you_want_to: Are you sure you want to %{action} this %{resource}
+      authorization_failure: Authorization failure
       avs_responses:
         street_address_matches_but_5-digit_and_9_digit_postal_code_do_not_match: Street address matches, but 5-digit and 9-digit postal code do not match.
         street_address_matches_but_postal_code_not_verified: Street address matches, but postal code not verified.
@@ -64,6 +68,7 @@ en:
       bulk_actions: Bulk actions
       calculators:
         if_you_change_the_calculator: Click update to save the new calculator.
+      cannot_perform_operation: Cannot perform operation
       categories:
         categories: Categories
         hide_from_sub_navigation: Hide from sub navigation
@@ -130,6 +135,8 @@ en:
         hero_image:
           hero_image_info: Hero image info
       copy_to_clipboard: Copy to clipboard
+      could_not_create_stock_movement: Could not create stock movement
+      could_not_update_stock_item: Could not update stock item
       count_on_hand: Count on hand
       countries:
         add_new_state: Add new state
@@ -139,6 +146,7 @@ en:
         iso_name: ISO Name
         search_by_country_name: Search by country name
         states: States
+      country: Country
       create_platform_application: Create platform application
       create_webhook_subscriber: Create webhook subscriber
       created_at: Created At
@@ -160,6 +168,7 @@ en:
         both: All
         front_end: Storefront
       download_sdk: Download SDK
+      error_user_destroy_with_orders: Error user destroy with orders
       errors:
         error_reposition_failed: Error reposition failed
         messages:
@@ -167,6 +176,7 @@ en:
           cannot_remove_icon: Cannot remove icon
       execution_time: Execution Time
       expires_at: Expires at
+      fill_in_customer_info: Fill in customer info
       filters:
         bill_address_company_cont: Company
         bill_address_firstname_cont: First Name
@@ -178,6 +188,9 @@ en:
         search_by_name: Product Name
         shipment_state_not_eq: Shipment State Not Equal
         variants_including_master_sku_cont: SKU
+      invalid_payment_provider: Invalid payment provider
+      invalid_promotion_action: Invalid promotion action
+      invalid_promotion_rule: Invalid promotion rule
       item_total:
         preferred_amount_max: Preferred amount max
         preferred_amount_min: Preferred amount min
@@ -246,6 +259,7 @@ en:
       no_payment_provider_settings_message: No payment provider settings message
       no_shipping_address_has_been_added_to_this_order: No shipping address has been added to this order
       not_applicable: Not applicable
+      not_found: "%{resource} is not found"
       note: Note
       notice_messages:
         icon_removed: Icon removed
@@ -295,6 +309,10 @@ en:
         shipping_locations: Shipping locations
         the_order_currency_is_locked_once_items_are_added: The currency of this order is locked.
         tracking_number: Tracking Number
+      order_approved: Order approved
+      order_canceled: Order canceled
+      order_email_resent: Order email resent
+      order_resumed: Order resumed
       order_state:
         address: Address
         awaiting_return: Awaiting return
@@ -324,12 +342,15 @@ en:
         state: State
       organization: Organization
       payment: Payment
+      payment_could_not_be_created: Payment could not be created
+      payment_method: Payment method
       payment_states:
         balance_due: Balance due
         credit_owed: Credit owed
         failed: Failed
         paid: Paid
         void: Void
+      payment_updated: Payment updated
       payments:
         gateway:
           cvc: CVC
@@ -393,6 +414,7 @@ en:
         stock: Stock
         variants: Variants
       promotion: Promotion
+      promotion_action: Promotion action
       promotion_action_types:
         create_adjustment:
           description: Create a whole order discount
@@ -408,6 +430,7 @@ en:
           name: Free Shipping
       promotion_cloned: Promotion cloned
       promotion_not_cloned: Promotion not cloned
+      promotion_rule: Promotion rule
       promotion_rule_types:
         category:
           description: The promtion applies to the products found within the selected categories
@@ -453,9 +476,14 @@ en:
         for: For %{store_name}
       request_errors: Request Errors
       response_code: Response Code
+      return_authorization_canceled: Return authorization canceled
       risk: Risk
       risky: Risky
       safe: Safe
+      sales_total: Sales total
+      sales_total_description: Sales Total For All Orders
+      say_no: 'No'
+      say_yes: 'Yes'
       search: Search
       seo: SEO
       settings: Settings
@@ -502,6 +530,9 @@ en:
       specifications: Specifications
       starts_at: Starts at
       status: Status
+      stock_locations_need_a_default_country: Stock locations need a default country
+      stock_management_requires_a_stock_location: Stock management requires a stock location
+      stock_successfully_transferred: Stock successfully transferred
       stock_transfer:
         errors:
           must_have_variant: Must have variant
@@ -545,6 +576,9 @@ en:
         not_limited_to_any_zone: Not limited to any zone
         store: Store
       successful: Successful
+      successfully_created: Successfully created
+      successfully_removed: "%{resource} has been successfully removed!"
+      successfully_updated: Successfully updated
       tab:
         applications: Applications
         apps: Apps
@@ -594,6 +628,7 @@ en:
         store_credits: Store Credits
         user_email: User email
         user_since: User since
+      user_not_found: User not found
       user_rule:
         users: Users
       users:

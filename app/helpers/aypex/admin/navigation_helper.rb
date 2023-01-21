@@ -198,7 +198,7 @@ module Aypex
 
       def active_badge(condition, options = {})
         label = options[:label]
-        label ||= condition ? Aypex.t(:say_yes) : Aypex.t(:say_no)
+        label ||= condition ? I18n.t("aypex.admin.say_yes") : I18n.t("aypex.admin.say_no")
         css_class = condition ? "rgb-hsl-success" : "rgb-hsl-secondary"
 
         content_tag(:small, class: "badge rounded-pill #{css_class}") do

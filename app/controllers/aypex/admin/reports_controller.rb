@@ -10,7 +10,9 @@ module Aypex
           if report_description_key.nil?
             report_description_key = "#{report_key}_description"
           end
-          @@available_reports[report_key] = {name: Aypex.t(report_key), description: Aypex.t(report_description_key)}
+          # i18n-tasks-use I18n.t('aypex.admin.sales_total')
+          # i18n-tasks-use I18n.t('aypex.admin.sales_total_description')
+          @@available_reports[report_key] = {name: I18n.t("aypex.admin.#{report_key}"), description: I18n.t("aypex.admin.#{report_description_key}")}
         end
       end
 

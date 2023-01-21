@@ -7,8 +7,8 @@ module Aypex
         events.each do |event|
           next unless order.send("can_#{event}?")
 
-          label = Aypex.t(event, scope: "admin.order.events", default: Aypex.t(event))
-          links << link_to_with_icon(label.capitalize, [event.to_sym, :admin, order], icon: event.to_s + ".svg", data: {turbo_method: :put, turbo_confirm: Aypex.t(:order_sure_want_to, event: label)}, class: "btn btn-secondary")
+          label = I18n.t("aypex.admin.#{event}")
+          links << link_to_with_icon(label.capitalize, [event.to_sym, :admin, order], icon: event.to_s + ".svg", data: {turbo_method: :put, turbo_confirm: I18n.t("aypex.admin.are_you_sure_you_want_to", action: label, resource: "Order")}, class: "btn btn-secondary")
         end
         safe_join(links, "".html_safe)
       end

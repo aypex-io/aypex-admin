@@ -106,7 +106,7 @@ module Aypex
       # handling raise from Aypex::Admin::ResourceController#destroy
       def user_destroy_with_orders_error
         invoke_callbacks(:destroy, :fails)
-        render status: :forbidden, plain: Aypex.t(:error_user_destroy_with_orders)
+        render status: :forbidden, plain: I18n.t("aypex.admin.error_user_destroy_with_orders")
       end
 
       def sign_in_if_change_own_password

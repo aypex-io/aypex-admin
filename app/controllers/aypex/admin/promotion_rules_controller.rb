@@ -6,7 +6,7 @@ class Aypex::Admin::PromotionRulesController < Aypex::Admin::BaseController
     @promotion_rule = @promotion_rule_type.new(promotion_rule_params)
     @promotion_rule.promotion = @promotion
     if @promotion_rule.save
-      dispatch_notice(Aypex.t(:successfully_created, resource: Aypex.t(:promotion_rule)), :success)
+      dispatch_notice(I18n.t("aypex.admin.successfully_created", resource: I18n.t("aypex.admin.promotion_rule")), :success)
     end
     respond_to do |format|
       format.html { redirect_to aypex.edit_admin_promotion_path(@promotion) }
@@ -16,7 +16,7 @@ class Aypex::Admin::PromotionRulesController < Aypex::Admin::BaseController
   def destroy
     @promotion_rule = @promotion.promotion_rules.find(params[:id])
     if @promotion_rule.destroy
-      dispatch_notice(Aypex.t(:successfully_removed, resource: Aypex.t(:promotion_rule)), :success)
+      dispatch_notice(I18n.t("aypex.admin.successfully_removed", resource: I18n.t("aypex.admin.promotion_rule")), :success)
     end
     respond_to do |format|
       format.html { redirect_to aypex.edit_admin_promotion_path(@promotion) }
@@ -50,7 +50,7 @@ class Aypex::Admin::PromotionRulesController < Aypex::Admin::BaseController
       klass.name == requested_type
     end
     unless @promotion_rule_type
-      dispatch_notice(Aypex.t(:invalid_promotion_rule), :error)
+      dispatch_notice(I18n.t("aypex.admin.invalid_promotion_rule"), :error)
 
       respond_to do |format|
         format.html { redirect_to aypex.edit_admin_promotion_path(@promotion) }

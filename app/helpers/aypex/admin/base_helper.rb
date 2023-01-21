@@ -245,15 +245,15 @@ module Aypex
             case key
             when :currency
               content_tag(:div, (form.select "preferred_#{key}", currency_options(object.preferences[key]), {}, {autocomplete: false, class: "form-select", data: {controller: "ts--select", form_state_target: "watch", input_disable_target: "disable"}}) +
-                form.label("preferred_#{key}", Aypex.t(key)),
+                form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}")),
                 class: "form-group form-floating", id: [object.class.to_s.parameterize, "preference", key].join("-"))
             else
               if object.preference_type(key).to_sym == :boolean
                 content_tag(:div, preference_field_for(form, "preferred_#{key}", type: object.preference_type(key)) +
-                  form.label("preferred_#{key}", Aypex.t(key), class: "form-check-label"),
+                  form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}"), class: "form-check-label"),
                   class: "form-group form-check", id: [object.class.to_s.parameterize, "preference", key].join("-"))
               else
-                content_tag(:div, preference_field_for(form, "preferred_#{key}", type: object.preference_type(key)) + form.label("preferred_#{key}", Aypex.t(key)),
+                content_tag(:div, preference_field_for(form, "preferred_#{key}", type: object.preference_type(key)) + form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}")),
                   class: "form-group form-floating", id: [object.class.to_s.parameterize, "preference", key].join("-"))
               end
             end

@@ -9,7 +9,7 @@ module Aypex
 
       def cancel
         @return_authorization.cancel!
-        dispatch_notice(Aypex.t(:return_authorization_canceled), :success)
+        dispatch_notice(I18n.t("aypex.admin.return_authorization_canceled"), :success)
         redirect_back fallback_location: aypex.edit_admin_order_return_authorization_path(@order, @return_authorization)
       end
 

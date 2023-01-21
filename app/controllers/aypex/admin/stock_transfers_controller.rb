@@ -36,7 +36,7 @@ module Aypex
             destination_location,
             variants)
 
-          dispatch_notice(Aypex.t(:stock_successfully_transferred), :success)
+          dispatch_notice(I18n.t("aypex.admin.stock_successfully_transferred"), :success)
           redirect_to aypex.admin_stock_transfer_path(stock_transfer)
         end
       end

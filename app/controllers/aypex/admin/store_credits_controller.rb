@@ -73,7 +73,7 @@ module Aypex
         @user = Aypex::Config.user_class.find_by(id: params[:user_id])
 
         unless @user
-          dispatch_notice(Aypex.t(:user_not_found), :error)
+          dispatch_notice(I18n.t("aypex.admin.user_not_found"), :error)
           redirect_to aypex.admin_path
         end
       end

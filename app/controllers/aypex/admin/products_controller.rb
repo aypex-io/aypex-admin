@@ -62,7 +62,7 @@ module Aypex
         @variant = @product.variants_including_master.find_by(id: params[:variant_id])
         @stock_locations = StockLocation.accessible_by(current_ability)
         if @stock_locations.empty?
-          dispatch_notice(Aypex.t(:stock_management_requires_a_stock_location), :error)
+          dispatch_notice(I18n.t("aypex.admin.stock_management_requires_a_stock_location"), :error)
           redirect_to aypex.admin_stock_locations_path
         end
       end

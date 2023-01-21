@@ -15,7 +15,7 @@ module Aypex
             redirect_to aypex.edit_admin_product_variant_path(variant.product, variant)
           end
         else
-          dispatch_notice(Aypex.t(:could_not_update_stock_item), :error)
+          dispatch_notice(I18n.t("aypex.admin.could_not_update_stock_item"), :error)
         end
       end
 
@@ -31,7 +31,7 @@ module Aypex
           end
           redirect_to aypex.edit_admin_product_path(variant.product)
         else
-          dispatch_notice(Aypex.t(:could_not_create_stock_movement), :error)
+          dispatch_notice(I18n.t("aypex.admin.could_not_create_stock_movement"), :error)
         end
       end
 

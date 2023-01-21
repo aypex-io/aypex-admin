@@ -44,28 +44,28 @@ module Aypex
 
       def cancel
         @order.canceled_by(try_aypex_current_user)
-        dispatch_notice(Aypex.t(:order_canceled), :success)
+        dispatch_notice(I18n.t("aypex.admin.order_canceled"), :success)
 
         redirect_back fallback_location: aypex.edit_admin_order_url(@order)
       end
 
       def resume
         @order.resume!
-        dispatch_notice(Aypex.t(:order_resumed), :success)
+        dispatch_notice(I18n.t("aypex.admin.order_resumed"), :success)
 
         redirect_back fallback_location: aypex.edit_admin_order_url(@order)
       end
 
       def approve
         @order.approved_by(try_aypex_current_user)
-        dispatch_notice(Aypex.t(:order_approved), :success)
+        dispatch_notice(I18n.t("aypex.admin.order_approved"), :success)
 
         redirect_back fallback_location: aypex.edit_admin_order_url(@order)
       end
 
       def resend
         @order.deliver_order_confirmation_email
-        dispatch_notice(Aypex.t(:order_email_resent), :success)
+        dispatch_notice(I18n.t("aypex.admin.order_email_resent"), :success)
 
         redirect_back fallback_location: aypex.edit_admin_order_url(@order)
       end
@@ -80,7 +80,7 @@ module Aypex
       def open_adjustments
         adjustments = @order.all_adjustments.finalized
         adjustments.update_all(state: "open")
-        dispatch_notice(Aypex.t(:all_adjustments_opened), :success)
+        dispatch_notice(I18n.t("aypex.admin.all_adjustments_opened"), :success)
 
         redirect_back fallback_location: aypex.admin_order_adjustments_url(@order)
       end
@@ -88,7 +88,7 @@ module Aypex
       def close_adjustments
         adjustments = @order.all_adjustments.not_finalized
         adjustments.update_all(state: "closed")
-        dispatch_notice(Aypex.t(:all_adjustments_closed), :success)
+        dispatch_notice(I18n.t("aypex.admin.all_adjustments_closed"), :success)
 
         redirect_back fallback_location: aypex.admin_order_adjustments_url(@order)
       end

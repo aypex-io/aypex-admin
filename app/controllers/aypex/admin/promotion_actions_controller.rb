@@ -7,7 +7,7 @@ class Aypex::Admin::PromotionActionsController < Aypex::Admin::BaseController
     @promotion_action = params[:action_type].constantize.new(params[:promotion_action])
     @promotion_action.promotion = @promotion
     if @promotion_action.save
-      dispatch_notice(Aypex.t(:successfully_created, resource: Aypex.t(:promotion_action)), :success)
+      dispatch_notice(I18n.t("aypex.admin.successfully_created", resource: I18n.t("aypex.admin.promotion_action")), :success)
     end
     respond_to do |format|
       format.html { redirect_to aypex.edit_admin_promotion_path(@promotion) }
@@ -17,7 +17,7 @@ class Aypex::Admin::PromotionActionsController < Aypex::Admin::BaseController
   def destroy
     @promotion_action = @promotion.promotion_actions.find(params[:id])
     if @promotion_action.destroy
-      dispatch_notice(Aypex.t(:successfully_removed, resource: Aypex.t(:promotion_action)), :success)
+      dispatch_notice(I18n.t("aypex.admin.successfully_removed", resource: I18n.t("aypex.admin.promotion_action")), :success)
     end
     respond_to do |format|
       format.html { redirect_to aypex.edit_admin_promotion_path(@promotion) }
@@ -33,7 +33,7 @@ class Aypex::Admin::PromotionActionsController < Aypex::Admin::BaseController
   def validate_promotion_action_type
     valid_promotion_action_types = Rails.application.config.aypex.promotions.actions.map(&:to_s)
     unless valid_promotion_action_types.include?(params[:action_type])
-      dispatch_notice(Aypex.t(:invalid_promotion_action), :error)
+      dispatch_notice(I18n.t("aypex.admin.invalid_promotion_action"), :error)
 
       respond_to do |format|
         format.html { redirect_to aypex.edit_admin_promotion_path(@promotion) }
