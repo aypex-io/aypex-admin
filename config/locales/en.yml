@@ -65,6 +65,7 @@ en:
       amount: Amount
       amount_max: Amount max
       amount_min: Amount min
+      any: Any
       apis: API's
       applications: Applications
       approved_at: Approved at
@@ -279,6 +280,7 @@ en:
       images: Images
       included_in_price: Included in price
       incomplete: Incomplete
+      info: Info
       instagram_username: Instagram username
       integrations: Integrations
       internal_name: Internal name
@@ -431,6 +433,7 @@ en:
       order_email_resent: Order email resent
       order_number: Order number
       order_resumed: Order resumed
+      order_state: Order state
       orders: Orders
       organization: Organization
       organizations: Organizations
@@ -440,6 +443,7 @@ en:
       page_type: Page Type
       pages: Pages
       paid: Paid
+      partial: Partial
       password: Password
       path: Path
       payment: Payment
@@ -465,6 +469,7 @@ en:
       pre_tax_total: Pre tax total
       preferred_reimbursement_type: Preferred reimbursement type
       presentation: Presentation
+      preview_name: Preview %{name}
       previous_state_missing: Previous state missing
       previously_used_card: Previously used card
       price: Price
@@ -473,6 +478,7 @@ en:
       prices: Prices
       prices_saved: Prices saved
       pricing: Pricing
+      product: Product
       product_cloned: Product cloned
       product_cost_currency_updated_successfully: Product cost currency updated successfully
       product_image: Product image
@@ -559,10 +565,12 @@ en:
       reimbursement_status: Reimbursement status
       reimbursement_type: Reimbursement type
       reimbursement_type_override: Reimbursement type override
+      reimbursement_types: Reimbursement types
       reimbursements: Reimbursements
       reject: Reject
       rejected: Rejected
       remove_image: Remove image
+      reports: Reports
       request_errors: Request Errors
       resellable: Resellable
       resend_shipping_confirmation_email: Resend Shipping Confirmation Email
@@ -636,6 +644,7 @@ en:
       shipped: Shipped
       shipping_address: Shipping address
       shipping_addresses: Shipping addresses
+      shipping_categories: Shipping categories
       shipping_category: Shipping category
       shipping_locations: Shipping locations
       shipping_method: Shipping method
@@ -675,11 +684,12 @@ en:
       stock_successfully_transferred: Stock successfully transferred
       stock_transfer_name: Stock transfer name
       stock_transfers: Stock transfers
-      store:
+      store: Store
       store_credit_categories: Store credit categories
       store_credit_name: Store credit name
       store_credits: Store credits
       storefront_api: Storefront API
+      stores: Stores
       street: Street
       street_address: Street address
       street_address_2: Street address 2
@@ -708,8 +718,10 @@ en:
       tax_code: Tax code
       tax_included: Tax included
       tax_rate_amount_explanation: Tax rate amount explanation
+      tax_rates: Tax rates
       the_order_currency_is_locked_once_items_are_added: The currency of this order is locked.
       the_promotion_applies_to_products: The promotion applies to products
+      this_option_types: This option types
       this_order_has_already_received_a_refund: This order has already received a refund
       this_user_has_no_addresses_click_add_new_address_to_add_a_new_address: This user has no addresses click add new address to add a new address
       thumbnail: Thumbnail
@@ -750,9 +762,7 @@ en:
       user_not_found: User not found
       user_since: User since
       users: Users
-      preview_name: Preview %{name}
       value: Value
-      this_option_types: This option types
       variant: Variant
       variants: Variants
       variants_including_master_sku_cont: SKU
