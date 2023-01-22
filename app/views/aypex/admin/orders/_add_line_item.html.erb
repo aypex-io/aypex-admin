@@ -8,7 +8,7 @@
        <%= f.fields_for :line_items_attributes do |li| %>
           <div class="form-group form-floating">
             <%= li.select :variant_id, [], {}, name: 'line_item[variant_id]', class: 'form-select',
-                                                      placeholder: I18n.t('aypex.admin.order.search_for_a_product_or_variant'),
+                                                      placeholder: I18n.t('aypex.admin.search_for_a_product_or_variant'),
                                                       data: { action: 'change->form-validation#validate',
                                                       controller: 'ts--search-variant',
                                                       ts__search_variant_debug_value: false,
@@ -20,10 +20,10 @@
 
                                                     } %>
 
-            <%= label_tag :variant_id, I18n.t('aypex.admin.order.products'), class: 'form-label' %>
+            <%= label_tag :variant_id, I18n.t('aypex.admin.products'), class: 'form-label' %>
             <%= hidden_field nil, 'line_item[quantity]', value: "1" %>
           </div>
-          <%= f.submit I18n.t('aypex.admin.order.products'), class: 'btn btn-secondary', data: { form_validation_target: "submitBtn" } %>
+          <%= f.submit I18n.t('aypex.admin.products'), class: 'btn btn-secondary', data: { form_validation_target: "submitBtn" } %>
         <% end %>
       <% end %>
     </div>

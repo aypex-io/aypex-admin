@@ -16,7 +16,7 @@
         <div class="form-group form-floating">
 
           <%= select_tag "#{line_item_prefix}[variant_id]", line_item.variant_id, class: 'form-select',
-                                          placeholder: I18n.t('aypex.admin.order.search_products_by_name_or_sku'),
+                                          placeholder: I18n.t('aypex.admin.search_products_by_name_or_sku'),
                                           data: {
                                                   controller: 'ts--search-variant',
                                                   ts__search_variant_debug_value: false,

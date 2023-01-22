@@ -6,23 +6,23 @@
   <%= search_form_for [:admin, @search], url: aypex.admin_promotions_path, id: "moreFilterForm", data: {controller: "form--autosave", turbo_frame: :index_table, form__reset_target: "resettable"} do |f| %>
 
   <%= f.field_container :name_cont do %>
-    <%= f.text_field :name_cont, class: "form-control", placeholder: I18n.t('aypex.admin.promotions.name'), data: { action: 'form--autosave#save' } %>
-    <%= f.label :name_cont, I18n.t('aypex.admin.promotions.name') %>
+    <%= f.text_field :name_cont, class: "form-control", placeholder: I18n.t('aypex.admin.name'), data: { action: 'form--autosave#save' } %>
+    <%= f.label :name_cont, I18n.t('aypex.admin.name') %>
   <% end %>
 
   <%= f.field_container :code_i_cont do %>
-    <%= f.text_field :code_i_cont, class: "form-control", placeholder: I18n.t('aypex.admin.promotions.code'), data: { action: 'form--autosave#save' } %>
-    <%= f.label :code_i_cont, I18n.t('aypex.admin.promotions.code') %>
+    <%= f.text_field :code_i_cont, class: "form-control", placeholder: I18n.t('aypex.admin.code'), data: { action: 'form--autosave#save' } %>
+    <%= f.label :code_i_cont, I18n.t('aypex.admin.code') %>
   <% end %>
 
   <%= f.field_container :path_i_cont do %>
-    <%= f.text_field :path_i_cont, class: "form-control", placeholder: I18n.t('aypex.admin.promotions.path'), data: { action: 'form--autosave#save' } %>
-    <%= f.label :path_i_cont, I18n.t('aypex.admin.promotions.path') %>
+    <%= f.text_field :path_i_cont, class: "form-control", placeholder: I18n.t('aypex.admin.path'), data: { action: 'form--autosave#save' } %>
+    <%= f.label :path_i_cont, I18n.t('aypex.admin.path') %>
   <% end %>
 
   <%= f.field_container :promotion_category_id_eq do %>
-    <%= f.collection_select(:promotion_category_id_eq, @promotion_categories, :id, :name, { include_blank: I18n.t('aypex.admin.match_choices.all') }, { disabled: @promotion_categories.empty?, class: 'form-select', data: {controller: 'ts--select'} } ) %>
-    <%= f.label :promotion_category_id_eq, I18n.t('aypex.admin.promotions.category') %>
+    <%= f.collection_select(:promotion_category_id_eq, @promotion_categories, :id, :name, { include_blank: I18n.t('aypex.admin.all') }, { disabled: @promotion_categories.empty?, class: 'form-select', data: {controller: 'ts--select'} } ) %>
+    <%= f.label :promotion_category_id_eq, I18n.t('aypex.admin.category') %>
   <% end %>
 
   <%= f.submit I18n.t('aypex.admin.filter'), data: {form__autosave_target: "submitButton"} %>

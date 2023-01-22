@@ -2,7 +2,7 @@
   <%= form_with model: [:admin, @order], data: { controller: "form-validation" } do |f| %>
     <div class="form-group form-floating">
       <%= f.select :user_id, [], { include_blank: true }, class: 'form-select',
-                                                          placeholder: I18n.t('aypex.admin.order.search_users_by_name_or_email'),
+                                                          placeholder: I18n.t('aypex.admin.search_users_by_name_or_email'),
                                                           data: { action: 'change->form-validation#validate',
                                                                   controller: 'ts--search-user',
                                                                   ts__search_user_plugins_value: ['clear_button'],
@@ -14,7 +14,7 @@
       <%= f.label :user_id, I18n.t("aypex.admin.user_id"), class: 'form-label' %>
     </div>
 
-    <%= f.submit I18n.t('aypex.admin.order.add_user_to_order'), class: 'btn btn-secondary', data: { form_validation_target: "submitBtn" } %>
+    <%= f.submit I18n.t('aypex.admin.add_user_to_order'), class: 'btn btn-secondary', data: { form_validation_target: "submitBtn" } %>
   <% end %>
 <% end %>
 <% if @order.user.present? %>

@@ -144,7 +144,7 @@ describe Aypex::Admin::ProductsController, type: :controller do
         it { expect(response).to have_http_status(:ok) }
 
         it "set flash error" do
-          expected_error = I18n.t("aypex.admin.notice_messages.product_not_deleted", error: error_msg)
+          expected_error = I18n.t("aypex.admin.product_not_deleted", error: error_msg)
 
           expect(flash[:kind]).to eq(:error)
           expect(flash[:message]).to eq(expected_error)
@@ -192,7 +192,7 @@ describe Aypex::Admin::ProductsController, type: :controller do
 
         it do
           expect(flash[:kind]).to eq(:success)
-          expect(flash[:message]).to eq(I18n.t("aypex.admin.notice_messages.product_cloned"))
+          expect(flash[:message]).to eq(I18n.t("aypex.admin.product_cloned"))
         end
       end
     end
@@ -209,7 +209,7 @@ describe Aypex::Admin::ProductsController, type: :controller do
         it { expect(response).to be_redirect }
 
         it "set flash error" do
-          expected_error = I18n.t("aypex.admin.notice_messages.product_not_cloned", error: "Validation failed: Sku has already been taken")
+          expected_error = I18n.t("aypex.admin.product_not_cloned", error: "Validation failed: Sku has already been taken")
 
           expect(flash[:kind]).to eq(:error)
           expect(flash[:message]).to eq(expected_error)

@@ -2,11 +2,11 @@
   <%= f.check_box :visible, class: 'btn-check', data: {action: 'change->form-validation#validate'} %>
   <% if @cms_page.visible? %>
     <%= f.label :visible, class: 'rounded-pill badge rgb-hsl-primary' do %>
-      <%= aypex_admin_svg_tag "eye.svg", size: '18px * 18px', class: 'mb-0' %> <%= I18n.t('aypex.admin.cms.visible') %>
+      <%= aypex_admin_svg_tag "eye.svg", size: '18px * 18px', class: 'mb-0' %> <%= I18n.t('aypex.admin.visible') %>
     <% end %>
   <% else %>
     <%= f.label :visible, class: 'rounded-pill badge rgb-hsl-secondary' do %>
-      <%= aypex_admin_svg_tag "eye-slash-fill.svg", size: '18px *18px', class: 'mb-0' %> <%= I18n.t('aypex.admin.cms.draft_mode') %>
+      <%= aypex_admin_svg_tag "eye-slash-fill.svg", size: '18px *18px', class: 'mb-0' %> <%= I18n.t('aypex.admin.draft_mode') %>
     <% end %>
   <% end %>
   <%= f.submit I18n.t('aypex.admin.update'), data: {form_validation_target: "submitBtn"} %>

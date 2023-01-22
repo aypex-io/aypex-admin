@@ -1,14 +1,14 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.cms.all_pages'),
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.all_pages'),
                          link_two_uri: aypex.edit_admin_cms_page_path(@cms_page), link_two_text: @cms_page.title,
-                         current_page_name: I18n.t('aypex.admin.cms.new_section')) %>
+                         current_page_name: I18n.t('aypex.admin.new_section')) %>
 <% end %>
 
 <%= form_with model: [:admin, @cms_page, @cms_section], url: aypex.admin_cms_page_cms_sections_path, data: {controller: "input--required"} do |f| %>
   <div class="card">
     <div class="card-header d-flex">
       <div class="flex-fill">
-        <h5 class="card-title"><%= I18n.t("aypex.admin.cms.new_section") %></h5>
+        <h5 class="card-title"><%= I18n.t("aypex.admin.new_section") %></h5>
       </div>
     </div>
     <div class="card-body">
@@ -22,7 +22,7 @@
         <div class="col-12 col-md-6">
           <%= f.field_container :type do %>
             <%= f.select(:type, aypex_humanize_dropdown_values('Aypex::CmsSection', {const: 'TYPES'}), {include_blank: false}) %>
-            <%= f.label :type, I18n.t('aypex.admin.cms.section_type') %>
+            <%= f.label :type, I18n.t('aypex.admin.section_type') %>
           <% end %>
         </div>
       </div>

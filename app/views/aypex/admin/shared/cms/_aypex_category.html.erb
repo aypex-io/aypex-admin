@@ -1,5 +1,5 @@
 <%= f.field_container save_to do %>
-  <%= f.label save_to, I18n.t('aypex.admin.cms.link_to_category') %>
+  <%= f.label save_to, I18n.t('aypex.admin.link_to_category') %>
   <%= f.select save_to, options_from_collection_for_select([resource], save_to, save_to, resource.send(save_to) || nil), { include_blank: true },
                           id: "cms_section_#{save_to}",
                           data: { autocomplete_placeholder_value: I18n.t('aypex.admin.navigation.search_for_a_category'),

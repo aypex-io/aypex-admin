@@ -34,13 +34,13 @@
 
 <% if can? :admin, Aypex::Promotion %>
   <ul class="nav nav-sidebar" id="sidebarPromotion">
-    <%= main_menu_tree I18n.t('aypex.admin.promotions.promotions'), icon: "percent.svg", sub_menu: "promotion", url: "#sidebar-promotions" %>
+    <%= main_menu_tree I18n.t('aypex.admin.promotions'), icon: "percent.svg", sub_menu: "promotion", url: "#sidebar-promotions" %>
   </ul>
 <% end %>
 
 <% if defined?(Aypex::Vendor) && can?(:manage, Aypex::Vendor) && can?(:index, Aypex::Vendor) %>
   <ul class="nav nav-sidebar" id="sidebarOrganizations">
-    <%= main_menu_tree I18n.t('aypex.admin.promotions.organizations'), icon: "building.svg", sub_menu: "organizations", url: "#sidebar-organizations" %>
+    <%= main_menu_tree I18n.t('aypex.admin.organizations'), icon: "building.svg", sub_menu: "organizations", url: "#sidebar-organizations" %>
   </ul>
 <% end %>
 

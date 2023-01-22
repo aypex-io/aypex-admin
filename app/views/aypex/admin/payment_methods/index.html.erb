@@ -44,7 +44,7 @@
           </td>
           <td><%= method.name %></td>
           <td><%= method.type %></td>
-          <td class="text-center"><%= I18n.t("aypex.admin.display_on.#{method.display_on}") %></td>
+          <td class="text-center"><%= I18n.t("aypex.admin.#{method.display_on}") %></td>
           <td class="text-center"><%= active_badge(method.active) %></td>
           <td data-hook="admin_payment_methods_index_row_actions" class="actions">
             <span class="d-flex justify-content-end">

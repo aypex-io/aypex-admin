@@ -7,7 +7,7 @@ module Aypex
             format.turbo_stream
           end
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.cms_pages.errors.could_not_update_page_visibility"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.could_not_update_page_visibility"), kind: :error)
         end
       end
 

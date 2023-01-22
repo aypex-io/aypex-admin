@@ -1,6 +1,6 @@
 <% if can? :admin, current_store %>
   <ul class="nav nav-sidebar" id="sidebarConfiguration">
-    <%= main_menu_tree I18n.t('aypex.admin.stores.store'), icon: "shop-window.svg", sub_menu: "configuration", url: "#sidebar-configuration" %>
+    <%= main_menu_tree I18n.t('aypex.admin.store'), icon: "shop-window.svg", sub_menu: "configuration", url: "#sidebar-configuration" %>
   </ul>
 <% elsif defined?(current_aypex_vendor) && current_aypex_vendor.present? %>
   <ul class="nav nav-sidebar" id="sidebarConfiguration">

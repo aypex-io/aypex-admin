@@ -32,7 +32,7 @@
           <% end %>
 
           <%= f.field_container :display_on do %>
-            <%= f.select(:display_on, Aypex::PaymentMethod::DISPLAY.collect { |display| [I18n.t("aypex.admin.display_on.#{display}"), display.to_s] }, { selected: :both }) %>
+            <%= f.select(:display_on, Aypex::PaymentMethod::DISPLAY.collect { |display| [I18n.t("aypex.admin.#{display}"), display.to_s] }, { selected: :both }) %>
             <%= f.label :display_on, I18n.t("aypex.admin.display") %>
           <% end %>
 

@@ -5,7 +5,7 @@
     </h5>
   </div>
   <div class="card-body">
-    <h6><%= I18n.t('aypex.admin.stores.currency') %></h6>
+    <h6><%= I18n.t('aypex.admin.currency') %></h6>
     <%= f.field_container :default_currency do %>
       <%= f.select :default_currency, currency_options(@store.default_currency), {} %>
       <%= f.label :default_currency %>
@@ -17,9 +17,9 @@
     <% end %>
 
     <hr>
-    <h6><%= I18n.t('aypex.admin.stores.checkout') %></h6>
+    <h6><%= I18n.t('aypex.admin.checkout') %></h6>
     <%= f.field_container :checkout_zone_id do %>
-      <%= f.select :checkout_zone_id, options_for_select(@zones), { include_blank: I18n.t('aypex.admin.stores.not_limited_to_any_zone') } %>
+      <%= f.select :checkout_zone_id, options_for_select(@zones), { include_blank: I18n.t('aypex.admin.not_limited_to_any_zone') } %>
       <%= f.label :checkout_zone_id, I18n.t("aypex.admin.shipping_zone") %>
     <% end %>
 
@@ -29,15 +29,15 @@
     <% end %>
 
     <hr>
-    <h6><%= I18n.t('aypex.admin.stores.language') %></h6>
+    <h6><%= I18n.t('aypex.admin.language') %></h6>
     <%= f.field_container :default_locale do %>
       <%= f.select :default_locale, options_from_collection_for_select(all_locales_options, :last, :first, @store.default_locale || I18n.locale), {} %>
-      <%= f.label :default_locale, I18n.t('aypex.admin.store_form.default_language') %>
+      <%= f.label :default_locale, I18n.t('aypex.admin.default_language') %>
     <% end %>
 
     <%= f.field_container :supported_locales do %>
       <%= f.select :supported_locales, options_from_collection_for_select(all_locales_options, :last, :first, @store.supported_locales&.split(',')), {}, {multiple: true} %>
-      <%= f.label :supported_locales, I18n.t('aypex.admin.store_form.supported_languages') %>
+      <%= f.label :supported_locales, I18n.t('aypex.admin.supported_languages') %>
     <% end %>
   </div>
 </div>

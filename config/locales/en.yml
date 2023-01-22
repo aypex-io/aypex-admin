@@ -15,13 +15,17 @@ en:
       add_a_new_property: Add a new property
       add_a_new_shipping_address: Add a new shipping address
       add_a_product: Add a product
+      add_a_shipment_to_this_order_to_begin_adding_items: Add a new shipping location to this order, and then add products to the shipment. Ideally, choose the location nearest the delivery address for faster and cheaper delivery.
       add_action_of_type: Add action of type
       add_coupon_code: Add coupon code
       add_first_property: Add first property
       add_new_address: Add new address
       add_new_category: Add new category
+      add_new_file: Add a new digital asset.
+      add_new_page: Add New Page
       add_new_properties_from_prototype: Add new properties from prototype
       add_new_property: Add new property
+      add_new_section: Add New Section
       add_new_state: Add new state
       add_new_store: Add new store
       add_one: Add one
@@ -31,6 +35,7 @@ en:
       add_stock: Add stock
       add_store: Add store
       add_store_credit: Add store credit
+      add_user_to_order: Add this User to the Order
       add_variant: Add variant
       address: Address
       address_cont: Address cont
@@ -48,6 +53,7 @@ en:
       all_loaded: All Loaded
       all_option_types: All option types
       all_orders: All orders
+      all_pages: All Pages
       all_payment_methods: All payment methods
       all_products: All products
       all_promotion_categories: All promotion categories
@@ -69,106 +75,71 @@ en:
       are_you_sure_you_want_to: Are you sure you want to %{action} this %{resource}
       assets: Assets
       authorization_failure: Authorization failure
+      authorized_clicks: Authorized Download Count
+      authorized_days: Authorized Download Days
       auto_capture: Auto capture
       availability: Availability
       available_on: Available on
       available_store_credit: Available store credit
       average_order_value: Average order value
       avs_response: Avs response
+      awaiting_return: Awaiting return
       aypex_administration: Aypex administration
+      back_end: Admin Panel
       back_to_resource_list: Back to resource list
+      backorder: Backorder
       backorderable: Backorderable
       backorderable_default: Backorderable default
       balance_due: Balance due
       base_categories: Base categories
       basic_information: Basic information
+      bill_address_company_cont: Company
+      bill_address_firstname_cont: First Name
+      bill_address_lastname_cont: Last Name
       billing_address: Billing address
       billing_addresses: Billing addresses
+      blank: Blank
+      both: All
+      branding: Branding
       bulk_actions: Bulk actions
+      button_text: Button Text
       calculated_reimbursements: Calculated reimbursements
       calculator: Calculator
       cancel: Cancel
+      canceled: Cancelled
       canceled_at: Canceled at
       canceler: Canceler
+      cannot_change_used_store_credit: Cannot change used store credit
       cannot_create_customer_returns: Cannot create customer returns
       cannot_create_returns: Cannot create returns
       cannot_perform_operation: Cannot perform operation
+      cannot_remove_icon: Cannot remove icon
       capture_events: Capture events
       card_number: Card number
       card_type: Card type
+      cart: Add a customer or products to the order via the Shipment section.
       catalog: Catalog
       categories: Categories
       categories_info: Categories info
       category: Category
       category_images: Category Images
-      category_rule:
-        choose_categories: Categories
-        label: The promotion applies to products
-        match_all: In all of the selected categories
-        match_any: In any of the selected categories
       charged: Charged
+      checkout: Checkout
       city: City
       clear_filters: Clear filters
+      click_create_to_load_new_link: Click the <b>Create</b> button below to save your new page section, and load the section settings.
+      click_update_to_load_new_link: Click the <b>Update</b> button below to load the new section settings.
+      client_id: Client ID
+      client_secret: Client secret
       clone: Clone
       close_all_adjustments: Close all adjustments
-      cms:
-        add_new_page: Add New Page
-        add_new_section: Add New Section
-        all_pages: All Pages
-        button_text: Button Text
-        click_create_to_load_new_link: Click the <b>Create</b> button below to save your new page section, and load the section settings.
-        click_update_to_load_new_link: Click the <b>Update</b> button below to load the new section settings.
-        draft_mode: Draft Mode
-        fit: Fit To
-        full_screen_mode: <span class="exit">Exit </span>Full Screen Mode
-        gutters: Gutters
-        hero:
-          aspect_ratio: Please use an image with the aspect ratio of 12:5 (2400px x 1000px)
-        image_gallery:
-          display_labels: Display labels
-          image_a: Image A
-          image_b: Image B
-          image_c: Image C
-          layout_style: Layout Style
-          square_image: Please use an image with an aspect ratio of 18:13 (1080px x 780px).
-          tall_image: Please use an image with an aspect ratio of 27:40 (1080px x 1600px).
-        link_to_category: Link to Category
-        link_to_product: Link to Product
-        meta_description: Meta Description
-        meta_title: Meta Title
-        more_page_settings: <span class="more">More</span><span class="less">Less</span> Page Settings
-        new_page: New Page
-        new_section: New section
-        no_sections_found_please_add_one: Add your first section to this page by clicking the <b>+ Add New Section</b> button above.
-        page: Page
-        page_type: Page Type
-        search_by_menu_name: Search by menu name
-        search_by_page_title: Search by page title
-        section_type: Section Type
-        set_gutters: Set Gutters
-        side_by_side:
-          image_info: Please use an image with an aspect ratio of 54:35 (1468px x 952px).
-          left_image: Left Image
-          right_image: Right Image
-        subtitle: Subtitle
-        title: Title
-        visible: Visible
-        you_have_no_pages: You have no Pages, click the <b>+ Add New Page</b> button to get started.
-      cms_pages:
-        errors:
-          could_not_update_page_visibility: Could not update page visibility
-        new_page_details: New Page Details
       cms_section_images: CMS Section Images
-      cms_sections:
-        errors:
-          position_could_not_be_updated: Position could not be updated
-        hero_image:
-          hero_image_info: Hero image info
       code: Code
       code_info: Code info
       company: Company
       compare_at_price: Compare at price
       complete: Complete
+      confirm: Confirm
       confirm_password: Confirm password
       contact_details: Contact details
       contact_information: Contact information
@@ -177,8 +148,11 @@ en:
       continue: Continue
       copy_to_clipboard: Copy to clipboard
       cost_currency: Cost currency
+      cost_currency_could_not_be_updated: Cost currency could not be updated
       cost_price: Cost price
       could_not_create_stock_movement: Could not create stock movement
+      could_not_remove_from_category: Could not remove from category
+      could_not_update_page_visibility: Could not update page visibility
       could_not_update_stock_item: Could not update stock item
       count_on_hand: Count on hand
       countries: Countries
@@ -207,6 +181,7 @@ en:
       customer_details: Customer details
       customer_returns: Customer Returns
       customer_support_email: Customer support email
+      cvc: CVC
       cvv_response: Cvv response
       dashboard: Dashboard
       date: Date
@@ -215,29 +190,29 @@ en:
       default: Default
       default_addresses: Default addresses
       default_country: Default country
+      default_language: Default language
       default_tax_zone: Default tax zone
       delete: Delete
       deleted: Deleted
+      deleted_at_null: Show Deleted
+      delivery: Delivery
       depth: Depth
       description: Description
       destination: Destination
       details: Details
+      digital: Digital
+      digital_asset_settings: Digital Asset Settings
       digital_links: Digital Links
-      digitals:
-        add_new_file: Add a new digital asset.
-        downloads_reset: Digital Download Links Reset
-        no_digital_assets_added: No digital assets.
-        reset_download_links: Reset Digital Download Links
       discontinue_on: Discontinue on
       display: Display
       display_info: Display info
-      display_on:
-        back_end: Admin Panel
-        both: All
-        front_end: Storefront
+      display_labels: Display labels
       done: Done
+      download_link_expire_time: Download Link Expire Time
       download_sdk: Download SDK
+      downloads_reset: Digital Download Links Reset
       draft: Draft
+      draft_mode: Draft Mode
       draft_orders: Draft orders
       edit: Edit
       edit_address: Edit address
@@ -248,19 +223,13 @@ en:
       editing_variant: Editing variant
       email: Email
       email_address: Email address
+      email_cont: Email
+      email_copy_of_invoice_to_customer: Send Invoice
       emirate: Emirate
       ending_at: Ending at
       error: Error
+      error_reposition_failed: Error reposition failed
       error_user_destroy_with_orders: Error user destroy with orders
-      errors:
-        cost_currency_could_not_be_updated: Cost currency could not be updated
-        could_not_remove_from_category: Could not remove from category
-        error_reposition_failed: Error reposition failed
-        messages:
-          blank: Blank
-          cannot_remove_icon: Cannot remove icon
-        promotionable_could_not_be_updated: Promotionable could not be updated
-        status_could_not_be_updated: Status could not be updated
       errors_prohibited_this_record_from_being_saved: Errors prohibited this record from being saved
       events: Events
       exchange_for: Exchange for
@@ -270,6 +239,7 @@ en:
       expiration: Expiration
       expires_at: Expires at
       facebook_username: Facebook username
+      failed: Failed
       failed_payment_attempts: Failed payment attempts
       favicon: Favicon
       favicon_upload_info: Favicon upload info
@@ -279,29 +249,33 @@ en:
       filter_results: Filter results
       filterable: Filterable
       filterable_status: Filterable status
-      filters:
-        bill_address_company_cont: Company
-        bill_address_firstname_cont: First Name
-        bill_address_lastname_cont: Last Name
-        deleted_at_null: Show Deleted
-        email_cont: Email
-        number_cont: Order Number
-        payment_state_not_eq: Payment State Not Equal
-        search_by_name: Product Name
-        shipment_state_not_eq: Shipment State Not Equal
-        variants_including_master_sku_cont: SKU
       first_name: First name
+      fit: Fit To
       footer: Footer
+      for_store: For %{store_name}
+      from: from
+      front_end: Storefront
+      full_screen_mode: <span class="exit">Exit </span>Full Screen Mode
       general_settings: General settings
       generate_code: Generate code
       getting_started: Getting started
+      gt: Is greater than
+      gte: Is greater than or equal to
+      gutters: Gutters
+      has_variants: Has variants
       header_banner: Header banner
       height: Height
+      hero_image_info: Hero image info
       hide_from_sub_navigation: Hide from sub navigation
       home: Home
+      icon_removed: Icon removed
       id: Id
       if_you_change_the_calculator: Click update to save the new calculator.
+      image_a: Image A
+      image_b: Image B
+      image_c: Image C
       image_filter: Image filter
+      image_info: Please use an image with an aspect ratio of 54:35 (1468px x 952px).
       images: Images
       included_in_price: Included in price
       incomplete: Incomplete
@@ -321,29 +295,33 @@ en:
       issued_on: Issued on
       item: Item
       item_total: Item total
-      item_total_rule:
-        operators:
-          gt: Is greater than
-          gte: Is greater than or equal to
-          lt: Is less than
-          lte: Is less than or equal to
       items_in_rmas: Items in rmas
       items_reimbursed: Items reimbursed
       items_to_be_reimbursed: Items to be reimbursed
       kind: Kind
-      label: Label
-      label_info: Label info
+      label: FIX MY TRANSLATION
+      label_info: FIX MY TRANSLATION
       language: Language
       last_name: Last name
+      layout_style: Layout Style
       learn_more: Learn more
+      left_image: Left Image
+      limit_digital_download_count: Limit Download Count
+      limit_digital_download_days: Limit Download Days
       limit_usage_to: Limit usage to
       line_items: Line Items
+      link_expire_time: Set the expire time of each download link. (seconds).
+      link_to_category: Link to Category
+      link_to_product: Link to Product
+      list: oAuth applications
       load_more: Load More
       location: Location
       log_entries: Log entries
       logo: Logo
       logout: Logout
       logs: Logs
+      lt: Is less than
+      lte: Is less than or equal to
       mail_from_address: Mail from address
       mailer_logo: Mailer logo
       make_active_at: Make active at
@@ -351,24 +329,21 @@ en:
       make_sure_the_above_reimbursement_amount_is_correct: Make sure the above reimbursement amount is correct
       manage: Manage
       manual_intervention_required: Manual intervention required
+      mark_as_shipped: Mark as Shipped
       master_sku: Master sku
-      match_choices:
-        all: All
-        none: None
+      match_all: In all of the selected categories
+      match_any: In any of the selected categories
+      match_none: Match none
       memo: Memo
       menu_items: Menu Items
       menus: Menus
-      messages:
-        product_cost_currency_updated_successfully: Product cost currency updated successfully
-        product_is_not_promotable: Product is not promotable
-        product_is_promotable: Product is promotable
-        product_removed: Product removed
-        product_status_updated_to: Product status updated to
       meta_description: Meta description
       meta_keywords: Meta keywords
       meta_title: Meta title
       more_filters: More Filters
+      more_page_settings: <span class="more">More</span><span class="less">Less</span> Page Settings
       move_stock_between_locations: Move stock between locations
+      must_have_variant: Must have variant
       mutable: Mutable
       name: Name
       name_and_email: Name and email
@@ -381,9 +356,12 @@ en:
       new_country: New country
       new_customer_return: New customer return
       new_image: New image
+      new_oauth_application: New oAuth application
       new_option_type: New option type
       new_order: New order
       new_order_notifications_email: New order notifications email
+      new_page: New Page
+      new_page_details: New Page Details
       new_payment_method: New payment method
       new_product: New product
       new_product_details: New product details
@@ -398,6 +376,7 @@ en:
       new_return_authorization: New return authorization
       new_rma_reason: New rma reason
       new_role: New role
+      new_section: New section
       new_shipping_category: New shipping category
       new_shipping_method: New shipping method
       new_stock_location: New stock location
@@ -416,11 +395,13 @@ en:
       no_categories: "<b>%{base_category}</b> has no Sub Categories. Click the <b>Add a new Category</b> button, to begin."
       no_default_billing_address_set: No default billing address set
       no_default_shipping_address_set: No default shipping address set
+      no_digital_assets_added: No digital assets.
       no_events: No Events
       no_message_set: No Message Set
       no_payment_provider_settings_message: No payment provider settings message
       no_resource_found: No resource found
       no_rules_added: No rules added
+      no_sections_found_please_add_one: Add your first section to this page by clicking the <b>+ Add New Section</b> button above.
       no_shipping_address_has_been_added_to_this_order: No shipping address has been added to this order
       no_state_changes: No state changes
       no_store_credit: No store credit
@@ -430,80 +411,37 @@ en:
       not_applicable: Not applicable
       not_available: Not available
       not_found: "%{resource} is not found"
+      not_limited_to_any_zone: Not limited to any zone
       note: Note
-      notice_messages:
-        icon_removed: Icon removed
-        prices_saved: Prices saved
-        product_cloned: Product cloned
-        product_not_cloned: Product not cloned
       number: Number
-      oauth_applications:
-        client_id: Client ID
-        client_secret: Client secret
-        list: oAuth applications
-        new: New oAuth application
-        scope: Scope
+      number_cont: Order Number
       open_all_adjustments: Open all adjustments
       operator_max: Operator max
       operator_min: Operator min
       option_type_filterable_info: When an option type is filterable, your storefront visitors are presented with the option to filter a collection of products based on the option type. A typical example of this would be to filter clothing by size and color.<br><br><b>Please Note:</b> Filters will only be visible in the storefront categories that contain products with this option type set.
       option_types: Option types
       option_values: Option Values
-      option_values_rule:
-        options: Options
-        product: Product
       optional: Optional
       options: Options
       or: Or
-      order:
-        add: Add
-        add_a_shipment_to_this_order_to_begin_adding_items: Add a new shipping location to this order, and then add products to the shipment. Ideally, choose the location nearest the delivery address for faster and cheaper delivery.
-        add_user_to_order: Add this User to the Order
-        addresses: Addresses
-        currency: Currency
-        customer: Customer
-        date_range: Date range
-        email_copy_of_invoice_to_customer: Send Invoice
-        from: from
-        instructions:
-          cart: Add a customer or products to the order via the Shipment section.
-          currency: Set the currency for this order.
-        mark_as_shipped: Mark as Shipped
-        order: order
-        products: Products
-        resend_shipping_confirmation_email: Resend Shipping Confirmation Email
-        same_as_billing_address: Same as billing address
-        search_for_a_product_or_variant: Search for products by name or SKU.
-        search_products_by_name_or_sku: Search products by name or sku
-        search_users_by_email: Search users by email
-        search_users_by_name_or_email: Search users by name or email.
-        set_order_currency: Set Order Currency
-        shipping_locations: Shipping locations
-        the_order_currency_is_locked_once_items_are_added: The currency of this order is locked.
-        tracking_number: Tracking Number
+      order: order
       order_adjustments: Order adjustments
       order_approved: Order approved
       order_canceled: Order canceled
       order_email_resent: Order email resent
       order_number: Order number
       order_resumed: Order resumed
-      order_state:
-        address: Address
-        awaiting_return: Awaiting return
-        canceled: Cancelled
-        cart: Cart
-        complete: Complete
-        confirm: Confirm
-        delivery: Delivery
-        payment: Payment
-        resumed: Resumed
-        returned: Returned
       orders: Orders
       organization: Organization
+      organizations: Organizations
       other_addresses: Other addresses
       overview: Overview
+      page: Page
+      page_type: Page Type
       pages: Pages
+      paid: Paid
       password: Password
+      path: Path
       payment: Payment
       payment_amount: Payment amount
       payment_capture_events: Payment Capture Events
@@ -512,20 +450,15 @@ en:
       payment_method: Payment method
       payment_provider_settings: Payment provider settings
       payment_state: Payment state
-      payment_states:
-        balance_due: Balance due
-        credit_owed: Credit owed
-        failed: Failed
-        paid: Paid
-        void: Void
+      payment_state_not_eq: Payment State Not Equal
       payment_updated: Payment updated
-      payments:
-        gateway:
-          cvc: CVC
       pending: Pending
       permalink: Permalink
       phone: Phone
+      physical: Physical
       platform_api: Platform API
+      please_use_an_image_with_the_aspect_ratio_of: Please use an image with the aspect ratio of 12:5 (2400px x 1000px)
+      position_could_not_be_updated: Position could not be updated
       post_code: Post Code
       pre_tax_amount: Pre tax amount
       pre_tax_refund_amount: Pre tax refund amount
@@ -538,26 +471,17 @@ en:
       price_now: Price now
       price_was: Price was
       prices: Prices
+      prices_saved: Prices saved
       pricing: Pricing
-      product:
-        active: Active
-        all: All
-        archived: Archived
-        draft: Draft
-        has_variants: Has variants
+      product_cloned: Product cloned
+      product_cost_currency_updated_successfully: Product cost currency updated successfully
       product_image: Product image
-      product_kinds:
-        digital: Digital
-        physical: Physical
+      product_is_not_promotable: Product is not promotable
+      product_is_promotable: Product is promotable
       product_name: Product name
-      product_properties:
-        property_details: Property details
-      product_rule:
-        label: Select a product
-        match_all: Match all
-        match_any: Match any
-        match_none: Match none
-        products: Products
+      product_not_cloned: Product not cloned
+      product_removed: Product removed
+      product_status_updated_to: Product status updated to
       products: Products
       products_marked_as: Products marked as
       promotion: Promotion
@@ -609,22 +533,19 @@ en:
           name: User Signed-in
       promotion_uses: Promotion uses
       promotionable: Promotionable
-      promotions:
-        category: Category
-        code: Code
-        name: Name
-        new_promotion_category: New Promotion Category
-        organizations: Organizations
-        path: Path
-        promotions: Promotions
+      promotionable_could_not_be_updated: Promotionable could not be updated
+      promotions: Promotions
       propagate_all_variants: Propagate all variants
       properties: Properties
+      property_details: Property details
       property_name: Property name
       prototypes: Prototypes
       provider: Provider
       provider_settings_warning: Provider settings warning
       purchased_quantity: Purchased quantity
       quantity: Quantity
+      rate: Rate
+      ready: Ready
       reason: Reason
       receive_stock: Receive stock
       reference: Reference
@@ -638,17 +559,16 @@ en:
       reimbursement_status: Reimbursement status
       reimbursement_type: Reimbursement type
       reimbursement_type_override: Reimbursement type override
-      reimbursement_types:
-        reimbursement_type: Reimbursement Type
       reimbursements: Reimbursements
       reject: Reject
       rejected: Rejected
       remove_image: Remove image
-      reports:
-        for: For %{store_name}
       request_errors: Request Errors
       resellable: Resellable
+      resend_shipping_confirmation_email: Resend Shipping Confirmation Email
+      reset_download_links: Reset Digital Download Links
       response_code: Response Code
+      resumed: Resumed
       return_authorization_canceled: Return authorization canceled
       return_authorization_reasons: Return authorization reasons
       return_authorizations: Return authorizations
@@ -656,7 +576,9 @@ en:
       return_number: Return number
       return_quantity: Return quantity
       return_reasons: Return reasons
+      returned: Returned
       returns: Returns
+      right_image: Right Image
       risk: Risk
       risk_analysis: Risk analysis
       risky: Risky
@@ -668,18 +590,28 @@ en:
       sales_total: Sales total
       sales_total_description: Sales Total For All Orders
       sales_totals: Sales totals
+      same_as_billing_address: Same as billing address
       save: Save
       say_no: 'No'
       say_yes: 'Yes'
+      scope: Scope
       scopes: Scopes
       search: Search
       search_all_orders_by_number: Search all orders by number
       search_all_products_by_name_or_sku: Search all products by name or sku
       search_by_country_name: Search by country name
+      search_by_menu_name: Search by menu name
+      search_by_name: Product Name
       search_by_order_number: Search by order number
+      search_by_page_title: Search by page title
+      search_for_a_product_or_variant: Search for products by name or SKU.
       search_for_promotion_by_name: Search for promotion by name
       search_for_users_by_email: Search for users by email
+      search_products_by_name_or_sku: Search products by name or sku
+      search_users_by_email: Search users by email
+      search_users_by_name_or_email: Search users by name or email.
       search_webhooks_by_url: Search webhooks by url
+      section_type: Section Type
       select: Select
       select_a_date: Select a date
       select_a_return_authorization_reason: Select a return authorization reason
@@ -689,26 +621,23 @@ en:
       select_from_prototype: Select from prototype
       seo: SEO
       seo_robots: Seo robots
+      seo_robots_description: Please check <a href='https://developers.google.com/search/reference/robots_meta_tag' target='_blank'>this page for more help</a>
       seo_title: Seo title
+      set_gutters: Set Gutters
+      set_order_currency: Set Order Currency
+      set_the_currency_for_this_order: Set the currency for this order.
       set_the_order_currency: Set the order currency
       settings: Settings
       ship_total: Ship total
       shipment: Shipment
       shipment_state: Shipment state
-      shipment_states:
-        backorder: Backorder
-        canceled: Cancelled
-        partial: Partial
-        pending: Pending
-        ready: Ready
-        shipped: Shipped
-        void: Void
+      shipment_state_not_eq: Shipment State Not Equal
       shipments: Shipments
+      shipped: Shipped
       shipping_address: Shipping address
       shipping_addresses: Shipping addresses
-      shipping_categories:
-        new_shipping_category: New shipping category
       shipping_category: Shipping category
+      shipping_locations: Shipping locations
       shipping_method: Shipping method
       shipping_methods: Shipping methods
       shipping_rates: Shipping Rates
@@ -724,6 +653,7 @@ en:
       source: Source
       special_instructions: Special instructions
       specifications: Specifications
+      square_image: Please use an image with an aspect ratio of 18:13 (1080px x 780px).
       starting_from: Starting from
       starts_at: Starts at
       state: State
@@ -732,6 +662,7 @@ en:
       states: States
       states_required: States required
       status: Status
+      status_could_not_be_updated: Status could not be updated
       stock: Stock
       stock_item_id: Stock item
       stock_items: Stock Items
@@ -742,53 +673,13 @@ en:
       stock_movements: Stock movements
       stock_movements_for_stock_location: Stock movements for stock location
       stock_successfully_transferred: Stock successfully transferred
-      stock_transfer:
-        errors:
-          must_have_variant: Must have variant
-          variants_unavailable: Variants unavailable
       stock_transfer_name: Stock transfer name
       stock_transfers: Stock transfers
       store:
-        digital_settings:
-          digital_asset_authorized_clicks:
-            authorized_clicks: Authorized Download Count
-            info: Number of times a download link can be clicked.
-          digital_asset_authorized_days:
-            authorized_days: Authorized Download Days
-            info: The number of days a purchase can be downloaded after purchase.
-          digital_asset_link_expire_time:
-            download_link_expire_time: Download Link Expire Time
-            link_expire_time: Set the expire time of each download link. (seconds).
-          digital_asset_settings: Digital Asset Settings
-          limit_digital_download_count: Limit Download Count
-          limit_digital_download_days: Limit Download Days
-      store_credit:
-        errors:
-          cannot_change_used_store_credit: Cannot change used store credit
-          unable_to_create: Unable to create
-          unable_to_delete: Unable to delete
-          unable_to_update: Unable to update
       store_credit_categories: Store credit categories
       store_credit_name: Store credit name
       store_credits: Store credits
-      store_errors:
-        unable_to_create: Unable to create
-        unable_to_delete: Unable to delete
-        unable_to_update: Unable to update
-      store_form:
-        branding: Branding
-        default_language: Default language
-        seo_robots: Please check <a href='https://developers.google.com/search/reference/robots_meta_tag' target='_blank'>this page for more help</a>
-        supported_languages: Supported languages
-      store_switcher:
-        switch_store: Switch store
       storefront_api: Storefront API
-      stores:
-        checkout: Checkout
-        currency: Currency
-        language: Language
-        not_limited_to_any_zone: Not limited to any zone
-        store: Store
       street: Street
       street_address: Street address
       street_address_2: Street address 2
@@ -799,6 +690,7 @@ en:
       subscription_details: Subscription details
       subscription_settings: Subscription settings
       subscriptions: Subscriptions
+      subtitle: Subtitle
       subtotal: Subtotal
       success: Success
       successful: Successful
@@ -806,6 +698,9 @@ en:
       successfully_removed: "%{resource} has been successfully removed!"
       successfully_updated: "%{resource} has been successfully updated!"
       supported_currencies: Supported currencies
+      supported_languages: Supported languages
+      switch_store: Switch store
+      tall_image: Please use an image with an aspect ratio of 27:40 (1080px x 1600px).
       tax: Tax
       tax_and_shipping: Tax & Shipping
       tax_categories: Tax categories
@@ -813,10 +708,8 @@ en:
       tax_code: Tax code
       tax_included: Tax included
       tax_rate_amount_explanation: Tax rate amount explanation
-      tax_rates:
-        rate: Rate
-      tee:
-        search_products_by_name_or_sku: Search products by name or sku
+      the_order_currency_is_locked_once_items_are_added: The currency of this order is locked.
+      the_promotion_applies_to_products: The promotion applies to products
       this_order_has_already_received_a_refund: This order has already received a refund
       this_user_has_no_addresses_click_add_new_address_to_add_a_new_address: This user has no addresses click add new address to add a new address
       thumbnail: Thumbnail
@@ -828,6 +721,7 @@ en:
       total_price: Total price
       total_sales: Total sales
       track_inventory: Track inventory
+      tracking_number: Tracking Number
       tracking_url: Tracking url
       tracking_url_info: Tracking url info
       transaction_id: Transaction
@@ -836,7 +730,10 @@ en:
       transfer_to_location: Transfer to location
       twitter_username: Twitter username
       type: Type
+      unable_to_create: Unable to create
       unable_to_create_reimbursements: Unable to create reimbursements
+      unable_to_delete: Unable to delete
+      unable_to_update: Unable to update
       unfulfilled: Unfulfilled
       unpaid: Unpaid
       update: Update
@@ -851,21 +748,21 @@ en:
       user_email: User email
       user_id: User
       user_not_found: User not found
-      user_rule:
-        users: Users
       user_since: User since
       users: Users
-      utilities:
-        preview: Preview %{name}
+      preview_name: Preview %{name}
       value: Value
-      values:
-        this_option_types: This option types
+      this_option_types: This option types
       variant: Variant
       variants: Variants
+      variants_including_master_sku_cont: SKU
+      variants_unavailable: Variants unavailable
       vendor: Vendor
       vendors: Vendors
       via: Via
       view: View
+      visible: Visible
+      void: Void
       webhooks_events: Webhooks Events
       weight: Weight
       width: Width
@@ -873,6 +770,7 @@ en:
       wishlists: Wishlists
       you_have_no_default_billing_addresses_set: You have no default billing addresses set
       you_have_no_default_shipping_addresses_set: You have no default shipping addresses set
+      you_have_no_pages: You have no Pages, click the <b>+ Add New Page</b> button to get started.
       you_have_no_unused_addresses: You have no unused addresses
       your_order_is_empty_add_product: Your order is empty add product
       zip: Zip

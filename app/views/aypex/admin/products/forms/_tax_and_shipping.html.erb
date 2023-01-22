@@ -15,7 +15,7 @@
         <% end %>
 
         <%= f.field_container :tax_category, data: { hook: "admin_product_form_tax_category" } do %>
-          <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { include_blank: I18n.t('aypex.admin.match_choices.none') }) %>
+          <%= f.collection_select(:tax_category_id, @tax_categories, :id, :name, { include_blank: I18n.t('aypex.admin.none') }) %>
           <%= f.label :tax_category_id, I18n.t("aypex.admin.tax_category") %>
         <% end %>
 

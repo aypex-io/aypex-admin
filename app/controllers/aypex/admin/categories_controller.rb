@@ -54,10 +54,10 @@ module Aypex
       def remove_icon
         if @category.icon.destroy
 
-          dispatch_notice(I18n.t("aypex.admin.notice_messages.icon_removed"), :success)
+          dispatch_notice(I18n.t("aypex.admin.icon_removed"), :success)
           redirect_to aypex.edit_admin_base_category_category_url(@base_category.id, @category.id)
         else
-          dispatch_notice(I18n.t("aypex.admin.errors.messages.cannot_remove_icon"), :error)
+          dispatch_notice(I18n.t("aypex.admin.cannot_remove_icon"), :error)
           render :edit, status: :unprocessable_entity
         end
       end

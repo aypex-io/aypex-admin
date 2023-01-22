@@ -37,7 +37,7 @@ module Aypex
       def update_address
         if @user.update(permitted_resource_params)
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.errors.status_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.status_could_not_be_updated"), kind: :error)
         end
       end
 

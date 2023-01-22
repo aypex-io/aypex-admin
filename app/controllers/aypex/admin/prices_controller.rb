@@ -18,7 +18,7 @@ module Aypex
             price.save! if price.new_record? && price.price || !price.new_record? && price.changed?
           end
         end
-        dispatch_notice(I18n.t("aypex.admin.notice_messages.prices_saved"), :success)
+        dispatch_notice(I18n.t("aypex.admin.prices_saved"), :success)
         redirect_to aypex.admin_product_path(parent)
       end
     end

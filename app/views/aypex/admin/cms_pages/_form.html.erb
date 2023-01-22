@@ -21,14 +21,14 @@
               <div class="col-12 col-md-6">
                 <%= f.field_container :title do %>
                   <%= f.text_field :title, required: true %>
-                  <%= f.label :title, raw(I18n.t('aypex.admin.cms.title') + required_span_tag) %>
+                  <%= f.label :title, raw(I18n.t('aypex.admin.title') + required_span_tag) %>
                 <% end %>
               </div>
 
               <div class="col-12 col-md-6">
                 <%= f.field_container :type do %>
                   <%= f.select(:type, aypex_humanize_dropdown_values('Aypex::CmsPage', {const: 'TYPES'}), {include_blank: false}) %>
-                  <%= f.label :type, I18n.t('aypex.admin.cms.page_type') %>
+                  <%= f.label :type, I18n.t('aypex.admin.page_type') %>
                 <% end %>
               </div>
             </div>
@@ -40,7 +40,7 @@
                 <div class="col-12 col-md-4">
                   <%= f.field_container :meta_title do %>
                     <%= f.text_field :meta_title %>
-                    <%= f.label :meta_title, I18n.t('aypex.admin.cms.meta_title') %>
+                    <%= f.label :meta_title, I18n.t('aypex.admin.meta_title') %>
                   <% end %>
                 </div>
 
@@ -66,7 +66,7 @@
                 <div class="col-12">
                 <%= f.field_container :meta_description do %>
                   <%= f.text_area :meta_description, {style: 'height: 200px;'} %>
-                  <%= f.label :meta_description, I18n.t('aypex.admin.cms.meta_description') %>
+                  <%= f.label :meta_description, I18n.t('aypex.admin.meta_description') %>
                 <% end %>
                 </div>
               </div>
@@ -75,7 +75,7 @@
             <div class="row pb-0">
               <div class="col-12 col-sm text-end">
                 <button id="toggleMorePageSettingsButton" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#cmsPageSettings" aria-expanded="false" aria-controls="collapsePageSettings">
-                  <%= raw I18n.t('aypex.admin.cms.more_page_settings') %>
+                  <%= raw I18n.t('aypex.admin.more_page_settings') %>
                 </button>
               </div>
             </div>

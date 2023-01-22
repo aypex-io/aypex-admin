@@ -26,7 +26,7 @@ module Aypex
           redirect_to aypex.edit_admin_user_path(@user)
         else
           load_categories
-          dispatch_notice(I18n.t("aypex.admin.store_credit.errors.unable_to_create"), :error)
+          dispatch_notice(I18n.t("aypex.admin.unable_to_create"), :error)
           render :new, status: :unprocessable_entity
         end
       end
@@ -40,7 +40,7 @@ module Aypex
           redirect_to aypex.edit_admin_user_path(@user)
         else
           load_categories
-          dispatch_notice(I18n.t("aypex.admin.store_credit.errors.unable_to_update"), :error)
+          dispatch_notice(I18n.t("aypex.admin.unable_to_update"), :error)
 
           render :edit, status: :unprocessable_entity
         end
@@ -53,7 +53,7 @@ module Aypex
         if @store_credit.destroy
           flash_message_for(@store_credit, :successfully_removed)
         else
-          render plain: I18n.t("aypex.admin.store_credit.errors.unable_to_delete"), status: :unprocessable_entity
+          render plain: I18n.t("aypex.admin.unable_to_delete"), status: :unprocessable_entity
         end
 
         respond_with(@store_credit) do |format|
@@ -92,7 +92,7 @@ module Aypex
 
       def ensure_unused_store_credit
         unless @store_credit.amount_used.zero?
-          raise StoreCreditError, I18n.t("aypex.admin.store_credit.errors.cannot_change_used_store_credit")
+          raise StoreCreditError, I18n.t("aypex.admin.cannot_change_used_store_credit")
         end
       end
     end

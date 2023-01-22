@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= I18n.t('aypex.admin.cms.all_pages') %>
+  <%= I18n.t('aypex.admin.all_pages') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon(I18n.t('aypex.admin.cms.add_new_page'), new_object_url, { class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_page' } ) %>
+  <%= link_to_with_icon(I18n.t('aypex.admin.add_new_page'), new_object_url, { class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_page' } ) %>
 <% end if can? :create, Aypex::CmsPage %>
 
 <% content_for :index_table_filter_buttons do %>
@@ -16,10 +16,10 @@
       <g-table id="pagesTable">
         <g-thead style="grid-template-columns: 1fr 1fr 1fr 2fr;">
           <g-tr>
-            <g-th><%= I18n.t('aypex.admin.cms.title') %></g-th>
-            <g-th><%= I18n.t('aypex.admin.cms.page_type') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.title') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.page_type') %></g-th>
             <g-th><%= I18n.t('aypex.admin.language') %></g-th>
-            <g-th><%= I18n.t('aypex.admin.cms.visible') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.visible') %></g-th>
           </g-tr>
         </g-thead>
         <g-tbody style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr;">
@@ -50,7 +50,7 @@
     </g-responsive>
   <% else %>
     <div class="text-center no-objects-found m-5">
-      <%= raw I18n.t('aypex.admin.cms.you_have_no_pages') %>
+      <%= raw I18n.t('aypex.admin.you_have_no_pages') %>
     </div>
   <% end %>
 <% end %>
@@ -62,4 +62,4 @@
 <%#-------------------------------------------------%>
 <%= render partial: "aypex/admin/shared/index_table",
            locals: { search_record: :title_i_cont,
-                     search_placeholder: I18n.t('aypex.admin.cms.search_by_page_title') } %>
+                     search_placeholder: I18n.t('aypex.admin.search_by_page_title') } %>

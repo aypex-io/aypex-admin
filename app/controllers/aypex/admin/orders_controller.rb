@@ -24,7 +24,7 @@ module Aypex
 
           redirect_to aypex.edit_admin_order_url(@order)
         elsif @order.line_items.empty?
-          @order.errors.add(:line_items, I18n.t("aypex.admin.errors.messages.blank"))
+          @order.errors.add(:line_items, I18n.t("aypex.admin.blank"))
         end
       end
 
@@ -38,7 +38,7 @@ module Aypex
 
           redirect_back fallback_location: aypex.edit_admin_order_url(@order)
         elsif @order.line_items.empty?
-          @order.errors.add(:line_items, I18n.t("aypex.admin.errors.messages.blank"))
+          @order.errors.add(:line_items, I18n.t("aypex.admin.blank"))
         end
       end
 
@@ -72,7 +72,7 @@ module Aypex
 
       def reset_digitals
         @order.digital_links.each(&:reset!)
-        dispatch_notice(I18n.t("aypex.admin.digitals.downloads_reset"), :notice)
+        dispatch_notice(I18n.t("aypex.admin.downloads_reset"), :notice)
 
         redirect_back fallback_location: aypex.edit_admin_order_url(@order)
       end

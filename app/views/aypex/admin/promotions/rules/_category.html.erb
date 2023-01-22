@@ -2,7 +2,7 @@
   <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
     <%= f.field_container :category_ids do %>
       <%= pr.select :category_ids, options_from_collection_for_select(promotion_rule.categories, :id, :pretty_name, promotion_rule.category_ids), { include_hidden: false }, multiple: true,
-                                      placeholder: I18n.t('aypex.admin.tee.search_products_by_name_or_sku'),
+                                      placeholder: I18n.t('aypex.admin.search_products_by_name_or_sku'),
                                       data: {
                                               form_state_target: 'watch',
                                               controller: 'ts--search',
@@ -12,15 +12,15 @@
                                               ts__search_ransack_value: ['pretty_name_i_cont']
                                             } %>
 
-      <%= pr.label :category_ids, I18n.t('aypex.admin.category_rule.choose_categories') %>
+      <%= pr.label :category_ids, I18n.t('aypex.admin.categories') %>
     <% end %>
 
 
     <%= f.field_container :preferred_match_policy do %>
-      <% opts = options_for_select(Aypex::Promotion::Rules::Category::MATCH_POLICIES.map{ |s| [I18n.t("aypex.admin.category_rule.match_#{s}"), s] }, promotion_rule.preferred_match_policy) %>
+      <% opts = options_for_select(Aypex::Promotion::Rules::Category::MATCH_POLICIES.map{ |s| [I18n.t("aypex.admin.match_#{s}"), s] }, promotion_rule.preferred_match_policy) %>
 
       <%= pr.select :preferred_match_policy, opts, { include_hidden: false, include_blank: false } %>
-      <%= pr.label :preferred_match_policy, I18n.t('aypex.admin.category_rule.label') %>
+      <%= pr.label :preferred_match_policy, I18n.t('aypex.admin.the_promotion_applies_to_products') %>
     <% end %>
   <% end %>
 

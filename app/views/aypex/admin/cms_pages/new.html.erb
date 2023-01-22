@@ -1,12 +1,12 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.cms.all_pages'), current_page_name: I18n.t('aypex.admin.cms.new_page')) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.all_pages'), current_page_name: I18n.t('aypex.admin.new_page')) %>
 <% end %>
 
 <%= form_with model: [:admin, @cms_page], data: {controller: "input--required"} do |f| %>
   <div id="<%= dom_id(@cms_page) %>" class="card">
     <div class="card-header d-flex">
       <div class="flex-fill">
-        <h5 class="card-title"><%= I18n.t('aypex.admin.cms_pages.new_page_details') %></h5>
+        <h5 class="card-title"><%= I18n.t('aypex.admin.new_page_details') %></h5>
       </div>
       <div>
         <a data-bs-toggle="collapse" href="#cmsPageInformation" role="button" aria-expanded="false" aria-controls="cmsPageInformation" class="align-self-center">
@@ -19,14 +19,14 @@
         <div class="col-12 col-md-4">
           <%= f.field_container :title do %>
             <%= f.text_field :title, required: true %>
-            <%= f.label :title, raw(I18n.t('aypex.admin.cms.title') + required_span_tag) %>
+            <%= f.label :title, raw(I18n.t('aypex.admin.title') + required_span_tag) %>
           <% end %>
         </div>
 
         <div class="col-12 col-md-4">
           <%= f.field_container :type do %>
             <%= f.select(:type, aypex_humanize_dropdown_values('Aypex::CmsPage', {const: 'TYPES'}), {include_blank: false}) %>
-            <%= f.label :type, I18n.t('aypex.admin.cms.page_type') %>
+            <%= f.label :type, I18n.t('aypex.admin.page_type') %>
           <% end %>
         </div>
 

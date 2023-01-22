@@ -1,7 +1,7 @@
 <sa-card>
   <%= turbo_frame_tag :customer do %>
     <sa-header>
-      <h5><%= I18n.t('aypex.admin.order.customer') %></h5>
+      <h5><%= I18n.t('aypex.admin.customer') %></h5>
       <nav-pills>
         <%= link_to(I18n.t('aypex.admin.new'), aypex.new_customer_admin_order_path(@order), class: "#{'active' if @customer_status == 'new'}") unless @order.user.present? %>
         <%= link_to(I18n.t('aypex.admin.existing'), aypex.existing_customer_admin_order_path(@order), class: "#{'active' if @customer_status == 'existing'}") %>

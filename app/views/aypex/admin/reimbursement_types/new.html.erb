@@ -5,7 +5,7 @@
 <%= form_with model: [:admin, @reimbursement_type], data: { controller: "input--required"} do |reimbursement_form| %>
   <div class="card">
     <div class="card-header">
-      <h5 class="card-title"><%= I18n.t('aypex.admin.reimbursement_types.reimbursement_type') %></h5>
+      <h5 class="card-title"><%= I18n.t('aypex.admin.reimbursement_type') %></h5>
     </div>
     <div class="card-body">
       <%= render partial: 'form', locals: { f: reimbursement_form } %>

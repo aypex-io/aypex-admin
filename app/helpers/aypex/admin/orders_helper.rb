@@ -41,7 +41,7 @@ module Aypex
           "rgb-hsl-secondary"
         end
 
-        content_tag :span, I18n.t("aypex.admin.payment_states.#{order.payment_state}"), class: "badge rounded-pill #{badge_style}"
+        content_tag :span, I18n.t("aypex.admin.#{order.payment_state}"), class: "badge rounded-pill #{badge_style}"
       end
 
       def order_shipment_badge(order)
@@ -51,7 +51,7 @@ module Aypex
           "rgb-hsl-secondary"
         end
 
-        content_tag :span, I18n.t("aypex.admin.shipment_states.#{order.shipment_state}"), class: "badge rounded-pill #{badge_style}"
+        content_tag :span, I18n.t("aypex.admin.#{order.shipment_state}"), class: "badge rounded-pill #{badge_style}"
       end
 
       def avs_response_code

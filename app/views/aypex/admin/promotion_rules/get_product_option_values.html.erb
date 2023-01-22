@@ -17,7 +17,7 @@
             <div class="form-floating">
               <%= select_tag "product_id", options_from_collection_for_select([product], :id, :name, key),
                                             class: 'form-select',
-                                            placeholder: I18n.t('aypex.admin.order.search_products_by_name_or_sku'),
+                                            placeholder: I18n.t('aypex.admin.search_products_by_name_or_sku'),
                                             data: {
                                                    action: 'form--autosave#save',
                                                    form__autosave_target: 'paramHolder',
@@ -26,7 +26,7 @@
                                                    ts__search_fields_value: ['name', 'sku'],
                                                    ts__search_include_value: 'option_types.option_values'
                                                  } %>
-              <%= label_tag 'product', I18n.t('aypex.admin.option_values_rule.product') %>
+              <%= label_tag 'product', I18n.t('aypex.admin.product') %>
             </div>
             <%= link_to "save", aypex.admin_promotion_promotion_rule_product_options_path(@promotion, @promotion_rule, stream_id: "opv_#{dom_id(@promotion_rule)}_#{index}"), data: { form__autosave_target: 'submitButton', turbo_stream: true } %>
           </div>
@@ -37,7 +37,7 @@
                 <%= f.fields_for :promotion_rules, @promotion_rule do |pr|%>
                   <div id="opv_<%= dom_id(@promotion_rule) %>_<%= index %>" class="form-floating">
                     <%= pr.collection_select("preferred_eligible_values[#{product.id if product}]", product.all_option_values, :id, :presentation, {selected: values.flatten, include_hidden: true}, { multiple: true, disabled: product.all_option_values.empty?, class: 'form-select', data: { controller: 'ts--select' } }) %>
-                    <%= label_tag 'options', I18n.t('aypex.admin.option_values_rule.options') %>
+                    <%= label_tag 'options', I18n.t('aypex.admin.options') %>
                   </div>
                 <% end %>
               <% end %>

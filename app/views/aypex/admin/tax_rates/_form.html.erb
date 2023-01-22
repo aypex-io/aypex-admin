@@ -16,7 +16,7 @@
 
         <%= f.field_container :amount do %>
           <%= f.text_field :amount, required: true %>
-          <%= f.label :name, raw(I18n.t('aypex.admin.tax_rates.rate') + required_span_tag) %>
+          <%= f.label :name, raw(I18n.t('aypex.admin.rate') + required_span_tag) %>
           <small class="form-text text-muted">
             <%= I18n.t("aypex.admin.tax_rate_amount_explanation") %>
           </small>

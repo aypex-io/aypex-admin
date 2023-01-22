@@ -2,22 +2,22 @@
   <div class="col-12 col-md-4">
     <%= f.field_container :title do %>
       <%= f.text_field :title %>
-      <%= f.label :title, I18n.t('aypex.admin.cms.title') %>
+      <%= f.label :title, I18n.t('aypex.admin.title') %>
     <% end %>
 
     <%= f.field_container :subtitle do %>
       <%= f.text_field :subtitle %>
-      <%= f.label :subtitle, I18n.t('aypex.admin.cms.subtitle') %>
+      <%= f.label :subtitle, I18n.t('aypex.admin.subtitle') %>
     <% end %>
 
     <%= f.field_container :button_text do %>
       <%= f.text_field :button_text %>
-      <%= f.label :button_text, I18n.t('aypex.admin.cms.button_text') %>
+      <%= f.label :button_text, I18n.t('aypex.admin.button_text') %>
     <% end %>
 
     <%= f.field_container :gutters do %>
       <%= f.select(:gutters, @cms_section.gutters_sizes, {include_blank: false}) %>
-      <%= f.label :gutters, I18n.t('aypex.admin.cms.gutters') %>
+      <%= f.label :gutters, I18n.t('aypex.admin.gutters') %>
     <% end %>
 
   </div>

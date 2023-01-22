@@ -8,7 +8,7 @@
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
           <button class="accordion-button btn btn-secondary collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#orderDateRangeFilterPanel" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-            <%= I18n.t('aypex.admin.order.date_range') %>
+            <%= I18n.t('aypex.admin.date_range') %>
           </button>
         </h2>
         <div id="orderDateRangeFilterPanel" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
@@ -62,7 +62,7 @@
           <div class="accordion-body">
             <%= f.field_container :state_eq do %>
               <%= f.select :state_eq,
-                Aypex::Order.state_machines[:state].states.map {|s| [I18n.t("aypex.admin.order_state.#{s.name}"), s.value]},
+                Aypex::Order.state_machines[:state].states.map {|s| [I18n.t("aypex.admin.#{s.name}"), s.value]},
                 { include_blank: true },
                 class: 'form-select',
                 data: {controller: 'ts--select'} %>
@@ -70,11 +70,11 @@
             <% end %>
 
             <%= f.field_container :payment_state_eq do %>
-              <%= f.select :payment_state_eq, Aypex::Order::PAYMENT_STATES.map {|s| [I18n.t("aypex.admin.payment_states.#{s}"), s]}, { include_blank: true }, class: 'form-select', data: {controller: 'ts--select'} %>
+              <%= f.select :payment_state_eq, Aypex::Order::PAYMENT_STATES.map {|s| [I18n.t("aypex.admin.#{s}"), s]}, { include_blank: true }, class: 'form-select', data: {controller: 'ts--select'} %>
               <%= f.label :payment_state_eq, I18n.t('aypex.admin.payment_state') %>
             <% end %>
             <%= f.field_container :shipment_state_eq do %>
-              <%= f.select :shipment_state_eq, Aypex::Order::SHIPMENT_STATES.map {|s| [I18n.t("aypex.admin.shipment_states.#{s}"), s]}, { include_blank: true }, class: 'form-select', data: {controller: 'ts--select'} %>
+              <%= f.select :shipment_state_eq, Aypex::Order::SHIPMENT_STATES.map {|s| [I18n.t("aypex.admin.#{s}"), s]}, { include_blank: true }, class: 'form-select', data: {controller: 'ts--select'} %>
               <%= f.label :shipment_state_eq, I18n.t('aypex.admin.shipment_state') %>
             <% end %>
           </div>

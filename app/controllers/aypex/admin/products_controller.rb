@@ -46,15 +46,15 @@ module Aypex
         @new = @product.duplicate
 
         if @new.persisted?
-          dispatch_notice(I18n.t("aypex.admin.notice_messages.product_cloned"), :success)
+          dispatch_notice(I18n.t("aypex.admin.product_cloned"), :success)
           redirect_to aypex.edit_admin_product_url(@new)
         else
-          dispatch_notice(I18n.t("aypex.admin.notice_messages.product_not_cloned", error: @new.errors.full_messages.to_sentence), :error)
+          dispatch_notice(I18n.t("aypex.admin.product_not_cloned", error: @new.errors.full_messages.to_sentence), :error)
           redirect_to aypex.admin_products_url
         end
       rescue ActiveRecord::RecordInvalid => e
         # Handle error on uniqueness validation on product fields
-        dispatch_notice(I18n.t("aypex.admin.notice_messages.product_not_cloned", error: e.message), :error)
+        dispatch_notice(I18n.t("aypex.admin.product_not_cloned", error: e.message), :error)
         redirect_to aypex.admin_products_url
       end
 
@@ -75,28 +75,28 @@ module Aypex
             format.turbo_stream { render "aypex/admin/categories/remove_from_category" }
           end
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.errors.could_not_remove_from_category"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.could_not_remove_from_category"), kind: :error)
         end
       end
 
       def update_availability
         if @object.update(status: permitted_resource_params[:status])
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.errors.status_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.status_could_not_be_updated"), kind: :error)
         end
       end
 
       def update_cost_currency
         if @object.update(cost_currency: permitted_resource_params[:cost_currency])
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.errors.cost_currency_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.cost_currency_could_not_be_updated"), kind: :error)
         end
       end
 
       def update_promotionable
         if @object.update(promotionable: permitted_resource_params[:promotionable])
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.errors.promotionable_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.promotionable_could_not_be_updated"), kind: :error)
         end
       end
 

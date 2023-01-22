@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-<%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.cms.all_pages'),
+<%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.all_pages'),
                        link_two_uri: aypex.edit_admin_cms_page_path(@cms_page), link_two_text: @cms_page.title,
                        current_page_name: @cms_section.name) %>
 <% end %>
@@ -19,7 +19,7 @@
       <div class="col-12 col-md-6">
         <%= f.field_container :type do %>
           <%= f.select(:type, aypex_humanize_dropdown_values('Aypex::CmsSection', {const: 'TYPES'}), {include_blank: false}) %>
-          <%= f.label :type, I18n.t('aypex.admin.cms.section_type') %>
+          <%= f.label :type, I18n.t('aypex.admin.section_type') %>
         <% end %>
       </div>
       <%= f.submit I18n.t('aypex.admin.update'), data: {form_validation_target: "submitBtn"} %>

@@ -30,7 +30,7 @@ module Aypex
         end
 
         link_to remove_filter_url, class: "badge rgb-hsl-secondary", id: "removeFilter-#{filter[0]}", data: {turbo_cache: "false"} do
-          (content_tag :span, I18n.t("aypex.admin.filters.#{filter[0]}") + filter_value_text) + aypex_admin_svg_tag("x-lg.svg", size: "16px*16px")
+          (content_tag :span, I18n.t("aypex.admin.#{filter[0]}") + filter_value_text) + aypex_admin_svg_tag("x-lg.svg", size: "16px*16px")
         end
       end
 
@@ -285,7 +285,7 @@ module Aypex
         resource_name = options[:name] || resource.class.name.demodulize
 
         link_to_with_icon(
-          I18n.t("aypex.admin.utilities.preview", name: resource_name),
+          I18n.t("aypex.admin.preview_name", name: resource_name),
           aypex_storefront_resource_url(resource),
           class: "btn btn-secondary animate__animated animate__faster",
           icon: "eye.svg",

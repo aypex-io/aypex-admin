@@ -44,7 +44,7 @@
         <% end %>
 
         <%= f.field_container :category do %>
-          <%= f.collection_select(:promotion_category_id, @promotion_categories, :id, :name, { include_blank: I18n.t('aypex.admin.match_choices.none') }, {}) %>
+          <%= f.collection_select(:promotion_category_id, @promotion_categories, :id, :name, { include_blank: I18n.t('aypex.admin.none') }, {}) %>
           <%= f.label :promotion_category %>
         <% end %>
 

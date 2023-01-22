@@ -11,7 +11,7 @@
 
     <%= f.field_container :layout_style do %>
       <%= f.select(:layout_style, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LAYOUT_OPTIONS' }), { include_blank: false }) %>
-      <%= f.label :layout_style, I18n.t('aypex.admin.cms.image_gallery.layout_style') %>
+      <%= f.label :layout_style, I18n.t('aypex.admin.layout_style') %>
     <% end %>
   </div>
 </div>
@@ -20,15 +20,15 @@
   <div class="col-12 col-md-4 mb-3">
     <div id="image_a_details" class="card p-3">
       <div class="text-center">
-        <h4 class="pb-2"><%= I18n.t('aypex.admin.cms.image_gallery.image_a') %></h4>
+        <h4 class="pb-2"><%= I18n.t('aypex.admin.image_a') %></h4>
         <% @cms_section.build_image_one unless @cms_section.image_one %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_one } %>
       </div>
-      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.cms.image_gallery.square_image') %></small>
+      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.square_image') %></small>
 
     <%= f.field_container :title_one do %>
       <%= f.text_field :title_one %>
-      <%= f.label :title_one, I18n.t('aypex.admin.cms.title') %>
+      <%= f.label :title_one, I18n.t('aypex.admin.title') %>
     <% end %>
 
       <div class="col-12"><hr></div>
@@ -44,15 +44,15 @@
   <div class="col-12 col-md-4 mb-3">
     <div id="image_b_details" class="card p-3">
       <div class="text-center">
-        <h4 class="pb-2"><%= I18n.t('aypex.admin.cms.image_gallery.image_b') %></h4>
+        <h4 class="pb-2"><%= I18n.t('aypex.admin.image_b') %></h4>
         <% @cms_section.build_image_two unless @cms_section.image_two %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_two } %>
       </div>
-      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.cms.image_gallery.tall_image') %></small>
+      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.tall_image') %></small>
 
       <%= f.field_container :title_two do %>
         <%= f.text_field :title_two %>
-        <%= f.label :title_two, I18n.t('aypex.admin.cms.title') %>
+        <%= f.label :title_two, I18n.t('aypex.admin.title') %>
       <% end %>
 
       <div class="col-12"><hr></div>
@@ -67,15 +67,15 @@
   <div class="col-12 col-md-4 mb-3">
     <div id="image_c_details" class="card p-3">
       <div class="text-center">
-        <h4 class="pb-2"><%= I18n.t('aypex.admin.cms.image_gallery.image_c') %></h4>
+        <h4 class="pb-2"><%= I18n.t('aypex.admin.image_c') %></h4>
         <% @cms_section.build_image_three unless @cms_section.image_three %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_three } %>
       </div>
-      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.cms.image_gallery.square_image') %></small>
+      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.square_image') %></small>
 
       <%= f.field_container :title_three do %>
         <%= f.text_field :title_three %>
-        <%= f.label :title_three, I18n.t('aypex.admin.cms.title') %>
+        <%= f.label :title_three, I18n.t('aypex.admin.title') %>
       <% end %>
 
       <div class="col-12"><hr></div>
@@ -94,14 +94,14 @@
   <div class="col-6">
     <%= f.field_container :fit do %>
       <%= f.select(:fit, @cms_section.boundaries, {include_blank: false}) %>
-      <%= f.label :fit, I18n.t('aypex.admin.cms.fit') %>
+      <%= f.label :fit, I18n.t('aypex.admin.fit') %>
     <% end %>
   </div>
 
   <div class="col-6">
     <%= f.field_container :display_labels do %>
       <%= f.select(:display_labels, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LABEL_OPTIONS' }), { include_blank: false }) %>
-      <%= f.label :display_labels, I18n.t('aypex.admin.cms.image_gallery.display_labels') %>
+      <%= f.label :display_labels, I18n.t('aypex.admin.display_labels') %>
     <% end %>
   </div>
 </div>

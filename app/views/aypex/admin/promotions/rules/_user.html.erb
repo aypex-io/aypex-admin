@@ -2,7 +2,7 @@
   <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
     <%= f.field_container :user_ids_string do %>
       <%= pr.select :user_ids_string, options_from_collection_for_select(promotion_rule.users, :id, :email, promotion_rule.users.pluck(:id)), { include_hidden: false }, multiple: true,
-                                      placeholder: I18n.t('aypex.admin.order.search_users_by_email'),
+                                      placeholder: I18n.t('aypex.admin.search_users_by_email'),
                                       data: {
                                               form_state_target: 'watch',
                                               controller: 'ts--search',
@@ -12,7 +12,7 @@
                                               ts__search_ransack_value: ['email_i_cont']
                                             } %>
 
-      <%= pr.label :user_ids_string, I18n.t('aypex.admin.user_rule.users') %>
+      <%= pr.label :user_ids_string, I18n.t('aypex.admin.users') %>
     <% end %>
   <% end %>
 

@@ -4,7 +4,7 @@
       <% opts = options_for_select(Aypex::Country.pluck(:name, :id), promotion_rule.preferred_country_id) %>
 
       <%= pr.select :preferred_country_id, opts, { include_hidden: false, include_blank: false } %>
-      <%= pr.label :preferred_country_id, I18n.t('aypex.admin.product_rule.label') %>
+      <%= pr.label :preferred_country_id, I18n.t('aypex.admin.label') %>
     <% end %>
   <% end %>
 

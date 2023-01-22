@@ -7,7 +7,7 @@
           <%= @order.email %>
         <% end %>
       </h6>
-      <%= pluralize( @order.user.order_count, I18n.t('aypex.admin.order.order') ) %>
+      <%= pluralize( @order.user.order_count, I18n.t('aypex.admin.order') ) %>
     </div>
 
     <% unless @order.completed? %>
@@ -31,7 +31,7 @@
 
 <% if (@order.bill_address.present? && @order.ship_address.present?) && (@order.bill_address == @order.ship_address) %>
   <div class="my-3">
-    <h6 class="text-uppercase"> <%= I18n.t('aypex.admin.order.addresses') %></h6>
+    <h6 class="text-uppercase"> <%= I18n.t('aypex.admin.addresses') %></h6>
     <h6><%= I18n.t('aypex.admin.billing_address') %></h6>
     <div>
       <%= render partial: 'aypex/admin/shared/address/card', locals: { address: @order.bill_address } %>
@@ -42,7 +42,7 @@
 
   <div>
     <h6><%= I18n.t('aypex.admin.shipping_address') %></h6>
-    <span class="text-muted"><%= I18n.t('aypex.admin.order.same_as_billing_address') %></span>
+    <span class="text-muted"><%= I18n.t('aypex.admin.same_as_billing_address') %></span>
   </div>
 <% else %>
   <% if @order.bill_address.present? %>

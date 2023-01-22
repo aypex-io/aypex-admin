@@ -14,10 +14,10 @@ module Aypex
 
       def remove_icon
         if @menu_item.icon&.destroy
-          dispatch_notice(I18n.t("aypex.admin.notice_messages.icon_removed"), :success)
+          dispatch_notice(I18n.t("aypex.admin.icon_removed"), :success)
           redirect_to aypex.edit_admin_menu_menu_item_path(@menu, @menu_item)
         else
-          dispatch_notice(I18n.t("aypex.admin.errors.messages.cannot_remove_icon"), :error)
+          dispatch_notice(I18n.t("aypex.admin.cannot_remove_icon"), :error)
           render :edit
         end
       end

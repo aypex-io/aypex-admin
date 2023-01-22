@@ -6,7 +6,7 @@
     <div>
       <h5 class="card-title">
         <% if @order.shipment_state %>
-          <span class="badge bg-<%= @order.shipment_state %>"><%= I18n.t("aypex.admin.shipment_states.#{@order.shipment_state}") %></span>
+          <span class="badge bg-<%= @order.shipment_state %>"><%= I18n.t("aypex.admin.#{@order.shipment_state}") %></span>
         <% end %>
       </h5>
     </div>
@@ -22,7 +22,7 @@
            <%= f.select(:stock_location_id, Aypex::StockLocation.all.collect {|s| [ s.name, s.id ] }, { include_blank: false }) %>
            <%= f.label :shipping_location %>
          <% end %>
-         <%= f.submit I18n.t('aypex.admin.order.add'), class: 'btn btn-secondary input-group-text' %>
+         <%= f.submit I18n.t('aypex.admin.add'), class: 'btn btn-secondary input-group-text' %>
         </div>
       <% end %>
       <hr>
@@ -38,7 +38,7 @@
                  <%= shipment.number %>
               </h6>
               <h6 class="card-title text-muted">
-               <span class="text-capitalize"><%= shipment.state %></span> <%= I18n.t('aypex.admin.order.from') %>: <%= link_to shipment.stock_location.name, aypex.edit_admin_stock_location_url(shipment.stock_location) %>
+               <span class="text-capitalize"><%= shipment.state %></span> <%= I18n.t('aypex.admin.from') %>: <%= link_to shipment.stock_location.name, aypex.edit_admin_stock_location_url(shipment.stock_location) %>
               </h6>
             </div>
 
@@ -50,7 +50,7 @@
 
             <% if shipment.ready? and can? :update, shipment %>
               <div>
-                <%= link_to I18n.t('aypex.admin.order.mark_as_shipped'), aypex.ship_admin_shipment_path(shipment.id), class: 'btn btn-secondary btn-sm', data: { turbo_method: :patch } , title: I18n.t('aypex.admin.order.mark_as_shipped') %>
+                <%= link_to I18n.t('aypex.admin.mark_as_shipped'), aypex.ship_admin_shipment_path(shipment.id), class: 'btn btn-secondary btn-sm', data: { turbo_method: :patch } , title: I18n.t('aypex.admin.mark_as_shipped') %>
               </div>
             <% end %>
           </div>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="form-floating" style="width: 60%">
                       <%= f.select :variant_id, [], {}, class: 'form-select', required: true,
-                                                        placeholder: I18n.t('aypex.admin.order.search_for_a_product_or_variant'),
+                                                        placeholder: I18n.t('aypex.admin.search_for_a_product_or_variant'),
                                                         data: { action: 'change->form-validation#validate',
                                                         controller: 'ts--search-variant',
                                                         ts__search_variant_debug_value: true,
@@ -81,9 +81,9 @@
                                                         ts__search_variant_custom_params_value: [ ['[image_transformation]size', '100x100'] ],
                                                         ts__search_variant_include_value: 'images,stock_items.stock_location' } %>
 
-                      <%= label_tag :variant_id, I18n.t('aypex.admin.order.products'), class: 'form-label' %>
+                      <%= label_tag :variant_id, I18n.t('aypex.admin.products'), class: 'form-label' %>
                     </div>
-                    <%= f.submit I18n.t('aypex.admin.order.add'), class: 'btn btn-secondary input-group-text', data: { form_validation_target: "submitBtn" } %>
+                    <%= f.submit I18n.t('aypex.admin.add'), class: 'btn btn-secondary input-group-text', data: { form_validation_target: "submitBtn" } %>
                   </div>
               <% end %>
             <% end %>
@@ -121,7 +121,7 @@
                   <div class="row">
                     <div class="col">
                       <%= field_container :tracking, nil do %>
-                        <%= text_field_tag :tracking, shipment.tracking, class: "form-control", placeholder: I18n.t('aypex.admin.order.tracking_number'), readonly: true, autocomplete: false %>
+                        <%= text_field_tag :tracking, shipment.tracking, class: "form-control", placeholder: I18n.t('aypex.admin.tracking_number'), readonly: true, autocomplete: false %>
                       <% end %>
                     </div>
                     <div class="col-auto">
@@ -133,7 +133,7 @@
                     <div class="row">
                       <div class="col">
                         <%= f.field_container :tracking do %>
-                          <%= f.text_field :tracking, class: "form-control", placeholder: I18n.t('aypex.admin.order.tracking_number') %>
+                          <%= f.text_field :tracking, class: "form-control", placeholder: I18n.t('aypex.admin.tracking_number') %>
                         <% end %>
                       </div>
                       <div class="col-auto">
@@ -153,16 +153,16 @@
     <% else %>
       <div class="call-out call-out-info my-3">
         <h6>
-          <%= I18n.t('aypex.admin.order.shipping_locations') %>
+          <%= I18n.t('aypex.admin.shipping_locations') %>
         </h6>
         <small class="text-muted">
-          <%= I18n.t('aypex.admin.order.add_a_shipment_to_this_order_to_begin_adding_items').html_safe %>
+          <%= I18n.t('aypex.admin.add_a_shipment_to_this_order_to_begin_adding_items').html_safe %>
         </small>
       </div>
     <% end %>
 
     <% if @order.shipped? and can?(:resend, @order) %>
-      <%= link_to_with_icon I18n.t('aypex.admin.order.resend_shipping_confirmation_email'), resend_admin_order_url(@order), method: :post, icon: 'envelope.svg', class: 'btn btn-secondary' %>
+      <%= link_to_with_icon I18n.t('aypex.admin.resend_shipping_confirmation_email'), resend_admin_order_url(@order), method: :post, icon: 'envelope.svg', class: 'btn btn-secondary' %>
     <% end %>
 
     <% if @order.special_instructions.present? %>

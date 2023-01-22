@@ -31,9 +31,9 @@
       <%= link_to aypex.edit_admin_product_path(product), data: {turbo_frame: :_top} do %>
         <span class="badge rounded-pill rgb-hsl-secondary">
           <% if product.digital? %>
-            <%= I18n.t('aypex.admin.product_kinds.digital') %>
+            <%= I18n.t('aypex.admin.digital') %>
           <% else %>
-            <%= I18n.t('aypex.admin.product_kinds.physical') %>
+            <%= I18n.t('aypex.admin.physical') %>
           <% end %>
         </span>
       <% end %>

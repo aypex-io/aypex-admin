@@ -21,10 +21,10 @@ module Aypex
 
       def create
         if params[:variant].nil?
-          flash.now[:error] = I18n.t("aypex.admin.stock_transfer.errors.must_have_variant")
+          flash.now[:error] = I18n.t("aypex.admin.must_have_variant")
           render :new, status: :unprocessable_entity
         elsif any_missing_variants?(params[:variant])
-          flash.now[:error] = I18n.t("aypex.admin.stock_transfer.errors.variants_unavailable", stock: source_location.name)
+          flash.now[:error] = I18n.t("aypex.admin.variants_unavailable", stock: source_location.name)
           render :new, status: :unprocessable_entity
         else
           variants = Hash.new(0)

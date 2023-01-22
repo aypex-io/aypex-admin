@@ -17,7 +17,7 @@ module Aypex
           flash_message_for(@store, :successfully_created)
           redirect_to aypex.admin_url(domain: @store.url), allow_other_host: true
         else
-          dispatch_notice("#{I18n.t("aypex.admin.store_errors.unable_to_create")}: #{@store.errors.full_messages.join(", ")}", :error)
+          dispatch_notice("#{I18n.t("aypex.admin.unable_to_create")}: #{@store.errors.full_messages.join(", ")}", :error)
           render :new, status: :unprocessable_entity
         end
       end
@@ -33,7 +33,7 @@ module Aypex
         if @store.save
           flash_message_for(@store, :successfully_updated)
         else
-          dispatch_notice("#{I18n.t("aypex.admin.store_errors.unable_to_update")}: #{@store.errors.full_messages.join(", ")}", :error)
+          dispatch_notice("#{I18n.t("aypex.admin.unable_to_update")}: #{@store.errors.full_messages.join(", ")}", :error)
         end
 
         redirect_to aypex.edit_admin_store_path(@store)
@@ -46,7 +46,7 @@ module Aypex
           flash_message_for(@store, :successfully_removed)
           redirect_to aypex.admin_url(domain: Aypex::Store.default.url), allow_other_host: true
         else
-          render plain: "#{I18n.t("aypex.admin.store_errors.unable_to_delete")}: #{@store.errors.full_messages.join(", ")}", status: :unprocessable_entity
+          render plain: "#{I18n.t("aypex.admin.unable_to_delete")}: #{@store.errors.full_messages.join(", ")}", status: :unprocessable_entity
         end
       end
 

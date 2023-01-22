@@ -9,7 +9,7 @@ module Aypex
             format.turbo_stream
           end
         else
-          stream_flash_alert(message: I18n.t("aypex.admin.cms_sections.errors.position_could_not_be_updated"), kind: :error)
+          stream_flash_alert(message: I18n.t("aypex.admin.position_could_not_be_updated"), kind: :error)
         end
       end
 
