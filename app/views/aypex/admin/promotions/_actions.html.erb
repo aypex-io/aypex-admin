@@ -6,7 +6,7 @@
 <div id="action_fields" class="card-body">
   <%= turbo_frame_tag :promotion_actions do %>
     <%= form_tag aypex.admin_promotion_promotion_actions_path(@promotion), remote: true, id: 'new_promotion_action_form', class: 'mb-3' do %>
-      <% options = options_for_select(@actions.map(&:name).map {|name| [ I18n.t("aypex.admin.promotion_action_types.#{name.demodulize.underscore}.name"), name] }) %>
+      <% options = options_for_select(@actions.map(&:name).map {|name| [ I18n.t("aypex.admin.#{name.demodulize.underscore}"), name] }) %>
 
       <div class="input-group">
         <div class="form-floating">

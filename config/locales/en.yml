@@ -163,6 +163,9 @@ en:
       coupon_code: Coupon code
       create: Create
       create_a_new_user: Create a new user
+      create_adjustment: Create adjustment
+      create_item_adjustments: Creates Line Item Adjustment
+      create_line_items: Create Line Items
       create_new_order: Create new order
       create_platform_application: Create platform application
       create_reimbursement: Create reimbursement
@@ -251,9 +254,11 @@ en:
       filterable: Filterable
       filterable_status: Filterable status
       first_name: First name
+      first_order: First Order
       fit: Fit To
       footer: Footer
       for_store: For %{store_name}
+      free_shipping: Free Shipping
       from: from
       front_end: Storefront
       full_screen_mode: <span class="exit">Exit </span>Full Screen Mode
@@ -417,11 +422,13 @@ en:
       note: Note
       number: Number
       number_cont: Order Number
+      one_use_per_user: One Use Per User
       open_all_adjustments: Open all adjustments
       operator_max: Operator max
       operator_min: Operator min
       option_type_filterable_info: When an option type is filterable, your storefront visitors are presented with the option to filter a collection of products based on the option type. A typical example of this would be to filter clothing by size and color.<br><br><b>Please Note:</b> Filters will only be visible in the storefront categories that contain products with this option type set.
       option_types: Option types
+      option_value: Option Value(s)
       option_values: Option Values
       optional: Optional
       options: Options
@@ -492,51 +499,10 @@ en:
       products_marked_as: Products marked as
       promotion: Promotion
       promotion_action: Promotion action
-      promotion_action_types:
-        create_adjustment:
-          description: Create a whole order discount
-          name: Create Adjustment
-        create_item_adjustments:
-          description: Creates a line item adjustment
-          name: Create Line Item Adjustment
-        create_line_items:
-          description: Adds a line item to the order if the conditions are met
-          name: Create Line Items
-        free_shipping:
-          description: Applies free shipping to the order
-          name: Free Shipping
       promotion_actions: Promotion actions
       promotion_cloned: Promotion cloned
       promotion_not_cloned: Promotion not cloned
       promotion_rule: Promotion rule
-      promotion_rule_types:
-        category:
-          description: The promtion applies to the products found within the selected categories
-          name: Categories
-        country:
-          description: Applies to user from country.
-          name: Country
-        first_order:
-          description: Applies to the users first order
-          name: First Order
-        item_total:
-          description: Applies if the item total matches
-          name: Item Total
-        one_use_per_user:
-          description: Discount can only be used once per user
-          name: One Use Per User
-        option_value:
-          description: Applies to the selected product(s) with the specified options
-          name: Option Value(s)
-        product:
-          description: Applies to the selected product(s)
-          name: Product(s)
-        user:
-          description: Applies to the selected user(s)
-          name: User(s)
-        user_logged_in:
-          description: Applies only if the user has an account and is logged in
-          name: User Signed-in
       promotion_uses: Promotion uses
       promotionable: Promotionable
       promotionable_could_not_be_updated: Promotionable could not be updated
@@ -757,8 +723,10 @@ en:
       use_the_search_box_above_to_search_for_categories: Use the search box above to search for categories
       used: Used
       used_for_billing_and_shipping: Used for billing and shipping
+      user: User
       user_email: User email
       user_id: User
+      user_logged_in: User Signed-in
       user_not_found: User not found
       user_since: User since
       users: Users
