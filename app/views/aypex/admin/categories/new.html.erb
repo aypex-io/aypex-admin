@@ -7,8 +7,8 @@
   <%= render 'form', f: f %>
 
   <div class="form-actions" data-hook="buttons">
-    <%= button I18n.t('aypex.admin.actions.create'), 'save.svg' %>
+    <%= button I18n.t('aypex.admin.create'), 'save.svg' %>
     <span class="or"><%= I18n.t("aypex.admin.or") %></span>
-    <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.edit_admin_base_category_url(@base_category), icon: "x-lg.svg" %>
+    <%= link_to_with_icon I18n.t('aypex.admin.cancel'), aypex.edit_admin_base_category_url(@base_category), icon: "x-lg.svg" %>
   </div>
 <% end %>

@@ -1,28 +1,28 @@
 <ul class="nav nav-sidebar" id="sidebarDashboard">
-  <%= tab I18n.t('aypex.admin.tab.dashboard'), url: aypex.admin_path, match_path: '/dashboard', icon: 'card-heading.svg' %>
+  <%= tab I18n.t('aypex.admin.dashboard'), url: aypex.admin_path, match_path: '/dashboard', icon: 'card-heading.svg' %>
 </ul>
 
 <% if can? :admin, Aypex::Order %>
   <ul class="nav nav-sidebar" id="sidebarOrder">
-    <%= main_menu_tree I18n.t('aypex.admin.tab.orders'), icon: "inbox-fill.svg", sub_menu: "orders", url: "#sidebar-orders" %>
+    <%= main_menu_tree I18n.t('aypex.admin.orders'), icon: "inbox-fill.svg", sub_menu: "orders", url: "#sidebar-orders" %>
   </ul>
 <% end %>
 
 <% if can?(:admin, Aypex::ReturnAuthorization) || can?(:admin, Aypex::CustomerReturn) %>
   <ul class="nav nav-sidebar" id="sidebarReturn">
-    <%= main_menu_tree I18n.t('aypex.admin.tab.returns'), icon: "reply-fill.svg", sub_menu: "returns", url: "#sidebar-returns" %>
+    <%= main_menu_tree I18n.t('aypex.admin.returns'), icon: "reply-fill.svg", sub_menu: "returns", url: "#sidebar-returns" %>
   </ul>
 <% end %>
 
 <% if can? :admin, Aypex::Product %>
   <ul class="nav nav-sidebar" id="sidebarProduct">
-    <%= main_menu_tree I18n.t('aypex.admin.tab.catalog'), icon: "tags-fill.svg", sub_menu: "product", url: "#sidebar-product" %>
+    <%= main_menu_tree I18n.t('aypex.admin.catalog'), icon: "tags-fill.svg", sub_menu: "product", url: "#sidebar-product" %>
   </ul>
 <% end %>
 
 <% if can?(:admin, Aypex::StockLocation) || can?(:admin, Aypex::StockTransfer) %>
   <ul class="nav nav-sidebar" id="sidebarStock">
-    <%= main_menu_tree I18n.t('aypex.admin.tab.stock'), icon: "box-seam.svg", sub_menu: "stock", url: "#sidebar-stock" %>
+    <%= main_menu_tree I18n.t('aypex.admin.stock'), icon: "box-seam.svg", sub_menu: "stock", url: "#sidebar-stock" %>
   </ul>
 <% end %>
 
@@ -52,6 +52,6 @@
 
 <% if can? :admin, Aypex::Menu %>
   <ul class="nav nav-sidebar" id="sidebarMenu">
-    <%= main_menu_tree I18n.t('aypex.admin.tab.content'), icon: "card-heading.svg", sub_menu: "content", url: "#sidebar-content" %>
+    <%= main_menu_tree I18n.t('aypex.admin.content'), icon: "card-heading.svg", sub_menu: "content", url: "#sidebar-content" %>
   </ul>
 <% end %>

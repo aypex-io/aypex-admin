@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= I18n.t('aypex.admin.webhooks.subscribers.subscribers') %>
+  <%= I18n.t('aypex.admin.subscribers') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon I18n.t('aypex.admin.webhooks.subscribers.new_webhooks_subscriber'), new_object_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_webhooks_subscriber_link' %>
+  <%= link_to_with_icon I18n.t('aypex.admin.new_webhooks_subscriber'), new_object_url, class: "btn-primary btn", icon: 'plus-square.svg', id: 'admin_new_webhooks_subscriber_link' %>
 <% end if can?(:create, Aypex::Webhooks::Subscriber) %>
 
 <% content_for :index_table do %>
@@ -14,9 +14,9 @@
           <g-tr>
             <g-th><%= I18n.t('aypex.admin.url') %></g-th>
             <g-th><%= I18n.t('aypex.admin.active') %></g-th>
-            <g-th><%= I18n.t('aypex.admin.webhooks.subscribers.subscriptions') %></g-th>
-            <g-th><%= I18n.t('aypex.admin.webhooks.subscribers.time_of_last_event') %></g-th>
-            <g-th style="grid-column: span 2;"><%= I18n.t('aypex.admin.webhooks.subscribers.events') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.subscriptions') %></g-th>
+            <g-th><%= I18n.t('aypex.admin.time_of_last_event') %></g-th>
+            <g-th style="grid-column: span 2;"><%= I18n.t('aypex.admin.events') %></g-th>
           </g-tr>
         </g-thead>
         <g-tbody>
@@ -40,4 +40,4 @@
 <%= render partial: "aypex/admin/shared/index_table",
            locals: { search_url: aypex.admin_webhooks_subscribers_path,
                      search_record: :url_i_cont,
-                     search_placeholder: I18n.t('aypex.admin.webhooks.search_webhooks_by_url')} %>
+                     search_placeholder: I18n.t('aypex.admin.search_webhooks_by_url')} %>

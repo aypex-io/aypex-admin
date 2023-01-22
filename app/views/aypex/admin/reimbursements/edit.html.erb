@@ -62,7 +62,7 @@
   </fieldset>
 
   <div class="form-actions filter-actions actions" data-hook="buttons">
-    <%= button I18n.t('aypex.admin.actions.update'), 'update' %>
+    <%= button I18n.t('aypex.admin.update'), 'update' %>
   </div>
 <% end %>
 
@@ -100,7 +100,7 @@
         <%= I18n.t("aypex.admin.reimburse") %>
       <% end %>
       <span class="or"><%= I18n.t("aypex.admin.or") %></span>
-      <%= link_to_with_icon I18n.t('aypex.admin.actions.cancel'), aypex.edit_admin_order_customer_return_path(@order, @reimbursement.customer_return), icon: 'cancel' %>
+      <%= link_to_with_icon I18n.t('aypex.admin.cancel'), aypex.edit_admin_order_customer_return_path(@order, @reimbursement.customer_return), icon: 'cancel' %>
     <% end %>
   </div>
 </fieldset>

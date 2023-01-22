@@ -49,7 +49,7 @@ module Aypex
         titleized_label = if options[:do_not_titleize] == true
           options[:label]
         else
-          # i18n-tasks-use I18n.t('aypex.admin.tab.applications')
+          # i18n-tasks-use I18n.t('aypex.admin.applications')
           I18n.t(options[:label], default: options[:label], scope: [:aypex, :dash, :tab]).titleize
         end
 
@@ -111,7 +111,7 @@ module Aypex
 
       def link_to_edit(resource, options = {})
         url = options[:url] || edit_object_url(resource)
-        name = options[:name] || I18n.t("aypex.admin.actions.edit")
+        name = options[:name] || I18n.t("aypex.admin.edit")
 
         options[:no_text] ||= true
         options[:icon] = "pen.svg"
@@ -122,7 +122,7 @@ module Aypex
 
       def link_to_clone(resource, options = {})
         url = options[:url] || clone_object_url(resource)
-        name = options[:name] || I18n.t("aypex.admin.actions.clone")
+        name = options[:name] || I18n.t("aypex.admin.clone")
 
         options[:no_text] ||= true
         options[:class] ||= "btn btn-secondary btn-sm icon-clone"
@@ -134,7 +134,7 @@ module Aypex
 
       def link_to_delete(resource, options = {})
         url = options[:url] || object_url(resource)
-        name = options[:name] || I18n.t("aypex.admin.actions.delete")
+        name = options[:name] || I18n.t("aypex.admin.delete")
 
         options[:no_text] ||= true
         options[:class] ||= "btn btn-sm btn-danger icon-delete"
@@ -187,9 +187,9 @@ module Aypex
 
         if button_text.nil?
           button_text = if resource.persisted?
-            I18n.t("aypex.admin.actions.update")
+            I18n.t("aypex.admin.update")
           else
-            I18n.t("aypex.admin.actions.create")
+            I18n.t("aypex.admin.create")
           end
         end
 

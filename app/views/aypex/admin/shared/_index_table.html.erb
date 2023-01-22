@@ -10,7 +10,7 @@
     <div class="p-2 filters-in-use-container">
       <% request.query_parameters[:q].sort.each do |filter| %>
         <%= filters_in_use(filter) %>
-      <% end if request.query_parameters[:q] && request.parameters[:commit] == I18n.t('aypex.admin.actions.filter') %>
+      <% end if request.query_parameters[:q] && request.parameters[:commit] == I18n.t('aypex.admin.filter') %>
     </div>
     <div class="col-12 p-0">
       <%= yield :index_table if content_for?(:index_table) %>

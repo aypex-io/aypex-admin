@@ -1,8 +1,8 @@
 <ul id="sidebar-tax-and-shipping" class="collapse nav nav-pills " data-hook="admin_tax_and_shipping">
-  <%= tab :countries, url: aypex.admin_countries_path, label: I18n.t('aypex.admin.settings_menu.countries') if can? :manage, Aypex::Country %>
-  <%= tab :shipping_categories, url: aypex.admin_shipping_categories_path, label: I18n.t('aypex.admin.settings_menu.shipping_categories') if can? :manage, Aypex::ShippingCategory %>
-  <%= tab :shipping_methods, url: aypex.admin_shipping_methods_path, label: I18n.t('aypex.admin.settings_menu.shipping_methods') if can? :manage, Aypex::ShippingMethod %>
-  <%= tab :tax_categories, url: aypex.admin_tax_categories_path, label: I18n.t('aypex.admin.settings_menu.tax_categories') if can? :manage, Aypex::TaxCategory %>
-  <%= tab :tax_rates, url: aypex.admin_tax_rates_path, label: I18n.t('aypex.admin.settings_menu.tax_rates') if can? :manage, Aypex::TaxRate %>
-  <%= tab :zones, url: aypex.admin_zones_path, label: I18n.t('aypex.admin.settings_menu.zones') if can? :manage, Aypex::Zone %>
+  <%= tab :countries, url: aypex.admin_countries_path, label: I18n.t('aypex.admin.countries') if can? :manage, Aypex::Country %>
+  <%= tab :shipping_categories, url: aypex.admin_shipping_categories_path, label: I18n.t('aypex.admin.shipping_categories') if can? :manage, Aypex::ShippingCategory %>
+  <%= tab :shipping_methods, url: aypex.admin_shipping_methods_path, label: I18n.t('aypex.admin.shipping_methods') if can? :manage, Aypex::ShippingMethod %>
+  <%= tab :tax_categories, url: aypex.admin_tax_categories_path, label: I18n.t('aypex.admin.tax_categories') if can? :manage, Aypex::TaxCategory %>
+  <%= tab :tax_rates, url: aypex.admin_tax_rates_path, label: I18n.t('aypex.admin.tax_rates') if can? :manage, Aypex::TaxRate %>
+  <%= tab :zones, url: aypex.admin_zones_path, label: I18n.t('aypex.admin.zones') if can? :manage, Aypex::Zone %>
 </ul>

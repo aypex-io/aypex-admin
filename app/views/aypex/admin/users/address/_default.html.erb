@@ -1,13 +1,13 @@
 <div class="col-12 col-md-4">
   <div class="card">
     <div class="card-header">
-      <h5 class="card-title"><%= I18n.t('aypex.admin.user.default_addresses') %></h5>
+      <h5 class="card-title"><%= I18n.t('aypex.admin.default_addresses') %></h5>
     </div>
 
     <div class="card-body">
       <% if @user.bill_address.present? %>
         <% unless @user.bill_address == @user.ship_address %>
-          <h6><%= I18n.t('aypex.admin.user.billing_addresses') %></h6>
+          <h6><%= I18n.t('aypex.admin.billing_addresses') %></h6>
         <% end %>
 
         <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @user.bill_address} %>
@@ -20,8 +20,8 @@
         </div>
       <% else %>
         <div class="call-out callout-info">
-          <h6><%= I18n.t('aypex.admin.addresses.billing_address') %></h6>
-          <small class="text-muted"><%= I18n.t('aypex.admin.addresses.you_have_no_default_billing_addresses_set') %></small>
+          <h6><%= I18n.t('aypex.admin.billing_address') %></h6>
+          <small class="text-muted"><%= I18n.t('aypex.admin.you_have_no_default_billing_addresses_set') %></small>
         </div>
       <% end %>
 
@@ -33,7 +33,7 @@
 
       <% unless @user.bill_address == @user.ship_address && @user.ship_address.present? %>
         <% if @user.ship_address.present? %>
-          <h6><%= I18n.t('aypex.admin.user.shipping_addresses') %></h6>
+          <h6><%= I18n.t('aypex.admin.shipping_addresses') %></h6>
           <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @user.ship_address} %>
 
           <div id="shippingAddressActions">
@@ -45,8 +45,8 @@
           </div>
         <% else %>
           <div class="call-out callout-info">
-            <h6><%= I18n.t('aypex.admin.addresses.shipping_address') %></h6>
-            <small class="text-muted"><%= I18n.t('aypex.admin.addresses.you_have_no_default_shipping_addresses_set') %></small>
+            <h6><%= I18n.t('aypex.admin.shipping_address') %></h6>
+            <small class="text-muted"><%= I18n.t('aypex.admin.you_have_no_default_shipping_addresses_set') %></small>
           </div>
         <% end %>
       <% end %>

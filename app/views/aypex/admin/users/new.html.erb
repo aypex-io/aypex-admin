@@ -1,5 +1,5 @@
 <% content_for :modal_header do %>
-  <h5 class="modal-title"><%= I18n.t('aypex.admin.user.create_a_new_user') %></h5>
+  <h5 class="modal-title"><%= I18n.t('aypex.admin.create_a_new_user') %></h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 <% end %>
 
@@ -12,7 +12,7 @@
 <% end %>
 
 <% content_for :modal_footer do %>
-  <%= submit_tag(I18n.t('aypex.admin.actions.save'), class: "btn btn-primary", form: :modal_form) %>
+  <%= submit_tag(I18n.t('aypex.admin.save'), class: "btn btn-primary", form: :modal_form) %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/modal' %>

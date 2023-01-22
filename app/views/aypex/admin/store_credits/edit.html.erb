@@ -1,5 +1,5 @@
 <% content_for :modal_header do %>
-  <h5 class="modal-title"><%= I18n.t('aypex.admin.user.edit_store_credit') %></h5>
+  <h5 class="modal-title"><%= I18n.t('aypex.admin.edit_store_credit') %></h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 <% end %>
 
@@ -12,7 +12,7 @@
 <% end %>
 
 <% content_for :modal_footer do %>
-  <%= button_tag(I18n.t('aypex.admin.actions.save'), class: "btn btn-primary", form: "modalForm") %>
+  <%= button_tag(I18n.t('aypex.admin.save'), class: "btn btn-primary", form: "modalForm") %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/modal', locals: { modal_dialog_settings: 'modal-dialog-scrollable modal-dialog modal-dialog-centered modal-lg' } %>

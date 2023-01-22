@@ -14,7 +14,7 @@
           <% unless @category.new_record? %>
             <%= f.field_container :permalink do %>
               <%= f.text_field :permalink_part, value: @permalink_part, required: true %>
-              <%= f.label :permalink, raw(I18n.t('aypex.admin.categories.permalink') + required_span_tag) %>
+              <%= f.label :permalink, raw(I18n.t('aypex.admin.permalink') + required_span_tag) %>
               <small class="form-text text-muted">
                 <%= [Aypex::Config.storefront_categories_path , @parent_permalink].join('/') + @permalink_part %>
               </small>
@@ -37,7 +37,7 @@
         <div class="card-body">
           <%= f.field_container :hide_from_nav, class: ['form-check'] do %>
             <%= f.check_box :hide_from_nav %>
-            <%= f.label :hide_from_nav, I18n.t('aypex.admin.categories.hide_from_sub_navigation'), class: 'form-check-label' %>
+            <%= f.label :hide_from_nav, I18n.t('aypex.admin.hide_from_sub_navigation'), class: 'form-check-label' %>
           <% end %>
 
           <% if @category.new_record? %>
@@ -52,7 +52,7 @@
               <%= f.label :parent_id, I18n.t('aypex.admin.navigation.nested_under') %>
             </div>
             <small class="form-text text-muted">
-              <%= I18n.t('aypex.admin.categories.nested_under_info') %>
+              <%= I18n.t('aypex.admin.nested_under_info') %>
             </small>
           <% end %>
 

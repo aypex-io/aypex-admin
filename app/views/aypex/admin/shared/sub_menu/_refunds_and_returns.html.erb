@@ -1,6 +1,6 @@
 <ul id="sidebar-refunds-and-returns" class="collapse nav nav-pills " data-hook="admin_refunds_and_returns">
-  <%= tab :refund_reasons, url: aypex.admin_refund_reasons_path, label: I18n.t('aypex.admin.settings_menu.refund_reasons') if can? :manage, Aypex::RefundReason %>
-  <%= tab :reimbursement_types, url: aypex.admin_reimbursement_types_path, label: I18n.t('aypex.admin.settings_menu.reimbursement_types') if can? :manage, Aypex::ReimbursementType %>
-  <%= tab :return_authorization_reasons, url: aypex.admin_return_authorization_reasons_path, label: I18n.t('aypex.admin.settings_menu.return_reasons') if can? :manage, Aypex::ReturnAuthorizationReason %>
-  <%= tab :store_credit_categories, url: aypex.admin_store_credit_categories_path, label: I18n.t('aypex.admin.settings_menu.store_credit_categories') if can? :manage, Aypex::StoreCreditCategory %>
+  <%= tab :refund_reasons, url: aypex.admin_refund_reasons_path, label: I18n.t('aypex.admin.refund_reasons') if can? :manage, Aypex::RefundReason %>
+  <%= tab :reimbursement_types, url: aypex.admin_reimbursement_types_path, label: I18n.t('aypex.admin.reimbursement_types') if can? :manage, Aypex::ReimbursementType %>
+  <%= tab :return_authorization_reasons, url: aypex.admin_return_authorization_reasons_path, label: I18n.t('aypex.admin.return_reasons') if can? :manage, Aypex::ReturnAuthorizationReason %>
+  <%= tab :store_credit_categories, url: aypex.admin_store_credit_categories_path, label: I18n.t('aypex.admin.store_credit_categories') if can? :manage, Aypex::StoreCreditCategory %>
 </ul>

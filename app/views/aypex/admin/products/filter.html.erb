@@ -43,15 +43,15 @@
         </div>
       </div>
     </div>
-    <%= f.submit I18n.t('aypex.admin.actions.filter'), data: {form__autosave_target: "submitButton"} %>
+    <%= f.submit I18n.t('aypex.admin.filter'), data: {form__autosave_target: "submitButton"} %>
   <% end %>
 
   <%= content_for :offcanvas_footer do %>
     <div class="flex-fill">
-      <%= link_to I18n.t('aypex.admin.actions.clear_filters'), aypex.admin_products_path, class: "btn btn-secondary", data: {turbo_frame: :index_table, action: "form--reset#clearForm"} %>
+      <%= link_to I18n.t('aypex.admin.clear_filters'), aypex.admin_products_path, class: "btn btn-secondary", data: {turbo_frame: :index_table, action: "form--reset#clearForm"} %>
     </div>
     <div data-hook="admin_products_index_search_buttons" class="form-actions">
-      <button type="button" class="btn-primary btn" data-bs-dismiss="offcanvas" aria-label="Close"><%= I18n.t('aypex.admin.actions.done') %></button>
+      <button type="button" class="btn-primary btn" data-bs-dismiss="offcanvas" aria-label="Close"><%= I18n.t('aypex.admin.done') %></button>
     </div>
   <% end %>
 <% end %>

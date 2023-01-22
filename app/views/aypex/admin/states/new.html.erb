@@ -12,8 +12,8 @@
 <% end %>
 
 <% content_for :modal_footer do %>
-  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= I18n.t('aypex.admin.actions.cancel') %></button>
-  <%= button_tag(I18n.t('aypex.admin.actions.save'), class: "btn btn-primary", form: :modal_form) %>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= I18n.t('aypex.admin.cancel') %></button>
+  <%= button_tag(I18n.t('aypex.admin.save'), class: "btn btn-primary", form: :modal_form) %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/modal', locals: { modal_dialog_settings: 'modal-dialog-scrollable modal-dialog modal-dialog-centered modal-lg' } %>

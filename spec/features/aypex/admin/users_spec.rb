@@ -146,7 +146,7 @@ describe "Users", type: :feature do
         let(:text_match_1) { user_a.email }
         let(:text_match_2) { user_b.email }
         let(:table_id) { "#listing_users" }
-        let(:sort_link) { "users_email" }
+        let(:sort_link) { "Email" }
       end
     end
 

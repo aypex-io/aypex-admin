@@ -9,22 +9,22 @@
 <% end %>
 
 <ul class="nav nav-sidebar" id="sidebarTaxAndShipping">
-  <%= main_menu_tree I18n.t('aypex.admin.tab.tax_and_shipping'), icon: "truck.svg", sub_menu: "tax_and_shipping", url: "#sidebar-tax-and-shipping" %>
+  <%= main_menu_tree I18n.t('aypex.admin.tax_and_shipping'), icon: "truck.svg", sub_menu: "tax_and_shipping", url: "#sidebar-tax-and-shipping" %>
 </ul>
 
 <ul class="nav nav-sidebar" id="sidebarRefundsAndReturns">
-  <%= main_menu_tree I18n.t('aypex.admin.tab.returns'), icon: "arrow-return-left.svg", sub_menu: "refunds_and_returns", url: "#sidebar-refunds-and-returns" %>
+  <%= main_menu_tree I18n.t('aypex.admin.returns'), icon: "arrow-return-left.svg", sub_menu: "refunds_and_returns", url: "#sidebar-refunds-and-returns" %>
 </ul>
 
 <hr>
 <% if can?(:admin, Aypex::Webhooks::Subscriber) || can?(:admin, Aypex::PaymentMethod) %>
   <ul class="nav nav-sidebar" id="sidebarIntegrations">
-    <%= main_menu_tree I18n.t('aypex.admin.tab.integrations'), icon: "stack.svg", sub_menu: "integrations", url: "#sidebar-integrations" %>
+    <%= main_menu_tree I18n.t('aypex.admin.integrations'), icon: "stack.svg", sub_menu: "integrations", url: "#sidebar-integrations" %>
   </ul>
 <% end %>
 
 <% if can? :admin, Aypex::OauthApplication %>
   <ul class="nav nav-sidebar" id="sidebarApps">
-    <%= main_menu_tree I18n.t('aypex.admin.tab.apps'), icon: "terminal-fill.svg", sub_menu: "apps", url: "#sidebar-apps" %>
+    <%= main_menu_tree I18n.t('aypex.admin.apps'), icon: "terminal-fill.svg", sub_menu: "apps", url: "#sidebar-apps" %>
   </ul>
 <% end %>

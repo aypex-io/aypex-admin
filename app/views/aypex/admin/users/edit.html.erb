@@ -9,7 +9,7 @@
     <div class="card">
       <div class="card-header d-flex">
         <div class="flex-fill">
-          <h5 class="card-title"><%= I18n.t('aypex.admin.user.orders') %></h5>
+          <h5 class="card-title"><%= I18n.t('aypex.admin.orders') %></h5>
         </div>
         <div>
           <%= link_to_with_icon I18n.t("aypex.admin.create_new_order"), aypex.new_admin_order_path(user_id: @user.id), class: "btn btn-sm btn-secondary", icon: 'plus-square.svg' if can?(:create, Aypex::Order) %>
@@ -22,7 +22,7 @@
       <div class="card-header d-flex">
         <div class="flex-fill">
           <h5 class="card-title">
-            <%= I18n.t('aypex.admin.user.store_credits') %>
+            <%= I18n.t('aypex.admin.store_credits') %>
           </h5>
         </div>
         <div>
@@ -39,8 +39,8 @@
   <div class="col-12 col-md-4">
     <sa-card id="customerDetails">
       <sa-header>
-        <h5><%= I18n.t('aypex.admin.user.customer') %></h5>
-        <%= link_to I18n.t('aypex.admin.actions.edit'), aypex.customer_details_admin_user_path(@user), class: "btn btn-sm btn-secondary", data: {turbo_frame: :modal} %>
+        <h5><%= I18n.t('aypex.admin.customer') %></h5>
+        <%= link_to I18n.t('aypex.admin.edit'), aypex.customer_details_admin_user_path(@user), class: "btn btn-sm btn-secondary", data: {turbo_frame: :modal} %>
       </sa-header>
 
       <sa-body>
@@ -49,7 +49,7 @@
         <% end %>
         <div class="d-flex" data-controller="clipboard">
           <div class="flex-fill">
-            <%= hidden_field :user, :email, value: @user.email, placeholder: I18n.t("aypex.admin.user.user_email"), data: {clipboard_target: "source"} %>
+            <%= hidden_field :user, :email, value: @user.email, placeholder: I18n.t("aypex.admin.user_email"), data: {clipboard_target: "source"} %>
             <%= @user.email %>
           </div>
           <div>
@@ -58,7 +58,7 @@
             </button>
           </div>
         </div>
-        <span class="text-muted"><%= I18n.t('aypex.admin.user.user_since') %>:</span> <%= pretty_date(@user.created_at) %>
+        <span class="text-muted"><%= I18n.t('aypex.admin.user_since') %>:</span> <%= pretty_date(@user.created_at) %>
         <div class="mt-2">
           <% @user.aypex_roles.each do |role| %>
             <span class="badge rgb-hsl-secondary"><%= role.name %></span>
@@ -69,14 +69,14 @@
       <hr>
 
       <sa-header id="customerAddresses">
-        <h5 class="card-title"><%= I18n.t('aypex.admin.user.addresses') %></h5>
+        <h5 class="card-title"><%= I18n.t('aypex.admin.addresses') %></h5>
         <%= link_to I18n.t('aypex.admin.manage'), aypex.addresses_admin_user_path(@user), class: "btn btn-sm btn-secondary" %>
       </sa-header>
 
       <sa-body>
         <% if @user.bill_address.present? %>
           <% unless @user.bill_address == @user.ship_address %>
-            <h6><%= I18n.t('aypex.admin.user.billing_addresses') %></h6>
+            <h6><%= I18n.t('aypex.admin.billing_addresses') %></h6>
           <% end %>
 
           <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @user.bill_address} %>
@@ -86,10 +86,10 @@
         <% else %>
           <div class="call-out call-out-info my-3">
             <h6>
-              <%= I18n.t('aypex.admin.user.billing_address') %>
+              <%= I18n.t('aypex.admin.billing_address') %>
             </h6>
             <small class="text-muted">
-             <%= I18n.t('aypex.admin.user.no_default_billing_address_set') %>
+             <%= I18n.t('aypex.admin.no_default_billing_address_set') %>
             </small>
           </div>
         <% end %>
@@ -97,16 +97,16 @@
         <% unless @user.bill_address == @user.ship_address && @user.ship_address.present? %>
           <hr>
           <% if @user.ship_address.present? %>
-            <h6><%= I18n.t('aypex.admin.user.shipping_addresses') %></h6>
+            <h6><%= I18n.t('aypex.admin.shipping_addresses') %></h6>
 
             <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @user.ship_address} %>
           <% else %>
             <div class="call-out call-out-info my-3">
               <h6>
-                <%= I18n.t('aypex.admin.user.shipping_address') %>
+                <%= I18n.t('aypex.admin.shipping_address') %>
               </h6>
               <small class="text-muted">
-               <%= I18n.t('aypex.admin.user.no_default_shipping_address_set') %>
+               <%= I18n.t('aypex.admin.no_default_shipping_address_set') %>
               </small>
             </div>
           <% end %>

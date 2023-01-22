@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_users_path, link_one_text: I18n.t('aypex.admin.users'), link_two_uri: aypex.edit_admin_user_path(@user), link_two_text: @user.email, current_page_name: I18n.t('aypex.admin.user.addresses')) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_users_path, link_one_text: I18n.t('aypex.admin.users'), link_two_uri: aypex.edit_admin_user_path(@user), link_two_text: @user.email, current_page_name: I18n.t('aypex.admin.addresses')) %>
 <% end %>
 
 <% content_for :page_actions do %>
@@ -13,8 +13,8 @@
   <% else %>
     <div class="col-12 col-md-6 offset-md-3">
       <div class="call-out callout-info">
-        <h6><%= I18n.t('aypex.admin.addresses.no_addresses_set') %></h6>
-        <small class="text-muted"><%= I18n.t('aypex.admin.addresses.this_user_has_no_addresses_click_add_new_address_to_add_a_new_address') %></small>
+        <h6><%= I18n.t('aypex.admin.no_addresses_set') %></h6>
+        <small class="text-muted"><%= I18n.t('aypex.admin.this_user_has_no_addresses_click_add_new_address_to_add_a_new_address') %></small>
       </div>
     </div>
   <% end %>

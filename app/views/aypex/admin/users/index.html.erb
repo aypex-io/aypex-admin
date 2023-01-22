@@ -17,10 +17,10 @@
         <g-thead>
           <g-tr>
             <g-th>
-              <%= sort_link @search, :email, name: I18n.t("aypex.admin.user"), title: 'users_email' %>
+              <%= sort_link @search, :email, I18n.t("aypex.admin.email") %>
             </g-th>
             <g-th style="grid-column: span 2;">
-              <%= sort_link @search, :created_at, name: I18n.t("aypex.admin.created_at"), title: 'account_created' %>
+              <%= sort_link @search, :created_at, I18n.t("aypex.admin.created_at") %>
             </g-th>
           </g-tr>
         </g-thead>

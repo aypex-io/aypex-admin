@@ -56,8 +56,8 @@ module Aypex
 
       def avs_response_code
         {
-          "A" => I18n.t("aypex.admin.avs_responses.street_address_matches_but_5-digit_and_9_digit_postal_code_do_not_match"),
-          "B" => I18n.t("aypex.admin.avs_responses.street_address_matches_but_postal_code_not_verified"),
+          "A" => I18n.t("aypex.admin.street_address_matches_but_5-digit_and_9_digit_postal_code_do_not_match"),
+          "B" => I18n.t("aypex.admin.street_address_matches_but_postal_code_not_verified"),
           # TODO MSK translate these
           "C" => "Street address and postal code do not match.",
           "D" => "Street address and postal code match. ",

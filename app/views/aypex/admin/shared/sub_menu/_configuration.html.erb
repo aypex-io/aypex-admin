@@ -1,4 +1,4 @@
 <ul data-hook="admin_configurations_sidebar_menu" class="collapse nav nav-pills " id="sidebar-configuration">
-  <%= tab :stores, url: aypex.edit_admin_store_path(current_store), label: I18n.t('aypex.admin.settings_menu.details') if can? :manage, current_store %>
-  <%= tab :roles, url: aypex.admin_roles_path, label: I18n.t('aypex.admin.settings_menu.roles') if can? :manage, Aypex::Role %>
+  <%= tab :stores, url: aypex.edit_admin_store_path(current_store), label: I18n.t('aypex.admin.details') if can? :manage, current_store %>
+  <%= tab :roles, url: aypex.admin_roles_path, label: I18n.t('aypex.admin.roles') if can? :manage, Aypex::Role %>
 </ul>

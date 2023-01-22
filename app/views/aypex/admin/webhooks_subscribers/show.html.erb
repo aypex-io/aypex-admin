@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_webhooks_subscribers_path, link_one_text: I18n.t('aypex.admin.webhooks.subscribers.subscribers'), current_page_name: I18n.t('aypex.admin.webhooks.subscribers.webhooks_events')) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_webhooks_subscribers_path, link_one_text: I18n.t('aypex.admin.subscribers'), current_page_name: I18n.t('aypex.admin.webhooks_events')) %>
 <% end %>
 
 <div class="card">
@@ -15,7 +15,7 @@
           <g-td><%= active_badge(@webhooks_subscriber.active) %></g-td>
         </g-tr>
         <g-tr>
-          <g-th><%= I18n.t('aypex.admin.webhooks.subscribers.subscriptions') %></g-th>
+          <g-th><%= I18n.t('aypex.admin.subscriptions') %></g-th>
           <g-td style="white-space: unset;"><%= @webhooks_subscriber.subscriptions&.join(', ') %></g-td>
         </g-tr>
       </g-tbody>
@@ -55,6 +55,6 @@
 
 <% else %>
   <div class="text-center no-objects-found m-5">
-    <%= I18n.t('aypex.admin.webhooks.subscribers.no_events') %>
+    <%= I18n.t('aypex.admin.no_events') %>
   </div>
 <% end %>
