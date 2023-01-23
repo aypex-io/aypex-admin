@@ -56,8 +56,6 @@ test_app
 vendor/bundle
 */vendor/bundle
 .ignore
-
 node_modules
 src
 *.gem
-gemfiles/**/*.lock
