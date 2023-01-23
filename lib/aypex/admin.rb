@@ -5,10 +5,10 @@ require "aypex/admin/action_callbacks"
 require "aypex/admin/callbacks"
 require "aypex/admin/configuration"
 
-require "turbo-rails"
 require "inline_svg"
-require "responders"
 require "pagy"
+require "responders"
+require "turbo-rails"
 
 module Aypex
   module Admin
