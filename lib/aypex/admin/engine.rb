@@ -17,11 +17,6 @@ module Aypex
         end
       end
 
-      # filter sensitive information during logging
-      initializer "aypex.params.filter" do |app|
-        app.config.filter_parameters += [:password, :password_confirmation, :number]
-      end
-
       config.to_prepare(&method(:activate).to_proc)
     end
   end
