@@ -3,13 +3,9 @@
 [![Standard JS](https://github.com/aypex-io/aypex-admin/actions/workflows/standardjs.yml/badge.svg)](https://github.com/aypex-io/aypex-admin/actions/workflows/standardjs.yml)
 [![StyleLint](https://github.com/aypex-io/aypex-admin/actions/workflows/stylelint.yml/badge.svg)](https://github.com/aypex-io/aypex-admin/actions/workflows/stylelint.yml)
 
-# Aypex Admin
+# Aypex::Admin
 
-A fresh take on an Admin UI for Aypex, this is currently intended to be highly experimental and should not be used for production.
-
-
-Aypex Admin is free of legacy dependencies and constraints, the goal is to speed up development and find new intuitive ways of using Aypex Admin while
-completely modernizing the tech stack for the developers happiness.
+The default Admin UI for Aypex eCommerce Platform.
 
 
 ## Benefits
@@ -25,9 +21,10 @@ completely modernizing the tech stack for the developers happiness.
 Starting with a freshly generated Rails 7 app running Propshaft, add the following gems to your Gemfile:
 
 ```ruby
-gem 'aypex',             github: 'aypex-io/aypex'
-gem 'aypex-admin',       github: 'aypex-io/aypex_admin'
-gem 'aypex-auth_devise', github: 'aypex-io/aypex-auth_devise'
+gem "aypex",             github: "aypex-io/aypex"
+gem "aypex-api",         github: "aypex-io/aypex-api"
+gem "aypex-admin",       github: "aypex-io/aypex_admin"
+gem "aypex-auth_devise", github: "aypex-io/aypex-auth_devise"
 ```
 
 From the command line run the following commands:
@@ -48,15 +45,15 @@ If you are using NPM to manage your javascript and want to import the javascript
 ```bash
 yarn add @aypex/aypex-admin
 ```
-And then create a new file in `app/javascript` called `aypex_admin.js` and then import `import '@matthewkennedy/aypex-admin'`.
+And then create a new file in `app/javascript` called `aypex_admin.js` and then import `import "@matthewkennedy/aypex-admin"`.
 
 
 ## The Tech Stack
 
-- All ES6 Vanilla JavaScript.
+- All ES6 JavaScript.
 - CSS and images all set for Rails Propshaft.
 - Uses the Rails Hotwire ecosystem where possible.
-- Bootstrap 5.
+- Bootstrap 5.3
 
 ### Run in Dev Mode
 
