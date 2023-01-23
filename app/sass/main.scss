@@ -2,11 +2,9 @@
 
 // Imports From node_modules
 @import '~bootstrap/scss/bootstrap';
-@import '~tom-select/src/scss/tom-select.bootstrap5';
+@import '~tom-select/dist/css/tom-select.bootstrap5'; // Shite SCSS should re-write a 3rd party version.
 @import '~flatpickr/dist/flatpickr';
 @import '~@matthewkennedy/gridtable.css/gridtable';
 @import '~animate.css/animate';
 
 @import 'sources'
-
-
