@@ -9,7 +9,7 @@
 <% if @zones.any? %>
 <div class="table-responsive border rounded">
   <table class="table" id='listing_zones' data-hook>
-    <thead class="text-muted">
+    <thead class="text-body-secondary">
       <tr data-hook="zones_header">
         <th><%= sort_link @search,:name, name: I18n.t("aypex.admin.name"), title: 'zones_order_by_name_title' %></th>
         <th>

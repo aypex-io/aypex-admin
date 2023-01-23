@@ -3,15 +3,15 @@
     <%= f.hidden_field :user_id, value: @user.id %>
   <% end %>
 
-  <h6 class="text-muted"><%= I18n.t('aypex.admin.address_label') %></h6>
+  <h6 class="text-body-secondary"><%= I18n.t('aypex.admin.address_label') %></h6>
   <%= f.field_container :label do %>
     <%= f.text_field :label %>
     <%= f.label :address_name, I18n.t('aypex.admin.label') %>
-    <small class="text-muted"><%= I18n.t('aypex.admin.label_info') %></small>
+    <small class="text-body-secondary"><%= I18n.t('aypex.admin.label_info') %></small>
   <% end %>
 
   <hr class="my-4">
-  <h6 class="text-muted"><%= I18n.t('aypex.admin.contact_details') %></h6>
+  <h6 class="text-body-secondary"><%= I18n.t('aypex.admin.contact_details') %></h6>
 
   <div class="row">
     <div class="col-12 col-md-6">
@@ -35,7 +35,7 @@
   </div>
 
   <hr class="my-4">
-  <h6 class="text-muted"><%= I18n.t('aypex.admin.location') %></h6>
+  <h6 class="text-body-secondary"><%= I18n.t('aypex.admin.location') %></h6>
 
   <div class="row">
     <div class="col-12">

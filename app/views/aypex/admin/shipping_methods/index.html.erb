@@ -9,7 +9,7 @@
 <% if @shipping_methods.any? %>
 <div class="table-responsive border rounded">
   <table class="table" id='listing_shipping_methods'>
-    <thead class="text-muted">
+    <thead class="text-body-secondary">
       <tr data-hook="admin_shipping_methods_index_headers">
         <th><%= I18n.t("aypex.admin.name") %></th>
         <% if defined?(Aypex::Vendor) %>

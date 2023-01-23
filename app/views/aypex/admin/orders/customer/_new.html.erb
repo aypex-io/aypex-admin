@@ -24,7 +24,7 @@
     <h6>
       <%= I18n.t('aypex.admin.billing_address') %>
     </h6>
-    <small class="text-muted">
+    <small class="text-body-secondary">
      <%= I18n.t('aypex.admin.no_billing_address_has_been_added_to_this_order') %> <%= link_to 'Add a new Billing address.', aypex.new_bill_address_admin_order_path(@order), data: { turbo_frame: :modal } %>
     </small>
   </div>
@@ -41,7 +41,7 @@
     <h6>
       <%= I18n.t('aypex.admin.shipping_address') %>
     </h6>
-    <small class="text-muted">
+    <small class="text-body-secondary">
      <%= I18n.t('aypex.admin.no_shipping_address_has_been_added_to_this_order') %> <%= link_to 'Add a new Shipping address.', aypex.new_ship_address_admin_order_path(@order), data: { turbo_frame: :modal } %>
     </small>
   </div>

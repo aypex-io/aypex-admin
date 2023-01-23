@@ -10,7 +10,7 @@
       <% if item.link.present? %>
         <span class="badge rounded-pill rgb-hsl-muted">-> <%= item.link %></span>
       <% end %>
-      <small class="form-text text-muted mt-0">
+      <small class="form-text text-body-secondary mt-0">
         <%= "#{I18n.t('aypex.admin.navigation.type')}: #{item.item_type}" %>
         <%= "| #{I18n.t('aypex.admin.navigation.code')}: #{item.code}" if item.code.present? %>
       </small>

@@ -3,7 +3,7 @@
 <% if @state_changes.any? %>
 <div class="table-responsive border rounded">
   <table class="table" id="listing_order_state_changes" data-hook>
-    <thead class="text-muted">
+    <thead class="text-body-secondary">
       <tr data-hook="admin_orders_state_changes_headers">
         <th><%= Aypex::StateChange.human_attribute_name(:type) %></th>
         <th><%= Aypex::StateChange.human_attribute_name(:state_from) %></th>

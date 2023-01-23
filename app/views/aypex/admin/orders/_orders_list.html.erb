@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "#{plural_resource_name(@collection).downcase}-page-#{@pagy.page}" do %>
   <% @collection.each do |order| %>
     <% if order.complete? %>
-        <% muted_text_class = 'text-muted' %>
+        <% muted_text_class = 'text-body-secondary' %>
       <% else %>
         <% muted_text_class = '' %>
     <% end %>

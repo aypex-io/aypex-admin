@@ -24,7 +24,7 @@
     <hr>
 
       <div data-hook="admin_user_form_roles" class="form-group">
-        <h6 class="text-muted"><%= I18n.t('aypex.admin.roles') %></h6>
+        <h6 class="text-body-secondary"><%= I18n.t('aypex.admin.roles') %></h6>
         <%= f.collection_check_boxes :aypex_role_ids, Aypex::Role.all, :id, :name do |role_form| %>
           <div class="form-check">
             <%= role_form.check_box id: "user_aypex_role_#{role_form.object.name}", class: 'form-check-input' %>
@@ -38,7 +38,7 @@
   <hr>
 
   <div data-hook="admin_user_form_password_fields" class="row">
-    <h6 class="text-muted"><%= I18n.t('aypex.admin.password') %></h6>
+    <h6 class="text-body-secondary"><%= I18n.t('aypex.admin.password') %></h6>
     <div class="col-12 col-md-6">
       <%= f.field_container :password do %>
         <%= f.password_field :password, class: 'form-control', placeholder: I18n.t("aypex.admin.password") %>

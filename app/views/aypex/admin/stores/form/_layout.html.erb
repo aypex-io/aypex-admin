@@ -41,7 +41,7 @@
           <%= f.field_container :favicon_image do %>
             <%= ff.file_field :attachment, accept: Aypex::StoreFaviconImage::VALID_CONTENT_TYPES.join(',') %>
             <%= f.label :favicon_image, I18n.t("aypex.admin.favicon") %>
-            <small class="form-text text-muted">
+            <small class="form-text text-body-secondary">
               <%= I18n.t("aypex.admin.favicon_upload_info") %>
             </small>
           <% end %>

@@ -12,7 +12,7 @@
     <%= f.field_container :scopes, data_hook: "oauth_application_scopes" do %>
       <%= f.text_field :scopes %>
       <%= f.label :scopes, raw(I18n.t("aypex.admin.scopes") + required_span_tag) %>
-      <small class="form-text text-muted">
+      <small class="form-text text-body-secondary">
         Possible values:
         <ul>
           <li><strong>admin read</strong> - read only access</li>

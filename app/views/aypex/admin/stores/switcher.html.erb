@@ -13,7 +13,7 @@
 
     <%= link_to aypex.admin_url(host: store.formatted_url), class: "py-3 px-4 dropdown-item rounded", id: store.code, data: { turbo: false } do %>
       <div><%= store.unique_name %></div>
-      <div><small class="text-muted"><%= store.url %></small></div>
+      <div><small class="text-body-secondary"><%= store.url %></small></div>
     <% end %>
    <% end %>
   </div>

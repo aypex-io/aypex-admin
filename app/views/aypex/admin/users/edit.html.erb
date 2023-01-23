@@ -58,7 +58,7 @@
             </button>
           </div>
         </div>
-        <span class="text-muted"><%= I18n.t('aypex.admin.user_since') %>:</span> <%= pretty_date(@user.created_at) %>
+        <span class="text-body-secondary"><%= I18n.t('aypex.admin.user_since') %>:</span> <%= pretty_date(@user.created_at) %>
         <div class="mt-2">
           <% @user.aypex_roles.each do |role| %>
             <span class="badge rgb-hsl-secondary"><%= role.name %></span>
@@ -81,14 +81,14 @@
 
           <%= render partial: 'aypex/admin/shared/address/card', locals: {address: @user.bill_address} %>
           <% if @user.bill_address == @user.ship_address %>
-            <small class="text-muted"><%= I18n.t('aypex.admin.used_for_billing_and_shipping') %></small>
+            <small class="text-body-secondary"><%= I18n.t('aypex.admin.used_for_billing_and_shipping') %></small>
           <% end %>
         <% else %>
           <div class="call-out call-out-info my-3">
             <h6>
               <%= I18n.t('aypex.admin.billing_address') %>
             </h6>
-            <small class="text-muted">
+            <small class="text-body-secondary">
              <%= I18n.t('aypex.admin.no_default_billing_address_set') %>
             </small>
           </div>
@@ -105,7 +105,7 @@
               <h6>
                 <%= I18n.t('aypex.admin.shipping_address') %>
               </h6>
-              <small class="text-muted">
+              <small class="text-body-secondary">
                <%= I18n.t('aypex.admin.no_default_shipping_address_set') %>
               </small>
             </div>

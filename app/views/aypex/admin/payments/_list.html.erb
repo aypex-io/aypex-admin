@@ -1,6 +1,6 @@
 <div class="table-responsive border rounded">
   <table class="table rounded" id='payments' data-order-id='<%= @order.number %>'>
-    <thead class="text-muted">
+    <thead class="text-body-secondary">
       <tr data-hook="payments_header">
         <th><%= Aypex::Payment.human_attribute_name(:number) %></th>
         <th><%= "#{I18n.t('aypex.admin.date')}/#{I18n.t('aypex.admin.time')}" %></th>

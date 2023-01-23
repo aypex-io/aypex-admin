@@ -5,7 +5,7 @@
 <% if @oauth_applications.any? %>
   <div class="table-responsive rounded border mt-4 bg-white">
     <table class="table">
-      <thead class="text-muted">
+      <thead class="text-body-secondary">
         <tr data-hook="admin_roles_index_headers">
           <th><%= I18n.t("aypex.admin.name") %></th>
           <th><%= I18n.t('aypex.admin.client_id') %></th>
@@ -19,7 +19,7 @@
             <td><%= application.name %></td>
             <td>
               <div class="input-group" data-controller="password-toggle">
-                <%= password_field_tag :password, application.uid, class: 'form-control unhide text-muted border-0 shadow-none bg-transparent', data: { password_toggle_target: 'unhide' }, readonly: true, autocomplete: false %>
+                <%= password_field_tag :password, application.uid, class: 'form-control unhide text-body-secondary border-0 shadow-none bg-transparent', data: { password_toggle_target: 'unhide' }, readonly: true, autocomplete: false %>
                 <div class="input-group-append">
                   <%= button_tag class: 'btn btn-link rounded', data: { action: 'click->password-toggle#password' } do %>
                     <%= aypex_admin_svg_tag "eye.svg", size: '18px * 18px' %>

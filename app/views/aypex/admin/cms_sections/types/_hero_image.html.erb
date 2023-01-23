@@ -40,7 +40,7 @@
   <div class="col-12 col-md-6 pt-4">
     <% @cms_section.build_image_one unless @cms_section.image_one %>
     <%= render partial: 'image_upload_form', locals: { f: f, image: :image_one } %>
-    <small class="form-text text-muted"><%= I18n.t('aypex.admin.please_use_an_image_with_the_aspect_ratio_of') %></small>
+    <small class="form-text text-body-secondary"><%= I18n.t('aypex.admin.please_use_an_image_with_the_aspect_ratio_of') %></small>
   </div>
   <div class="col-12"><hr></div>
   <div class="col-12 col-md-6">

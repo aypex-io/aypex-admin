@@ -8,7 +8,7 @@
     <div class="overflow-hidden">
       <%= category.name %> <br>
 
-      <h6 class="form-text text-muted m-0">
+      <h6 class="form-text text-body-secondary m-0">
         <%= turbo_frame_tag :path do %>
           <span class="badge rgb-hsl-secondary">
             <%= aypex_admin_svg_tag('link.svg', size: '16px * 16px') %> <span id="<%= dom_id(category) %>_permalink"><%= category.permalink %></span>

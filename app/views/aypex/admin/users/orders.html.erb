@@ -9,7 +9,7 @@
   <% content_for :index_table do %>
       <% if @orders.any? %>
         <table class="table" id="listing_orders" data-hook>
-          <thead class="text-muted">
+          <thead class="text-body-secondary">
             <tr data-hook="admin_orders_index_headers">
               <th><%= sort_link @search, :number,         name: I18n.t(:number, scope: 'activerecord.attributes.aypex/order'), title: 'orders_number_title' %></th>
               <th><%= sort_link @search, :completed_at,   name: I18n.t(:completed_at, scope: 'activerecord.attributes.aypex/order'), title: 'orders_completed_at_title' %></th>

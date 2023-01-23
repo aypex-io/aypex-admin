@@ -15,7 +15,7 @@
             <%= f.field_container :permalink do %>
               <%= f.text_field :permalink_part, value: @permalink_part, required: true %>
               <%= f.label :permalink, raw(I18n.t('aypex.admin.permalink') + required_span_tag) %>
-              <small class="form-text text-muted">
+              <small class="form-text text-body-secondary">
                 <%= [Aypex::Config.storefront_categories_path , @parent_permalink].join('/') + @permalink_part %>
               </small>
             <% end %>
@@ -51,7 +51,7 @@
               <%= f.select :parent_id, nested_set_options(@base_category.categories, @category) {|i| "#{'-' * i.level} #{i.name}" }, { include_blank: false }, { disabled: disabled  } %>
               <%= f.label :parent_id, I18n.t('aypex.admin.navigation.nested_under') %>
             </div>
-            <small class="form-text text-muted">
+            <small class="form-text text-body-secondary">
               <%= I18n.t('aypex.admin.nested_under_info') %>
             </small>
           <% end %>

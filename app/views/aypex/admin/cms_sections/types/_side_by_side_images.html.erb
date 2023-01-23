@@ -5,7 +5,7 @@
         <h4 class="pb-2"><%= I18n.t('aypex.admin.left_image') %></h4>
         <% @cms_section.build_image_one unless @cms_section.image_one %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_one } %>
-        <small class="text-muted"><%= I18n.t('aypex.admin.image_info') %></small>
+        <small class="text-body-secondary"><%= I18n.t('aypex.admin.image_info') %></small>
       </div>
 
       <%= f.field_container :title_one do %>
@@ -35,7 +35,7 @@
         <h4 class="pb-2"><%= I18n.t('aypex.admin.right_image') %></h4>
         <% @cms_section.build_image_two unless @cms_section.image_two %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_two } %>
-        <small class="text-muted"><%= I18n.t('aypex.admin.image_info') %></small>
+        <small class="text-body-secondary"><%= I18n.t('aypex.admin.image_info') %></small>
       </div>
 
       <%= f.field_container :title_two do %>

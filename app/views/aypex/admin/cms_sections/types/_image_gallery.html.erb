@@ -24,7 +24,7 @@
         <% @cms_section.build_image_one unless @cms_section.image_one %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_one } %>
       </div>
-      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.square_image') %></small>
+      <small class="text-body-secondary mb-4"><%= I18n.t('aypex.admin.square_image') %></small>
 
     <%= f.field_container :title_one do %>
       <%= f.text_field :title_one %>
@@ -48,7 +48,7 @@
         <% @cms_section.build_image_two unless @cms_section.image_two %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_two } %>
       </div>
-      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.tall_image') %></small>
+      <small class="text-body-secondary mb-4"><%= I18n.t('aypex.admin.tall_image') %></small>
 
       <%= f.field_container :title_two do %>
         <%= f.text_field :title_two %>
@@ -71,7 +71,7 @@
         <% @cms_section.build_image_three unless @cms_section.image_three %>
         <%= render partial: 'image_upload_form', locals: { f: f, image: :image_three } %>
       </div>
-      <small class="text-muted mb-4"><%= I18n.t('aypex.admin.square_image') %></small>
+      <small class="text-body-secondary mb-4"><%= I18n.t('aypex.admin.square_image') %></small>
 
       <%= f.field_container :title_three do %>
         <%= f.text_field :title_three %>

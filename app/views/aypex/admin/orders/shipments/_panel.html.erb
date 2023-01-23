@@ -37,7 +37,7 @@
               <h6 class="card-title">
                  <%= shipment.number %>
               </h6>
-              <h6 class="card-title text-muted">
+              <h6 class="card-title text-body-secondary">
                <span class="text-capitalize"><%= shipment.state %></span> <%= I18n.t('aypex.admin.from') %>: <%= link_to shipment.stock_location.name, aypex.edit_admin_stock_location_url(shipment.stock_location) %>
               </h6>
             </div>
@@ -93,7 +93,7 @@
 
               <div class="table-responsive">
                 <table class="table stock-contents" data-hook="stock-contents">
-                  <thead class="text-muted">
+                  <thead class="text-body-secondary">
                     <tr>
                       <th colspan="2"><%= I18n.t("aypex.admin.item") %></th>
                       <th class="text-center"><%= I18n.t("aypex.admin.quantity") %></th>
@@ -155,7 +155,7 @@
         <h6>
           <%= I18n.t('aypex.admin.shipping_locations') %>
         </h6>
-        <small class="text-muted">
+        <small class="text-body-secondary">
           <%= I18n.t('aypex.admin.add_a_shipment_to_this_order_to_begin_adding_items').html_safe %>
         </small>
       </div>
