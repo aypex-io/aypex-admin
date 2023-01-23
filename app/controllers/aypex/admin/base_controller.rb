@@ -34,7 +34,7 @@ module Aypex
 
       protected
 
-      default_form_builder(Aypex::Dash::BootstrapBuilder)
+      default_form_builder(Aypex::Admin::BootstrapBuilder)
 
       def action
         params[:action].to_sym
