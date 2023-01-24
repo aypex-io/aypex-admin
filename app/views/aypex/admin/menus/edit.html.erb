@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_menus_path, link_one_text: I18n.t('aypex.admin.navigation.all_menus'), current_page_name: @menu.name) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_menus_path, link_one_text: I18n.t('aypex.admin.all_menus'), current_page_name: @menu.name) %>
 <% end %>
 
 <div class="row">
@@ -27,10 +27,10 @@
         <div class="card-header">
           <div class="row pb-0">
             <div class="col d-flex">
-             <h5 class="mb-0 align-self-center"><%= I18n.t('aypex.admin.navigation.menu_items', menu_name: @menu.name) %></h5>
+             <h5 class="mb-0 align-self-center"><%= I18n.t('aypex.admin.menu_items', menu_name: @menu.name) %></h5>
             </div>
             <div class="col d-flex justify-content-end">
-              <%= link_to_with_icon I18n.t('aypex.admin.navigation.add_new_item', menu: @menu.name), aypex.new_admin_menu_menu_item_path(@menu), icon: 'plus-square.svg', class: 'text-nowrap btn btn-secondary btn-sm align-self-center' %>
+              <%= link_to_with_icon I18n.t('aypex.admin.add_new_item', menu: @menu.name), aypex.new_admin_menu_menu_item_path(@menu), icon: 'plus-square.svg', class: 'text-nowrap btn btn-secondary btn-sm align-self-center' %>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
                 <% end %>
               <% else %>
                 <div class="text-center no-objects-found m-5 m-5">
-                  <%= raw I18n.t('aypex.admin.navigation.no_menu_items', menu: @menu.root.name) %>
+                  <%= raw I18n.t('aypex.admin.no_menu_items', menu: @menu.root.name) %>
                 </div>
               <% end %>
             </div>

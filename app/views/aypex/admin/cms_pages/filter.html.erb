@@ -24,7 +24,7 @@
             <% end %>
 
             <%= f.field_container :q_type_eq do %>
-              <%= f.select :locale_eq, all_locales_options, { include_blank: true }, class: 'form-select', data: {action: 'form--autosave#save', controller: 'ts--select'} %>
+              <%= f.select :locale_eq, supported_locales_options(current_locale), { include_blank: true }, class: 'form-select', data: {action: 'form--autosave#save', controller: 'ts--select'} %>
               <%= label_tag :q_locale_eq, I18n.t("aypex.admin.language") %>
             <% end %>
           </div>

@@ -22,6 +22,8 @@ en:
       add_new_address: Add new address
       add_new_category: Add new category
       add_new_file: Add a new digital asset.
+      add_new_item: Add new item
+      add_new_menu: Add new menu
       add_new_page: Add New Page
       add_new_properties_from_prototype: Add new properties from prototype
       add_new_property: Add new property
@@ -51,6 +53,7 @@ en:
       all_events: All Events
       all_items_have_been_returned: All items have been returned
       all_loaded: All Loaded
+      all_menus: All menus
       all_option_types: All option types
       all_orders: All orders
       all_pages: All Pages
@@ -278,6 +281,7 @@ en:
       id: Id
       if_you_change_the_calculator: Click update to save the new calculator.
       image_a: Image A
+      image_alt_text: Image alt text
       image_b: Image B
       image_c: Image C
       image_filter: Image filter
@@ -286,6 +290,8 @@ en:
       included_in_price: Included in price
       incomplete: Incomplete
       info: Info
+      information:
+        item_type: Item type
       instagram_username: Instagram username
       integrations: Integrations
       internal_name: Internal name
@@ -302,6 +308,7 @@ en:
       issued_on: Issued on
       item: Item
       item_total: Item total
+      item_type: Item type
       items_in_rmas: Items in rmas
       items_reimbursed: Items reimbursed
       items_to_be_reimbursed: Items to be reimbursed
@@ -318,7 +325,10 @@ en:
       limit_usage_to: Limit usage to
       line_items: Line Items
       link_expire_time: Set the expire time of each download link. (seconds).
+      link_settings: Link settings
+      link_to: Link to
       link_to_category: Link to Category
+      link_to_info: Link to info
       link_to_product: Link to Product
       list: oAuth applications
       load_more: Load More
@@ -342,6 +352,7 @@ en:
       match_any: In any of the selected categories
       match_none: Match none
       memo: Memo
+      menu_item_icon: Menu item icon
       menu_items: Menu Items
       menus: Menus
       meta_description: Meta description
@@ -356,6 +367,7 @@ en:
       name_and_email: Name and email
       name_on_card: Name on card
       navigation: Navigation
+      nested_under: Nested under
       nested_under_info: Nested under info
       new: New
       new_address: New address
@@ -363,6 +375,8 @@ en:
       new_country: New country
       new_customer_return: New customer return
       new_image: New image
+      new_menu: New menu
+      new_menu_item: New menu item
       new_oauth_application: New oAuth application
       new_option_type: New option type
       new_order: New order
@@ -404,6 +418,7 @@ en:
       no_default_shipping_address_set: No default shipping address set
       no_digital_assets_added: No digital assets.
       no_events: No Events
+      no_menu_items: No menu items
       no_message_set: No Message Set
       no_payment_provider_settings_message: No payment provider settings message
       no_resource_found: No resource found
@@ -424,6 +439,7 @@ en:
       number_cont: Order Number
       one_use_per_user: One Use Per User
       open_all_adjustments: Open all adjustments
+      open_link_in_new_window: Open link in new window
       operator_max: Operator max
       operator_min: Operator min
       option_type_filterable_info: When an option type is filterable, your storefront visitors are presented with the option to filter a collection of products based on the option type. A typical example of this would be to filter clothing by size and color.<br><br><b>Please Note:</b> Filters will only be visible in the storefront categories that contain products with this option type set.
@@ -514,6 +530,7 @@ en:
       prototypes: Prototypes
       provider: Provider
       provider_settings_warning: Provider settings warning
+      public_details: Public details
       purchased_quantity: Purchased quantity
       quantity: Quantity
       rate: Rate
@@ -578,6 +595,10 @@ en:
       search_by_name: Product Name
       search_by_order_number: Search by order number
       search_by_page_title: Search by page title
+      search_categories: Search categories
+      search_for_a_category: Search for a category
+      search_for_a_page: Search for a page
+      search_for_a_product: Search for a product
       search_for_a_product_or_variant: Search for products by name or SKU.
       search_for_promotion_by_name: Search for promotion by name
       search_for_users_by_email: Search for users by email
@@ -597,6 +618,7 @@ en:
       seo_robots: Seo robots
       seo_robots_description: Please check <a href='https://developers.google.com/search/reference/robots_meta_tag' target='_blank'>this page for more help</a>
       seo_title: Seo title
+      set_a_code: Set a code
       set_gutters: Set Gutters
       set_order_currency: Set Order Currency
       set_the_currency_for_this_order: Set the currency for this order.
@@ -687,6 +709,7 @@ en:
       tax_rates: Tax rates
       the_order_currency_is_locked_once_items_are_added: The currency of this order is locked.
       the_promotion_applies_to_products: The promotion applies to products
+      this_link_takes_you_to_your_stores_home_page: This link takes you to your stores home page
       this_option_types: This option types
       this_order_has_already_received_a_refund: This order has already received a refund
       this_user_has_no_addresses_click_add_new_address_to_add_a_new_address: This user has no addresses click add new address to add a new address
@@ -717,6 +740,7 @@ en:
       update: Update
       upload: Upload
       url: URL
+      url_info: Url info
       usage_limit: Usage limit
       use_app_default: Use app default
       use_new_cc: Use new cc
@@ -748,6 +772,7 @@ en:
       wishlists: Wishlists
       you_have_no_default_billing_addresses_set: You have no default billing addresses set
       you_have_no_default_shipping_addresses_set: You have no default shipping addresses set
+      you_have_no_menus: You have no menus
       you_have_no_pages: You have no Pages, click the <b>+ Add New Page</b> button to get started.
       you_have_no_unused_addresses: You have no unused addresses
       your_order_is_empty_add_product: Your order is empty add product

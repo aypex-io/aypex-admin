@@ -32,7 +32,7 @@
                 <%= aypex_humanize_type(page.type) %>
               </g-td>
               <g-td>
-                <%= locale_full_name(page.locale) %>
+                <%= localized_language_name(page.locale, current_locale) %>
               </g-td>
               <g-td>
                 <%= active_badge(page.visible?) %>

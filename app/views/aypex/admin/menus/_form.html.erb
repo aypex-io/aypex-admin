@@ -13,7 +13,7 @@
   </div>
   <div class='col-12 col-md-4'>
     <%= f.field_container :locale do %>
-      <%= f.select :locale, options_from_collection_for_select(all_locales_options, :last, :first, @menu.locale || I18n.locale), {} %>
+      <%= f.select :locale, options_from_collection_for_select(all_locales_options(current_locale), :last, :first, @menu.locale || I18n.locale), {} %>
       <%= f.label :language %>
     <% end %>
   </div>

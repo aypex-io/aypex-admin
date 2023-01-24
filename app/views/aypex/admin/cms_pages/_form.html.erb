@@ -9,7 +9,7 @@
 
           <div class="d-flex align-items-center">
             <span class="badge rounded-pill rgb-hsl-secondary">
-              <%= aypex_admin_svg_tag "translate.svg", size: '18px * 18px' %> <%= locale_full_name(@cms_page.locale) %>
+              <%= aypex_admin_svg_tag "translate.svg", size: '18px * 18px' %> <%= localized_language_name(@cms_page.locale, current_locale) %>
             </span>
           </div>
         </div>
@@ -58,7 +58,7 @@
 
                 <div class="col-12 col-md-4">
                   <%= f.field_container :locale do %>
-                    <%= f.select :locale, options_from_collection_for_select(supported_locales_options, :last, :first, @cms_page.locale || I18n.locale), {} %>
+                    <%= f.select :locale, options_from_collection_for_select(supported_locales_options(current_locale), :last, :first, @cms_page.locale || I18n.locale), {} %>
                     <%= f.label :language %>
                   <% end %>
                 </div>

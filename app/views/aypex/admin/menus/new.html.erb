@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_menus_path, link_one_text: I18n.t('aypex.admin.navigation.all_menus'), current_page_name: I18n.t('aypex.admin.navigation.new_menu')) %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_menus_path, link_one_text: I18n.t('aypex.admin.all_menus'), current_page_name: I18n.t('aypex.admin.new_menu')) %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @menu } %>

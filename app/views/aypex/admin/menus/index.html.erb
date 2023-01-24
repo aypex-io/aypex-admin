@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= I18n.t('aypex.admin.navigation.menus') %>
+  <%= I18n.t('aypex.admin.menus') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= link_to_with_icon I18n.t('aypex.admin.navigation.add_new_menu'), new_object_url, { class: "btn-primary btn", icon: 'plus-square.svg', id: 'new_menu' } %>
+  <%= link_to_with_icon I18n.t('aypex.admin.add_new_menu'), new_object_url, { class: "btn-primary btn", icon: 'plus-square.svg', id: 'new_menu' } %>
 <% end if can?(:create, Aypex::Menu) %>
 
 <% content_for :table_filter do %>
@@ -27,7 +27,7 @@
         <div class="col-12 col-lg-4">
          <div class="form-group">
            <%= label_tag :q_locale_eq, I18n.t("aypex.admin.language") %>
-           <%= f.select :locale_eq, all_locales_options, { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
+           <%= f.select :locale_eq, supported_locales_options(current_locale), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
          </div>
         </div>
       </div>
@@ -64,7 +64,7 @@
                 <%= menu.location.titleize %>
               </g-td>
               <g-td>
-                <%= locale_full_name(menu.locale) %>
+                <%= localized_language_name(menu.locale, current_locale) %>
               </g-td>
               <g-td>
                 <%= active_badge(default_menu_for_store?(menu)) %>
@@ -83,7 +83,7 @@
     </g-responsive>
   <% else %>
     <div class="text-center no-objects-found m-5">
-      <%= I18n.t('aypex.admin.navigation.you_have_no_menus') %>
+      <%= I18n.t('aypex.admin.you_have_no_menus') %>
     </div>
   <% end %>
 <% end %>
