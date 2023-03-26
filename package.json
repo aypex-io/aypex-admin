@@ -22,7 +22,7 @@
   "author": "Matthew Kennedy <m.kennedy@me.com>",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
-    "@hotwired/turbo-rails": "^7.2.4",
+    "@hotwired/turbo-rails": "^7.3.0",
     "@matthewkennedy/gridtable.css": "^1.0.0",
     "@matthewkennedy/json-api-deserializer": "^1.0.0",
     "@matthewkennedy/stimulus-form-state": "^0.1.1",
@@ -35,7 +35,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "5.3.0-alpha1",
     "cleave.js": "^1.6.0",
-    "dompurify": "^2.4.3",
+    "dompurify": "^3.0.1",
     "flatpickr": "4.6.9",
     "prosemirror-commands": "^1.5.0",
     "prosemirror-dropcursor": "1.5.0",

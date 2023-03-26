@@ -83,10 +83,12 @@
 
           <% if @cms_page.standard? %>
             <div class="card-body">
-              <%= f.field_container :content, data: { controller: 'tiptap--editor'}, class: ['none'] do %>
+              <%= f.field_container :content, data: { controller: 'tiptap--editor'}, class: ['mb-3'] do %>
                 <%= render partial: 'aypex/admin/shared/editor_buttons' %>
                 <%= f.text_field :content, { class: 'd-none', data: { tiptap__editor_target: "input", form_state_target: "watch" }} %>
               <% end %>
+
+              <%= f.submit class: 'btn btn-primary ' %>
             </div>
           <% end %>
         <% end %>
