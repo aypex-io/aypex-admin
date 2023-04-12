@@ -2,7 +2,7 @@
   <% @collection.each do |user| %>
     <g-tr id="<%= dom_id(user) %>" data-stream-exit-class="animate__fadeOut">
       <g-td>
-        <%= link_to user.email, aypex.edit_admin_user_url(user) %>
+        <%= link_to user.email, aypex.edit_admin_user_url(user), data: { turbo_frame: :_top } %>
       </g-td>
 
       <g-td>
@@ -11,7 +11,7 @@
 
       <g-td class="justify-content-end">
         <div>
-          <%= link_to_edit(user) if can?(:edit, user) %>
+          <%= link_to_edit(user, data: { turbo_frame: :_top }) if can?(:edit, user) %>
           <%= link_to_delete(user) if can?(:delete, user) %>
         </div>
       </g-td>
