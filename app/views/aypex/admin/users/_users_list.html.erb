@@ -11,7 +11,7 @@
 
       <g-td class="justify-content-end">
         <div>
-          <%= link_to_edit(user) if can?(:edit, user) %>
+          <%= link_to_edit(user, data: { turbo_frame: :_top }) if can?(:edit, user) %>
           <%= link_to_delete(user) if can?(:delete, user) %>
         </div>
       </g-td>
