@@ -16,10 +16,10 @@
         <% end %>
       </h6>
     </div>
-    <% if category.icon.present? %>
+    <% if category.image.present? %>
       <div class="ms-2">
         <div class="item-image-holder">
-          <%= image_tag main_app.cdn_image_url(category.icon.attachment) %>
+          <%= image_tag main_app.cdn_image_url(category.image.attachment) %>
         </div>
       </div>
     <% end %>

@@ -6,7 +6,8 @@ module Aypex
 
         img = if image.present?
           options[:alt] = image.alt.blank? ? variant.name : image.alt
-          image_tag main_app.cdn_image_url(image.url(:medium)), options
+
+          image_tag(image.generate_url(size: "180x180"), options)
         else
           aypex_admin_svg_tag "missing-image.svg", class: "noimage", size: "60%*60%"
         end
