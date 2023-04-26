@@ -79,6 +79,14 @@ module Aypex
         end
       end
 
+      def new_image
+        @image = @object.images.build
+      end
+
+      def edit_image
+        @image = @product.images.find(params[:image_id])
+      end
+
       def update_availability
         if @object.update(status: permitted_resource_params[:status])
         else
@@ -115,6 +123,8 @@ module Aypex
         @option_types = OptionType.order(:name)
         @tax_categories = TaxCategory.order(:name)
         @shipping_categories = ShippingCategory.order(:name)
+
+        load_option_values
       end
 
       def set_product_defaults
@@ -168,8 +178,7 @@ module Aypex
       end
 
       def update_before
-        # NOTE: we only reset the product properties if we're receiving a post
-        #       from the form on that tab
+        # NOTE: we only reset the product properties if we're receiving a post from the form on that tab
         return unless params[:clear_product_properties]
 
         params[:product] ||= {}
@@ -177,10 +186,10 @@ module Aypex
 
       def product_includes
         {
-          variant_images: [],
+          images: [],
           tax_category: [],
           master: [],
-          variants: [:prices]
+          variants: [:prices, [option_values: :option_type]]
         }
       end
 
@@ -195,7 +204,23 @@ module Aypex
       private
 
       def variant_stock_includes
-        [:images, stock_items: :stock_location, option_values: :option_type]
+        [stock_items: :stock_location, option_values: :option_type]
+      end
+
+      def load_option_values
+        @option_values = []
+        @option_value_ids = []
+
+        @product.variants.each do |variant|
+          variant.option_values.each do |ov|
+            next unless ov.option_type.image_filterable
+
+            @option_values << ov
+          end
+        end
+
+        @option_values.uniq!
+        @option_value_ids = @option_values.map(&:id)
       end
     end
   end

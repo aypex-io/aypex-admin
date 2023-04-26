@@ -2,9 +2,9 @@ require "spec_helper"
 require "testing_support/bar_ability"
 
 describe Aypex::Admin::UsersController, type: :controller do
-  let(:store) { Aypex::Store.default }
-  let(:user) { create(:user) }
-  let(:mock_user) { mock_model Aypex::Config.user_class }
+  let!(:store) { Aypex::Store.default }
+  let(:user) { create(:user, store: store) }
+  let(:mock_user) { mock_model Aypex::Config.user_class, store: store }
 
   before do
     allow(controller).to receive_messages aypex_current_user: user
