@@ -11,6 +11,8 @@ module Aypex
 
       def create
         @user = Aypex::Config.user_class.new(user_params)
+        ensure_current_store(@user)
+
         if @user.save
           flash_message_for(@user, :successfully_created)
           redirect_to aypex.edit_admin_user_path(@user)

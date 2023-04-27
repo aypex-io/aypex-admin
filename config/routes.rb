@@ -120,6 +120,8 @@ Aypex::Engine.add_routes do
         patch :bulk_update_status
       end
       member do
+        post :new_image
+        get :edit_image, path: "/edit_image/:image_id"
         post :update_availability
         post :update_cost_currency
         post :update_promotionable

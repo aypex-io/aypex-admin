@@ -1,12 +1,13 @@
 module Aypex
   module Admin
     module ProductsHelper
-      def product_image_tag(variant, options = {})
-        image = default_image_for_product_or_variant(variant)
+      def product_image_tag(product, options = {})
+        image = default_image_for_product(product)
 
         img = if image.present?
-          options[:alt] = image.alt.blank? ? variant.name : image.alt
-          image_tag main_app.cdn_image_url(image.url(:medium)), options
+          options[:alt] = image.alt.blank? ? product.name : image.alt
+
+          image_tag(image.generate_url(size: "100x100"), options)
         else
           aypex_admin_svg_tag "missing-image.svg", class: "noimage", size: "60%*60%"
         end

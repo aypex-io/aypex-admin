@@ -9,7 +9,7 @@
       </g-td>
 
       <%= link_to aypex.edit_admin_product_path(product), data: {turbo_frame: :_top} do %>
-        <%= product_image_tag(product) %>
+        <%= product_image_tag(product, size: "60x60") %>
       <% end %>
 
       <%= link_to aypex.edit_admin_product_path(product), class: 'text-reset', data: {turbo_frame: :_top} do %>

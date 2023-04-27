@@ -5,6 +5,7 @@ module Aypex
 
       before_action :load_data, except: [:index, :bulk_update_status]
       before_action :set_product_defaults, only: :new
+      before_action :load_option_values, only: [:edit_image, :new_image]
 
       create.before :create_before
       update.before :update_before
@@ -77,6 +78,14 @@ module Aypex
         else
           stream_flash_alert(message: I18n.t("aypex.admin.could_not_remove_from_category"), kind: :error)
         end
+      end
+
+      def new_image
+        @image = @object.images.build
+      end
+
+      def edit_image
+        @image = @product.images.find(params[:image_id])
       end
 
       def update_availability
@@ -168,8 +177,7 @@ module Aypex
       end
 
       def update_before
-        # NOTE: we only reset the product properties if we're receiving a post
-        #       from the form on that tab
+        # NOTE: we only reset the product properties if we're receiving a post from the form on that tab
         return unless params[:clear_product_properties]
 
         params[:product] ||= {}
@@ -177,7 +185,6 @@ module Aypex
 
       def product_includes
         {
-          variant_images: [],
           tax_category: [],
           master: [],
           variants: [:prices]
@@ -195,7 +202,23 @@ module Aypex
       private
 
       def variant_stock_includes
-        [:images, stock_items: :stock_location, option_values: :option_type]
+        [stock_items: :stock_location, option_values: :option_type]
+      end
+
+      def load_option_values
+        @option_values = []
+        @option_value_ids = []
+
+        @product.variants.each do |variant|
+          variant.option_values.each do |ov|
+            next unless ov.option_type.image_filterable
+
+            @option_values << ov
+          end
+        end
+
+        @option_values.uniq!
+        @option_value_ids = @option_values.map(&:id)
       end
     end
   end

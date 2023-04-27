@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="<%= I18n.locale %>">
+<!doctype html>
+<html lang="<%= I18n.locale %>" data-bs-theme="dark">
   <head data-hook="admin_inside_head">
     <%= render partial: 'aypex/admin/shared/head' %>
 
@@ -39,7 +39,7 @@
             <%#-------------------------------------------------%>
             <%# Content Header                                  %>
             <%#-------------------------------------------------%>
-            <content-header>
+            <content-header class="bg-body">
               <%= render partial: 'aypex/admin/shared/content_header' %>
             </content-header>
 

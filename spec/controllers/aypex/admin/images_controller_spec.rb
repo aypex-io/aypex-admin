@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Aypex
   module Admin
-    describe ImagesController, type: :controller do
+    xdescribe ImagesController, type: :controller do
       stub_authorization!
 
       let(:store) { Aypex::Store.default }

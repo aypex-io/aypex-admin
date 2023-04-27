@@ -31,10 +31,9 @@ module Aypex
 
           # check if we need to rename child categories if parent name or permalink changes
           @update_children = true if params[:category][:name] != @category.name || params[:category][:permalink] != @category.permalink
-
-          @category.create_icon(attachment: category_params[:icon]) if category_params[:icon]
-          @category.update(category_params.except(:icon))
+          @category.update(category_params)
         end
+
         if successful
           flash_message_for(@category, :successfully_updated)
 
@@ -52,7 +51,7 @@ module Aypex
       end
 
       def remove_icon
-        if @category.icon.destroy
+        if @category.image.destroy
 
           dispatch_notice(I18n.t("aypex.admin.icon_removed"), :success)
           redirect_to aypex.edit_admin_base_category_category_url(@base_category.id, @category.id)

@@ -15,10 +15,10 @@
         <%= "| #{I18n.t('aypex.admin.code')}: #{item.code}" if item.code.present? %>
       </small>
     </div>
-    <% if item.icon.present? %>
+    <% if item.image.present? %>
       <div class="ms-2">
         <div class="item-image-holder">
-          <%= image_tag main_app.cdn_image_url(item.icon.attachment) %>
+          <%= image_tag main_app.cdn_image_url(item.image.attachment) %>
         </div>
       </div>
     <% end %>

@@ -12,6 +12,6 @@
   <%= remote_form_submit_button(@object) %>
 <% end %>
 
-<%= form_with model: [:admin, @base_category, @category], method: :put, url: aypex.admin_base_category_category_path(@base_category.id, @category.id), data: {controller: "form-state"} do |f| %>
+<%= form_with model: [:admin, @base_category, @category], method: :put, url: aypex.admin_base_category_category_path(@base_category.id, @category.id), id: "mainForm", data: {controller: "form-state"} do |f| %>
   <%= render 'form', f: f %>
 <% end %>

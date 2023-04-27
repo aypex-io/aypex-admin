@@ -30,9 +30,9 @@
   </div>
 
   <div class="col-12 col-md-6">
-    <%= f.field_container :image_filter, class: ['form-switch', 'mb-0'] do %>
-      <%= f.check_box :image_filter %>
-      <%= f.label :image_filter, I18n.t("aypex.admin.image_filter"), class: 'form-check-label' %>
+    <%= f.field_container :image_filterable, class: ['form-switch', 'mb-0'] do %>
+      <%= f.check_box :image_filterable %>
+      <%= f.label :image_filterable, I18n.t("aypex.admin.image_filter"), class: 'form-check-label' %>
       <a data-bs-toggle="collapse" href="#optionTypeFilterInformation" role="button" aria-expanded="false" aria-controls="optionTypeFilterInformation" class="align-self-center">
         <%= aypex_admin_svg_tag "info-circle.svg", size: '14px * 14px', class: 'ms-1 shim-bottom' %>
       </a>

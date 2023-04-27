@@ -4,7 +4,7 @@ require "testing_support/bar_ability"
 describe Aypex::Admin::UsersController, type: :controller do
   let(:store) { Aypex::Store.default }
   let(:user) { create(:user) }
-  let(:mock_user) { mock_model Aypex::Config.user_class }
+  let(:mock_user) { stub_model Aypex::Config.user_class }
 
   before do
     allow(controller).to receive_messages aypex_current_user: user
