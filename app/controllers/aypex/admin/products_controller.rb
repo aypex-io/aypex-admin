@@ -5,6 +5,7 @@ module Aypex
 
       before_action :load_data, except: [:index, :bulk_update_status]
       before_action :set_product_defaults, only: :new
+      before_action :load_option_values, only: [:edit_image, :new_image]
 
       create.before :create_before
       update.before :update_before
@@ -123,8 +124,6 @@ module Aypex
         @option_types = OptionType.order(:name)
         @tax_categories = TaxCategory.order(:name)
         @shipping_categories = ShippingCategory.order(:name)
-
-        load_option_values
       end
 
       def set_product_defaults
@@ -186,10 +185,9 @@ module Aypex
 
       def product_includes
         {
-          images: [],
           tax_category: [],
           master: [],
-          variants: [:prices, [option_values: :option_type]]
+          variants: [:prices]
         }
       end
 

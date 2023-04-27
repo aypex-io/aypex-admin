@@ -27,7 +27,6 @@
   <hr>
 
   <%= field_container 'product', 'available_on', data: { hook: "admin_product_form_available_on" } do %>
-    <%= label_tag 'product[available_on]', I18n.t("aypex.admin.available_on") %>
     <%= render partial: 'aypex/admin/shared/date_picker_from', locals: { from_field: 'product[available_on]',
                                                                          to_field: 'product[discontinue_on]',
                                                                          value: datepicker_field_value(@product.available_on),
@@ -36,7 +35,6 @@
   <% end %>
 
   <%= field_container 'product', 'discontinue_on', data: { hook: "admin_product_form_discontinue_on" } do %>
-   <%= label_tag 'product[discontinue_on]', I18n.t("aypex.admin.discontinue_on") %>
     <%= render partial: 'aypex/admin/shared/date_picker_to',  locals: { to_field: 'product[discontinue_on]',
                                                                         from_field: 'product[available_on]',
                                                                         value: datepicker_field_value(@product.discontinue_on),
