@@ -1,4 +1,4 @@
-<% @img = @cms_section.cms_component.image || @cms_section.cms_component.build_image %>
+<% @img = @component_1.image || @component_1.build_image %>
 
 <div class="collapse" id="cmsSectionInfo">
   <div class="call-out call-out-info">
@@ -13,7 +13,7 @@
 
 <div class="row pb-0">
   <div class="col-12 col-md-4">
-    <%= f.fields_for :cms_component, @cms_section.cms_component do |component| %>
+    <%= f.fields_for :cms_components, @component_1 do |component| %>
       <%= f.field_container :title do %>
         <%= component.text_field :title %>
         <%= component.label :title, I18n.t('aypex.admin.title') %>
@@ -26,7 +26,7 @@
 
       <%= component.fields_for :image, @img do |image| %>
         <div class="mb-3">
-        <%= image.file_field :attachment %>
+          <%= image.file_field :attachment %>
         </div>
 
         <div class="form-group form-floating">
@@ -54,7 +54,7 @@
   </div>
 
   <div class="col-12 col-md-8">
-    <%= f.fields_for :cms_component, @cms_section.cms_component do |component| %>
+    <%= f.fields_for :cms_components, @component_1 do |component| %>
       <%= f.field_container :image do %>
         <% if @img.persisted? %>
           <div class="image-container">
@@ -66,18 +66,18 @@
     <% end %>
   </div>
   <div class="col-12"><hr></div>
-  <%= f.fields_for :cms_component, @cms_section.cms_component do |component| %>
+  <%= f.fields_for :cms_components, @component_1 do |component| %>
     <div class="col-12 col-md-6">
       <%= f.field_container :linked_resource_type  do %>
         <%= component.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Components::HeroImage',
                                         { const: 'LINKED_RESOURCE_TYPE' }),
-                                        {include_blank: false}) %>
+                                        { include_blank: false }) %>
         <%= component.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
       <% end %>
     </div>
 
     <div class="col-12 col-md-6">
-      <%= render "aypex/admin/shared/link_fields", resource: component.object, f: component %>
+      <%= render "aypex/admin/shared/link_fields", resource: @component_1, f: component %>
     </div>
   <% end %>
 </div>
