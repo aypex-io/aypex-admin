@@ -47,7 +47,7 @@
                   </td>
                   <td class="text-center">
                     <div class="product-image-container small-img">
-                      <%= link_to image_tag(image.generate_url(size: "180x180"), alt: image.alt) %>
+                      <%= link_to image_tag(image.generate_url(width: 180), alt: image.alt) %>
                     </div>
                   </td>
                   <% if @product.has_variants? %>

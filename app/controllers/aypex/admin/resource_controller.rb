@@ -8,8 +8,6 @@ class Aypex::Admin::ResourceController < Aypex::Admin::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :resource_not_found
 
   def new
-    invoke_callbacks(:new_action, :before)
-
     respond_with(@object) do |format|
       format.html { render layout: !request.xhr? }
     end

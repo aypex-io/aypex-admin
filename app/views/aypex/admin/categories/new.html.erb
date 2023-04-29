@@ -4,8 +4,6 @@
 <% end %>
 
 <%= form_with model: [:admin, @base_category, @category] do |f| %>
-  <% @category.build_image %>
-
   <%= render 'form', f: f %>
 
   <div class="form-actions" data-hook="buttons">

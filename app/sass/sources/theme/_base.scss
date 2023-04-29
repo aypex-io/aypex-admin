@@ -20,50 +20,53 @@
   //   pointer-events: none;
   // }
 
-  // .call-out {
-  //   padding: 1.25rem;
-  //   margin-top: 1.25rem;
-  //   margin-bottom: 1.25rem;
-  //   background-color: var(--bd-callout-bg, var(--bs-gray-100));
-  //   border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300));
-  // }
+  @each $state in map-keys($theme-colors) {
+  .call-out-#{$state} {
+    --#{$prefix}call-out-color: var(--#{$prefix}#{$state}-text-emphasis);
+    --#{$prefix}call-out-bg: var(--#{$prefix}#{$state}-bg-subtle);
+    --#{$prefix}call-out-border: var(--#{$prefix}#{$state}-border-subtle);
+  }
+}
 
-  // .callout-info {
-  //   --bd-callout-bg: rgb(var(--bs-info-rgb) .075);
-  //   --bd-callout-border: rgb(var(--bs-info-rgb) .5);
-  // }
+  .call-out {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--#{$prefix}call-out-color, inherit);
+    background-color: var(--#{$prefix}call-out-bg, var(--#{$prefix}gray-100));
+    border-left: 0.25rem solid var(--#{$prefix}call-out-border, var(--#{$prefix}gray-300));
+  }
 
   .card {
     --bs-card-spacer-x: 0.75rem;
 
     margin-bottom: 1rem !important;
+    box-shadow: 0 ;
 
-    // box-shadow: 0 0 0.3125rem #1718180d, 0 0.0625rem 0.125rem #00000026;
+    .no-shadow {
+      box-shadow: none !important;
+    }
 
-    // .no-shadow {
-    //   box-shadow: none !important;
-    // }
+    &-body {
+      padding-top: .5rem;
+    }
 
-    // &-body {
-    //   padding-top: .5rem;
-    // }
+    &-footer {
+      background-color: inherit;
+      border-top: none;
+    }
 
-    // &-footer {
-    //   background-color: inherit;
-    //   border-top: none;
-    // }
+    &-header {
+      --bs-card-cap-padding-x: var(--bs-card-spacer-x);
 
-    // &-header {
-    //   --bs-card-cap-padding-x: var(--bs-card-spacer-x);
+      background-color: inherit;
+      border-bottom: none;
+      min-height: 47px;
+    }
 
-    //   background-color: inherit;
-    //   border-bottom: none;
-    //   min-height: 47px;
-    // }
-
-    // &-title {
-    //   margin-bottom: 0;
-    // }
+    &-title {
+      margin-bottom: 0;
+    }
   }
 
   // .carousel-item {

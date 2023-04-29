@@ -3,6 +3,18 @@ module Aypex
     class CmsSectionsController < ResourceController
       belongs_to "aypex/cms_page"
 
+      def edit
+        @object.component_names.each do |component|
+          @object.cms_components.where(in_section_identifier: component, type: "Aypex::Cms::Components::#{@object.class.name.demodulize}").first_or_create
+        end
+
+        @object.cms_components.each do |component|
+          instance_variable_set("@#{component.in_section_identifier}", component)
+        end
+
+        super
+      end
+
       def update_position
         if @object.update(position: permitted_resource_params[:position])
           respond_to do |format|

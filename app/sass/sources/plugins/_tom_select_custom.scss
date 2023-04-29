@@ -108,8 +108,8 @@ input::-webkit-contacts-auto-fill-button {
 
 /* stylelint-disable-next-line no-descending-specificity */
 .ts-wrapper {
-  @extend .rgb-hsl-secondary;
-  @extend .rgb-hsl-base-presets;
+  // @extend .rgb-hsl-secondary;
+  // @extend .rgb-hsl-base-presets;
 
   &.plugin-remove_button:not(.rtl) .item .remove {
     border-left-color: var(--hsla-border-active-color);

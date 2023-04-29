@@ -4,18 +4,10 @@ module Aypex
       include Aypex::Admin::ProductConcern
 
       belongs_to "aypex/product", find_by: :slug
-      new_action.before :new_before
       before_action :redirect_on_empty_option_values, only: [:new]
       before_action :load_data, only: [:new, :create, :edit, :update]
 
-      def destroy
-        @object = parent.variants.find(params[:id])
-        super
-      end
-
-      protected
-
-      def new_before
+      def new
         master = @object.product.master
         @object.attributes = master.attributes.except(
           "id", "created_at", "deleted_at", "sku", "is_master"
@@ -23,7 +15,16 @@ module Aypex
 
         # Shallow Clone of the default price to populate the price field.
         @object.default_price = master.default_price.clone if master.default_price.present?
+
+        super
       end
+
+      def destroy
+        @object = parent.variants.find(params[:id])
+        super
+      end
+
+      protected
 
       def collection
         return @collection if @collection.present?

@@ -8,6 +8,11 @@ module Aypex
       def index
       end
 
+      def new
+        @image = @object.build_image
+        super
+      end
+
       def products_panel
         if params[:category_id].blank?
           head :no_content

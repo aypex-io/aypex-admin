@@ -1,3 +1,5 @@
+<% @img = @cms_section.cms_component.image || @cms_section.cms_component.build_image %>
+
 <div class="collapse" id="cmsSectionInfo">
   <div class="call-out call-out-info">
     <h5>
@@ -10,15 +12,28 @@
 </div>
 
 <div class="row pb-0">
-  <div class="col-12 col-md-6">
-    <%= f.field_container :title do %>
-      <%= f.text_field :title %>
-      <%= f.label :title, I18n.t('aypex.admin.title') %>
-    <% end %>
+  <div class="col-12 col-md-4">
+    <%= f.fields_for :cms_component, @cms_section.cms_component do |component| %>
+      <%= f.field_container :title do %>
+        <%= component.text_field :title %>
+        <%= component.label :title, I18n.t('aypex.admin.title') %>
+      <% end %>
 
-    <%= f.field_container :button_text do %>
-      <%= f.text_field :button_text %>
-      <%= f.label :button_text, I18n.t('aypex.admin.button_text') %>
+      <%= f.field_container :button_text do %>
+        <%= component.text_field :button_text %>
+        <%= component.label :button_text %>
+      <% end %>
+
+      <%= component.fields_for :image, @img do |image| %>
+        <div class="mb-3">
+        <%= image.file_field :attachment %>
+        </div>
+
+        <div class="form-group form-floating">
+          <%= image.text_area :alt, rows: 4 %>
+          <%= image.label :alt, I18n.t("aypex.admin.alt_text") %>
+        </div>
+      <% end %>
     <% end %>
 
     <div class="row">
@@ -37,21 +52,32 @@
       </div>
     </div>
   </div>
-  <div class="col-12 col-md-6 pt-4">
-    <% @cms_section.build_image_one unless @cms_section.image_one %>
-    <%= render partial: 'image_upload_form', locals: { f: f, image: :image_one } %>
-    <small class="form-text text-body-secondary"><%= I18n.t('aypex.admin.please_use_an_image_with_the_aspect_ratio_of') %></small>
-  </div>
-  <div class="col-12"><hr></div>
-  <div class="col-12 col-md-6">
-    <%= f.field_container :linked_resource_type  do %>
-      <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Sections::HeroImage',
-                                        { const: 'LINKED_RESOURCE_TYPE' }),
-                                        {include_blank: false}) %>
-      <%= f.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
+
+  <div class="col-12 col-md-8">
+    <%= f.fields_for :cms_component, @cms_section.cms_component do |component| %>
+      <%= f.field_container :image do %>
+        <% if @img.persisted? %>
+          <div class="image-container">
+            <%= image_tag(@img.generate_url(width: 600), alt: @img.alt, class: "w-100") %>
+          </div>
+        <% end %>
+        <small class="form-text text-body-secondary"><%= I18n.t('aypex.admin.please_use_an_image_with_the_aspect_ratio_of') %></small>
+      <% end %>
     <% end %>
   </div>
-  <div class="col-12 col-md-6">
-    <%= render "aypex/admin/shared/link_fields", resource: @cms_section, f: f %>
-  </div>
+  <div class="col-12"><hr></div>
+  <%= f.fields_for :cms_component, @cms_section.cms_component do |component| %>
+    <div class="col-12 col-md-6">
+      <%= f.field_container :linked_resource_type  do %>
+        <%= component.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Components::HeroImage',
+                                        { const: 'LINKED_RESOURCE_TYPE' }),
+                                        {include_blank: false}) %>
+        <%= component.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <%= render "aypex/admin/shared/link_fields", resource: component.object, f: component %>
+    </div>
+  <% end %>
 </div>
