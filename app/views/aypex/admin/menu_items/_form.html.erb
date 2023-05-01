@@ -120,7 +120,7 @@
               <div class="row">
                 <div class="col-12 col-md-6">
                   <%= f.field_container :linked_resource_type do %>
-                    <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::MenuItem', {const: 'LINKED_RESOURCE_TYPE'}), {include_blank: false}) %>
+                    <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::MenuItem', {const: 'LINKED_RESOURCE_TYPES'}), {include_blank: false}) %>
                     <%= f.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
 
                     <div class="collapse" id="menuItemLinkInformation">

@@ -33,6 +33,12 @@ Aypex::Engine.add_routes do
         member do
           patch :update_position
         end
+
+        resources :cms_components, except: [:index] do
+          member do
+            patch :update_position
+          end
+        end
       end
     end
 

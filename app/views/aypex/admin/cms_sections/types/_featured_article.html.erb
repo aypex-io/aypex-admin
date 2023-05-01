@@ -27,16 +27,19 @@
       <%= f.text_field :rte_content, { class: 'd-none', data: { tiptap__editor_target: "input", form_state_target: "watch" }} %>
     <% end %>
   </div>
+
   <div class="col-12"><hr></div>
-    <div class="col-12 col-md-6">
-      <%= f.field_container :linked_resource_type  do %>
-        <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Sections::FeaturedArticle',
-                                          { const: 'LINKED_RESOURCE_TYPE' }),
-                                          {include_blank: false}) %>
-        <%= f.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
-      <% end %>
-    </div>
-    <div class="col-12 col-md-6">
-      <%= render "aypex/admin/shared/link_fields", resource: @cms_section, f: f %>
-    </div>
+
+  <div class="col-12 col-md-6">
+    <%= f.field_container :linked_resource_type  do %>
+      <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Sections::FeaturedArticle',
+                                        { const: 'LINKED_RESOURCE_TYPES' }),
+                                        {include_blank: false}) %>
+      <%= f.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
+    <% end %>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <%= render "aypex/admin/shared/link_fields", resource: @cms_section, f: f %>
+  </div>
 </div>

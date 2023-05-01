@@ -1,5 +1,3 @@
-<% @img = @component_1.image || @component_1.build_image %>
-
 <div class="collapse" id="cmsSectionInfo">
   <div class="call-out call-out-info">
     <h5>
@@ -11,73 +9,59 @@
   </div>
 </div>
 
-<div class="row pb-0">
-  <div class="col-12 col-md-4">
-    <%= f.fields_for :cms_components, @component_1 do |component| %>
-      <%= f.field_container :title do %>
-        <%= component.text_field :title %>
-        <%= component.label :title, I18n.t('aypex.admin.title') %>
-      <% end %>
+<% @cms_section.cms_components.each do |component| %>
+  <% image = component.image || component.build_image %>
+  <%= f.fields_for :cms_components, component do |comp| %>
+    <div class="row pb-0">
+      <div class="col-12 col-md-4">
+       <%= f.field_container :title do %>
+         <%= comp.text_field :title %>
+         <%= comp.label :title, I18n.t('aypex.admin.title') %>
+       <% end %>
 
-      <%= f.field_container :button_text do %>
-        <%= component.text_field :button_text %>
-        <%= component.label :button_text %>
-      <% end %>
+       <%= f.field_container :button_text do %>
+         <%= comp.text_field :button_text %>
+         <%= comp.label :button_text %>
+       <% end %>
 
-      <%= component.fields_for :image, @img do |image| %>
-        <div class="mb-3">
-          <%= image.file_field :attachment %>
-        </div>
+       <%= comp.fields_for :image, image do |img| %>
+         <div class="mb-3">
+           <%= img.file_field :attachment %>
+         </div>
 
-        <div class="form-group form-floating">
-          <%= image.text_area :alt, rows: 4 %>
-          <%= image.label :alt, I18n.t("aypex.admin.alt_text") %>
-        </div>
-      <% end %>
-    <% end %>
+         <div class="form-group form-floating">
+           <%= img.text_area :alt, rows: 4 %>
+           <%= img.label :alt, I18n.t("aypex.admin.alt_text") %>
+         </div>
+       <% end %>
+      </div>
 
-    <div class="row">
-      <div class="col-6">
-        <%= f.field_container :fit do %>
-          <%= f.select(:fit, @cms_section.boundaries, {include_blank: false}) %>
-          <%= f.label :fit, I18n.t('aypex.admin.fit') %>
+      <div class="col-12 col-md-8">
+        <%= f.field_container :image do %>
+          <% if image.persisted? %>
+            <div class="image-container" style="--aspect-ratio:12/5;">
+              <%= image_tag(image.generate_url(width: 600), alt: image.alt, class: "w-100") %>
+            </div>
+          <% end %>
+
+          <small class="form-text text-body-secondary"><%= I18n.t('aypex.admin.please_use_an_image_with_the_aspect_ratio_of') %></small>
         <% end %>
       </div>
 
-      <div class="col-6">
-        <%= f.field_container :gutters do %>
-          <%= f.select(:gutters, @cms_section.gutters_sizes, {include_blank: false}) %>
-          <%= f.label :gutters, I18n.t('aypex.admin.gutters') %>
+      <div class="col-12"><hr></div>
+
+      <div class="col-12 col-md-6">
+        <%= f.field_container :linked_resource_type  do %>
+          <%= comp.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Component::HeroImage',
+                                          { const: 'LINKED_RESOURCE_TYPES' }),
+                                          { include_blank: false }) %>
+          <%= comp.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
         <% end %>
       </div>
-    </div>
-  </div>
 
-  <div class="col-12 col-md-8">
-    <%= f.fields_for :cms_components, @component_1 do |component| %>
-      <%= f.field_container :image do %>
-        <% if @img.persisted? %>
-          <div class="image-container">
-            <%= image_tag(@img.generate_url(width: 600), alt: @img.alt, class: "w-100") %>
-          </div>
-        <% end %>
-        <small class="form-text text-body-secondary"><%= I18n.t('aypex.admin.please_use_an_image_with_the_aspect_ratio_of') %></small>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="col-12"><hr></div>
-  <%= f.fields_for :cms_components, @component_1 do |component| %>
-    <div class="col-12 col-md-6">
-      <%= f.field_container :linked_resource_type  do %>
-        <%= component.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Components::HeroImage',
-                                        { const: 'LINKED_RESOURCE_TYPE' }),
-                                        { include_blank: false }) %>
-        <%= component.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
-      <% end %>
-    </div>
-
-    <div class="col-12 col-md-6">
-      <%= render "aypex/admin/shared/link_fields", resource: @component_1, f: component %>
+      <div class="col-12 col-md-6">
+        <%= render "aypex/admin/shared/link_fields", resource: component, f: comp %>
+      </div>
     </div>
   <% end %>
-</div>
+<% end %>

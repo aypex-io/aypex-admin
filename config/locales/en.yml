@@ -606,6 +606,7 @@ en:
       search_users_by_email: Search users by email
       search_users_by_name_or_email: Search users by name or email.
       search_webhooks_by_url: Search webhooks by url
+      section_settings: Section settings
       section_type: Section Type
       select: Select
       select_a_date: Select a date

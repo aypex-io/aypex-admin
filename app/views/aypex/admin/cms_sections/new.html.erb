@@ -21,7 +21,9 @@
         </div>
         <div class="col-12 col-md-6">
           <%= f.field_container :type do %>
-            <%= f.select(:type, @cms_section.cms_section_types, {include_blank: false}) %>
+            <%# @cms_section.sections_for_select %>
+            <%= f.select(:type, @cms_section.sections_for_select, {include_blank: false}) %>
+            <%#= f.select(:type, @cms_section.cms_section_types, {include_blank: false}) %>
             <%= f.label :type, I18n.t('aypex.admin.section_type') %>
           <% end %>
         </div>

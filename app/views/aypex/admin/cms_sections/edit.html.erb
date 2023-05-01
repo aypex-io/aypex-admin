@@ -4,31 +4,45 @@
                        current_page_name: @cms_section.name) %>
 <% end %>
 
-<div class="card">
-  <div class="card-header">
-    <h5 class="card-title"><%= I18n.t("aypex.admin.settings") %></h5>
-  </div>
-  <div class="card-body">
-    <%= form_with scope: :cms_section, url: aypex.admin_cms_page_cms_section_path(@cms_page, @cms_section), class: "row", data: {controller: "form-validation", turbo_frame: :cms_section_settings}, method: :patch do |f| %>
-      <div class="col-12 col-md-6">
-        <%= f.field_container :name do %>
-          <%= f.text_field :name, required: true %>
-          <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
-        <% end %>
-      </div>
-      <div class="col-12 col-md-6">
-        <%= f.field_container :type do %>
-          <%= f.select(:type, @cms_section.cms_section_types, {include_blank: false}) %>
-          <%= f.label :type, I18n.t('aypex.admin.section_type') %>
-        <% end %>
-      </div>
-      <%= f.submit I18n.t('aypex.admin.update'), data: {form_validation_target: "submitBtn"} %>
-    <% end %>
-  </div>
-</div>
-
 <%= turbo_frame_tag :cms_section_settings do %>
-  <%= form_with model: @cms_section, scope: :cms_section, url: aypex.admin_cms_page_cms_section_path(@cms_page, @cms_section), data: {turbo_frame: :_top }, method: :patch do |f| %>
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title"><%= I18n.t("aypex.admin.section_settings") %></h5>
+    </div>
+
+    <div class="card-body">
+      <%= form_with model: @cms_section, scope: :cms_section, url: aypex.admin_cms_page_cms_section_path(@cms_page, @cms_section), class: "row", data: {controller: "form-validation", turbo_frame: :cms_section_settings}, method: :patch do |f| %>
+        <div class="col-12 col-md-4">
+          <%= f.field_container :name do %>
+            <%= f.text_field :name, required: true %>
+            <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <%= f.field_container :fit do %>
+            <%= f.select(:fit, @cms_section.boundaries, {include_blank: false}) %>
+            <%= f.label :fit, I18n.t('aypex.admin.fit') %>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <%= f.field_container :gutters do %>
+            <%= f.select(:gutters, @cms_section.gutters_sizes, {include_blank: false}) %>
+            <%= f.label :gutters, I18n.t('aypex.admin.set_gutters') %>
+          <% end %>
+        </div>
+
+        <div class="col-12">
+          <%= render partial: 'aypex/admin/shared/resource_actions' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= turbo_frame_tag :cms_container_settings do %>
+  <%= form_with model: @cms_section, scope: :cms_section, url: aypex.admin_cms_page_cms_section_path(@cms_page, @cms_section), data: {turbo_frame: :cms_container_settings }, method: :patch do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
   <% end %>
 <% end %>
