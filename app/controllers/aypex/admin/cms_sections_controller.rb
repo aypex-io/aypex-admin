@@ -13,7 +13,10 @@ module Aypex
         end
       end
 
-      def edit_modal
+      def edit
+        respond_with(@object) do |format|
+          format.turbo_stream
+        end
       end
 
       private

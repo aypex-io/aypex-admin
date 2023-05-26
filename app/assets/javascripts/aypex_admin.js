@@ -39299,6 +39299,7 @@
       });
     }
     mouseEnter() {
+      if (this.section == null) return;
       if (this.section.hasAttribute("data-controller")) {
         this.section.dataset.controller = `scroll ${this.origionalControllerAttributes}`;
       } else {
@@ -39306,6 +39307,7 @@
       }
     }
     mouseLeave() {
+      if (this.section == null) return;
       if (this.section.hasAttribute("data-controller")) {
         this.section.dataset.controller = `${this.origionalControllerAttributes}`;
       } else {

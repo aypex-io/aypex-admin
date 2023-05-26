@@ -49,10 +49,6 @@ button#cms-section-editor-full-screen {
 
 #live-view-content {
   height: 100%;
-
-  .embed-responsive {
-    height: 100%;
-  }
 }
 
 #draggable-sections-holder {
@@ -109,14 +105,9 @@ button#cms-section-editor-full-screen {
 }
 
 #page-live-preview {
-  background: var(--bs-gray-800);
-}
-
-.desktop-live-view {
-  #page-live-preview {
-    width: 100%;
-    height: 100%;
-  }
+  background: transparent;
+  width: 100%;
+  height: 100%;
 }
 
 // .tablet-live-view {

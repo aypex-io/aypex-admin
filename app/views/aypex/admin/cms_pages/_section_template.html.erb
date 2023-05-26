@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-auto h-100 d-flex flex-column align-self-sm-stretch p-0 justify-content-between actions cms_section_action_col">
-      <%= link_to_edit(section, url: aypex.edit_admin_cms_page_cms_section_path(@cms_page, section)) %>
+      <%= link_to_edit(section, url: aypex.edit_admin_cms_page_cms_section_path(@cms_page, section), data: { turbo_stream: true }) %>
       <%= link_to_delete(section, url: aypex.admin_cms_page_cms_section_path(@cms_page, section)) if can?(:destroy, section) %>
     </div>
   </div>

@@ -1,0 +1,17 @@
+<%= turbo_stream.update "page-live-edit-header" do %>
+  <div class="d-grid gap-2 p-2">
+    <%= link_to_with_icon(I18n.t('aypex.admin.add_new_component'),
+                    aypex.new_admin_cms_page_cms_section_path(@cms_page),
+                    icon: 'plus-square.svg',
+                    class: 'btn btn-light',
+                    data: { turbo_frame: :sections }) %>
+  </div>
+<% end %>
+
+<%= turbo_stream.update "cms-page-sections-area" do %>
+  <%= render 'form' %>
+<% end %>
+
+<%= turbo_stream.update "live-view-content" do %>
+  <%= render 'aypex/admin/shared/iframe', locals: {object: @object} %>
+<% end %>
