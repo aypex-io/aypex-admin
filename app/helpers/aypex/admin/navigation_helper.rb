@@ -115,7 +115,7 @@ module Aypex
 
         options[:no_text] ||= true
         options[:icon] = "pen.svg"
-        options[:class] ||= "btn btn-secondary btn-sm icon-edit"
+        options[:class] ||= "btn btn-light btn-sm icon-edit"
 
         link_to_with_icon(name, url, options.except(:url))
       end

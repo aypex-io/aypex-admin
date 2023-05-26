@@ -1,34 +1,21 @@
-<% content_for :page_title do %>
-  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path, link_one_text: I18n.t('aypex.admin.all_pages'),
-                         link_two_uri: aypex.edit_admin_cms_page_path(@cms_page), link_two_text: @cms_page.title,
-                         current_page_name: I18n.t('aypex.admin.new_section')) %>
-<% end %>
+<%= turbo_frame_tag :sections do %>
+  <div class="d-grid gap-2 p-2">
+    <%= form_with model: [:admin, @cms_page, @cms_section], url: aypex.admin_cms_page_cms_sections_path, data: { controller: "input--required"} do |f| %>
+      <%= f.field_container :name do %>
+        <%= f.text_field :name, required: true %>
+        <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
+      <% end %>
 
-<%= form_with model: [:admin, @cms_page, @cms_section], url: aypex.admin_cms_page_cms_sections_path, data: {controller: "input--required"} do |f| %>
-  <div class="card">
-    <div class="card-header d-flex">
-      <div class="flex-fill">
-        <h5 class="card-title"><%= I18n.t("aypex.admin.new_section") %></h5>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <%= f.field_container :name do %>
-            <%= f.text_field :name, required: true %>
-            <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
-          <% end %>
-        </div>
-        <div class="col-12 col-md-6">
-          <%= f.field_container :type do %>
-            <%# @cms_section.sections_for_select %>
-            <%= f.select(:type, @cms_section.sections_for_select, {include_blank: false}) %>
-            <%#= f.select(:type, @cms_section.cms_section_types, {include_blank: false}) %>
-            <%= f.label :type, I18n.t('aypex.admin.section_type') %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+      <%= f.field_container :type do %>
+        <%= f.select(:type, @cms_section.types_data.pluck(:name, :type), {include_blank: false}) %>
+        <%= f.label :type, I18n.t('aypex.admin.section_type') %>
+      <% end %>
+
+      <% content_for :additional_form_buttons do %>
+        <%= link_to(I18n.t('aypex.admin.cancel'), aypex.edit_admin_cms_page_path(@cms_page), { data: { turbo_frame: :_top }, class: 'btn btn-light' }) %>
+      <% end %>
+
+      <%= render partial: 'aypex/admin/shared/resource_actions' %>
+    <% end %>
   </div>
-  <%= render partial: 'aypex/admin/shared/resource_actions' %>
 <% end %>

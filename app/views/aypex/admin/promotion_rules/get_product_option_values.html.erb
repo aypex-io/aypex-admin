@@ -1,17 +1,17 @@
 <%= turbo_frame_tag :opts do %>
   <% @promotion_rule.preferred_eligible_values.each_with_index do |(key, values), index| %>
     <% product = @products.find { |product| product.id.to_s == key.to_s } %>
-    <sa-card id="opv_card_<%= index %>" data-controller='dom' data-dom-target='element' class="animate__animated animate__faster">
-      <sa-header>
+    <apx-card id="opv_card_<%= index %>" data-controller='dom' data-dom-target='element' class="animate__animated animate__faster">
+      <apx-header>
         <div class="flex-fill"></div>
         <div>
           <button type="button" data-action="dom#removeElement" class="btn btn-sm btn-secondary">
             <%= aypex_admin_svg_tag "x-lg.svg", size: '16px' %>
           </button>
         </div>
-      </sa-header>
+      </apx-header>
 
-      <sa-body>
+      <apx-body>
         <div class="row">
           <div class="col-12 mb-3" data-controller="form--autosave">
             <div class="form-floating">
@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-      </sa-body>
-    </sa-card>
+      </apx-body>
+    </apx-card>
   <% end %>
 <% end %>

@@ -1,45 +1,19 @@
 <div class="row">
-  <div class="col-12 col-md-4">
-    <%= f.field_container :title do %>
-      <%= f.text_field :title %>
-      <%= f.label :title, I18n.t('aypex.admin.title') %>
-    <% end %>
+  <div class="col-12">
+    <div class="field">
 
-    <%= f.field_container :subtitle do %>
-      <%= f.text_field :subtitle %>
-      <%= f.label :subtitle, I18n.t('aypex.admin.subtitle') %>
-    <% end %>
 
-    <%= f.field_container :button_text do %>
-      <%= f.text_field :button_text %>
-      <%= f.label :button_text, I18n.t('aypex.admin.button_text') %>
-    <% end %>
+      <% @cms_section.cms_components.each do |component| %>
+        <%= f.fields_for :cms_components, component do |comp| %>
+           <%= comp.hidden_field :content, id: comp.field_id(:content), value: comp.object.content.try(:to_trix_html) || comp.object.content %>
 
-    <%= f.field_container :gutters do %>
-      <%= f.select(:gutters, @cms_section.gutters_sizes, {include_blank: false}) %>
-      <%= f.label :gutters, I18n.t('aypex.admin.gutters') %>
-    <% end %>
+          <rhino-editor input="<%= comp.field_id(:content) %>"
+                        data-blob-url-template="<%= Rails.application.routes.url_helpers.rails_service_blob_url(":signed_id", ":filename", only_path: true) %>"
+                        data-direct-upload-url="<%= Rails.application.routes.url_helpers.rails_direct_uploads_url only_path: true %>">
+           </rhino-editor>
 
-  </div>
-  <div class="col-12 col-md-8">
-    <%= f.field_container :rte_content, data: { controller: 'tiptap--editor'}, class: ['none'] do %>
-      <%= render partial: 'aypex/admin/shared/editor_buttons' %>
-      <%= f.text_field :rte_content, { class: 'd-none', data: { tiptap__editor_target: "input", form_state_target: "watch" }} %>
-    <% end %>
-  </div>
-
-  <div class="col-12"><hr></div>
-
-  <div class="col-12 col-md-6">
-    <%= f.field_container :linked_resource_type  do %>
-      <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Sections::FeaturedArticle',
-                                        { const: 'LINKED_RESOURCE_TYPES' }),
-                                        {include_blank: false}) %>
-      <%= f.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
-    <% end %>
-  </div>
-
-  <div class="col-12 col-md-6">
-    <%= render "aypex/admin/shared/link_fields", resource: @cms_section, f: f %>
+        <% end %>
+      <% end %>
+      </div>
   </div>
 </div>

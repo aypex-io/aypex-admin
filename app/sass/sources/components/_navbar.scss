@@ -2,7 +2,7 @@
   height: var(--nav-bar-height);
 }
 
-content-header {
+#content-header {
   background-color: var(--sa-navbar-bg);
   box-shadow: var(--sa-navbar-box-shadow);
   z-index: 1040;
@@ -11,7 +11,7 @@ content-header {
   overflow-y: scroll;
   @extend .border-bottom;
 
-  h4>a {
+  h4 > a {
     text-decoration: none;
     color: var(--bs-primary);
   }
@@ -22,13 +22,13 @@ content-header {
 }
 
 @include media-breakpoint-up(lg) {
-  content-header {
+  #content-header {
     width: 75%;
   }
 }
 
 @include media-breakpoint-up(xl) {
-  content-header {
+  #content-header {
     width: 83.3333%;
   }
 }

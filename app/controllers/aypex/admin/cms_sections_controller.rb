@@ -13,6 +13,9 @@ module Aypex
         end
       end
 
+      def edit_modal
+      end
+
       private
 
       def collection_url

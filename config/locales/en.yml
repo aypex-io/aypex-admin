@@ -21,6 +21,7 @@ en:
       add_first_property: Add first property
       add_new_address: Add new address
       add_new_category: Add new category
+      add_new_component: Add new component
       add_new_file: Add a new digital asset.
       add_new_item: Add new item
       add_new_menu: Add new menu
@@ -225,6 +226,7 @@ en:
       edit_address: Edit address
       edit_reimbursement: Edit reimbursement
       edit_root_base_category: Edit root base category
+      edit_section_settings: Edit section settings
       edit_state: Edit state
       edit_store_credit: Edit store credit
       editing_variant: Editing variant
@@ -265,6 +267,7 @@ en:
       from: from
       front_end: Storefront
       full_screen_mode: <span class="exit">Exit </span>Full Screen Mode
+      full_width_of_screen: Full width of screen
       general_settings: General settings
       generate_code: Generate code
       getting_started: Getting started
@@ -273,6 +276,7 @@ en:
       gutters: Gutters
       has_variants: Has variants
       header_banner: Header banner
+      headline: Headline
       height: Height
       hero_image_info: Hero image info
       hide_from_sub_navigation: Hide from sub navigation
@@ -745,6 +749,7 @@ en:
       url_info: Url info
       usage_limit: Usage limit
       use_app_default: Use app default
+      use_gutters: Use gutters
       use_new_cc: Use new cc
       use_the_search_box_above_to_search_for_categories: Use the search box above to search for categories
       used: Used
@@ -783,3 +788,5 @@ en:
       zipcode_required: Zipcode required
       zone: Zone
       zones: Zones
+    cms_section:
+      hero_description: Hero description

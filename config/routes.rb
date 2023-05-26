@@ -31,6 +31,7 @@ Aypex::Engine.add_routes do
 
       resources :cms_sections, except: [:index] do
         member do
+          get :edit_modal
           patch :update_position
         end
 

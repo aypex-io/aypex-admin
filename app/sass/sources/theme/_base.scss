@@ -1,4 +1,5 @@
 /* stylelint-disable selector-class-pattern */
+
 :root body.admin {
   --nav-bar-height: 54px;
   --bs-border-radius: 3px;
@@ -20,13 +21,13 @@
   //   pointer-events: none;
   // }
 
-  @each $state in map-keys($theme-colors) {
-  .call-out-#{$state} {
-    --#{$prefix}call-out-color: var(--#{$prefix}#{$state}-text-emphasis);
-    --#{$prefix}call-out-bg: var(--#{$prefix}#{$state}-bg-subtle);
-    --#{$prefix}call-out-border: var(--#{$prefix}#{$state}-border-subtle);
+    @each $state in map-keys($theme-colors) {
+    .call-out-#{$state} {
+      --#{$prefix}call-out-color: var(--#{$prefix}#{$state}-text-emphasis);
+      --#{$prefix}call-out-bg: var(--#{$prefix}#{$state}-bg-subtle);
+      --#{$prefix}call-out-border: var(--#{$prefix}#{$state}-border-subtle);
+    }
   }
-}
 
   .call-out {
     padding: 1.25rem;

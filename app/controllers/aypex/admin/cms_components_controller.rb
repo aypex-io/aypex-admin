@@ -12,6 +12,12 @@ module Aypex
           stream_flash_alert(message: I18n.t("aypex.admin.position_could_not_be_updated"), kind: :error)
         end
       end
+
+      private
+
+      def location_after_save
+        aypex.edit_admin_cms_page_cms_section_path(@cms_section.cms_page, @cms_section)
+      end
     end
   end
 end
