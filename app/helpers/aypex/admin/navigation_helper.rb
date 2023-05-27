@@ -171,15 +171,25 @@ module Aypex
       end
 
       def breadcrumb_builder(options = {})
-        divider = content_tag(:span, "/", class: "text-muted mx-1 pb-1")
+        home_page = link_to aypex.admin_root_path do
+          aypex_admin_svg_tag "home.svg", size: "20px * 20px", class: "pb-1"
+        end
 
-        if options[:link_one_uri] && options[:link_two_text]
-          link_to(options[:link_one_text], options[:link_one_uri]) + divider + link_to(options[:link_two_text], options[:link_two_uri]) + divider + options[:current_page_name]
+        content = if options[:link_one_uri] && options[:link_two_text]
+          content_tag(:li, home_page) +
+            content_tag(:li, link_to(options[:link_one_text], options[:link_one_uri])) +
+            content_tag(:li, link_to(options[:link_two_text], options[:link_two_uri])) +
+            content_tag(:li, link_to(options[:current_page_name], "#"))
         elsif options[:link_one_uri]
-          link_to(options[:link_one_text], options[:link_one_uri]) + divider + options[:current_page_name]
+          content_tag(:li, home_page) +
+            content_tag(:li, link_to(options[:link_one_text], options[:link_one_uri])) +
+            content_tag(:li, link_to(options[:current_page_name], "#"))
         else
           options[:current_page_name]
         end
+
+        ul = content_tag(:ul, content)
+        content_tag(:div, ul, class: "oh-crumbs")
       end
 
       def remote_form_submit_button(resource, form_id = nil, button_text = nil)

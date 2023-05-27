@@ -1,15 +1,21 @@
-<%= turbo_stream.update "page-live-edit-header" do %>
-  <div class="d-grid gap-2 p-2">
-    <%= form_with model: @object,
-                  scope: :cms_component,
-                  url: aypex.admin_cms_page_cms_section_cms_components_path(@cms_page, @cms_section),
-                  class: "w-100",
-                  method: :post, id: :cms_component_create do |f| %>
+<%= turbo_stream.update "breadcrumb" do %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_cms_pages_path,
+                         link_one_text: I18n.t('aypex.admin.all_pages'),
+                         link_two_uri: aypex.edit_admin_cms_page_path(@cms_section.cms_page),
+                         link_two_text: @cms_section.cms_page.title,
+                         current_page_name: @cms_section.section_details[:name]) %>
+<% end %>
 
-      <%= f.hidden_field :type, value: "Aypex::Cms::Component::ImageHero" %>
-      <%= submit_tag "Add Component", class: "btn btn-light w-100" %>
-    <% end %>
-  </div>
+<%= turbo_stream.update "page-live-edit-header" do %>
+  <%= form_with model: @object,
+                scope: :cms_component,
+                url: aypex.admin_cms_page_cms_section_cms_components_path(@cms_page, @cms_section),
+                class: "d-grid gap-2 p-2",
+                method: :post do |f| %>
+
+    <%= f.hidden_field :type, value: "Aypex::Cms::Component::ImageHero" %>
+    <%= submit_tag "Add Component", class: "btn btn-light w-100" %>
+  <% end %>
 <% end %>
 
 <%= turbo_stream.update "cms-page-sections-area" do %>

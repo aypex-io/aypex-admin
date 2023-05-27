@@ -1,4 +1,4 @@
-<% content_for :page_title do %>
+<% content_for :breadcrumb do %>
   <%= link_to I18n.t("aypex.admin.base_categories"), aypex.admin_base_categories_url %> /
   <%= link_to @base_category.root.name, aypex.edit_admin_base_category_url(@base_category) %> / New
 <% end %>

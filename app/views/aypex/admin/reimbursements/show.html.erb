@@ -1,6 +1,6 @@
 <%= render partial: 'aypex/admin/shared/order_tabs', locals: { current: :customer_returns } %>
 
-<% content_for :page_title do %>
+<% content_for :breadcrumb do %>
   / <%= Aypex::Reimbursement.model_name.human %> #<%= @reimbursement.number %>
 <% end %>
 
