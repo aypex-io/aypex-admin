@@ -15,7 +15,7 @@
 
           <% if @cms_page.cms_sections.any? %>
             <div id="cms-page-sections-area"
-                 class="card-body row m-0 p-1 g-0"
+                 class="card-body row m-0 g-0"
                  data-controller="sortable"
                  data-sortable-resource-name-value="cms_section"
                  data-sortable-response-kind-value="turbo-stream">
@@ -37,7 +37,7 @@
 
       <div class="d-none d-md-block col bg-secondary overflow-hidden h-100">
         <div id="live-view-content" class="desktop-live-view p-3 bg-light">
-          <%= render 'aypex/admin/shared/iframe', locals: {object: @object} %>
+          <%= render 'aypex/admin/shared/iframe', resource: @object %>
         </div>
       </div>
     </div>

@@ -4,11 +4,14 @@
      data-controller="scroll-iframe"
      data-scroll-iframe-identifier-value="<%= section.id %>"
      data-scroll-iframe-iframe-id-value="page-live-preview">
-  <div class="row m-0 mb-1 pb-0 border border-secondary">
-    <div class="col handle d-flex pe-0 truncate align-items-center">
+  <div class="row m-0 m-1 mb-0 border border-secondary">
+    <div class="d-flex align-items-center move-handle handle">
+      <%= aypex_admin_svg_tag "grip-vertical.svg", size: '22px * 22px' %>
+    </div>
+
+    <div class="col d-flex pe-0 truncate align-items-center">
       <div class="align-self-center overflow-hidden w-100">
-          <h6 class="m-0 truncate"><%= section.name %></h6>
-          <small class="form-text mt-0 text-body-secondary"><%= aypex_humanize_type(section.type) %></small>
+          <h6 class="m-0 truncate"><%= section.section_details[:name] %></h6>
       </div>
     </div>
 

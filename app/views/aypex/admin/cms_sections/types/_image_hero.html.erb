@@ -16,9 +16,9 @@
          class="accordion-item"
          data-sortable-update-url="<%= aypex.update_position_admin_cms_page_cms_section_cms_component_path(@cms_page, @cms_section, component) %>"
          data-stream-exit-class="animate__fadeOut">
-      <h2 class="accordion-header handle">
+      <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hero_<%= index %>" aria-expanded="false" aria-controls="flush-collapseOne">
-          <%= aypex_admin_svg_tag "grip-vertical.svg", size: '18px * 18px', class: 'me-2' %> <%= component.headline %>
+          <%= aypex_admin_svg_tag "grip-vertical.svg", size: '20px * 20px', class: 'me-2 handle' %> <%= component.headline %>
         </button>
       </h2>
       <div id="hero_<%= index %>" class="accordion-collapse collapse" data-bs-parent="#hero_<%= index %>">

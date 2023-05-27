@@ -13,5 +13,5 @@
 <% end %>
 
 <%= turbo_stream.update "live-view-content" do %>
-  <%= render 'aypex/admin/shared/iframe', locals: {object: @object} %>
+  <%= render 'aypex/admin/shared/iframe', resource: @object %>
 <% end %>

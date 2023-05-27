@@ -173,6 +173,7 @@ en:
       create_new_order: Create new order
       create_platform_application: Create platform application
       create_reimbursement: Create reimbursement
+      create_section: Create section
       create_webhook_subscriber: Create webhook subscriber
       create_your_first_variant_for_this_product: Create your first variant for this product
       created_at: Created At
