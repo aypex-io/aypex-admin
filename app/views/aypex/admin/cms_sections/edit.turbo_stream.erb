@@ -1,10 +1,14 @@
 <%= turbo_stream.update "page-live-edit-header" do %>
   <div class="d-grid gap-2 p-2">
-    <%= link_to_with_icon(I18n.t('aypex.admin.add_new_component'),
-                    aypex.new_admin_cms_page_cms_section_path(@cms_page),
-                    icon: 'plus-square.svg',
-                    class: 'btn btn-light',
-                    data: { turbo_frame: :sections }) %>
+    <%= form_with model: @object,
+                  scope: :cms_component,
+                  url: aypex.admin_cms_page_cms_section_cms_components_path(@cms_page, @cms_section),
+                  class: "w-100",
+                  method: :post, id: :cms_component_create do |f| %>
+
+      <%= f.hidden_field :type, value: "Aypex::Cms::Component::ImageHero" %>
+      <%= submit_tag "Add Component", class: "btn btn-light w-100" %>
+    <% end %>
   </div>
 <% end %>
 

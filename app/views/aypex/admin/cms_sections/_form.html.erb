@@ -12,7 +12,7 @@
          data-hook="admin_cms_section_form_fields"
          data-panel-section-type="<%= @cms_section.type %>">
       <div class="row">
-        <div class="col-12 p-0">
+        <div class="col-12">
           <% if @cms_section.type.present? %>
             <%= render "aypex/admin/cms_sections/types/#{aypex_resource_path(@cms_section)}", f: f %>
           <% end %>

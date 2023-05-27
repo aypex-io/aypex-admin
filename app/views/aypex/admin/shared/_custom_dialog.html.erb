@@ -1,12 +1,16 @@
-<dialog id="custom-turbo-confirm">
+<dialog id="custom-turbo-confirm" class="bg-body">
   <form method="dialog" class="modal-content">
     <div class="modal-body">
-      <p>Are you sure?</p>
+      <p><%= I18n.t("aypex.admin.are_you_sure") %></p>
     </div>
 
-    <div class="modal-footer">
-      <button value="cancel" class="btn btn-secondary">Cancel</button>
-      <button value="confirm" class="btn btn-danger">Confirm</button>
+    <div class="modal-footer row">
+      <div class="col">
+        <button value="cancel" class="btn btn-secondary w-100"><%= I18n.t("aypex.admin.cancel") %></button>
+      </div>
+      <div class="col">
+        <button value="confirm" class="btn btn-danger w-100"><%= I18n.t("aypex.admin.confirm") %></button>
+      </div>
     </div>
   </form>
 </dialog>
