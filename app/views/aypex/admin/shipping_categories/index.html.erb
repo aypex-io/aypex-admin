@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= plural_resource_name(Aypex::ShippingCategory) %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::ShippingCategory)) %>
 <% end %>
 
 <% if @shipping_categories.any? %>

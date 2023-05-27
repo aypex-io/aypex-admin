@@ -185,7 +185,8 @@ module Aypex
             content_tag(:li, link_to(options[:link_one_text], options[:link_one_uri])) +
             content_tag(:li, link_to(options[:current_page_name], "#"))
         else
-          options[:current_page_name]
+          content_tag(:li, home_page) +
+            content_tag(:li, link_to(options[:current_page_name], "#"))
         end
 
         ul = content_tag(:ul, content)

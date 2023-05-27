@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= plural_resource_name(Aypex::Prototype) %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::Prototype)) %>
 <% end %>
 
 <% content_for :page_actions do %>

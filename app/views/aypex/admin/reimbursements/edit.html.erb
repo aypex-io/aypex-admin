@@ -1,7 +1,7 @@
 <%= render partial: 'aypex/admin/shared/order_tabs', locals: { current: :customer_returns } %>
 
 <% content_for :breadcrumb do %>
-  / <%= I18n.t("aypex.admin.reimbursement") %> #<%= @reimbursement.number %>
+  <%= breadcrumb_builder(current_page_name: I18n.t("aypex.admin.reimbursement") + @reimbursement.number ) %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @reimbursement } %>

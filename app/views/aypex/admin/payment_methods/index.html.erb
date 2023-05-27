@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= plural_resource_name(Aypex::PaymentMethod) %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::PaymentMethod)) %>
 <% end %>
 
 <% content_for :table_filter do %>

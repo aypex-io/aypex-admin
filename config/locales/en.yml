@@ -263,7 +263,7 @@ en:
       first_order: First Order
       fit: Fit To
       footer: Footer
-      for_store: For %{store_name}
+      reports_for_store: Reports For %{store_name}
       free_shipping: Free Shipping
       from: from
       front_end: Storefront
@@ -335,7 +335,6 @@ en:
       link_to_category: Link to Category
       link_to_info: Link to info
       link_to_product: Link to Product
-      list: oAuth applications
       load_more: Load More
       location: Location
       log_entries: Log entries
@@ -377,6 +376,7 @@ en:
       new: New
       new_address: New address
       new_adjustment: New adjustment
+      new_category: New category
       new_country: New country
       new_customer_return: New customer return
       new_image: New image
@@ -442,6 +442,7 @@ en:
       note: Note
       number: Number
       number_cont: Order Number
+      o_auth_applications: oAuth Applications
       one_use_per_user: One Use Per User
       open_all_adjustments: Open all adjustments
       open_link_in_new_window: Open link in new window

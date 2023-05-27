@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= plural_resource_name(Aypex::StoreCreditCategory) %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::StoreCreditCategory)) %>
 <% end %>
 
 <% if @store_credit_categories.any? %>

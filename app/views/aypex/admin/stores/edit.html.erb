@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= @store.name %>
+  <%= breadcrumb_builder(current_page_name: @store.name) %>
 <% end %>
 
 <% content_for :additional_form_buttons do %>

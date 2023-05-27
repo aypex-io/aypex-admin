@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= plural_resource_name(Aypex::OptionType) %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::OptionType)) %>
 <% end %>
 
 <% if @option_types.any? %>

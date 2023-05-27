@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  / <%= I18n.t("aypex.admin.edit_reimbursement") %>
+  <%= breadcrumb_builder(current_page_name: I18n.t("aypex.admin.edit_reimbursement")) %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @customer_return } %>

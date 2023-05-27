@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= I18n.t('aypex.admin.subscribers') %>
+  <%= breadcrumb_builder(current_page_name: I18n.t("aypex.admin.subscribers")) %>
 <% end %>
 
 <% content_for :page_actions do %>

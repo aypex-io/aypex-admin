@@ -1,5 +1,5 @@
 <% content_for :breadcrumb do %>
-  <%= I18n.t("aypex.admin.dashboard") %>
+  <%= breadcrumb_builder(current_page_name: I18n.t('aypex.admin.dashboard')) %>
 <% end %>
 
 <%= render 'getting_started' unless @onboarding_complete %>

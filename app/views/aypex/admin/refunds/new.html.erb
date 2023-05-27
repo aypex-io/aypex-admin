@@ -1,8 +1,9 @@
 <%= render partial: 'aypex/admin/shared/order_tabs', locals: {current: :payments} %>
 
 <% content_for :breadcrumb do %>
-  / <%= link_to "#{I18n.t("aypex.admin.payment")} #{@refund.payment.id}", aypex.admin_order_payment_path(@refund.payment.order, @refund.payment) %>
-  / <%= I18n.t("aypex.admin.new_refund") %>
+  <%= breadcrumb_builder(link_one_uri: aypex.admin_order_payment_path(@refund.payment.order, @refund.payment),
+                         link_one_text: "#{I18n.t("aypex.admin.payment")} #{@refund.payment.id}",
+                         current_page_name: I18n.t("aypex.admin.new_refund") %>
 <% end %>
 
 <%= render 'aypex/admin/shared/error_messages', target: @refund %>
