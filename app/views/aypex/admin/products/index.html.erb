@@ -20,14 +20,14 @@
 <% end %>
 
 <% content_for :index_table_filter_buttons do %>
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
+  <button type="button" class="btn btn-aypex dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
   <ul class="dropdown-menu">
     <li><%= sort_link @search, :name,                         I18n.t("aypex.admin.name"),   class: 'dropdown-item' %></li>
     <li><%= sort_link @search, :master_default_price_amount,  I18n.t("aypex.admin.price"),  class: 'dropdown-item' %></li>
     <li><%= sort_link @search, :status,                       I18n.t("aypex.admin.status"), class: 'dropdown-item', default_order: :asc %></li>
   </ul>
 
-  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_products_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
+  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_products_path(request.query_parameters), class: "btn btn-aypex", data: {turbo_frame: :offcanvas} %>
 <% end %>
 
   <% content_for :index_table do %>
@@ -52,7 +52,7 @@
               </g-th>
 
               <g-th class="dropdown" style="display: none; grid-column: span 6;" data-input--checkbox-state-target="actionPanel">
-                <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="btn btn-sm btn-aypex dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <%= I18n.t('aypex.admin.bulk_actions') %>
                 </a>
                 <div class="dropdown-menu">

@@ -13,7 +13,7 @@
     <% unless @order.completed? %>
       <div>
         <%= form_with model: [:admin, @order], url: aypex.reset_customer_details_admin_order_path(@order), method: :put do |f| %>
-          <%= f.button (aypex_admin_svg_tag "x-lg.svg", size: '16px * 16px'), type: "submit", class: 'btn btn-secondary btn-sm' %>
+          <%= f.button (aypex_admin_svg_tag "x-lg.svg", size: '16px * 16px'), type: "submit", class: 'btn btn-aypex btn-sm' %>
         <% end %>
       </div>
     <% end %>

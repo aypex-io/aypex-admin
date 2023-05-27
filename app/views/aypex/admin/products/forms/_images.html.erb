@@ -6,7 +6,7 @@
       </div>
 
       <div>
-        <%= link_to_with_icon(I18n.t("aypex.admin.new_image"), aypex.new_image_admin_product_path(@product), { class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'new_image_link', data: {turbo_frame: :modal, turbo_method: :post} }) if can? :create, Aypex::Image %>
+        <%= link_to_with_icon(I18n.t("aypex.admin.new_image"), aypex.new_image_admin_product_path(@product), { class: "btn-aypex btn btn-sm", icon: 'plus-square.svg', id: 'new_image_link', data: {turbo_frame: :modal, turbo_method: :post} }) if can? :create, Aypex::Image %>
       </div>
     </div>
 

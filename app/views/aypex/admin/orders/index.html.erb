@@ -16,7 +16,7 @@
 <% end %>
 
 <% content_for :index_table_filter_buttons do %>
-  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_orders_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
+  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_orders_path(request.query_parameters), class: "btn btn-aypex", data: {turbo_frame: :offcanvas} %>
 <% end %>
 
 <% content_for :index_table do %>

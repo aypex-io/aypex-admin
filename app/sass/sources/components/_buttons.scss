@@ -27,7 +27,7 @@
 
 .form-control {
   &:not(:disabled, [readonly])::file-selector-button {
-    @extend .btn-secondary;
+    @extend .btn-aypex;
 
     margin-top: -6px;
     padding-bottom: 0;
@@ -38,7 +38,7 @@
   }
 
   &:hover:not(:disabled, [readonly])::file-selector-button {
-    @extend .btn-secondary;
+    @extend .btn-aypex;
 
     color: var(--bs-btn-hover-color);
     background-color: var(--bs-btn-hover-bg);
@@ -48,7 +48,7 @@
 .with-active-indicator-bar {
   &.at-the-top {
     a {
-      @extend .btn-secondary;
+      @extend .btn-aypex;
 
       border-width: 0;
       border-radius: 0;
@@ -88,7 +88,7 @@
   &.at-the-bottom {
     /* stylelint-disable-next-line no-descending-specificity */
     a {
-      @extend .btn-secondary;
+      @extend .btn-aypex;
 
       border-width: 0;
       border-radius: 0;

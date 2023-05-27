@@ -12,7 +12,7 @@
           <h5 class="card-title"><%= I18n.t('aypex.admin.orders') %></h5>
         </div>
         <div>
-          <%= link_to_with_icon I18n.t("aypex.admin.create_new_order"), aypex.new_admin_order_path(user_id: @user.id), class: "btn btn-sm btn-secondary", icon: 'plus-square.svg' if can?(:create, Aypex::Order) %>
+          <%= link_to_with_icon I18n.t("aypex.admin.create_new_order"), aypex.new_admin_order_path(user_id: @user.id), class: "btn btn-sm btn-aypex", icon: 'plus-square.svg' if can?(:create, Aypex::Order) %>
         </div>
       </div>
       <%= turbo_frame_tag :user_orders, src: aypex.orders_admin_user_path(@user), loading: :lazy %>
@@ -26,7 +26,7 @@
           </h5>
         </div>
         <div>
-          <%= link_to_with_icon(I18n.t("aypex.admin.add_store_credit"), aypex.new_admin_user_store_credit_path(@user), class: "btn btn-sm btn-secondary", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can?(:create, Aypex::StoreCredit) %>
+          <%= link_to_with_icon(I18n.t("aypex.admin.add_store_credit"), aypex.new_admin_user_store_credit_path(@user), class: "btn btn-sm btn-aypex", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can?(:create, Aypex::StoreCredit) %>
         </div>
       </div>
       <%= turbo_frame_tag :user_store_credits_wrapper do %>
@@ -40,7 +40,7 @@
     <apx-card id="customerDetails">
       <apx-header>
         <h5><%= I18n.t('aypex.admin.customer') %></h5>
-        <%= link_to I18n.t('aypex.admin.edit'), aypex.customer_details_admin_user_path(@user), class: "btn btn-sm btn-secondary", data: {turbo_frame: :modal} %>
+        <%= link_to I18n.t('aypex.admin.edit'), aypex.customer_details_admin_user_path(@user), class: "btn btn-sm btn-aypex", data: {turbo_frame: :modal} %>
       </apx-header>
 
       <apx-body>
@@ -70,7 +70,7 @@
 
       <apx-header id="customerAddresses">
         <h5 class="card-title"><%= I18n.t('aypex.admin.addresses') %></h5>
-        <%= link_to I18n.t('aypex.admin.manage'), aypex.addresses_admin_user_path(@user), class: "btn btn-sm btn-secondary" %>
+        <%= link_to I18n.t('aypex.admin.manage'), aypex.addresses_admin_user_path(@user), class: "btn btn-sm btn-aypex" %>
       </apx-header>
 
       <apx-body>

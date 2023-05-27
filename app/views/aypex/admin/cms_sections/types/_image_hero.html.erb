@@ -21,7 +21,7 @@
           </h2>
         </div>
         <div class="px-2">
-          <%= link_to_delete(component, url: aypex.admin_cms_page_cms_section_cms_component_path(component.cms_section.cms_page, component.cms_section, component), class: "btn btn-light btn-sm") if can?(:destroy, component) %>
+          <%= link_to_delete(component, url: aypex.admin_cms_page_cms_section_cms_component_path(component.cms_section.cms_page, component.cms_section, component), class: "btn btn-aypex btn-sm") if can?(:destroy, component) %>
         </div>
       </div>
 

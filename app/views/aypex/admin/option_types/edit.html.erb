@@ -27,7 +27,7 @@
                 <th><%= raw(I18n.t('aypex.admin.name') + required_span_tag) %></th>
                 <th><%= raw(I18n.t('aypex.admin.display') + required_span_tag) %></th>
                 <th class="actions text-end">
-                  <%= link_to_with_icon I18n.t('aypex.admin.add_option_value'), aypex.new_admin_option_type_option_value_path(@option_type), { icon: 'plus-square.svg', class: 'btn btn-sm btn-secondary', data: { turbo_frame: :modal } } %>
+                  <%= link_to_with_icon I18n.t('aypex.admin.add_option_value'), aypex.new_admin_option_type_option_value_path(@option_type), { icon: 'plus-square.svg', class: 'btn btn-sm btn-aypex', data: { turbo_frame: :modal } } %>
                 </th>
               </tr>
             </thead>
@@ -41,7 +41,7 @@
       <% else %>
         <div class="alert alert-info text-center" role="alert">
           <span><%= I18n.t('aypex.admin.this_option_types') %></span><br>
-          <%= link_to_with_icon I18n.t('aypex.admin.add_option_value'), aypex.new_admin_option_type_option_value_path(@option_type), { icon: 'plus-square.svg', class: 'btn btn-sm btn-secondary', data: { turbo_frame: :modal } } %>
+          <%= link_to_with_icon I18n.t('aypex.admin.add_option_value'), aypex.new_admin_option_type_option_value_path(@option_type), { icon: 'plus-square.svg', class: 'btn btn-sm btn-aypex', data: { turbo_frame: :modal } } %>
         </div>
       <% end %>
     </div>

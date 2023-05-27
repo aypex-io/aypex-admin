@@ -10,7 +10,7 @@
         <th><%= I18n.t("aypex.admin.name") %></th>
         <th><%= I18n.t("aypex.admin.status") %></th>
         <th class="actions text-end">
-          <%= link_to_with_icon(new_button_text, new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, resource %>
+          <%= link_to_with_icon(new_button_text, new_object_url, class: "btn-aypex btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, resource %>
         </th>
       </tr>
     </thead>

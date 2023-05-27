@@ -19,7 +19,7 @@
                 <th><%= I18n.t("aypex.admin.options") %></th>
                 <th><%= I18n.t("aypex.admin.kind") %></th>
                 <th class="actions text-end">
-                  <%= link_to_with_icon(I18n.t("aypex.admin.new_variant"), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if !@product.empty_option_values? and can? :create, Aypex::Variant %>
+                  <%= link_to_with_icon(I18n.t("aypex.admin.new_variant"), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-aypex btn btn-sm', data: {turbo_frame: :_top}}) if !@product.empty_option_values? and can? :create, Aypex::Variant %>
                 </th>
               </tr>
             </thead>
@@ -63,7 +63,7 @@
           <% if @product.empty_option_values? %>
             <%= I18n.t('aypex.admin.add_option_types_to_this_product_to_begin_creating_variants') %>
           <% else %>
-            <%= link_to_with_icon(I18n.t('aypex.admin.create_your_first_variant_for_this_product'), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: {turbo_frame: :_top}}) if can? :create, Aypex::Variant %>
+            <%= link_to_with_icon(I18n.t('aypex.admin.create_your_first_variant_for_this_product'), aypex.new_admin_product_variant_url(@product), { icon: 'plus-square.svg', class: 'btn-aypex btn btn-sm', data: {turbo_frame: :_top}}) if can? :create, Aypex::Variant %>
           <% end %>
         </div>
       <% end %>

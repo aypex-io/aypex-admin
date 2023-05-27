@@ -1,7 +1,7 @@
 <apx-card>
   <apx-header>
     <h5><%= I18n.t('aypex.admin.states') %></h5>
-    <%= link_to I18n.t('aypex.admin.add_new_state'), aypex.new_admin_country_state_path(@country), class: 'btn btn-sm btn-secondary', data: { turbo_frame: :modal } %>
+    <%= link_to I18n.t('aypex.admin.add_new_state'), aypex.new_admin_country_state_path(@country), class: 'btn btn-sm btn-aypex', data: { turbo_frame: :modal } %>
   </apx-header>
   <g-responsive>
     <g-table>

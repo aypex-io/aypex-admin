@@ -115,7 +115,7 @@ module Aypex
 
         options[:no_text] ||= true
         options[:icon] = "pen.svg"
-        options[:class] ||= "btn btn-light btn-sm icon-edit"
+        options[:class] ||= "btn btn-aypex btn-sm icon-edit"
 
         link_to_with_icon(name, url, options.except(:url))
       end
@@ -125,7 +125,7 @@ module Aypex
         name = options[:name] || I18n.t("aypex.admin.clone")
 
         options[:no_text] ||= true
-        options[:class] ||= "btn btn-secondary btn-sm icon-clone"
+        options[:class] ||= "btn btn-aypex btn-sm icon-clone"
         options[:icon] = "clone.svg"
         options[:data] = {turbo_method: :post, turbo_confirm: I18n.t("aypex.admin.are_you_sure_you_want_to", action: name, resource: aypex_humanize_type(resource.class.name))}
 

@@ -7,8 +7,8 @@
         </div>
         <div>
           <% if can? :create, Aypex::ProductProperty %>
-            <%= link_to_with_icon(I18n.t('aypex.admin.select_from_prototype'), aypex.prototypes_admin_product_product_properties_path(@product), icon: 'list.svg', class: 'btn btn-secondary btn-sm', data: { turbo_frame: :modal}) if Aypex::Prototype.any? %>
-            <%= link_to_with_icon I18n.t('aypex.admin.add_new_property'), aypex.new_admin_product_product_property_path(@product), icon: 'plus-square.svg', class: 'btn btn-secondary btn-sm', data: { turbo_frame: :modal } %>
+            <%= link_to_with_icon(I18n.t('aypex.admin.select_from_prototype'), aypex.prototypes_admin_product_product_properties_path(@product), icon: 'list.svg', class: 'btn btn-aypex btn-sm', data: { turbo_frame: :modal}) if Aypex::Prototype.any? %>
+            <%= link_to_with_icon I18n.t('aypex.admin.add_new_property'), aypex.new_admin_product_product_property_path(@product), icon: 'plus-square.svg', class: 'btn btn-aypex btn-sm', data: { turbo_frame: :modal } %>
           <% end %>
         </div>
       </div>

@@ -13,7 +13,7 @@
                                                                       action: 'change->form-validation#validate' } %>
         <%= f.label :currency, currency_label_text %>
       <% end %>
-      <%= f.submit I18n.t('aypex.admin.set_order_currency'), class: 'btn btn-secondary', data: { form_validation_target: "submitBtn" } %>
+      <%= f.submit I18n.t('aypex.admin.set_order_currency'), class: 'btn btn-aypex', data: { form_validation_target: "submitBtn" } %>
     <% end %>
   </apx-body>
 </apx-card>

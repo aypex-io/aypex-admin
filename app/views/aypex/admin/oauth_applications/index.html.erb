@@ -10,7 +10,7 @@
           <th><%= I18n.t("aypex.admin.name") %></th>
           <th><%= I18n.t('aypex.admin.client_id') %></th>
           <th><%= I18n.t('aypex.admin.scope') %></th>
-          <th class="actions text-end"> <%= link_to_with_icon(I18n.t('aypex.admin.new_oauth_application'), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_role_link') if can? :create, Aypex::OauthApplication %></th>
+          <th class="actions text-end"> <%= link_to_with_icon(I18n.t('aypex.admin.new_oauth_application'), new_object_url, class: "btn-aypex btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_role_link') if can? :create, Aypex::OauthApplication %></th>
         </tr>
       </thead>
       <tbody>
