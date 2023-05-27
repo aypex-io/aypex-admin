@@ -5,6 +5,26 @@
   }
 }
 
+.btn-aypex {
+  // Standard
+  --bs-btn-color: var(--bs-secondary-color);
+  --bs-btn-bg: var(--bs-tertiary-bg);
+  --bs-btn-border-color: var(--bs-tertiary-bg);
+
+  // Hover
+  --bs-btn-hover-color: var(--bs-secondary-color);
+  --bs-btn-hover-bg: var(--bs-secondary-bg);
+  --bs-btn-hover-border-color: var(--bs-secondary-bg);
+
+  // Focus
+  --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+
+  // Active
+  --bs-btn-active-color: var(--bs-body-color);
+  --bs-btn-active-bg: var(--bs-secondary-bg);
+  --bs-btn-active-border-color: var(--bs-secondary-bg);
+}
+
 .form-control {
   &:not(:disabled, [readonly])::file-selector-button {
     @extend .btn-secondary;
