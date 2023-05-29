@@ -36490,6 +36490,17 @@
       }
     }
   }
+  class iFrameController extends Controller$1 {
+    connect() {
+      this.element.style["background-color"];
+      const iframe = this.element.contentWindow;
+      console.log(this.element.style.backgroundColor);
+      iframe.addEventListener("load", (function() {
+        const innerHtml = iframe.document.querySelector("html");
+        innerHtml.style.backgroundColor = "transparent";
+      }));
+    }
+  }
   class h extends Controller$1 {
     initialize() {
       this.toggle = this.toggle.bind(this), this.refresh = this.refresh.bind(this);
@@ -43392,6 +43403,7 @@
   Stimulus.register("form-validation", FormValidationController);
   Stimulus.register("form--autosave", FormAutoSaveController);
   Stimulus.register("form--reset", FormResetController);
+  Stimulus.register("iframe", iFrameController);
   Stimulus.register("input--checkbox-state", InputCheckboxState);
   Stimulus.register("input-disable", InputDisableController);
   Stimulus.register("input-formatting", InputFormattingController);

@@ -25,6 +25,26 @@
   --bs-btn-active-border-color: var(--bs-secondary-bg);
 }
 
+.btn-aypex-cta {
+  // Standard
+  --bs-btn-color: var(--bs-primary-text-emphasis);
+  --bs-btn-bg: var(--bs-primary-bg-subtle);
+  --bs-btn-border-color: var(--bs-tertiary-bg);
+
+  // Hover
+  --bs-btn-hover-color: var(--bs-secondary-color);
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-hover-border-color: var(--bs-secondary-bg);
+
+  // Focus
+  --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+
+  // Active
+  --bs-btn-active-color: var(--bs-body-color);
+  --bs-btn-active-bg: var(--bs-secondary-bg);
+  --bs-btn-active-border-color: var(--bs-secondary-bg);
+}
+
 .form-control {
   &:not(:disabled, [readonly])::file-selector-button {
     @extend .btn-aypex;

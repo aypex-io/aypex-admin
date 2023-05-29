@@ -13,6 +13,7 @@ import FormAutoSaveController from './form/autosave_controller'
 import FormStateController from './form_state_controller'
 import FormValidationController from './form_validation_controller'
 import FormResetController from './form/reset_controller'
+import iFrameController from './iframe_controller'
 import InputCheckboxState from './input/checkbox_state_controller'
 import InputDisableController from './input_disable_controller'
 import InputFormatDecimalController from './input/format_decimal_controller'
@@ -45,6 +46,7 @@ Stimulus.register('form-state', FormStateController)
 Stimulus.register('form-validation', FormValidationController)
 Stimulus.register('form--autosave', FormAutoSaveController)
 Stimulus.register('form--reset', FormResetController)
+Stimulus.register('iframe', iFrameController)
 Stimulus.register('input--checkbox-state', InputCheckboxState)
 Stimulus.register('input-disable', InputDisableController)
 Stimulus.register('input-formatting', InputFormattingController)

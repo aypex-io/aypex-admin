@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :sections do %>
+<%= turbo_frame_tag :cms_sections_manager do %>
   <div id="page-live-edit-header" class="position-absolute top-0 bg-body border-bottom border-end" style="z-index: 1041; height: 60px; width: calc(25%);">
     <div class="d-grid gap-2 p-2">
       <%= link_to(I18n.t('aypex.admin.cancel'), aypex.edit_admin_cms_page_path(@cms_page), { data: { turbo_frame: :_top }, class: 'btn btn-aypex w-100' }) %>

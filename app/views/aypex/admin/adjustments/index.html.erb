@@ -15,7 +15,7 @@
 <% end %>
 
 <% if @order.can_add_coupon? %>
-  <div class="card bg-light mb-3" data-hook="adjustments_new_coupon_code">
+  <div class="card bg-body-tertiary mb-3" data-hook="adjustments_new_coupon_code">
     <div class="card-body">
       <div class="form-group">
         <%= text_field_tag "coupon_code", "", placeholder: I18n.t("aypex.admin.coupon_code"), class: "form-control", autocomplete: false %>

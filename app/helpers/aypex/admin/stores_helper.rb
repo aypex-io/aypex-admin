@@ -15,7 +15,7 @@ module Aypex
 
       def store_switcher_link(store)
         if current_store.id == store.id
-          classes = "disabled bg-light"
+          classes = "disabled bg-body-tertiary"
           icon = aypex_admin_svg_tag "circle-fill.svg", size: "18px * 18px"
         else
           classes = nil

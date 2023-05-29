@@ -51,8 +51,9 @@ button#cms-section-editor-full-screen {
   height: 100%;
 }
 
-#draggable-sections-holder {
-  max-height: calc(100vh - 120px);
+/* stylelint-disable-next-line selector-id-pattern */
+#cms_sections_manager {
+  max-height: calc(100vh - 60px);
   overflow-y: scroll;
 }
 
@@ -109,25 +110,3 @@ button#cms-section-editor-full-screen {
   width: 100%;
   height: 100%;
 }
-
-// .tablet-live-view {
-//   #page-live-preview {
-//     width: 85%;
-//     height: 133.5%;
-//     inset: 50%;
-//     // transform: scale(0.75) translate(-50%, -50%);
-//     max-width: 991px;
-//     min-width: 768px;
-//   }
-// }
-
-// .mobile-live-view {
-//   #page-live-preview {
-//     width: 60%;
-//     height: 133.5%;
-//     inset: 50%;
-//     transform: scale(0.75) translate(-50%, -50%);
-//     max-width: 767px;
-//     min-width: 375px;
-//   }
-// }

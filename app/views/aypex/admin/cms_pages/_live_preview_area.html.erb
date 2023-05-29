@@ -1,42 +1,40 @@
 <div class="row h-100">
   <div id="page-sections-area" class="col-12 p-0" >
     <div class="row g-0 h-100">
-      <div id="draggable-sections-holder" class="col-12 col-md-3 h-100 bg-body border-end" style="margin-top:59px">
-        <%= turbo_frame_tag :sections do %>
-          <div id="page-live-edit-header" class="position-absolute top-0 bg-body border-bottom border-end" style="z-index: 1041; height: 60px; width: calc(25%);">
-            <div class="d-grid gap-2 p-2">
-              <%= link_to_with_icon(I18n.t('aypex.admin.add_new_section'),
-                    aypex.new_admin_cms_page_cms_section_path(@cms_page),
-                    icon: 'plus-square.svg',
-                    class: 'btn btn-aypex',
-                    data: {turbo_frame: :sections} ) %>
-            </div>
+      <%= turbo_frame_tag :cms_sections_manager, class: "col-12 col-md-3 col-lg-2 h-100 bg-body border-end" do %>
+        <div id="page-live-edit-header" class="position-sticky top-0 bg-body border-bottom">
+          <div class="d-grid gap-2 p-2">
+            <%= link_to_with_icon(I18n.t('aypex.admin.add_new_section'),
+                  aypex.new_admin_cms_page_cms_section_path(@cms_page),
+                  icon: 'plus-square.svg',
+                  class: 'btn btn-aypex' ) %>
           </div>
+        </div>
 
-          <% if @cms_page.cms_sections.any? %>
-            <div id="cms-page-sections-area"
-                 class="card-body row m-0 g-0"
-                 data-controller="sortable"
-                 data-sortable-resource-name-value="cms_section"
-                 data-sortable-response-kind-value="turbo-stream">
-              <% @cms_page.cms_sections.each do |section| %>
-                <%= render 'aypex/admin/cms_pages/section_template', section: section %>
-              <% end %>
-            </div>
-          <% else %>
-            <div class="row">
-              <div class="col-12">
-                <div class="text-center no-objects-found m-5 m-4">
-                  <%= raw I18n.t('aypex.admin.no_sections_found_please_add_one') %>
-                </div>
+        <% if @cms_page.cms_sections.any? %>
+          <div id="cms-page-sections-area"
+               class="row m-0 g-0"
+               data-controller="sortable"
+               data-sortable-resource-name-value="cms_section"
+               data-sortable-response-kind-value="turbo-stream">
+            <% @cms_page.cms_sections.each do |section| %>
+              <%= render 'aypex/admin/cms_pages/section_template', section: section %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="row">
+            <div class="col-12">
+              <div class="text-center no-objects-found m-5 m-4">
+                <%= raw I18n.t('aypex.admin.no_sections_found_please_add_one') %>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
-      </div>
+      <% end %>
+
 
       <div class="d-none d-md-block col bg-secondary overflow-hidden h-100">
-        <div id="live-view-content" class="desktop-live-view p-3 bg-light">
+        <div id="live-view-content" class="desktop-live-view p-3 bg-body-tertiary">
           <%= render 'aypex/admin/shared/iframe', resource: @object %>
         </div>
       </div>
