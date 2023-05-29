@@ -23,7 +23,7 @@
     <% end %>
   </head>
 
-  <body class="admin bg-body-tertiary" id="aypexAdmin">
+  <body class="admin bg-body" id="aypexAdmin">
     <%= turbo_frame_tag :inner_main_content, target: :_top, data: {turbo_action: "advance"} do %>
       <%#-------------------------------------------------%>
       <%# Main content                                    %>
@@ -35,11 +35,11 @@
           <%#-------------------------------------------------%>
           <%= render partial: 'aypex/admin/shared/menu' %>
 
-          <main class="ps-0 me-0 col-12 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2">
+          <main class="px-0 me-0 col-12 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2">
             <%#-------------------------------------------------%>
             <%# Content Header                                  %>
             <%#-------------------------------------------------%>
-            <div id="content-header" class="d-flex p-0 m-0 top-0 position-fixed align-items-center bg-body">
+            <div id="content-header" class="d-flex p-0 m-0 top-0 position-sticky align-items-center bg-body">
               <div class="container-fluid">
                 <%= render partial: 'aypex/admin/shared/content_header' %>
               </div>
@@ -48,7 +48,7 @@
             <%#-------------------------------------------------%>
             <%# Main Content Area                               %>
             <%#-------------------------------------------------%>
-            <div class="container mb-5" style="margin-top: 75px">
+            <div class="container mb-5 mt-2">
               <%= yield %>
             </div>
           </main>

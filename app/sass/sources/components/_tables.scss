@@ -7,7 +7,34 @@ table {
     &:last-child {
       margin-bottom: 0;
     }
+
+    > tbody > tr:last-child {
+      border-color: transparent;
+    }
   }
+}
+
+g-table {
+  --gridtable-color: #{$table-color};
+  --gridtable-bg: #{$table-bg};
+  --gridtable-border-color: #{$table-border-color};
+  --gridtable-accent-bg: #{$table-accent-bg};
+  --gridtable-active-color: #{$table-active-color};
+  --gridtable-active-bg: #{$table-active-bg};
+  --gridtable-hover-color: #{$table-hover-color};
+  --gridtable-hover-bg: #{$table-hover-bg};
+  --gridtable-cell-padding-x: #{$table-cell-padding-x};
+  --gridtable-cell-padding-y: #{$table-cell-padding-y};
+
+  overflow: hidden;
+
+  g-tr > a {
+    text-decoration: none;
+  }
+}
+
+g-thead {
+  @extend .text-body-secondary;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -30,8 +57,4 @@ table {
       color: var(--bs-white)
     }
   }
-}
-
-g-table {
-  overflow: hidden;
 }

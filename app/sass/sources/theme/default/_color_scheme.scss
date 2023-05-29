@@ -283,19 +283,13 @@
   --bs-link-color: rgb(var(--bs-primary-rgb));
   --bs-link-hover-color: rgb(var(--bs-primary-rgb) .85);
 
-  // Input
-  --bs-input-color-rgb: var(--bs-body-color-rgb);
-  --bs-input-bg-rgb: var(--bs-white-rgb);
-  --bs-input-border-rgb: var(--bs-secondary-rgb);
-  --bs-input-focus-border-rgb: var(--bs-primary-rgb);
-
 
   //////////////////////////////////
   // SPREE ADMIN UI COLOR MAPPING //
   //////////////////////////////////
 
   // Logo
-  --sa-logo: rgb(var(--bs-brand-rgb));
+  --sa-logo: rgb(var(--bs-primary-rgb));
 
   // Top Nav Bar
   --sa-navbar-bg: rgb(var(--bs-body-bg-rgb));

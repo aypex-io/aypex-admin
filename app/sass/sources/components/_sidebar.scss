@@ -32,7 +32,7 @@ aside#main-sidebar {
         /* stylelint-disable-next-line no-descending-specificity */
         .drop-menu-indicator {
           color: var(--bs-tertiary-color);
-          right: 1rem;
+          right: 0;
         }
 
         &[aria-expanded='true'] {
@@ -52,7 +52,7 @@ aside#main-sidebar {
 
       &.selected {
         > a {
-          background-color: var(--bs-primary-bg-subtle);
+          background-color: var(--bs-secondary-bg);
           color: var(--bs-primary-text-emphasis);
         }
       }

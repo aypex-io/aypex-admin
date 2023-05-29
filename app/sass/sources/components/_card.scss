@@ -1,3 +1,46 @@
+.card {
+  --bs-card-bg: var(--bs-tertiary-bg);
+  --bs-card-spacer-x: 0.75rem;
+  --bs-card-border-width: 0;
+
+  margin-bottom: 1rem !important;
+  box-shadow: 0 ;
+
+  &-body {
+    padding-top: .5rem;
+  }
+
+  &-footer {
+    background-color: inherit;
+    border-top: none;
+  }
+
+  &-header {
+    --bs-card-cap-padding-x: var(--bs-card-spacer-x);
+
+    background-color: inherit;
+    border-bottom: none;
+    min-height: 47px;
+  }
+
+  &-title {
+    margin-bottom: 0;
+    position: relative;
+    display: inline-block;
+    padding-left: 16px;
+
+    &::before {
+      background-color: var(--bs-primary);
+      content: "";
+      height: 100%;
+      width: 6px;
+      position: absolute;
+      border-radius: 3px;
+      left: 0;
+    }
+  }
+}
+
 apx-card {
   display: block;
   @extend .card;

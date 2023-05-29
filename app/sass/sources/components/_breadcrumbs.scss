@@ -7,7 +7,7 @@
   --crumbs-hover-bg: var(--bs-secondary-bg);
   --crumbs-active-color: var(--bs-secondary-color);
   --crumbs-active-bg: var(--bs-secondary-bg);
-  --crumbs-border-radius: calc(var(--crumbs-size) / 4);
+  --crumbs-border-radius: var(--bs-border-radius);
 
   height: calc(var(--crumbs-size) * 2);
 
