@@ -68,7 +68,7 @@ module Aypex
         link = if options[:icon]
           link_to_with_icon(titleized_label, destination_url, {class: "w-100 px-3 py-2 d-flex align-items-center", icon: options[:icon], icon_class: "me-2"})
         else
-          link_to(titleized_label, destination_url, {class: "sidebar-submenu-item w-100 py-2 py-md-1 d-block ps-3 ms-4"})
+          link_to(titleized_label, destination_url, {class: "sidebar-submenu-item w-100 py-2 py-md-1 d-block ps-3 rounded"})
         end
 
         css_classes << "selected" if selected
@@ -83,7 +83,7 @@ module Aypex
         link_to url, data: {bs_toggle: "collapse"}, class: "d-flex w-100 px-3 py-2 position-relative align-items-center" do
           aypex_admin_svg_tag(icon, class: "me-2", size: "#{MENU_ICON_SIZE}px * #{MENU_ICON_SIZE}px") +
             content_tag(:span, raw(" #{text}")) +
-            aypex_admin_svg_tag("chevron-right.svg", class: "drop-menu-indicator position-absolute", size: "#{MENU_ICON_SIZE - 8}px * #{MENU_ICON_SIZE - 8}")
+            aypex_admin_svg_tag("chevron-up.svg", class: "drop-menu-indicator position-absolute", size: "#{MENU_ICON_SIZE}px * #{MENU_ICON_SIZE}")
         end
       end
 

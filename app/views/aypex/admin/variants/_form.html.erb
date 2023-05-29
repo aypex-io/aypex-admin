@@ -24,9 +24,9 @@
         <%= f.label :price, I18n.t("aypex.admin.price") %>
       <% end %>
 
-      <%= f.field_container :compare_at_price do %>
-        <%= f.text_field :compare_at_price, value: number_to_currency(@variant.compare_at_price, unit: '') %>
-        <%= f.label :compare_at_price, I18n.t("aypex.admin.compare_at_price") %>
+      <%= f.field_container :compared_price do %>
+        <%= f.text_field :compared_price, value: number_to_currency(@variant.compared_price, unit: '') %>
+        <%= f.label :compared_price, I18n.t("aypex.admin.compared_price") %>
       <% end %>
 
       <%= f.field_container :cost_price do %>

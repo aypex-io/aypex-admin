@@ -54,19 +54,19 @@
   <div id="carousel-main-navigation" class="carousel slide overflow-scroll" data-bs-ride="false">
     <div class="carousel-inner">
       <div class="carousel-item <%= "active" if settings_menu_active? %>">
-        <nav class="pb-3 pt-lg-3 px-1">
+        <nav class="pb-3 pt-lg-3 pe-3">
           <%= render partial: 'aypex/admin/shared/main_menu/settings_nav' %>
         </nav>
       </div>
       <% if try_aypex_current_user %>
         <div class="carousel-item <%= "active" if accounts_menu_active? %>">
-          <nav class="pb-3 pt-lg-3 px-1">
+          <nav class="pb-3 pt-lg-3 pe-3">
             <%= render partial: 'aypex/admin/shared/main_menu/account_nav' %>
           </nav>
         </div>
       <% end %>
       <div class="carousel-item <%= "active" if main_menu_active? %>">
-        <nav class="pb-3 pt-lg-3 px-1">
+        <nav class="pb-3 pt-lg-3 pe-3">
           <%= render partial: 'aypex/admin/shared/main_menu/main_nav' %>
         </nav>
       </div>
