@@ -2,14 +2,15 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   connect () {
-    const color = this.element.style['background-color']
-    const iframe = this.element.contentWindow
+    const iFrame = this.element
+    const iFrameContent = iFrame.contentWindow
 
-    console.log(this.element.style.backgroundColor)
+    iFrameContent.addEventListener('load', function () {
+      const innerHtmlHeight = iFrameContent.document.querySelector('body').clientHeight
 
-    iframe.addEventListener('load', function () {
-      const innerHtml = iframe.document.querySelector('html')
-      innerHtml.style.backgroundColor = 'transparent'
+      console.log(innerHtmlHeight)
+      console.log(iFrame)
+      // iFrame.style.height = `${innerHtmlHeight}px`
     })
   }
 }

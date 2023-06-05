@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :opts do %>
-  <% @promotion_rule.preferred_eligible_values.each_with_index do |(key, values), index| %>
+  <% @promotion_rule.eligible_values.each_with_index do |(key, values), index| %>
     <% product = @products.find { |product| product.id.to_s == key.to_s } %>
     <apx-card id="opv_card_<%= index %>" data-controller='dom' data-dom-target='element' class="animate__animated animate__faster">
       <apx-header>
@@ -36,7 +36,7 @@
               <%= fields_for :promotion, @promotion do |f|%>
                 <%= f.fields_for :promotion_rules, @promotion_rule do |pr|%>
                   <div id="opv_<%= dom_id(@promotion_rule) %>_<%= index %>" class="form-floating">
-                    <%= pr.collection_select("preferred_eligible_values[#{product.id if product}]", product.all_option_values, :id, :presentation, {selected: values.flatten, include_hidden: true}, { multiple: true, disabled: product.all_option_values.empty?, class: 'form-select', data: { controller: 'ts--select' } }) %>
+                    <%= pr.collection_select("eligible_values[#{product.id if product}]", product.all_option_values, :id, :presentation, {selected: values.flatten, include_hidden: true}, { multiple: true, disabled: product.all_option_values.empty?, class: 'form-select', data: { controller: 'ts--select' } }) %>
                     <%= label_tag 'options', I18n.t('aypex.admin.options') %>
                   </div>
                 <% end %>

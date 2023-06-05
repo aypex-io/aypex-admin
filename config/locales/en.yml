@@ -496,7 +496,7 @@ en:
       pre_tax_amount: Pre tax amount
       pre_tax_refund_amount: Pre tax refund amount
       pre_tax_total: Pre tax total
-      preferred_reimbursement_type: Preferred reimbursement type
+      reimbursement_type: Preferred reimbursement type
       presentation: Presentation
       preview_name: Preview %{name}
       previous_state_missing: Previous state missing

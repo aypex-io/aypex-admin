@@ -27463,7 +27463,7 @@ var Popper = Object.freeze({
 });
 
 /*!
-  * Bootstrap v5.3.0-alpha3 (https://getbootstrap.com/)
+  * Bootstrap v5.3.0 (https://getbootstrap.com/)
   * Copyright 2011-2023 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ const elementMap = new Map;
@@ -28006,7 +28006,7 @@ class Config {
   }
 }
 
-const VERSION = "5.3.0-alpha2";
+const VERSION = "5.3.0";
 
 class BaseComponent extends Config {
   constructor(element, config) {
@@ -30036,23 +30036,6 @@ enableDismissTrigger(Offcanvas);
 
 defineJQueryPlugin(Offcanvas);
 
-const uriAttributes = new Set([ "background", "cite", "href", "itemtype", "longdesc", "poster", "src", "xlink:href" ]);
-
-const SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file|sms):|[^#&/:?]*(?:[#/?]|$))/i;
-
-const DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[\d+/a-z]+=*$/i;
-
-const allowedAttribute = (attribute, allowedAttributeList) => {
-  const attributeName = attribute.nodeName.toLowerCase();
-  if (allowedAttributeList.includes(attributeName)) {
-    if (uriAttributes.has(attributeName)) {
-      return Boolean(SAFE_URL_PATTERN.test(attribute.nodeValue) || DATA_URL_PATTERN.test(attribute.nodeValue));
-    }
-    return true;
-  }
-  return allowedAttributeList.filter((attributeRegex => attributeRegex instanceof RegExp)).some((regex => regex.test(attributeName)));
-};
-
 const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
 
 const DefaultAllowlist = {
@@ -30086,6 +30069,21 @@ const DefaultAllowlist = {
   strong: [],
   u: [],
   ul: []
+};
+
+const uriAttributes = new Set([ "background", "cite", "href", "itemtype", "longdesc", "poster", "src", "xlink:href" ]);
+
+const SAFE_URL_PATTERN = /^(?!javascript:)(?:[a-z0-9+.-]+:|[^&:/?#]*(?:[/?#]|$))/i;
+
+const allowedAttribute = (attribute, allowedAttributeList) => {
+  const attributeName = attribute.nodeName.toLowerCase();
+  if (allowedAttributeList.includes(attributeName)) {
+    if (uriAttributes.has(attributeName)) {
+      return Boolean(SAFE_URL_PATTERN.test(attribute.nodeValue));
+    }
+    return true;
+  }
+  return allowedAttributeList.filter((attributeRegex => attributeRegex instanceof RegExp)).some((regex => regex.test(attributeName)));
 };
 
 function sanitizeHtml(unsafeHtml, allowList, sanitizeFunction) {
@@ -30930,9 +30928,9 @@ class ScrollSpy extends BaseComponent {
       if (!anchor.hash || isDisabled(anchor)) {
         continue;
       }
-      const observableSection = SelectorEngine.findOne(anchor.hash, this._element);
+      const observableSection = SelectorEngine.findOne(decodeURI(anchor.hash), this._element);
       if (isVisible(observableSection)) {
-        this._targetLinks.set(anchor.hash, anchor);
+        this._targetLinks.set(decodeURI(anchor.hash), anchor);
         this._observableSections.set(anchor.hash, observableSection);
       }
     }
@@ -38502,12 +38500,12 @@ class FormResetController extends Controller$1 {
 
 class iFrameController extends Controller$1 {
   connect() {
-    this.element.style["background-color"];
-    const iframe = this.element.contentWindow;
-    console.log(this.element.style.backgroundColor);
-    iframe.addEventListener("load", (function() {
-      const innerHtml = iframe.document.querySelector("html");
-      innerHtml.style.backgroundColor = "transparent";
+    const iFrame = this.element;
+    const iFrameContent = iFrame.contentWindow;
+    iFrameContent.addEventListener("load", (function() {
+      const innerHtmlHeight = iFrameContent.document.querySelector("body").clientHeight;
+      console.log(innerHtmlHeight);
+      console.log(iFrame);
     }));
   }
 }

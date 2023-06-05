@@ -1,13 +1,7 @@
 <%= turbo_frame_tag :product_variants do %>
   <%= form_with model: [:admin, @product], method: :patch, data: {controller: "form-state", turbo_frame: :product_variants} do |f| %>
     <div class="card">
-      <div class="card-header d-flex">
-        <div class="flex-fill">
-          <h5><%= I18n.t('aypex.admin.variants') %></h5>
-        </div>
-        <div>
-        </div>
-      </div>
+      <%= render 'aypex/admin/shared/card_header', title: I18n.t('aypex.admin.variants') %>
 
       <% if @product.has_variants? %>
         <div class="table-responsive">
@@ -89,8 +83,6 @@
             <div class="alert alert-info"><%= I18n.t("aypex.admin.no_resource_found", resource: :option_types) %></div>
           <% end %>
         <% end %>
-
-        <%= render partial: 'aypex/admin/shared/resource_actions' %>
       </div>
     </div>
   <% end %>

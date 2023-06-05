@@ -5,6 +5,25 @@
   }
 }
 
+.btn-aypex-header[disabled] {
+  width: 5px;
+  transition: width 2s;
+  color: var(--bs-secondary-bg);
+  background: var(--bs-secondary-bg);
+  opacity: 1;
+  height: 30px;
+  padding-right: 0;
+  padding-left: .2em;
+  padding-top: 0;
+  padding-bottom: 1em;
+  overflow: hidden;
+  border-color: var(--bs-secondary-bg);
+}
+
+.btn-aypex-header {
+  @extend .btn-primary;
+}
+
 .btn-aypex {
   // Standard
   --bs-btn-color: var(--bs-secondary-color);
@@ -26,6 +45,8 @@
 }
 
 .btn-aypex-cta {
+  width: auto;
+  transition: width 2s;
   // Standard
   --bs-btn-color: var(--bs-primary-text-emphasis);
   --bs-btn-bg: var(--bs-primary-bg-subtle);

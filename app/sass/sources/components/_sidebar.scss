@@ -53,7 +53,7 @@ aside#main-sidebar {
       &.selected {
         > a {
           background-color: var(--bs-secondary-bg);
-          color: var(--bs-primary-text-emphasis);
+          color: var(--bs-primary);
         }
       }
     }

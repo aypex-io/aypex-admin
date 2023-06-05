@@ -13,7 +13,7 @@
       <thead class="text-body-secondary">
         <tr>
           <th><%= I18n.t("aypex.admin.product") %></th>
-          <th><%= I18n.t("aypex.admin.preferred_reimbursement_type") %></th>
+          <th><%= I18n.t("aypex.admin.reimbursement_type") %></th>
           <th><%= I18n.t("aypex.admin.reimbursement_type_override") %></th>
           <th><%= I18n.t("aypex.admin.exchange_for") %></th>
           <th><%= I18n.t("aypex.admin.pre_tax_amount") %></th>
@@ -30,7 +30,7 @@
               <div class="variant-options"><%= return_item.inventory_unit.variant.options_text %></div>
             </td>
             <td>
-              <%= reimbursement_type_name(return_item.preferred_reimbursement_type) %>
+              <%= reimbursement_type_name(return_item.reimbursement_type) %>
             </td>
             <td>
               <%= reimbursement_type_name(return_item.override_reimbursement_type) %>

@@ -1,8 +1,8 @@
 <div class="row h-100">
   <div id="page-sections-area" class="col-12 p-0" >
     <div class="row g-0 h-100">
-      <%= turbo_frame_tag :cms_sections_manager, class: "col-12 col-md-3 col-lg-2 h-100 bg-body border-end" do %>
-        <div id="page-live-edit-header" class="position-sticky top-0 bg-body border-bottom">
+      <%= turbo_frame_tag :cms_sections_manager, class: "col-12 col-md-3 col-lg-2 h-100 bg-body" do %>
+        <div id="page-live-edit-header" class="position-sticky top-0 bg-body">
           <div class="d-grid gap-2 p-2">
             <%= link_to_with_icon(I18n.t('aypex.admin.add_new_section'),
                   aypex.new_admin_cms_page_cms_section_path(@cms_page),
@@ -34,7 +34,7 @@
 
 
       <div class="d-none d-md-block col bg-secondary overflow-hidden h-100">
-        <div id="live-view-content" class="desktop-live-view p-3 bg-body-tertiary">
+        <div id="live-view-content" class="desktop-live-view bg-body">
           <%= render 'aypex/admin/shared/iframe', resource: @object %>
         </div>
       </div>

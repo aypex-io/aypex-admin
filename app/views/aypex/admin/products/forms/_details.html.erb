@@ -1,14 +1,8 @@
 <%= turbo_frame_tag :product_details do %>
   <%= form_with model: [:admin, @product], data: { controller: "form-state", turbo_frame: :product_details } do |f| %>
     <div class="card">
-      <div class="card-header d-flex">
-        <div class="flex-fill">
-          <h5 class="card-title"><%= I18n.t('aypex.admin.details') %></h5>
-        </div>
+      <%= render 'aypex/admin/shared/card_header', title: I18n.t('aypex.admin.details') %>
 
-        <div>
-        </div>
-      </div>
       <div class="card-body">
         <%= f.field_container :name do %>
           <%= f.text_field :name, required: true %>
@@ -21,18 +15,17 @@
         <% end %>
 
         <% if product_wysiwyg_editor_enabled? %>
-          <%= f.field_container :description, data: {controller: "tiptap--editor"} do %>
-            <%= render partial: 'aypex/admin/shared/editor_buttons' %>
-            <%= f.text_field :description, { class: 'd-none', data: { tiptap__editor_target: "input", form_state_target: "watch" }} %>
-          <% end %>
+          <%= f.hidden_field :content, id: f.field_id(:content), value: f.object.content.try(:to_trix_html) || f.object.content %>
+          <rhino-editor input="<%= f.field_id(:content) %>"
+                        data-blob-url-template="<%= Rails.application.routes.url_helpers.rails_service_blob_url(":signed_id", ":filename", only_path: true) %>"
+                        data-direct-upload-url="<%= Rails.application.routes.url_helpers.rails_direct_uploads_url only_path: true %>">
+          </rhino-editor>
         <% else %>
           <%= f.field_container :description do %>
             <%= f.label :description, I18n.t("aypex.admin.description") %>
             <%= f.text_area :description, {rows: 15, form_state_target: "watch" } %>
           <% end %>
         <% end %>
-
-        <%= render partial: 'aypex/admin/shared/resource_actions' %>
       </div>
     </div>
   <% end %>

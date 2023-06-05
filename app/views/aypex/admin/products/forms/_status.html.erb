@@ -1,13 +1,8 @@
 <%= turbo_frame_tag :product_status do %>
   <%= form_with model: [:admin, @product], method: :patch, data: {controller: "form-state", turbo_frame: :prouct_status} do |f| %>
     <div class="card">
-      <div class="card-header d-flex">
-        <div class="flex-fill">
-          <h5 class="card-title"><%= I18n.t('aypex.admin.status') %></h5>
-        </div>
-        <div>
-        </div>
-      </div>
+      <%= render 'aypex/admin/shared/card_header', title: I18n.t('aypex.admin.status') %>
+
       <div class="card-body">
         <%= f.field_container :status, data: { hook: "new_product_status", controller: "form-validation" } do %>
           <% options = [ ['Draft', 'draft' ], ['Active', 'active' ], ['Archived', 'archived' ] ] %>
