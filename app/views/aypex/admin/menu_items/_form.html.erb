@@ -83,18 +83,18 @@
             <%= f.label :subtitle, I18n.t('aypex.admin.subtitle') %>
           <% end %>
 
-          <% @menu_item.build_icon unless @menu_item.icon %>
+          <%# @menu_item.build_icon unless @menu_item.icon %>
 
-          <%= f.fields_for :icon do |ff| %>
-            <%= render partial: 'icon_upload_form', locals: { f: f, ff: ff } %>
+          <%#= f.fields_for :icon do |ff| %>
+            <%#= render partial: 'icon_upload_form', locals: { f: f, ff: ff } %>
 
-            <% unless @menu_item.icon.new_record? %>
-              <%= f.field_container :icon_alt do %>
-                <%= ff.text_field :alt %>
-                <%= ff.label :alt, I18n.t('aypex.admin.image_alt_text') %>
-              <% end %>
-            <% end %>
-          <% end %>
+            <%# unless @menu_item.icon.new_record? %>
+              <%#= f.field_container :icon_alt do %>
+                <%#= ff.text_field :alt %>
+                <%#= ff.label :alt, I18n.t('aypex.admin.image_alt_text') %>
+              <%# end %>
+            <%# end %>
+          <%# end %>
         </div>
       </div>
     </div>
@@ -120,7 +120,7 @@
               <div class="row">
                 <div class="col-12 col-md-6">
                   <%= f.field_container :linked_resource_type do %>
-                    <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::MenuItem', {const: 'LINKED_RESOURCE_TYPE'}), {include_blank: false}) %>
+                    <%= f.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::MenuItem', {const: 'LINKED_RESOURCE_TYPES'}), {include_blank: false}) %>
                     <%= f.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
 
                     <div class="collapse" id="menuItemLinkInformation">

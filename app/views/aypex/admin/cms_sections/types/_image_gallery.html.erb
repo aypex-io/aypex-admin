@@ -33,7 +33,7 @@
 
       <div class="col-12"><hr></div>
       <%= f.field_container :link_type_one do %>
-        <%= f.select(:link_type_one, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LINKED_RESOURCE_TYPE' }), { include_blank: false }) %>
+        <%= f.select(:link_type_one, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LINKED_RESOURCE_TYPES' }), { include_blank: false }) %>
         <%= f.label :link_type_one, I18n.t('aypex.admin.link_to') %>
       <% end %>
 
@@ -57,7 +57,7 @@
 
       <div class="col-12"><hr></div>
       <%= f.field_container :link_type_two do %>
-        <%= f.select(:link_type_two, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LINKED_RESOURCE_TYPE' }), { include_blank: false }) %>
+        <%= f.select(:link_type_two, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LINKED_RESOURCE_TYPES' }), { include_blank: false }) %>
         <%= f.label :link_type_two, I18n.t('aypex.admin.link_to') %>
       <% end %>
       <%= render "aypex/admin/shared/link_fields", resource: @cms_section, linked_type: @cms_section.link_type_two, save_to: :link_two, f: f %>
@@ -80,7 +80,7 @@
 
       <div class="col-12"><hr></div>
         <%= f.field_container :link_type_three do %>
-          <%= f.select(:link_type_three, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LINKED_RESOURCE_TYPE' }), { include_blank: false }) %>
+          <%= f.select(:link_type_three, aypex_humanize_dropdown_values('Aypex::Cms::Sections::ImageGallery', { const: 'LINKED_RESOURCE_TYPES' }), { include_blank: false }) %>
           <%= f.label :link_type_three, I18n.t('aypex.admin.link_to') %>
         <% end %>
 

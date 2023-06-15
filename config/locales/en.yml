@@ -21,6 +21,7 @@ en:
       add_first_property: Add first property
       add_new_address: Add new address
       add_new_category: Add new category
+      add_new_component: Add new component
       add_new_file: Add a new digital asset.
       add_new_item: Add new item
       add_new_menu: Add new menu
@@ -141,7 +142,7 @@ en:
       code: Code
       code_info: Code info
       company: Company
-      compare_at_price: Compare at price
+      compared_price: Compare at price
       complete: Complete
       confirm: Confirm
       confirm_password: Confirm password
@@ -172,6 +173,7 @@ en:
       create_new_order: Create new order
       create_platform_application: Create platform application
       create_reimbursement: Create reimbursement
+      create_section: Create section
       create_webhook_subscriber: Create webhook subscriber
       create_your_first_variant_for_this_product: Create your first variant for this product
       created_at: Created At
@@ -225,6 +227,7 @@ en:
       edit_address: Edit address
       edit_reimbursement: Edit reimbursement
       edit_root_base_category: Edit root base category
+      edit_section_settings: Edit section settings
       edit_state: Edit state
       edit_store_credit: Edit store credit
       editing_variant: Editing variant
@@ -260,11 +263,11 @@ en:
       first_order: First Order
       fit: Fit To
       footer: Footer
-      for_store: For %{store_name}
       free_shipping: Free Shipping
       from: from
       front_end: Storefront
       full_screen_mode: <span class="exit">Exit </span>Full Screen Mode
+      full_width_of_screen: Full width of screen
       general_settings: General settings
       generate_code: Generate code
       getting_started: Getting started
@@ -273,6 +276,7 @@ en:
       gutters: Gutters
       has_variants: Has variants
       header_banner: Header banner
+      headline: Headline
       height: Height
       hero_image_info: Hero image info
       hide_from_sub_navigation: Hide from sub navigation
@@ -330,7 +334,6 @@ en:
       link_to_category: Link to Category
       link_to_info: Link to info
       link_to_product: Link to Product
-      list: oAuth applications
       load_more: Load More
       location: Location
       log_entries: Log entries
@@ -372,6 +375,7 @@ en:
       new: New
       new_address: New address
       new_adjustment: New adjustment
+      new_category: New category
       new_country: New country
       new_customer_return: New customer return
       new_image: New image
@@ -437,6 +441,7 @@ en:
       note: Note
       number: Number
       number_cont: Order Number
+      o_auth_applications: oAuth Applications
       one_use_per_user: One Use Per User
       open_all_adjustments: Open all adjustments
       open_link_in_new_window: Open link in new window
@@ -490,7 +495,6 @@ en:
       pre_tax_amount: Pre tax amount
       pre_tax_refund_amount: Pre tax refund amount
       pre_tax_total: Pre tax total
-      preferred_reimbursement_type: Preferred reimbursement type
       presentation: Presentation
       preview_name: Preview %{name}
       previous_state_missing: Previous state missing
@@ -554,6 +558,7 @@ en:
       rejected: Rejected
       remove_image: Remove image
       reports: Reports
+      reports_for_store: Reports For %{store_name}
       request_errors: Request Errors
       resellable: Resellable
       resend_shipping_confirmation_email: Resend Shipping Confirmation Email
@@ -606,6 +611,7 @@ en:
       search_users_by_email: Search users by email
       search_users_by_name_or_email: Search users by name or email.
       search_webhooks_by_url: Search webhooks by url
+      section_settings: Section settings
       section_type: Section Type
       select: Select
       select_a_date: Select a date
@@ -744,6 +750,7 @@ en:
       url_info: Url info
       usage_limit: Usage limit
       use_app_default: Use app default
+      use_gutters: Use gutters
       use_new_cc: Use new cc
       use_the_search_box_above_to_search_for_categories: Use the search box above to search for categories
       used: Used

@@ -27,18 +27,19 @@ input::-webkit-contacts-auto-fill-button {
     border-radius: 5px;
     overflow: visible;
     position: relative;
+    color: $input-color;
   }
 
   .create:hover,
   .option:hover,
   .selected {
     border: none;
-    color: rgb(var(--bs-input-color-rgb));
-    background-color: rgb(var(--bs-sub-bg-rgb));
+    color: $input-color;
+    background-color: $input-bg;
   }
 
   .selected::before {
-    background-color: var(--bs-primary);
+    background-color: $input-bg;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     content: "";
@@ -51,7 +52,7 @@ input::-webkit-contacts-auto-fill-button {
   }
 
   .active {
-    color: rgb(var(--bs-input-color-rgb));
+    color: $input-color;
     background-color: transparent;
   }
 }
@@ -66,6 +67,7 @@ input::-webkit-contacts-auto-fill-button {
 
     .item {
       margin-bottom: 4px;
+      color: $input-color;
     }
   }
 
@@ -108,16 +110,13 @@ input::-webkit-contacts-auto-fill-button {
 
 /* stylelint-disable-next-line no-descending-specificity */
 .ts-wrapper {
-  @extend .rgb-hsl-secondary;
-  @extend .rgb-hsl-base-presets;
-
   &.plugin-remove_button:not(.rtl) .item .remove {
-    border-left-color: var(--hsla-border-active-color);
+    border-left-color: var(--bs-body-bg);
   }
 
-  &.multi .ts-control>.item {
-    color: var(--hsla-color);
-    background-color: var(--hsla-active-bg);
+  &.multi .ts-control > .item {
+    color: $input-color;
+    background-color: var(--bs-tertiary-bg);
   }
 
   &.multi.has-items .ts-control {

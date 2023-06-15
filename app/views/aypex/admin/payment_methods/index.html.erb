@@ -1,5 +1,5 @@
-<% content_for :page_title do %>
-  <%= plural_resource_name(Aypex::PaymentMethod) %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::PaymentMethod)) %>
 <% end %>
 
 <% content_for :table_filter do %>
@@ -30,7 +30,7 @@
         <th class="text-center"><%= I18n.t("aypex.admin.display") %></th>
         <th class="text-center"><%= I18n.t("aypex.admin.active") %></th>
         <th class="actions text-end">
-          <%= link_to_with_icon I18n.t("aypex.admin.new_payment_method"), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_payment_methods_link' if can? :create, Aypex::PaymentMethod %>
+          <%= link_to_with_icon I18n.t("aypex.admin.new_payment_method"), new_object_url, class: "btn-aypex btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_payment_methods_link' if can? :create, Aypex::PaymentMethod %>
         </th>
       </tr>
     </thead>

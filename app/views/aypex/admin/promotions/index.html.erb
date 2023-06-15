@@ -1,5 +1,5 @@
-<% content_for :page_title do %>
-  <%= plural_resource_name(Aypex::Promotion) %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::Promotion)) %>
 <% end %>
 
 <% content_for :page_actions do %>
@@ -7,7 +7,7 @@
 <% end if can?(:create, Aypex::Promotion) %>
 
 <% content_for :index_table_filter_buttons do %>
-  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_promotions_path(request.query_parameters), class: "btn btn-secondary", data: {turbo_frame: :offcanvas} %>
+  <%= link_to I18n.t('aypex.admin.more_filters'), aypex.filter_admin_promotions_path(request.query_parameters), class: "btn btn-aypex", data: {turbo_frame: :offcanvas} %>
 <% end %>
 
 <% content_for :index_table do %>

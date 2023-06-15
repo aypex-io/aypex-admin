@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<%= I18n.locale %>" data-bs-theme="dark">
+<html lang="<%= I18n.locale %>" data-bs-theme="night">
   <head data-hook="admin_inside_head">
     <%= render partial: 'aypex/admin/shared/head' %>
 
@@ -23,35 +23,37 @@
     <% end %>
   </head>
 
-  <body class="admin" id="aypexAdmin">
+  <body class="admin bg-body" id="aypexAdmin">
     <%= turbo_frame_tag :inner_main_content, target: :_top, data: {turbo_action: "advance"} do %>
       <%#-------------------------------------------------%>
       <%# Main content                                    %>
       <%#-------------------------------------------------%>
-      <container-fluid>
-        <row>
+      <div class=container-fluid>
+        <div class=row>
           <%#-------------------------------------------------%>
           <%# Menu                                            %>
           <%#-------------------------------------------------%>
           <%= render partial: 'aypex/admin/shared/menu' %>
 
-          <main>
+          <main class="px-0 me-0 col-12 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2">
             <%#-------------------------------------------------%>
             <%# Content Header                                  %>
             <%#-------------------------------------------------%>
-            <content-header class="bg-body">
-              <%= render partial: 'aypex/admin/shared/content_header' %>
-            </content-header>
+            <div id="content-header" class="d-flex p-0 m-0 top-0 position-sticky align-items-center bg-body">
+              <div class="container-fluid">
+                <%= render partial: 'aypex/admin/shared/content_header' %>
+              </div>
+            </div>
 
             <%#-------------------------------------------------%>
             <%# Main Content Area                               %>
             <%#-------------------------------------------------%>
-            <content-body>
+            <div class="container mb-5 mt-2">
               <%= yield %>
-            </content-body>
+            </div>
           </main>
-        </row>
-      </container-fluid>
+        </div>
+      </div>
 
       <%#-------------------------------------------------%>
       <%# Alerts                                          %>

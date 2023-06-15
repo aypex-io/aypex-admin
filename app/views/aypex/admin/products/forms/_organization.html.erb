@@ -1,13 +1,8 @@
 <%= turbo_frame_tag :product_organization do %>
   <%= form_with model: [:admin, @product], method: :patch, data: {controller: "form-state", turbo_frame: :product_organization} do |f| %>
     <div class="card">
-      <div class="card-header d-flex">
-        <div class="flex-fill">
-          <h5 class="card-title"><%= I18n.t('aypex.admin.organization') %></h5>
-        </div>
-        <div>
-        </div>
-      </div>
+      <%= render 'aypex/admin/shared/card_header', title: I18n.t('aypex.admin.organization') %>
+
       <div class="card-body">
         <%= f.field_container :categories, data: { hook: "admin_product_form_categories" } do %>
           <% if can? :modify, Aypex::Classification %>
@@ -42,7 +37,6 @@
             <%= f.label :product_stores, I18n.t("aypex.admin.stores") %>
           <% end %>
         <% end %>
-        <%= render partial: 'aypex/admin/shared/resource_actions' %>
       </div>
     </div>
   <% end %>

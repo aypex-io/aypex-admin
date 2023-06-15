@@ -7,7 +7,7 @@
         <h5 class="card-title"><%= I18n.t('aypex.admin.stock') %></h5>
       </div>
       <div>
-        <%= link_to_with_icon(I18n.t('aypex.admin.add_stock'), aypex.add_stock_admin_product_path(@product, variant.id), { icon: 'plus-square.svg', class: 'btn-secondary btn btn-sm', data: { turbo_frame: :modal }}) %>
+        <%= link_to_with_icon(I18n.t('aypex.admin.add_stock'), aypex.add_stock_admin_product_path(@product, variant.id), { icon: 'plus-square.svg', class: 'btn-aypex btn btn-sm', data: { turbo_frame: :modal }}) %>
       </div>
     </div>
 

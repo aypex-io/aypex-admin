@@ -1,7 +1,7 @@
 <%= form_with model: @promotion, url: object_url, method: :put do |f| %>
   <div id="product_option_value_set_container">
-    <sa-card>
-      <sa-body>
+    <apx-card>
+      <apx-body>
         <div class="row">
           <div class="col-12 mb-3" data-controller="form--autosave">
             <div class="form-floating">
@@ -25,14 +25,14 @@
           <div class="col-12">
             <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
               <div id="card_<%= dom_id(promotion_rule) %>_new_set" class="form-floating">
-                <%= pr.collection_select(:preferred_eligible_values, [], :id, :presentation, {include_blank: false}, { multiple: true, disabled: true, placeholder: 'Search Options' , class: 'form-select', data: { controller: 'ts--select' } }) %>
+                <%= pr.collection_select(:eligible_values, [], :id, :presentation, {include_blank: false}, { multiple: true, disabled: true, placeholder: 'Search Options' , class: 'form-select', data: { controller: 'ts--select' } }) %>
                 <%= label_tag 'options', I18n.t('aypex.admin.options') %>
               </div>
             <% end %>
           </div>
         </div>
-      </sa-body>
-    </sa-card>
+      </apx-body>
+    </apx-card>
 
     <hr class="my-5">
 

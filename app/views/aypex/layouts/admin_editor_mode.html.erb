@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="<%= I18n.locale %>" data-bs-theme="dark">
+  <head data-hook="admin_inside_head">
+    <%= render partial: 'aypex/admin/shared/head' %>
+
+    <% if Rails.env.test? %>
+     <style>
+        .modal.fade, .fade {
+          -webkit-transition: opacity 0.01s;
+          -moz-transition: opacity 0.01s;
+          -ms-transition: opacity 0.01s;
+          -o-transition: opacity 0.01s;
+          transition: opacity 0.01s;
+        }
+        .ts-hidden-accessible {
+          padding: 1px solid gray;
+          clip-path: none !important;
+          position: relative !important;
+          width: 100% !important;
+          padding: 1rem;
+        }
+     </style>
+    <% end %>
+  </head>
+
+  <body class="admin_editor_mode" id="aypexAdmin">
+    <%= turbo_frame_tag :inner_main_content, target: :_top, data: {turbo_action: "advance"} do %>
+      <%#-------------------------------------------------%>
+      <%# Main content                                    %>
+      <%#-------------------------------------------------%>
+      <div class="container-fluid">
+        <div class=row>
+          <%#-------------------------------------------------%>
+          <%# Content Header                                  %>
+          <%#-------------------------------------------------%>
+          <div class="position-sticky top-0 w-100 bg-body d-flex align-items-center" style="z-index:1040; height:60px;">
+            <div class="container-fluid">
+              <%= render partial: 'aypex/admin/shared/content_header' %>
+            </div>
+          </div>
+
+            <%#-------------------------------------------------%>
+            <%# Main Content Area                               %>
+            <%#-------------------------------------------------%>
+            <main class="position-fixed w-100" style="top: 60px; height: calc(100vh - 60px);">
+              <%= yield %>
+            </main>
+        </div>
+      </div>
+
+      <%#-------------------------------------------------%>
+      <%# Alerts                                          %>
+      <%#-------------------------------------------------%>
+      <%= flash_alert(flash, :inner_main_content) %>
+      <%= flash_alert(flash, :modal) %>
+
+      <%#-------------------------------------------------%>
+      <%# Mobile Buttons                                  %>
+      <%#-------------------------------------------------%>
+      <%= render partial: 'aypex/admin/shared/mobile_only_controles' %>
+
+      <%#-------------------------------------------------%>
+      <%# Custom Confirm Dialog                           %>
+      <%#-------------------------------------------------%>
+      <%= render partial: 'aypex/admin/shared/custom_dialog' %>
+
+      <%#-------------------------------------------------%>
+      <%# Insert Footer JavaScript                      %>
+      <%#-------------------------------------------------%>
+      <div data-hook="admin_footer_scripts"></div>
+    <% end %>
+
+    <div id="FlashAlertsContainer"><%# Used For TurboStreams %></div>
+    <%= flash_alert(flash, :_top) %>
+
+    <%#-------------------------------------------------%>
+    <%# Universal Modal & OffCanvas                     %>
+    <%#-------------------------------------------------%>
+    <%= turbo_frame_tag :modal %>
+    <%= turbo_frame_tag :offcanvas %>
+  </body>
+</html>

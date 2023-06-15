@@ -1,5 +1,5 @@
-<% content_for :page_title do %>
-  <%= plural_resource_name(Aypex::OptionType) %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::OptionType)) %>
 <% end %>
 
 <% if @option_types.any? %>
@@ -11,7 +11,7 @@
           <th><%= I18n.t("aypex.admin.name") %></th>
           <th><%= I18n.t("aypex.admin.presentation") %></th>
           <th><%= I18n.t("aypex.admin.filterable") %></th>
-          <th class="actions text-end"><%= link_to_with_icon I18n.t("aypex.admin.new_option_type"), new_object_url, { class: "btn btn-secondary btn-sm", icon: 'plus-square.svg', id: 'new_option_type_link' } if can?(:create, Aypex::OptionType) %></th>
+          <th class="actions text-end"><%= link_to_with_icon I18n.t("aypex.admin.new_option_type"), new_object_url, { class: "btn btn-aypex btn-sm", icon: 'plus-square.svg', id: 'new_option_type_link' } if can?(:create, Aypex::OptionType) %></th>
         </tr>
       </thead>
       <tbody data-controller="sortable" data-sortable-resource-name-value="option_type">

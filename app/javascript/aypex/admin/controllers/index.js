@@ -13,6 +13,7 @@ import FormAutoSaveController from './form/autosave_controller'
 import FormStateController from './form_state_controller'
 import FormValidationController from './form_validation_controller'
 import FormResetController from './form/reset_controller'
+import iFrameController from './iframe_controller'
 import InputCheckboxState from './input/checkbox_state_controller'
 import InputDisableController from './input_disable_controller'
 import InputFormatDecimalController from './input/format_decimal_controller'
@@ -25,7 +26,7 @@ import PasswordToggleController from './password_toggle_controller'
 import RequiredController from './input/required_controller'
 import Sortable from './sortable_controller'
 import SortableTreeController from './sortable_tree_controller'
-import TipTapEditorController from './tiptap/editor_controller'
+import ScrollIframeController from './scroll_iframe_controller'
 import ToastController from './toast_controller'
 import TsSearchController from './ts/search_controller'
 import TsSelectController from './ts/select_controller'
@@ -45,6 +46,7 @@ Stimulus.register('form-state', FormStateController)
 Stimulus.register('form-validation', FormValidationController)
 Stimulus.register('form--autosave', FormAutoSaveController)
 Stimulus.register('form--reset', FormResetController)
+Stimulus.register('iframe', iFrameController)
 Stimulus.register('input--checkbox-state', InputCheckboxState)
 Stimulus.register('input-disable', InputDisableController)
 Stimulus.register('input-formatting', InputFormattingController)
@@ -58,7 +60,7 @@ Stimulus.register('password-toggle', PasswordToggleController)
 Stimulus.register('sortable', Sortable)
 Stimulus.register('sortable-tree', SortableTreeController)
 Stimulus.register('toast', ToastController)
-Stimulus.register('tiptap--editor', TipTapEditorController)
+Stimulus.register('scroll-iframe', ScrollIframeController)
 Stimulus.register('ts--search', TsSearchController)
 Stimulus.register('ts--select', TsSelectController)
 Stimulus.register('ts--search-user', userSearchController)

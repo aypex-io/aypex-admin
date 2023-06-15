@@ -1,0 +1,19 @@
+<% content_for :modal_header do %>
+  <h5 class="modal-title"><%= I18n.t("aypex.admin.section_settings") %></h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<% end %>
+
+<% content_for :modal_body do %>
+  <%= form_with model: @object, scope: :cms_component, url: aypex.admin_cms_page_cms_section_cms_components_path(@object.cms_section.cms_page, @object.cms_section), class: "row", data: {controller: "form-validation", turbo_frame: :cms_section_settings}, method: :post, id: :cms_component_create do |f| %>
+    <%= f.field_container :type do %>
+       <%= f.text_field :type %>
+       <%= f.label :type, I18n.t('aypex.admin.type') %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% content_for :modal_footer do %>
+  <%= remote_form_submit_button(@object, "cms_component_create") %>
+<% end %>
+
+<%= render partial: 'aypex/admin/shared/modal', locals: { modal_dialog_settings: 'modal-dialog-scrollable modal-dialog modal-fullscreen' } %>

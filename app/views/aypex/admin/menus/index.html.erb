@@ -1,5 +1,5 @@
-<% content_for :page_title do %>
-  <%= I18n.t('aypex.admin.menus') %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: I18n.t('aypex.admin.menus')) %>
 <% end %>
 
 <% content_for :page_actions do %>

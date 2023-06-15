@@ -1,10 +1,10 @@
 <%= form_with model: @promotion, url: object_url, method: :put, data: { controller: 'form-state' } do |f| %>
   <%= f.fields_for :promotion_rules, promotion_rule do |pr|%>
-    <%= f.field_container :preferred_country_id do %>
-      <% opts = options_for_select(Aypex::Country.pluck(:name, :id), promotion_rule.preferred_country_id) %>
+    <%= f.field_container :country_id do %>
+      <% opts = options_for_select(Aypex::Country.pluck(:name, :id), promotion_rule.country_id) %>
 
-      <%= pr.select :preferred_country_id, opts, { include_hidden: false, include_blank: false } %>
-      <%= pr.label :preferred_country_id, I18n.t('aypex.admin.label') %>
+      <%= pr.select :country_id, opts, { include_hidden: false, include_blank: false } %>
+      <%= pr.label :country_id, I18n.t('aypex.admin.label') %>
     <% end %>
   <% end %>
 

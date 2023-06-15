@@ -1,13 +1,8 @@
 <%= turbo_frame_tag :product_cost_price do %>
   <%= form_with model: [:admin, @product], data: {controller: "form-state", turbo_frame: :product_cost_price} do |f| %>
     <div class="card">
-      <div class="card-header d-flex">
-        <div class="flex-fill">
-          <h5 class="card-title"><%= I18n.t('aypex.admin.pricing') %></h5>
-        </div>
-        <div>
-        </div>
-      </div>
+      <%= render 'aypex/admin/shared/card_header', title: I18n.t('aypex.admin.pricing') %>
+
       <div class="card-body">
         <div data-controller="form-validation">
           <%= f.field_container :cost_currency, data: { hook: "admin_product_form_cost_currency" } do %>
@@ -31,10 +26,6 @@
 
       <div>
         <%= render 'aypex/admin/prices/variant_prices', variant: @product.master unless @product.has_variants? %>
-      </div>
-
-      <div class="card-footer">
-        <%= render partial: 'aypex/admin/shared/resource_actions' %>
       </div>
     </div>
   <% end %>

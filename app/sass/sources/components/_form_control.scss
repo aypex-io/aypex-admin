@@ -1,0 +1,8 @@
+/* stylelint-disable selector-class-pattern */
+
+.form-control,
+.form-select,
+.form-check-input {
+  border: none;
+  background-color: var(--bs-body-bg);
+}

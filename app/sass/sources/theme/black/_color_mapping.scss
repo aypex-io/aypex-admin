@@ -1,0 +1,48 @@
+[data-bs-theme="night"] {
+  // Body
+  --bs-body-color-rgb: 255, 255, 255;
+  --bs-body-bg-rgb: 0, 0, 0;
+
+  // Secondary
+  --bs-secondary-color-rgb: 255, 255, 255;
+  --bs-secondary-bg-rgb: 55, 57, 61;
+
+  // Tertiary
+  --bs-tertiary-color-rgb: 197, 198, 199;
+  --bs-tertiary-bg-rgb: 33, 35, 39;
+
+
+
+  // Overrides
+
+  // Input
+  --aypex-input-color-rgb: var(--bs-secondary-color-rgb);
+  --aypex-bg-rgb: var(--bs-secondary-bg-rgb);
+
+
+
+  // Mappings
+  --bs-body-color: rgba(var(--bs-body-color-rgb));
+  --bs-body-bg: rgb(var(--bs-body-bg-rgb));
+  --bs-secondary-color: rgb(var(--bs-secondary-color-rgb));
+  --bs-secondary-bg: rgb(var(--bs-secondary-bg-rgb));
+  --bs-tertiary-color: rgb(var(--bs-tertiary-color-rgb));
+  --bs-tertiary-bg: rgb(var(--bs-tertiary-bg-rgb));
+
+  .input-group-text,
+  .form-control,
+  .form-select,
+  .form-check-input,
+  .form-floating > .form-control-plaintext ~ label::after,
+  .form-floating > .form-control:focus ~ label::after,
+  .form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+  .form-floating > .form-select ~ label::after {
+    border: none;
+    background-color: rgba(var(--aypex-bg-rgb), .5);
+  }
+
+  .table {
+    --bs-table-border-color: var(--bs-secondary-bg);
+  }
+}
+

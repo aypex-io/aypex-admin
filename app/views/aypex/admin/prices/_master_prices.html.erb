@@ -5,7 +5,7 @@
         <tr data-hook="variant_prices_header">
           <th><%= I18n.t("aypex.admin.currency") %></th>
           <th><%= I18n.t("aypex.admin.price") %></th>
-          <th><%= I18n.t("aypex.admin.compare_at_price") %></th>
+          <th><%= I18n.t("aypex.admin.compared_price") %></th>
         </tr>
       </thead>
       <tbody id="variant-prices" data-hook="variant_prices_body">
@@ -21,12 +21,12 @@
                 <%= text_field_tag "variant_price[#{variant.id}][#{code}][price]", (price && price.price ? price.display_amount.money : ''), class: 'form-control', autocomplete: false, data: {controller: "input-formatting", form_state_target: "watch", input_disable_target: "disable", input_formatting_options_value: {numeral: true, numeralThousandsGroupStyle: "none"}} %>
               </td>
               <td>
-                <%= text_field_tag "variant_price[#{variant.id}][#{code}][compare_at_price]", (price && price.compare_at_price ? price.display_compare_at_amount.money : ''), class: 'form-control', autocomplete: false, data: {controller: "input-formatting", form_state_target: "watch", input_disable_target: "disable", input_formatting_options_value: {numeral: true, numeralThousandsGroupStyle: "none"}} %>
+                <%= text_field_tag "variant_price[#{variant.id}][#{code}][compared_price]", (price && price.compared_price ? price.display_compare_at_amount.money : ''), class: 'form-control', autocomplete: false, data: {controller: "input-formatting", form_state_target: "watch", input_disable_target: "disable", input_formatting_options_value: {numeral: true, numeralThousandsGroupStyle: "none"}} %>
               </td>
             </tr>
           <% end %>
           <tr>
-            <td class="bg-light" colspan="5">
+            <td class="bg-body-tertiary" colspan="5">
             </td>
           </tr>
         <% end %>

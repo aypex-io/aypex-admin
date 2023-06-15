@@ -5,7 +5,7 @@
     </div>
 
     <div>
-      <%= link_to I18n.t('aypex.admin.email_copy_of_invoice_to_customer'), 'aypex.ship_admin_shipment_path(shipment.id)', class: 'btn btn-secondary btn-sm', data: { turbo_method: :patch } , title: I18n.t('aypex.admin.mark_as_shipped') %>
+      <%= link_to I18n.t('aypex.admin.email_copy_of_invoice_to_customer'), 'aypex.ship_admin_shipment_path(shipment.id)', class: 'btn btn-aypex btn-sm', data: { turbo_method: :patch } , title: I18n.t('aypex.admin.mark_as_shipped') %>
     </div>
   </div>
   <div class="card-body" id="order_tab_summary">

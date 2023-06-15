@@ -12,7 +12,7 @@
   <% end %>
 <% end %>
 
-<% content_for :page_title do %>
+<% content_for :breadcrumb do %>
   <%= breadcrumb_builder(link_one_uri: aypex.admin_orders_path, link_one_text: I18n.t("aypex.admin.all_orders"), current_page_name: @order.number) %>
 <% end %>
 

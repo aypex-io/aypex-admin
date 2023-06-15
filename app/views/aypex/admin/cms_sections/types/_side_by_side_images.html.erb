@@ -1,75 +1,53 @@
-<div class="row pb-0">
-  <div class="col-12 col-md-6 mb-3">
-    <div id="left_image_details" class="card p-3">
-      <div class="text-center">
-        <h4 class="pb-2"><%= I18n.t('aypex.admin.left_image') %></h4>
-        <% @cms_section.build_image_one unless @cms_section.image_one %>
-        <%= render partial: 'image_upload_form', locals: { f: f, image: :image_one } %>
-        <small class="text-body-secondary"><%= I18n.t('aypex.admin.image_info') %></small>
+<div class="row pb-0" data-controller="sortable" data-sortable-resource-name-value="cms_component" data-sortable-response-kind-value="turbo-stream">
+  <% @cms_section.cms_components.each do |component| %>
+    <div id="<%= dom_id(component) %>" class="col-12 col-md-6 mb-3" data-sortable-update-url="<%= aypex.update_position_admin_cms_page_cms_section_cms_component_path(@cms_page, @cms_section, component) %>">
+      <div class="card p-3">
+        <div class="card-header">
+          <h5 class="card-title handle">X</h5>
+        </div>
+
+        <%= f.fields_for :cms_components, component  do |comp| %>
+          <% image = component.image || component.build_image %>
+
+          <%= f.field_container :image, style: "--aspect-ratio:12/5;" do %>
+            <% if image.persisted? %>
+              <%= image_tag(image.generate_url(width: 600), alt: image.alt, class: "w-100") %>
+            <% end %>
+          <% end %>
+
+          <div class="mb-3">
+            <%= comp.fields_for :image, image do |img| %>
+              <%= img.file_field :attachment %>
+            <% end %>
+          </div>
+
+          <%= f.field_container :title do %>
+            <%= comp.text_field :title %>
+            <%= comp.label :title, I18n.t('aypex.admin.title') %>
+          <% end %>
+
+          <%= f.field_container :subtitle do %>
+            <%= comp.text_field :subtitle %>
+            <%= comp.label :subtitle, I18n.t('aypex.admin.subtitle') %>
+          <% end %>
+
+          <%= f.field_container :button_text do %>
+            <%= comp.text_field :button_text %>
+            <%= comp.label :button_text %>
+          <% end %>
+
+          <div class="col-12"><hr></div>
+
+          <%= f.field_container :linked_resource_type  do %>
+            <%= comp.select(:linked_resource_type, aypex_humanize_dropdown_values('Aypex::Cms::Component::SideBySideImages',
+                                            { const: 'LINKED_RESOURCE_TYPES' }),
+                                            { include_blank: false }) %>
+            <%= comp.label :linked_resource_type, I18n.t('aypex.admin.link_to') %>
+          <% end %>
+
+          <%= render "aypex/admin/shared/link_fields", resource: component, f: comp %>
+        <% end %>
       </div>
-
-      <%= f.field_container :title_one do %>
-        <%= f.text_field :title_one %>
-        <%= f.label :title_one, I18n.t('aypex.admin.title') %>
-      <% end %>
-
-      <%= f.field_container :subtitle_one do %>
-        <%= f.text_field :subtitle_one %>
-        <%= f.label :subtitle_one, I18n.t('aypex.admin.subtitle') %>
-      <% end %>
-
-      <div class="col-12"><hr></div>
-
-      <%= f.field_container :link_type_one do %>
-        <%= f.select(:link_type_one, aypex_humanize_dropdown_values('Aypex::Cms::Sections::SideBySideImages', { const: 'LINKED_RESOURCE_TYPE' }), { include_blank: false }) %>
-        <%= f.label :link_type_one, I18n.t('aypex.admin.link_to') %>
-      <% end %>
-
-      <%= render "aypex/admin/shared/link_fields", resource: @cms_section, linked_type: @cms_section.link_type_one, save_to: :link_one, f: f %>
     </div>
-  </div>
-
-  <div class="col-12 col-md-6 mb-3">
-    <div id="right_image_details" class="card p-3">
-      <div class="text-center">
-        <h4 class="pb-2"><%= I18n.t('aypex.admin.right_image') %></h4>
-        <% @cms_section.build_image_two unless @cms_section.image_two %>
-        <%= render partial: 'image_upload_form', locals: { f: f, image: :image_two } %>
-        <small class="text-body-secondary"><%= I18n.t('aypex.admin.image_info') %></small>
-      </div>
-
-      <%= f.field_container :title_two do %>
-        <%= f.text_field :title_two %>
-        <%= f.label :title_two, I18n.t('aypex.admin.title') %>
-      <% end %>
-
-      <%= f.field_container :subtitle_two do %>
-        <%= f.text_field :subtitle_two %>
-        <%= f.label :subtitle_two, I18n.t('aypex.admin.subtitle') %>
-      <% end %>
-
-      <div class="col-12"><hr></div>
-      <%= f.field_container :link_type_two do %>
-        <%= f.select(:link_type_two, aypex_humanize_dropdown_values('Aypex::Cms::Sections::SideBySideImages', { const: 'LINKED_RESOURCE_TYPE' }), { include_blank: false }) %>
-        <%= f.label :link_type_two, I18n.t('aypex.admin.link_to') %>
-      <% end %>
-
-      <%= render "aypex/admin/shared/link_fields", resource: @cms_section, linked_type: @cms_section.link_type_two, save_to: :link_two, f: f %>
-    </div>
-  </div>
-
-<div class="col-12"><hr></div>
-  <div class="col-6">
-    <%= f.field_container :fit do %>
-      <%= f.select(:fit, @cms_section.boundaries, {include_blank: false}) %>
-      <%= f.label :fit, I18n.t('aypex.admin.fit') %>
-    <% end %>
-  </div>
-
-  <div class="col-6">
-    <%= f.field_container :gutters do %>
-      <%= f.select(:gutters, @cms_section.gutters_sizes, {include_blank: false}) %>
-      <%= f.label :gutters, I18n.t('aypex.admin.set_gutters') %>
-    <% end %>
-  </div>
+  <% end %>
 </div>

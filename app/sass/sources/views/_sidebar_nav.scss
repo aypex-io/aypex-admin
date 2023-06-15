@@ -1,0 +1,40 @@
+nav {
+  ul.nav-sidebar {
+    position: relative;
+
+    > li {
+      > ul {
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 1px;
+          border-left: 1px solid var(--bs-border-color);
+          position: absolute;
+          left: 23px;
+          top: 0;
+          height: calc(100% - 35px);
+        }
+
+        > li {
+          padding-left: 40px;
+
+          &::before {
+            content: "";
+            display: block;
+            height: 20px;
+            left: 23px;
+            position: absolute;
+            top: 0;
+            bottom: 18px;
+            margin: auto;
+            width: 12px;
+            border-bottom: 1px solid var(--bs-border-color);
+            border-left: 1px solid var(--bs-border-color);
+            border-radius: 0 0 0 6px;
+          }
+        }
+      }
+    }
+  }
+}

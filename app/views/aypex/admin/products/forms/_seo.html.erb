@@ -1,14 +1,7 @@
 <%= turbo_frame_tag :product_seo do %>
   <%= form_with model: [:admin, @product], data: {controller: "form-state"} do |f| %>
     <div class="card">
-      <div class="card-header d-flex">
-        <div class="flex-fill">
-          <h5 class="card-title"><%= I18n.t('aypex.admin.seo') %></h5>
-        </div>
-
-        <div>
-        </div>
-      </div>
+      <%= render 'aypex/admin/shared/card_header', title: I18n.t('aypex.admin.seo') %>
 
       <div class="card-body">
         <%= f.field_container :meta_title, data: { hook: "admin_product_form_meta_title" }  do %>
@@ -25,8 +18,6 @@
           <%= f.text_area :meta_description, style: "height: 100px" %>
           <%= f.label :meta_description, I18n.t("aypex.admin.meta_description") %>
         <% end %>
-
-        <%= render partial: 'aypex/admin/shared/resource_actions' %>
       </div>
     </div>
   <% end %>

@@ -244,16 +244,16 @@ module Aypex
           if object.has_preference?(key)
             case key
             when :currency
-              content_tag(:div, (form.select "preferred_#{key}", currency_options(object.preferences[key]), {}, {autocomplete: false, class: "form-select", data: {controller: "ts--select", form_state_target: "watch", input_disable_target: "disable"}}) +
-                form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}")),
+              content_tag(:div, (form.select "#{key}", currency_options(object.preferences[key]), {}, {autocomplete: false, class: "form-select", data: {controller: "ts--select", form_state_target: "watch", input_disable_target: "disable"}}) +
+                form.label("#{key}", I18n.t("aypex.admin.#{key}")),
                 class: "form-group form-floating", id: [object.class.to_s.parameterize, "preference", key].join("-"))
             else
               if object.preference_type(key).to_sym == :boolean
-                content_tag(:div, preference_field_for(form, "preferred_#{key}", type: object.preference_type(key)) +
-                  form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}"), class: "form-check-label"),
+                content_tag(:div, preference_field_for(form, "#{key}", type: object.preference_type(key)) +
+                  form.label("#{key}", I18n.t("aypex.admin.#{key}"), class: "form-check-label"),
                   class: "form-group form-check", id: [object.class.to_s.parameterize, "preference", key].join("-"))
               else
-                content_tag(:div, preference_field_for(form, "preferred_#{key}", type: object.preference_type(key)) + form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}")),
+                content_tag(:div, preference_field_for(form, "#{key}", type: object.preference_type(key)) + form.label("#{key}", I18n.t("aypex.admin.#{key}")),
                   class: "form-group form-floating", id: [object.class.to_s.parameterize, "preference", key].join("-"))
               end
             end
@@ -287,7 +287,7 @@ module Aypex
         link_to_with_icon(
           I18n.t("aypex.admin.preview_name", name: resource_name),
           aypex_storefront_resource_url(resource),
-          class: "btn btn-secondary animate__animated animate__faster",
+          class: "btn btn-aypex animate__animated animate__faster",
           icon: "eye.svg",
           id: "adminPreview#{resource_name}",
           target: :blank,

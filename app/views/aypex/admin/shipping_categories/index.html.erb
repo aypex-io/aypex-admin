@@ -1,5 +1,5 @@
-<% content_for :page_title do %>
-  <%= plural_resource_name(Aypex::ShippingCategory) %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: plural_resource_name(Aypex::ShippingCategory)) %>
 <% end %>
 
 <% if @shipping_categories.any? %>
@@ -11,7 +11,7 @@
           <%= I18n.t("aypex.admin.name") %>
         </th>
         <th class="actions text-end">
-          <%= link_to_with_icon(I18n.t("aypex.admin.new_shipping_category"), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, Aypex::ShippingCategory %>
+          <%= link_to_with_icon(I18n.t("aypex.admin.new_shipping_category"), new_object_url, class: "btn-aypex btn btn-sm", icon: 'plus-square.svg', data: {turbo_frame: :modal}) if can? :create, Aypex::ShippingCategory %>
         </th>
       </tr>
     </thead>

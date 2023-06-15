@@ -1,5 +1,5 @@
-<% content_for :page_title do %>
-  <%= I18n.t('aypex.admin.customer_returns') %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: I18n.t("aypex.admin.customer_returns")) %>
 <% end %>
 
 <% content_for :table_filter do %>

@@ -6,7 +6,7 @@
 
 <%= render partial: 'aypex/admin/shared/order_tabs', locals: { current: :return_authorizations } %>
 
-<% content_for :page_title do %>
+<% content_for :breadcrumb do %>
   / <%= link_to I18n.t("aypex.admin.return_authorizations"), aypex.admin_order_return_authorizations_url %>
   / <%= @return_authorization.number %> (<%= I18n.t("aypex.admin.#{@return_authorization.state.downcase}") %>)
 <% end %>

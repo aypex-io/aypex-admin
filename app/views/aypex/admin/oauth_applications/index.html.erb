@@ -1,5 +1,5 @@
-<% content_for :page_title do %>
-  <%= I18n.t('aypex.admin.list') %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: I18n.t('aypex.admin.o_auth_applications')) %>
 <% end %>
 
 <% if @oauth_applications.any? %>
@@ -10,7 +10,7 @@
           <th><%= I18n.t("aypex.admin.name") %></th>
           <th><%= I18n.t('aypex.admin.client_id') %></th>
           <th><%= I18n.t('aypex.admin.scope') %></th>
-          <th class="actions text-end"> <%= link_to_with_icon(I18n.t('aypex.admin.new_oauth_application'), new_object_url, class: "btn-secondary btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_role_link') if can? :create, Aypex::OauthApplication %></th>
+          <th class="actions text-end"> <%= link_to_with_icon(I18n.t('aypex.admin.new_oauth_application'), new_object_url, class: "btn-aypex btn btn-sm", icon: 'plus-square.svg', id: 'admin_new_role_link') if can? :create, Aypex::OauthApplication %></th>
         </tr>
       </thead>
       <tbody>

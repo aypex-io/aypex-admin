@@ -1,17 +1,11 @@
-<div data-hook="admin_cms_section_form_fields">
-  <div id="alertToClickUpdate" class="d-none">
-    <div class="row">
-      <div class="col-12">
-        <div class="alert alert-warning mt-3">
-          <% if %w[new create].include? controller.action_name %>
-            <%= raw I18n.t('aypex.admin.click_create_to_load_new_link') %>
-          <% else %>
-            <%= raw I18n.t('aypex.admin.click_update_to_load_new_link') %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+<%= form_with model: [:admin, @cms_section],
+              scope: :cms_section,
+              url: aypex.admin_cms_page_cms_section_path(@cms_page, @cms_section),
+              class: "d-grid gap-2 p-0 position-relative",
+              data: {
+                turbo_frame: :cms_container_settings
+              },
+              method: :patch do |f| %>
 
   <% if @cms_section.type.present? %>
     <div id="CmsSectionType"
@@ -19,34 +13,11 @@
          data-panel-section-type="<%= @cms_section.type %>">
       <div class="row">
         <div class="col-12">
-          <div class="card mb-3">
-            <div class="card-header d-flex">
-              <div class="flex-fill">
-                <h5 class="card-title">
-                  <%= aypex_humanize_type(@cms_section.type) %>
-                </h5>
-              </div>
-              <div>
-                <a data-bs-toggle="collapse" href="#cmsSectionInfo" role="button" aria-expanded="false" aria-controls="cmsSectionInfo" class="align-self-center">
-                  <%= aypex_admin_svg_tag("info-circle.svg", size: '20px * 20px', class: 'ms-1 shim-bottom') %>
-                </a>
-              </div>
-            </div>
-            <div class="card-body">
-              <% if @cms_section.type.present? %>
-              <div class="row pb-0">
-                <div class="col-12">
-                  <%= render "aypex/admin/cms_sections/types/#{aypex_resource_path(@cms_section)}", f: f %>
-                </div>
-              </div>
-              <% end %>
-            </div>
-            <div class="card-footer text-center">
-              <%= render partial: 'aypex/admin/shared/resource_actions' %>
-            </div>
-          </div>
+          <% if @cms_section.type.present? %>
+            <%= render "aypex/admin/cms_sections/types/#{aypex_resource_path(@cms_section)}", f: f %>
+          <% end %>
         </div>
       </div>
     </div>
   <% end %>
-</div>
+<% end %>

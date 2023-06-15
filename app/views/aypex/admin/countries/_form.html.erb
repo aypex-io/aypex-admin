@@ -1,8 +1,8 @@
-<sa-card data-hook="admin_country_form_fields">
-  <sa-header>
+<apx-card data-hook="admin_country_form_fields">
+  <apx-header>
     <h5><%= I18n.t('aypex.admin.details') %></h5>
-  </sa-header>
-  <sa-body class="row">
+  </apx-header>
+  <apx-body class="row">
     <div class="col-12">
       <%= f.field_container :name do %>
         <%= f.text_field :name, required: true %>
@@ -42,8 +42,8 @@
         <%= f.label :zipcode_required, I18n.t("aypex.admin.zipcode_required"), class: 'form-check-label' %>
       <% end %>
     </div>
-  </sa-body>
-  <sa-footer>
+  </apx-body>
+  <apx-footer>
     <%= render partial: 'aypex/admin/shared/resource_actions' %>
-  </sa-footer>
-</sa-card>
+  </apx-footer>
+</apx-card>

@@ -13,6 +13,12 @@ module Aypex
         end
       end
 
+      def edit
+        respond_with(@object) do |format|
+          format.turbo_stream
+        end
+      end
+
       private
 
       def collection_url

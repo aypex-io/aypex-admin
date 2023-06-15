@@ -8,10 +8,6 @@ module Aypex
 
         protected
 
-        def new_action
-          custom_callback(:new_action)
-        end
-
         def create
           custom_callback(:create)
         end

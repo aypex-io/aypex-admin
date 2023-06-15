@@ -25,7 +25,7 @@ class Aypex::Admin::PromotionRulesController < Aypex::Admin::BaseController
 
   def get_product_option_values
     @promotion_rule ||= @promotion.promotion_rules.find(params[:promotion_rule_id])
-    product_ids = @promotion_rule.preferred_eligible_values.keys
+    product_ids = @promotion_rule.eligible_values.keys
 
     @products = Aypex::Product.find(product_ids)
   end

@@ -14,11 +14,11 @@
       <%= pr.label :product_ids_string, I18n.t('aypex.admin.products') %>
     <% end %>
 
-    <%= f.field_container :preferred_match_policy do %>
-      <% opts = options_for_select( Aypex::Promotion::Rules::Product::MATCH_POLICIES.map { |s| [I18n.t("aypex.admin.match_#{s}"), s] }, promotion_rule.preferred_match_policy) %>
+    <%= f.field_container :match_policy do %>
+      <% opts = options_for_select( Aypex::Promotion::Rules::Product::MATCH_POLICIES.map { |s| [I18n.t("aypex.admin.match_#{s}"), s] }, promotion_rule.match_policy) %>
 
-      <%= pr.select :preferred_match_policy, opts, { include_hidden: false, include_blank: false } %>
-      <%= pr.label :preferred_match_policy, I18n.t('aypex.admin.label') %>
+      <%= pr.select :match_policy, opts, { include_hidden: false, include_blank: false } %>
+      <%= pr.label :match_policy, I18n.t('aypex.admin.label') %>
     <% end %>
   <% end %>
 

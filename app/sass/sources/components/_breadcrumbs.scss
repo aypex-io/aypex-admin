@@ -1,0 +1,90 @@
+.oh-crumbs {
+  --crumbs-size: 20px;
+  --crumbs-base-bg: var(--bs-body-bg);
+  --crumbs-color: var(--bs-tertiary-color);
+  --crumbs-bg: var(--bs-tertiary-bg);
+  --crumbs-hover-color: var(--bs-secondary-color);
+  --crumbs-hover-bg: var(--bs-secondary-bg);
+  --crumbs-active-color: var(--bs-secondary-color);
+  --crumbs-active-bg: var(--bs-secondary-bg);
+  --crumbs-border-radius: var(--bs-border-radius);
+
+  height: calc(var(--crumbs-size) * 2);
+
+  ul {
+    height: calc(var(--crumbs-size) * 2);
+    list-style: none;
+    display: inline-table;
+    margin: 0;
+    padding: 0;
+
+      li {
+        display: inline;
+
+        a {
+          display: block;
+          float: left;
+          background: var(--crumbs-bg);
+          text-align: center;
+          padding: calc(var(--crumbs-size) / 4) calc(var(--crumbs-size) / 2) calc(var(--crumbs-size) / 4) calc(var(--crumbs-size) + calc(var(--crumbs-size) / 2));
+          position: relative;
+          margin: 0 10px 0 0;
+          font-size: var(--crumbs-size);
+          font-weight: lighter;
+          text-decoration: none;
+          color: var(--crumbs-color);
+
+          &::after {
+            content: "";
+            border-top: var(--crumbs-size) solid transparent;
+            border-bottom: var(--crumbs-size) solid transparent;
+            border-left: var(--crumbs-size) solid var(--crumbs-bg);
+            position: absolute;
+            right: calc(var(--crumbs-size) - var(--crumbs-size) * 2);
+            top: 0;
+            z-index: 1;
+          }
+
+          &::before {
+            content: "";
+            border-top: var(--crumbs-size) solid transparent;
+            border-bottom: var(--crumbs-size) solid transparent;
+            border-left: var(--crumbs-size) solid var(--crumbs-base-bg);
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+
+          &:hover {
+            background: var(--crumbs-hover-bg);
+            color: var(--crumbs-hover-color);
+
+              &::after {
+                border-left-color: var(--crumbs-hover-bg);
+              }
+          }
+        }
+
+      &:first-child a {
+        padding-left: calc(var(--crumbs-size) / 1.5);
+        border-top-left-radius: var(--crumbs-border-radius); border-bottom-left-radius: var(--crumbs-border-radius);
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &:last-child a {
+        pointer-events: none;
+        background: var(--crumbs-active-bg);
+        color: var(--crumbs-active-color);
+        padding-right: var(--crumbs-size);
+        border-top-right-radius: var(--crumbs-border-radius); border-bottom-right-radius: var(--crumbs-border-radius);
+
+         &::after {
+          display: none;
+         }
+      }
+    }
+  }
+}

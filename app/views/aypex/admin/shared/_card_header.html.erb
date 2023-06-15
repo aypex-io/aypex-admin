@@ -1,0 +1,20 @@
+<% card_head_content_for ||= :card_head_content %>
+
+<div class="card-header d-flex align-items-center">
+  <div>
+     <%= button_tag(I18n.t('aypex.admin.save'),
+            class: "btn btn-aypex-header btn-sm",
+            data: {
+              input__required_target: "saveButton",
+              form_state_target: "saveButton"
+            }) %>
+  </div>
+
+  <div class="flex-fill">
+    <h5 class="card-title"><%= title %></h5>
+  </div>
+
+  <div>
+    <%= yield card_head_content_for.to_sym if content_for?(card_head_content_for.to_sym) %>
+  </div>
+</div>

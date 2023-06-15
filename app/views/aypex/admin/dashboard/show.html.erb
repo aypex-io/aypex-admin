@@ -1,6 +1,11 @@
-<% content_for :page_title do %>
-  <%= I18n.t("aypex.admin.dashboard") %>
+<% content_for :breadcrumb do %>
+  <%= breadcrumb_builder(current_page_name: I18n.t('aypex.admin.dashboard')) %>
 <% end %>
 
-<%= render 'getting_started' unless @onboarding_complete %>
-<%= render 'apis' %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'getting_started' unless @onboarding_complete %>
+    <%= render 'apis' %>
+  </div>
+</div>
+

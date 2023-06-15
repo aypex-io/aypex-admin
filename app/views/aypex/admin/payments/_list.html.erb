@@ -28,9 +28,9 @@
             <span class="d-flex justify-content-center payment-action-buttons">
               <% payment.actions.each do |action| %>
                 <% if action == 'credit' %>
-                  <%= link_to_with_icon(I18n.t("aypex.admin.refund"), aypex.new_admin_order_payment_refund_path(@order, payment), no_text: true, class: 'btn btn-secondary btn-sm', icon: 'exit.svg') if can?(:create, Aypex::Refund) %>
+                  <%= link_to_with_icon(I18n.t("aypex.admin.refund"), aypex.new_admin_order_payment_refund_path(@order, payment), no_text: true, class: 'btn btn-aypex btn-sm', icon: 'exit.svg') if can?(:create, Aypex::Refund) %>
                 <% else %>
-                  <%= link_to_with_icon(I18n.t("aypex.admin.#{action}"), aypex.fire_admin_order_payment_path(@order, payment, e: action), no_text: true, class: 'btn btn-secondary btn-sm', data: {
+                  <%= link_to_with_icon(I18n.t("aypex.admin.#{action}"), aypex.fire_admin_order_payment_path(@order, payment, e: action), no_text: true, class: 'btn btn-aypex btn-sm', data: {
                                                                                                                                                                                turbo_method: :put,
                                                                                                                                                                                turbo_confirm:  I18n.t("aypex.admin.are_you_sure_you_want_to",action: action, resource: aypex_humanize_type(payment.class.name))  },
                                                                                                                                                                         icon: action + '.svg' ) if can?(action.to_sym, payment) %>

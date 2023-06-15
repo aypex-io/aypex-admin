@@ -49,14 +49,12 @@ button#cms-section-editor-full-screen {
 
 #live-view-content {
   height: 100%;
-
-  .embed-responsive {
-    height: 100%;
-  }
 }
 
-#draggable-sections-holder {
-  max-height: 750px;
+/* stylelint-disable-next-line selector-id-pattern */
+#cms_sections_manager {
+  max-height: calc(100vh - 60px);
+  overflow-y: scroll;
 }
 
 #cms-page-sections-area {
@@ -108,38 +106,7 @@ button#cms-section-editor-full-screen {
 }
 
 #page-live-preview {
-  // transform-origin: top left; FIX MK
-  background: var(--bs-gray-800);
-}
-
-.desktop-live-view {
-  #page-live-preview {
-    width: 200.5%;
-    height: 200.5%;
-    inset: 50%;
-    transform: scale(0.5) translate(-50%, -50%);
-    max-width: 2600px;
-  }
-}
-
-.tablet-live-view {
-  #page-live-preview {
-    width: 85%;
-    height: 133.5%;
-    inset: 50%;
-    transform: scale(0.75) translate(-50%, -50%);
-    max-width: 991px;
-    min-width: 768px;
-  }
-}
-
-.mobile-live-view {
-  #page-live-preview {
-    width: 60%;
-    height: 133.5%;
-    inset: 50%;
-    transform: scale(0.75) translate(-50%, -50%);
-    max-width: 767px;
-    min-width: 375px;
-  }
+  background: transparent;
+  width: 100%;
+  height: 100%;
 }
