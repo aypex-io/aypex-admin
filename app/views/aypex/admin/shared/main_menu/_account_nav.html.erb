@@ -6,6 +6,8 @@
 
 <% if admin_logout_link %>
   <ul class="nav nav-sidebar" id="logout">
-    <%= tab I18n.t('aypex.admin.logout'), url: admin_logout_link, match_path: nil, icon: 'box-arrow-right.svg' %>
+    <%= tab I18n.t('aypex.admin.logout'), url: admin_logout_link, data: { turbo_method: :delete }, match_path: nil, icon: 'box-arrow-right.svg' %>
   </ul>
+
+  <%= button_to I18n.t('aypex.admin.logout'), aypex.admin_logout_path, method: :delete %>
 <% end %>
