@@ -237,31 +237,6 @@ module Aypex
           size: options[:size])
       end
 
-      def preference_fields(object, form)
-        return unless object.respond_to?(:preferences)
-
-        fields = object.preferences.keys.map do |key|
-          if object.has_preference?(key)
-            case key
-            when :currency
-              content_tag(:div, (form.select "preferred_#{key}", currency_options(object.preferences[key]), {}, {autocomplete: false, class: "form-select", data: {controller: "ts--select", form_state_target: "watch", input_disable_target: "disable"}}) +
-                form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}")),
-                class: "form-group form-floating", id: [object.class.to_s.parameterize, "preference", key].join("-"))
-            else
-              if object.preference_type(key).to_sym == :boolean
-                content_tag(:div, preference_field_for(form, "preferred_#{key}", type: object.preference_type(key)) +
-                  form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}"), class: "form-check-label"),
-                  class: "form-group form-check", id: [object.class.to_s.parameterize, "preference", key].join("-"))
-              else
-                content_tag(:div, preference_field_for(form, "preferred_#{key}", type: object.preference_type(key)) + form.label("preferred_#{key}", I18n.t("aypex.admin.#{key}")),
-                  class: "form-group form-floating", id: [object.class.to_s.parameterize, "preference", key].join("-"))
-              end
-            end
-          end
-        end
-        safe_join(fields)
-      end
-
       I18N_PLURAL_MANY_COUNT = 2.1
       def plural_resource_name(resource_class)
         resource_class.model_name.human(count: I18N_PLURAL_MANY_COUNT)
