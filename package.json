@@ -37,7 +37,7 @@
     "bootstrap": "5.3.0-alpha3",
     "cleave.js": "^1.6.0",
     "dompurify": "^3.0.1",
-    "flatpickr": "4.6.9",
+    "flatpickr": "4.6.13",
     "sortablejs": "^1.15.0",
     "stimulus-checkbox-select-all": "^5.2.0",
     "stimulus-flatpickr": "^3.0.0-0",
