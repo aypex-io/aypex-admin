@@ -31,7 +31,7 @@ describe Aypex::Admin::BaseController, type: :controller do
 
       it "redirects forbidden path" do
         get :index
-        expect(response).to redirect_to("/admin/forbidden")
+        expect(response).to redirect_to("/")
       end
     end
 

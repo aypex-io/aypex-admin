@@ -33,15 +33,15 @@ describe Aypex::Admin::BaseHelper, type: :helper do
     end
   end
 
-  describe "#admin_logout_link" do
+  describe "#admin_logout_route" do
     it "returns nil if no logout route is defined" do
-      expect(helper.admin_logout_link).to be_nil
+      expect(helper.admin_logout_route).to be_nil
     end
 
     context "returns aypex_logout_path if defined" do
       before { allow(helper).to receive(:aypex_logout_path).and_return("/logout") }
 
-      it { expect(helper.admin_logout_link).to eq("/logout") }
+      it { expect(helper.admin_logout_route).to eq("/logout") }
     end
 
     context "aypex.admin_logout_path if defined" do
@@ -50,7 +50,31 @@ describe Aypex::Admin::BaseHelper, type: :helper do
         allow(helper).to receive(:admin_logout_path).and_return("/admin/logout")
       end
 
-      it { expect(helper.admin_logout_link).to eq("/admin/logout") }
+      it { expect(helper.admin_logout_route).to eq("/admin/logout") }
+    end
+  end
+
+  describe "#admin_unauthorized_route" do
+    context "when no paths are present" do
+      it "returns'/'" do
+        expect(helper.admin_unauthorized_route).to eq("/")
+      end
+    end
+
+    context "when :admin_forbidden_path is present" do
+      before { allow(helper).to receive(:admin_forbidden_path).and_return("/admin/forbidden") }
+
+      it "returns '/admin/forbidden'" do
+        expect(helper.admin_unauthorized_route).to eq("/admin/forbidden")
+      end
+    end
+
+    context "when only aypex_unauthorized_path is defined" do
+      before { allow(helper).to receive(:aypex_unauthorized_path).and_return("/unauthorized") }
+
+      it "returns '/admin/forbidden'" do
+        expect(helper.admin_unauthorized_route).to eq("/unauthorized")
+      end
     end
   end
 end

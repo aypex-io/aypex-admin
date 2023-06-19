@@ -1,4 +1,4 @@
-Aypex::Engine.add_routes do
+Aypex::Engine.routes.draw do
   namespace :admin, path: Aypex::Admin::Config.admin_path do
     root to: "dashboard#show"
 
