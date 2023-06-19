@@ -53,11 +53,11 @@ module Aypex
       def redirect_unauthorized_access
         if try_aypex_current_user
           dispatch_notice(I18n.t("aypex.admin.authorization_failure"), :error)
-          redirect_to aypex.admin_forbidden_path
+          redirect_to helpers.admin_unauthorized_route
         else
           store_location
-          if defined?(aypex.admin_login_path)
-            redirect_to aypex.admin_login_path
+          if defined?(aypex.new_aypex_user_session_path)
+            redirect_to aypex.new_aypex_user_session_path
           elsif respond_to?(:aypex_login_path)
             redirect_to aypex_login_path
           elsif aypex.respond_to?(:root_path)

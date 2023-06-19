@@ -4,8 +4,8 @@
   </ul>
 <% end %>
 
-<% if admin_logout_link %>
+<% if admin_logout_route %>
   <ul class="nav nav-sidebar" id="logout">
-    <%= tab I18n.t('aypex.admin.logout'), url: admin_logout_link, match_path: nil, icon: 'box-arrow-right.svg' %>
+    <%= button_to I18n.t('aypex.admin.logout'), admin_logout_route, method: :delete, class: "btn btn-link btn-sm"  %>
   </ul>
 <% end %>

@@ -272,11 +272,23 @@ module Aypex
         )
       end
 
-      def admin_logout_link
+      def admin_logout_route
         if defined?(admin_logout_path)
           admin_logout_path
         elsif defined?(aypex_logout_path)
           aypex_logout_path
+        end
+      end
+
+      def admin_unauthorized_route
+        if respond_to?(:admin_forbidden_path)
+          aypex.admin_forbidden_path
+        elsif defined?(aypex_unauthorized_path)
+          aypex_unauthorized_path
+        elsif respond_to?(:root_path)
+          aypex.root_path
+        else
+          "/"
         end
       end
 
