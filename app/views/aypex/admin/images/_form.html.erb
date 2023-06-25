@@ -17,7 +17,7 @@
             <%= private_metadata.select :option_value_ids, options_from_collection_for_select(@option_values, :id, :name, @image.private_metadata[:option_value_ids]),
                                                             { include_hidden: false },
                                                               multiple: true,
-                                                              data: { controller: 'ts--search' } %>
+                                                              data: { controller: 'ts-search' } %>
 
             <%= private_metadata.label :option_values %>
             <small class="text-body-secondary">Options listed are those with the Option Type set to Image Filterable true</small>

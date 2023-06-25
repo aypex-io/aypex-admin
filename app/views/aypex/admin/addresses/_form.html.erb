@@ -60,7 +60,7 @@
       <% end %>
 
       <%= f.field_container :country do %>
-        <%= f.collection_select :country_id, all_country_options, :last, :first, {}, { class: 'form-select', data: { controller: 'ts--select', action: 'change->form-validation#validate' } } %>
+        <%= f.collection_select :country_id, all_country_options, :last, :first, {}, { class: 'form-select', data: { controller: 'ts-select', action: 'change->form-validation#validate' } } %>
         <%= f.label :country, raw(I18n.t("aypex.admin.country") + required_span_tag) %>
       <% end %>
 

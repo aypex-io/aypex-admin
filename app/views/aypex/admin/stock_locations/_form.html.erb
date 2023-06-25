@@ -72,7 +72,7 @@
 
   <div class="form-group" data-hook="stock_location_country">
     <%= f.label :country_id, I18n.t("aypex.admin.country") %>
-    <span id="country"><%= f.collection_select :country_id, available_countries, :id, :name, {}, { data: {controller: 'ts--select'} } %></span>
+    <span id="country"><%= f.collection_select :country_id, available_countries, :id, :name, {}, { data: {controller: 'ts-select'} } %></span>
   </div>
 
   <div class="form-group" data-hook="stock_location_state">
@@ -80,7 +80,7 @@
       <%= f.label :state_id, I18n.t("aypex.admin.state") %>
       <span id="state" class="region">
         <%= f.text_field :state_name, style: "#{f.object.country.states.empty? ? '' : 'display: none;'}", disabled: !f.object.country.states.empty?, class: 'state_name form-control' %>
-        <%= f.collection_select :state_id, f.object.country.states.sort, :id, :name, { include_blank: true }, { data: { controller: 'ts--select' }, style: "#{f.object.country.states.empty? ? 'display: none;' : '' };", disabled: f.object.country.states.empty?} %>
+        <%= f.collection_select :state_id, f.object.country.states.sort, :id, :name, { include_blank: true }, { data: { controller: 'ts-select' }, style: "#{f.object.country.states.empty? ? 'display: none;' : '' };", disabled: f.object.country.states.empty?} %>
       </span>
     <% end %>
   </div>

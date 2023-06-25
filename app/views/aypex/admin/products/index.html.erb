@@ -35,7 +35,7 @@
       <g-responsive>
         <g-table class="gridtable-hover"
                  id="listing_products"
-                 data-controller="input--checkbox-state"
+                 data-controller="input-checkbox-state"
                  style="grid-template-columns: 65px 76px 3fr 1fr 1fr 1fr 1fr;">
 
           <g-thead>
@@ -47,11 +47,11 @@
                 </div>
               </g-th>
 
-              <g-th data-input--checkbox-state-target="initialPanel">
+              <g-th data-input-checkbox-state-target="initialPanel">
                 <%# place holder %>
               </g-th>
 
-              <g-th class="dropdown" style="display: none; grid-column: span 6;" data-input--checkbox-state-target="actionPanel">
+              <g-th class="dropdown" style="display: none; grid-column: span 6;" data-input-checkbox-state-target="actionPanel">
                 <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <%= I18n.t('aypex.admin.bulk_actions') %>
                 </a>
@@ -65,19 +65,19 @@
                 </div>
               </g-th>
 
-              <g-th data-input--checkbox-state-target="initialPanel">
+              <g-th data-input-checkbox-state-target="initialPanel">
                 <%= I18n.t("aypex.admin.name") %>
               </g-th>
 
-              <g-th data-input--checkbox-state-target="initialPanel">
+              <g-th data-input-checkbox-state-target="initialPanel">
                 <%= I18n.t('aypex.admin.kind') %>
               </g-th>
 
-              <g-th data-input--checkbox-state-target="initialPanel">
+              <g-th data-input-checkbox-state-target="initialPanel">
                 <%= I18n.t("aypex.admin.status") %>
               </g-th>
 
-              <g-th data-input--checkbox-state-target="initialPanel" style="grid-column: span 2;">
+              <g-th data-input-checkbox-state-target="initialPanel" style="grid-column: span 2;">
                 <%= I18n.t("aypex.admin.price") %>
               </g-th>
             </g-tr>

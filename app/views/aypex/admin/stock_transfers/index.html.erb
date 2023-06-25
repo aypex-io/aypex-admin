@@ -22,7 +22,7 @@
             <%= f.label :source_location, I18n.t("aypex.admin.source") %>
             <%= f.select :source_location_id_eq,
                 options_from_collection_for_select(@stock_locations, :id, :name, @q.source_location_id_eq),
-                { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
+                { include_blank: true }, class: 'js-filterable', data: {controller: 'ts-select'} %>
           </div>
         </div>
 
@@ -31,7 +31,7 @@
             <%= f.label :destination_location, I18n.t("aypex.admin.destination") %>
             <%= f.select :destination_location_id_eq,
                 options_from_collection_for_select(@stock_locations, :id, :name, @q.destination_location_id_eq),
-                { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
+                { include_blank: true }, class: 'js-filterable', data: {controller: 'ts-select'} %>
           </div>
         </div>
       </div>

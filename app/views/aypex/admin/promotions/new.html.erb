@@ -2,6 +2,6 @@
   <%= breadcrumb_builder(link_one_uri: aypex.admin_promotions_path, link_one_text: I18n.t("aypex.admin.all_promotions"), current_page_name: I18n.t("aypex.admin.new_promotion")) %>
 <% end %>
 
-<%= form_with model: [:admin, @promotion], data: {controller: "input--required"} do |f| %>
+<%= form_with model: [:admin, @promotion], data: {controller: "input-required"} do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
 <% end %>

@@ -25,7 +25,7 @@
       <% end %>
       <%= f.field_container :reason do %>
         <%= f.label :refund_reason_id, I18n.t("aypex.admin.reason") %>
-        <%= f.collection_select(:refund_reason_id, refund_reasons, :id, :name, {include_blank: true}, {data: {controller: 'ts--select'}}) %>
+        <%= f.collection_select(:refund_reason_id, refund_reasons, :id, :name, {include_blank: true}, {data: {controller: 'ts-select'}}) %>
         <%= f.error_message_on :reason %>
       <% end %>
     </div>

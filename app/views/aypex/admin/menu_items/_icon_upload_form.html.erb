@@ -21,7 +21,7 @@
     <%#= link_to I18n.t("aypex.admin.remove_image"), remove_image_admin_base_category_category_url(@base_category.id, @category.id), method: :delete %>
   </span>
     <div class="product-image-container mb-3">
-      <%= image_tag(main_app.cdn_image_url(@menu_item.image.try(:attachment)), class: 'w-100') if @menu_item.image %>
+      <%= image_tag(@menu_item.image.generate_url, class: 'w-100') if @menu_item.image&.attachment&.attached? %>
     </div>
   <% end %>
 <% end %>

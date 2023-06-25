@@ -13,11 +13,11 @@ module Aypex
       end
 
       def collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
-        super(method, collection, value_method, text_method, options, html_options.reverse_merge(class: "form-select", data: {controller: "ts--select", form_state_target: "watch"}))
+        super(method, collection, value_method, text_method, options, html_options.reverse_merge(class: "form-select", data: {controller: "ts-select", form_state_target: "watch"}))
       end
 
       def number_field(method, options = {})
-        super(method, options.reverse_merge(placeholder: method.to_s.capitalize, class: "form-control", data: {controller: "input--format-integer", form_state_target: "watch"}))
+        super(method, options.reverse_merge(placeholder: method.to_s.capitalize, class: "form-control", data: {controller: "input-format-integer", form_state_target: "watch"}))
       end
 
       def radio_button(method, tag_value, options = {})
@@ -45,7 +45,7 @@ module Aypex
       end
 
       def select(object_name, method_name, template_object, options = {}, &block)
-        super(object_name, method_name, template_object, options.reverse_merge(class: "form-select", data: {controller: "ts--select", form_state_target: "watch"}, &block))
+        super(object_name, method_name, template_object, options.reverse_merge(class: "form-select", data: {controller: "ts-select", form_state_target: "watch"}, &block))
       end
 
       def file_field(method, options = {})

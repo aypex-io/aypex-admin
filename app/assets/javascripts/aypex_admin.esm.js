@@ -12043,6 +12043,723 @@ class BsInstanceController extends Controller$1 {
   }
 }
 
+function flashToastNotice(message) {
+  const body = document.querySelector("body");
+  body.insertAdjacentHTML("beforeend", `<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-5">\n    <div class="toast align-items-center border-0 py-2 text-bg-dark animate__animated animate__faster animate__fadeInUp"\n         role="alert"\n         aria-live="assertive"\n         data-bs-animation="false"\n         aria-atomic="true"\n         data-controller="toast">\n      <div class="d-flex">\n        <div class="toast-body">\n          ${message}\n        </div>\n        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>\n      </div>\n    </div>\n  </div>`);
+}
+
+class ClipboardController extends Controller$1 {
+  static targets=[ "source" ];
+  copy(event) {
+    navigator.clipboard.writeText(this.sourceTarget.value).then((() => {
+      console.log("Successfully copied to clipboard");
+      flashToastNotice(`Successfully copied ${this.sourceTarget.placeholder} to clipboard`);
+    }), (() => {
+      console.log("Failed to copy clipboard");
+      flashToastNotice(`Failed to copy ${this.sourceTarget.placeholder} to clipboard`);
+    }));
+  }
+}
+
+class DomController extends Controller$1 {
+  static targets=[ "element" ];
+  static values={
+    duration: {
+      default: 500,
+      type: Number
+    }
+  };
+  removeElement() {
+    this.element.classList.add("animate__fadeOut");
+    setTimeout((() => this.elementTarget.remove()), this.durationValue);
+  }
+}
+
+/**! 
+ * hotkeys-js v3.10.2 
+ * A simple micro-library for defining and dispatching keyboard shortcuts. It has no dependencies. 
+ * 
+ * Copyright (c) 2023 kenny wong <wowohoo@qq.com> 
+ * http://jaywcjlove.github.io/hotkeys 
+ * Licensed under the MIT license 
+ */ var isff = typeof navigator !== "undefined" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : false;
+
+function addEvent$1(object, event, method, useCapture) {
+  if (object.addEventListener) {
+    object.addEventListener(event, method, useCapture);
+  } else if (object.attachEvent) {
+    object.attachEvent("on".concat(event), (function() {
+      method(window.event);
+    }));
+  }
+}
+
+function getMods$1(modifier, key) {
+  var mods = key.slice(0, key.length - 1);
+  for (var i = 0; i < mods.length; i++) {
+    mods[i] = modifier[mods[i].toLowerCase()];
+  }
+  return mods;
+}
+
+function getKeys(key) {
+  if (typeof key !== "string") key = "";
+  key = key.replace(/\s/g, "");
+  var keys = key.split(",");
+  var index = keys.lastIndexOf("");
+  for (;index >= 0; ) {
+    keys[index - 1] += ",";
+    keys.splice(index, 1);
+    index = keys.lastIndexOf("");
+  }
+  return keys;
+}
+
+function compareArray(a1, a2) {
+  var arr1 = a1.length >= a2.length ? a1 : a2;
+  var arr2 = a1.length >= a2.length ? a2 : a1;
+  var isIndex = true;
+  for (var i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) === -1) isIndex = false;
+  }
+  return isIndex;
+}
+
+var _keyMap = {
+  backspace: 8,
+  "⌫": 8,
+  tab: 9,
+  clear: 12,
+  enter: 13,
+  "↩": 13,
+  return: 13,
+  esc: 27,
+  escape: 27,
+  space: 32,
+  left: 37,
+  up: 38,
+  right: 39,
+  down: 40,
+  del: 46,
+  delete: 46,
+  ins: 45,
+  insert: 45,
+  home: 36,
+  end: 35,
+  pageup: 33,
+  pagedown: 34,
+  capslock: 20,
+  num_0: 96,
+  num_1: 97,
+  num_2: 98,
+  num_3: 99,
+  num_4: 100,
+  num_5: 101,
+  num_6: 102,
+  num_7: 103,
+  num_8: 104,
+  num_9: 105,
+  num_multiply: 106,
+  num_add: 107,
+  num_enter: 108,
+  num_subtract: 109,
+  num_decimal: 110,
+  num_divide: 111,
+  "⇪": 20,
+  ",": 188,
+  ".": 190,
+  "/": 191,
+  "`": 192,
+  "-": isff ? 173 : 189,
+  "=": isff ? 61 : 187,
+  ";": isff ? 59 : 186,
+  "'": 222,
+  "[": 219,
+  "]": 221,
+  "\\": 220
+};
+
+var _modifier = {
+  "⇧": 16,
+  shift: 16,
+  "⌥": 18,
+  alt: 18,
+  option: 18,
+  "⌃": 17,
+  ctrl: 17,
+  control: 17,
+  "⌘": 91,
+  cmd: 91,
+  command: 91
+};
+
+var modifierMap = {
+  16: "shiftKey",
+  18: "altKey",
+  17: "ctrlKey",
+  91: "metaKey",
+  shiftKey: 16,
+  ctrlKey: 17,
+  altKey: 18,
+  metaKey: 91
+};
+
+var _mods = {
+  16: false,
+  18: false,
+  17: false,
+  91: false
+};
+
+var _handlers = {};
+
+for (var k = 1; k < 20; k++) {
+  _keyMap["f".concat(k)] = 111 + k;
+}
+
+var _downKeys = [];
+
+var winListendFocus = false;
+
+var _scope = "all";
+
+var elementHasBindEvent = [];
+
+var code$1 = function code(x) {
+  return _keyMap[x.toLowerCase()] || _modifier[x.toLowerCase()] || x.toUpperCase().charCodeAt(0);
+};
+
+var getKey = function getKey(x) {
+  return Object.keys(_keyMap).find((function(k) {
+    return _keyMap[k] === x;
+  }));
+};
+
+var getModifier = function getModifier(x) {
+  return Object.keys(_modifier).find((function(k) {
+    return _modifier[k] === x;
+  }));
+};
+
+function setScope(scope) {
+  _scope = scope || "all";
+}
+
+function getScope() {
+  return _scope || "all";
+}
+
+function getPressedKeyCodes() {
+  return _downKeys.slice(0);
+}
+
+function getPressedKeyString() {
+  return _downKeys.map((function(c) {
+    return getKey(c) || getModifier(c) || String.fromCharCode(c);
+  }));
+}
+
+function filter(event) {
+  var target = event.target || event.srcElement;
+  var tagName = target.tagName;
+  var flag = true;
+  if (target.isContentEditable || (tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT") && !target.readOnly) {
+    flag = false;
+  }
+  return flag;
+}
+
+function isPressed(keyCode) {
+  if (typeof keyCode === "string") {
+    keyCode = code$1(keyCode);
+  }
+  return _downKeys.indexOf(keyCode) !== -1;
+}
+
+function deleteScope(scope, newScope) {
+  var handlers;
+  var i;
+  if (!scope) scope = getScope();
+  for (var key in _handlers) {
+    if (Object.prototype.hasOwnProperty.call(_handlers, key)) {
+      handlers = _handlers[key];
+      for (i = 0; i < handlers.length; ) {
+        if (handlers[i].scope === scope) handlers.splice(i, 1); else i++;
+      }
+    }
+  }
+  if (getScope() === scope) setScope(newScope || "all");
+}
+
+function clearModifier(event) {
+  var key = event.keyCode || event.which || event.charCode;
+  var i = _downKeys.indexOf(key);
+  if (i >= 0) {
+    _downKeys.splice(i, 1);
+  }
+  if (event.key && event.key.toLowerCase() === "meta") {
+    _downKeys.splice(0, _downKeys.length);
+  }
+  if (key === 93 || key === 224) key = 91;
+  if (key in _mods) {
+    _mods[key] = false;
+    for (var k in _modifier) {
+      if (_modifier[k] === key) hotkeys[k] = false;
+    }
+  }
+}
+
+function unbind(keysInfo) {
+  if (typeof keysInfo === "undefined") {
+    Object.keys(_handlers).forEach((function(key) {
+      return delete _handlers[key];
+    }));
+  } else if (Array.isArray(keysInfo)) {
+    keysInfo.forEach((function(info) {
+      if (info.key) eachUnbind(info);
+    }));
+  } else if (typeof keysInfo === "object") {
+    if (keysInfo.key) eachUnbind(keysInfo);
+  } else if (typeof keysInfo === "string") {
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+    var scope = args[0], method = args[1];
+    if (typeof scope === "function") {
+      method = scope;
+      scope = "";
+    }
+    eachUnbind({
+      key: keysInfo,
+      scope: scope,
+      method: method,
+      splitKey: "+"
+    });
+  }
+}
+
+var eachUnbind = function eachUnbind(_ref) {
+  var key = _ref.key, scope = _ref.scope, method = _ref.method, _ref$splitKey = _ref.splitKey, splitKey = _ref$splitKey === void 0 ? "+" : _ref$splitKey;
+  var multipleKeys = getKeys(key);
+  multipleKeys.forEach((function(originKey) {
+    var unbindKeys = originKey.split(splitKey);
+    var len = unbindKeys.length;
+    var lastKey = unbindKeys[len - 1];
+    var keyCode = lastKey === "*" ? "*" : code$1(lastKey);
+    if (!_handlers[keyCode]) return;
+    if (!scope) scope = getScope();
+    var mods = len > 1 ? getMods$1(_modifier, unbindKeys) : [];
+    _handlers[keyCode] = _handlers[keyCode].filter((function(record) {
+      var isMatchingMethod = method ? record.method === method : true;
+      return !(isMatchingMethod && record.scope === scope && compareArray(record.mods, mods));
+    }));
+  }));
+};
+
+function eventHandler(event, handler, scope, element) {
+  if (handler.element !== element) {
+    return;
+  }
+  var modifiersMatch;
+  if (handler.scope === scope || handler.scope === "all") {
+    modifiersMatch = handler.mods.length > 0;
+    for (var y in _mods) {
+      if (Object.prototype.hasOwnProperty.call(_mods, y)) {
+        if (!_mods[y] && handler.mods.indexOf(+y) > -1 || _mods[y] && handler.mods.indexOf(+y) === -1) {
+          modifiersMatch = false;
+        }
+      }
+    }
+    if (handler.mods.length === 0 && !_mods[16] && !_mods[18] && !_mods[17] && !_mods[91] || modifiersMatch || handler.shortcut === "*") {
+      if (handler.method(event, handler) === false) {
+        if (event.preventDefault) event.preventDefault(); else event.returnValue = false;
+        if (event.stopPropagation) event.stopPropagation();
+        if (event.cancelBubble) event.cancelBubble = true;
+      }
+    }
+  }
+}
+
+function dispatch(event, element) {
+  var asterisk = _handlers["*"];
+  var key = event.keyCode || event.which || event.charCode;
+  if (!hotkeys.filter.call(this, event)) return;
+  if (key === 93 || key === 224) key = 91;
+  if (_downKeys.indexOf(key) === -1 && key !== 229) _downKeys.push(key);
+  [ "ctrlKey", "altKey", "shiftKey", "metaKey" ].forEach((function(keyName) {
+    var keyNum = modifierMap[keyName];
+    if (event[keyName] && _downKeys.indexOf(keyNum) === -1) {
+      _downKeys.push(keyNum);
+    } else if (!event[keyName] && _downKeys.indexOf(keyNum) > -1) {
+      _downKeys.splice(_downKeys.indexOf(keyNum), 1);
+    } else if (keyName === "metaKey" && event[keyName] && _downKeys.length === 3) {
+      if (!(event.ctrlKey || event.shiftKey || event.altKey)) {
+        _downKeys = _downKeys.slice(_downKeys.indexOf(keyNum));
+      }
+    }
+  }));
+  if (key in _mods) {
+    _mods[key] = true;
+    for (var k in _modifier) {
+      if (_modifier[k] === key) hotkeys[k] = true;
+    }
+    if (!asterisk) return;
+  }
+  for (var e in _mods) {
+    if (Object.prototype.hasOwnProperty.call(_mods, e)) {
+      _mods[e] = event[modifierMap[e]];
+    }
+  }
+  if (event.getModifierState && !(event.altKey && !event.ctrlKey) && event.getModifierState("AltGraph")) {
+    if (_downKeys.indexOf(17) === -1) {
+      _downKeys.push(17);
+    }
+    if (_downKeys.indexOf(18) === -1) {
+      _downKeys.push(18);
+    }
+    _mods[17] = true;
+    _mods[18] = true;
+  }
+  var scope = getScope();
+  if (asterisk) {
+    for (var i = 0; i < asterisk.length; i++) {
+      if (asterisk[i].scope === scope && (event.type === "keydown" && asterisk[i].keydown || event.type === "keyup" && asterisk[i].keyup)) {
+        eventHandler(event, asterisk[i], scope, element);
+      }
+    }
+  }
+  if (!(key in _handlers)) return;
+  for (var _i = 0; _i < _handlers[key].length; _i++) {
+    if (event.type === "keydown" && _handlers[key][_i].keydown || event.type === "keyup" && _handlers[key][_i].keyup) {
+      if (_handlers[key][_i].key) {
+        var record = _handlers[key][_i];
+        var splitKey = record.splitKey;
+        var keyShortcut = record.key.split(splitKey);
+        var _downKeysCurrent = [];
+        for (var a = 0; a < keyShortcut.length; a++) {
+          _downKeysCurrent.push(code$1(keyShortcut[a]));
+        }
+        if (_downKeysCurrent.sort().join("") === _downKeys.sort().join("")) {
+          eventHandler(event, record, scope, element);
+        }
+      }
+    }
+  }
+}
+
+function isElementBind(element) {
+  return elementHasBindEvent.indexOf(element) > -1;
+}
+
+function hotkeys(key, option, method) {
+  _downKeys = [];
+  var keys = getKeys(key);
+  var mods = [];
+  var scope = "all";
+  var element = document;
+  var i = 0;
+  var keyup = false;
+  var keydown = true;
+  var splitKey = "+";
+  var capture = false;
+  if (method === undefined && typeof option === "function") {
+    method = option;
+  }
+  if (Object.prototype.toString.call(option) === "[object Object]") {
+    if (option.scope) scope = option.scope;
+    if (option.element) element = option.element;
+    if (option.keyup) keyup = option.keyup;
+    if (option.keydown !== undefined) keydown = option.keydown;
+    if (option.capture !== undefined) capture = option.capture;
+    if (typeof option.splitKey === "string") splitKey = option.splitKey;
+  }
+  if (typeof option === "string") scope = option;
+  for (;i < keys.length; i++) {
+    key = keys[i].split(splitKey);
+    mods = [];
+    if (key.length > 1) mods = getMods$1(_modifier, key);
+    key = key[key.length - 1];
+    key = key === "*" ? "*" : code$1(key);
+    if (!(key in _handlers)) _handlers[key] = [];
+    _handlers[key].push({
+      keyup: keyup,
+      keydown: keydown,
+      scope: scope,
+      mods: mods,
+      shortcut: keys[i],
+      method: method,
+      key: keys[i],
+      splitKey: splitKey,
+      element: element
+    });
+  }
+  if (typeof element !== "undefined" && !isElementBind(element) && window) {
+    elementHasBindEvent.push(element);
+    addEvent$1(element, "keydown", (function(e) {
+      dispatch(e, element);
+    }), capture);
+    if (!winListendFocus) {
+      winListendFocus = true;
+      addEvent$1(window, "focus", (function() {
+        _downKeys = [];
+      }), capture);
+    }
+    addEvent$1(element, "keyup", (function(e) {
+      dispatch(e, element);
+      clearModifier(e);
+    }), capture);
+  }
+}
+
+function trigger(shortcut) {
+  var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "all";
+  Object.keys(_handlers).forEach((function(key) {
+    var dataList = _handlers[key].filter((function(item) {
+      return item.scope === scope && item.shortcut === shortcut;
+    }));
+    dataList.forEach((function(data) {
+      if (data && data.method) {
+        data.method();
+      }
+    }));
+  }));
+}
+
+var _api = {
+  getPressedKeyString: getPressedKeyString,
+  setScope: setScope,
+  getScope: getScope,
+  deleteScope: deleteScope,
+  getPressedKeyCodes: getPressedKeyCodes,
+  isPressed: isPressed,
+  filter: filter,
+  trigger: trigger,
+  unbind: unbind,
+  keyMap: _keyMap,
+  modifier: _modifier,
+  modifierMap: modifierMap
+};
+
+for (var a in _api) {
+  if (Object.prototype.hasOwnProperty.call(_api, a)) {
+    hotkeys[a] = _api[a];
+  }
+}
+
+if (typeof window !== "undefined") {
+  var _hotkeys = window.hotkeys;
+  hotkeys.noConflict = function(deep) {
+    if (deep && window.hotkeys === hotkeys) {
+      window.hotkeys = _hotkeys;
+    }
+    return hotkeys;
+  };
+  window.hotkeys = hotkeys;
+}
+
+class DebounceController extends Controller$1 {}
+
+DebounceController.debounces = [];
+
+const defaultWait$1 = 200;
+
+const debounce$1 = (fn, wait = defaultWait$1) => {
+  let timeoutId = null;
+  return function() {
+    const args = Array.from(arguments);
+    const context = this;
+    const params = args.map((arg => arg.params));
+    const callback = () => {
+      args.forEach(((arg, index) => arg.params = params[index]));
+      return fn.apply(context, args);
+    };
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(callback, wait);
+  };
+};
+
+const useDebounce = (composableController, options) => {
+  const controller = composableController;
+  const constructor = controller.constructor;
+  constructor.debounces.forEach((func => {
+    if (typeof func === "string") {
+      controller[func] = debounce$1(controller[func], options === null || options === void 0 ? void 0 : options.wait);
+    }
+    if (typeof func === "object") {
+      const {name: name, wait: wait} = func;
+      if (!name) return;
+      controller[name] = debounce$1(controller[name], wait || (options === null || options === void 0 ? void 0 : options.wait));
+    }
+  }));
+};
+
+class ThrottleController extends Controller$1 {}
+
+ThrottleController.throttles = [];
+
+class FormAutoSaveController extends Controller$1 {
+  static targets=[ "submitButton", "paramHolder" ];
+  static values={
+    delay: {
+      default: 250,
+      type: Number
+    }
+  };
+  static debounces=[ {
+    name: "save"
+  } ];
+  initialize() {
+    this.save = this.save.bind(this);
+  }
+  connect() {
+    useDebounce(this, {
+      wait: this.delayValue
+    });
+    if (this.hasSubmitButtonTarget) this.submitButtonTarget.style.display = "none";
+  }
+  save(event) {
+    if (this.hasParamHolderTarget) {
+      const fullUrl = new URL(this.submitButtonTarget.href);
+      const params = fullUrl.searchParams;
+      const paramName = this.paramHolderTarget.name;
+      const paramValue = this.paramHolderTarget.value;
+      params.set(paramName, paramValue);
+      this.submitButtonTarget.href = fullUrl.href;
+    }
+    this.submitButtonTarget.click();
+  }
+}
+
+class src_default extends Controller$1 {
+  connect() {
+    this.checkForChanges();
+  }
+  watchTargetConnected(target) {
+    this.attachActionAttributes(target);
+    this.checkForChanges();
+  }
+  watchTargetDisconnect() {
+    this.checkForChanges();
+  }
+  checkForChanges() {
+    const changeCount = [];
+    this.watchTargets.forEach((formEl => {
+      if (formEl.type === "checkbox" || formEl.type === "radio") {
+        if (formEl.checked !== formEl.defaultChecked) changeCount.push(1);
+      } else if (formEl.tagName === "SELECT") {
+        if (this.handleSelectChange(formEl) === true) changeCount.push(1);
+      } else {
+        if (formEl.value !== formEl.defaultValue) changeCount.push(1);
+      }
+    }));
+    if (changeCount.length > 0) {
+      this.enableChangeControles();
+    } else {
+      this.disableChangeControles();
+    }
+  }
+  enableChangeControles() {
+    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = false;
+  }
+  disableChangeControles() {
+    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = true;
+  }
+  handleSelectChange(selectEl) {
+    let hasChanged = false;
+    let defaultSelected = 0;
+    let i;
+    let optionsCount;
+    let option;
+    for (i = 0, optionsCount = selectEl.options.length; i < optionsCount; i++) {
+      option = selectEl.options[i];
+      hasChanged = hasChanged || option.selected !== option.defaultSelected;
+      if (option.defaultSelected) defaultSelected = i;
+    }
+    if (hasChanged && !selectEl.multiple) hasChanged = defaultSelected !== selectEl.selectedIndex;
+    if (hasChanged) return true;
+  }
+  attachActionAttributes(target) {
+    if (target.hasAttribute("data-action")) {
+      if (target.dataset.action.includes(`${this.identifier}#checkForChanges`)) return;
+    }
+    if (target.hasAttribute("data-action")) {
+      target.setAttribute("data-action", `${this.identifier}#checkForChanges ${target.dataset.action}`);
+    } else {
+      target.setAttribute("data-action", `${this.identifier}#checkForChanges`);
+    }
+  }
+}
+
+src_default.targets = [ "saveButton", "watch" ];
+
+class FormStateController extends src_default {
+  enableChangeControles() {
+    const globalSubmitButton = document.getElementById("globalFormSubmitButton");
+    super.enableChangeControles();
+    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = false;
+    if (globalSubmitButton) globalSubmitButton.disabled = false;
+  }
+  disableChangeControles() {
+    const globalSubmitButton = document.getElementById("globalFormSubmitButton");
+    super.disableChangeControles();
+    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = true;
+    if (globalSubmitButton) globalSubmitButton.disabled = true;
+  }
+}
+
+class FormValidationController extends Controller$1 {
+  static targets=[ "submitBtn" ];
+  connect() {
+    this.submitBtnTarget.hidden = true;
+  }
+  validate() {
+    this.submitBtnTarget.click();
+  }
+}
+
+class FormResetController extends Controller$1 {
+  static targets=[ "resettable" ];
+  resetForm() {
+    if (this.hasResettableTarget) this.resettableTarget.reset();
+  }
+  clearForm() {
+    const elements = this.resettableTarget.elements;
+    this.resettableTarget.reset();
+    for (let i = 0; i < elements.length; i++) {
+      const fieldType = elements[i].type.toLowerCase();
+      switch (fieldType) {
+       case "text":
+       case "password":
+       case "textarea":
+       case "hidden":
+        elements[i].value = "";
+        break;
+
+       case "radio":
+       case "checkbox":
+        if (elements[i].checked) {
+          elements[i].checked = false;
+        }
+        break;
+
+       case "select-one":
+       case "select-multi":
+        elements[i].selectedIndex = -1;
+        break;
+      }
+    }
+  }
+}
+
+class GetIdController extends Controller$1 {
+  static outlets=[ "input-value" ];
+  markAsSelected(event) {
+    this.inputValueOutlets.forEach((result => result.markAsSelected(event)));
+  }
+}
+
 var commonjsGlobal = typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 
 var NumeralFormatter = function(numeralDecimalMark, numeralIntegerScale, numeralDecimalScale, numeralThousandsGroupStyle, numeralPositiveOnly, stripLeadingZeroes, prefix, signBeforePrefix, tailPrefix, delimiter) {
@@ -13089,7 +13806,7 @@ Cleave.DefaultProperties = DefaultProperties_1;
 
 var Cleave_1 = Cleave;
 
-class CardFormattingController extends Controller$1 {
+class InputCardFormattingController extends Controller$1 {
   static targets=[ "number", "exp", "code", "type" ];
   static values={
     datePattern: {
@@ -13133,7 +13850,90 @@ class CardFormattingController extends Controller$1 {
   }
 }
 
-class CheckboxValidationController extends Controller$1 {
+class h extends Controller$1 {
+  initialize() {
+    this.toggle = this.toggle.bind(this), this.refresh = this.refresh.bind(this);
+  }
+  checkboxAllTargetConnected(e) {
+    e.addEventListener("change", this.toggle), this.refresh();
+  }
+  checkboxTargetConnected(e) {
+    e.addEventListener("change", this.refresh), this.refresh();
+  }
+  checkboxAllTargetDisconnected(e) {
+    e.removeEventListener("change", this.toggle), this.refresh();
+  }
+  checkboxTargetDisconnected(e) {
+    e.removeEventListener("change", this.refresh), this.refresh();
+  }
+  toggle(e) {
+    e.preventDefault(), this.checkboxTargets.forEach((t => {
+      t.checked = e.target.checked, this.triggerInputEvent(t);
+    }));
+  }
+  refresh() {
+    const e = this.checkboxTargets.length, t = this.checked.length;
+    this.checkboxAllTarget.checked = t > 0, this.checkboxAllTarget.indeterminate = t > 0 && t < e;
+  }
+  triggerInputEvent(e) {
+    const t = new Event("input", {
+      bubbles: !1,
+      cancelable: !0
+    });
+    e.dispatchEvent(t);
+  }
+  get checked() {
+    return this.checkboxTargets.filter((e => e.checked));
+  }
+  get unchecked() {
+    return this.checkboxTargets.filter((e => !e.checked));
+  }
+}
+
+h.targets = [ "checkboxAll", "checkbox" ];
+
+class InputCheckboxState extends h {
+  static targets=[ "checkboxAll", "checkbox", "actionPanel", "initialPanel" ];
+  initialize() {
+    super.initialize();
+    this.reportState = this.reportState.bind(this);
+  }
+  connect() {
+    super.connect();
+    this.checkboxAllTarget.addEventListener("change", this.reportState);
+    this.checkboxTargets.forEach((checkbox => checkbox.addEventListener("change", this.reportState)));
+  }
+  disconnect() {
+    super.disconnect();
+    this.checkboxAllTarget.removeEventListener("change", this.reportState);
+    this.checkboxTargets.forEach((checkbox => checkbox.removeEventListener("change", this.reportState)));
+  }
+  reportState() {
+    if (this.checkboxAllTarget.checked || this.checkboxAllTarget.indeterminate) {
+      this.activateOptionsPanel();
+    } else {
+      this.deactivateOptionsPanel();
+    }
+  }
+  activateOptionsPanel() {
+    this.actionPanelTargets.forEach((panel => {
+      panel.style.display = "flex";
+    }));
+    this.initialPanelTargets.forEach((panel => {
+      panel.style.display = "none";
+    }));
+  }
+  deactivateOptionsPanel() {
+    this.actionPanelTargets.forEach((panel => {
+      panel.style.display = "none";
+    }));
+    this.initialPanelTargets.forEach((panel => {
+      panel.style.display = "flex";
+    }));
+  }
+}
+
+class InputCheckboxValidationController extends Controller$1 {
   static targets=[ "message" ];
   connect() {
     let i;
@@ -13150,24 +13950,6 @@ class CheckboxValidationController extends Controller$1 {
     for (i = el.length; i--; ) {
       el[i].addEventListener("change", onChange, false);
     }
-  }
-}
-
-function flashToastNotice(message) {
-  const body = document.querySelector("body");
-  body.insertAdjacentHTML("beforeend", `<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-5">\n    <div class="toast align-items-center border-0 py-2 text-bg-dark animate__animated animate__faster animate__fadeInUp"\n         role="alert"\n         aria-live="assertive"\n         data-bs-animation="false"\n         aria-atomic="true"\n         data-controller="toast">\n      <div class="d-flex">\n        <div class="toast-body">\n          ${message}\n        </div>\n        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>\n      </div>\n    </div>\n  </div>`);
-}
-
-class ClipboardController extends Controller$1 {
-  static targets=[ "source" ];
-  copy(event) {
-    navigator.clipboard.writeText(this.sourceTarget.value).then((() => {
-      console.log("Successfully copied to clipboard");
-      flashToastNotice(`Successfully copied ${this.sourceTarget.placeholder} to clipboard`);
-    }), (() => {
-      console.log("Failed to copy clipboard");
-      flashToastNotice(`Failed to copy ${this.sourceTarget.placeholder} to clipboard`);
-    }));
   }
 }
 
@@ -13280,7 +14062,7 @@ const pad = (number, length = 2) => `000${number}`.slice(length * -1);
 
 const int = bool => bool === true ? 1 : 0;
 
-function debounce$1(fn, wait) {
+function debounce(fn, wait) {
   let t;
   return function() {
     clearTimeout(t);
@@ -13760,8 +14542,8 @@ function FlatpickrInstance(element, instanceConfig) {
       setupMobile();
       return;
     }
-    const debouncedResize = debounce$1(onResize, 50);
-    self._debouncedChange = debounce$1(triggerChange, DEBOUNCED_CHANGE_MS);
+    const debouncedResize = debounce(onResize, 50);
+    self._debouncedChange = debounce(triggerChange, DEBOUNCED_CHANGE_MS);
     if (self.daysContainer && !/iPhone|iPad|iPod/i.test(navigator.userAgent)) bind(self.daysContainer, "mouseover", (e => {
       if (self.config.mode === "range") onMouseOver(getEventTarget(e));
     }));
@@ -15807,7 +16589,7 @@ const Locales = {
   en: english
 };
 
-class DatePickerController extends StimulusFlatpickr {
+class InputDatePickerController extends StimulusFlatpickr {
   static targets=[ "watch" ];
   static values={
     locale: String
@@ -15836,781 +16618,6 @@ class DatePickerController extends StimulusFlatpickr {
       const fromCal = document.getElementById(this.element.dataset.targetPairId);
       fromCal._flatpickr.set("maxDate", selectedDates[0]);
     }
-  }
-}
-
-class DomController extends Controller$1 {
-  static targets=[ "element" ];
-  static values={
-    duration: {
-      default: 500,
-      type: Number
-    }
-  };
-  removeElement() {
-    this.element.classList.add("animate__fadeOut");
-    setTimeout((() => this.elementTarget.remove()), this.durationValue);
-  }
-}
-
-/**! 
- * hotkeys-js v3.10.2 
- * A simple micro-library for defining and dispatching keyboard shortcuts. It has no dependencies. 
- * 
- * Copyright (c) 2023 kenny wong <wowohoo@qq.com> 
- * http://jaywcjlove.github.io/hotkeys 
- * Licensed under the MIT license 
- */ var isff = typeof navigator !== "undefined" ? navigator.userAgent.toLowerCase().indexOf("firefox") > 0 : false;
-
-function addEvent$1(object, event, method, useCapture) {
-  if (object.addEventListener) {
-    object.addEventListener(event, method, useCapture);
-  } else if (object.attachEvent) {
-    object.attachEvent("on".concat(event), (function() {
-      method(window.event);
-    }));
-  }
-}
-
-function getMods$1(modifier, key) {
-  var mods = key.slice(0, key.length - 1);
-  for (var i = 0; i < mods.length; i++) {
-    mods[i] = modifier[mods[i].toLowerCase()];
-  }
-  return mods;
-}
-
-function getKeys(key) {
-  if (typeof key !== "string") key = "";
-  key = key.replace(/\s/g, "");
-  var keys = key.split(",");
-  var index = keys.lastIndexOf("");
-  for (;index >= 0; ) {
-    keys[index - 1] += ",";
-    keys.splice(index, 1);
-    index = keys.lastIndexOf("");
-  }
-  return keys;
-}
-
-function compareArray(a1, a2) {
-  var arr1 = a1.length >= a2.length ? a1 : a2;
-  var arr2 = a1.length >= a2.length ? a2 : a1;
-  var isIndex = true;
-  for (var i = 0; i < arr1.length; i++) {
-    if (arr2.indexOf(arr1[i]) === -1) isIndex = false;
-  }
-  return isIndex;
-}
-
-var _keyMap = {
-  backspace: 8,
-  "⌫": 8,
-  tab: 9,
-  clear: 12,
-  enter: 13,
-  "↩": 13,
-  return: 13,
-  esc: 27,
-  escape: 27,
-  space: 32,
-  left: 37,
-  up: 38,
-  right: 39,
-  down: 40,
-  del: 46,
-  delete: 46,
-  ins: 45,
-  insert: 45,
-  home: 36,
-  end: 35,
-  pageup: 33,
-  pagedown: 34,
-  capslock: 20,
-  num_0: 96,
-  num_1: 97,
-  num_2: 98,
-  num_3: 99,
-  num_4: 100,
-  num_5: 101,
-  num_6: 102,
-  num_7: 103,
-  num_8: 104,
-  num_9: 105,
-  num_multiply: 106,
-  num_add: 107,
-  num_enter: 108,
-  num_subtract: 109,
-  num_decimal: 110,
-  num_divide: 111,
-  "⇪": 20,
-  ",": 188,
-  ".": 190,
-  "/": 191,
-  "`": 192,
-  "-": isff ? 173 : 189,
-  "=": isff ? 61 : 187,
-  ";": isff ? 59 : 186,
-  "'": 222,
-  "[": 219,
-  "]": 221,
-  "\\": 220
-};
-
-var _modifier = {
-  "⇧": 16,
-  shift: 16,
-  "⌥": 18,
-  alt: 18,
-  option: 18,
-  "⌃": 17,
-  ctrl: 17,
-  control: 17,
-  "⌘": 91,
-  cmd: 91,
-  command: 91
-};
-
-var modifierMap = {
-  16: "shiftKey",
-  18: "altKey",
-  17: "ctrlKey",
-  91: "metaKey",
-  shiftKey: 16,
-  ctrlKey: 17,
-  altKey: 18,
-  metaKey: 91
-};
-
-var _mods = {
-  16: false,
-  18: false,
-  17: false,
-  91: false
-};
-
-var _handlers = {};
-
-for (var k = 1; k < 20; k++) {
-  _keyMap["f".concat(k)] = 111 + k;
-}
-
-var _downKeys = [];
-
-var winListendFocus = false;
-
-var _scope = "all";
-
-var elementHasBindEvent = [];
-
-var code$1 = function code(x) {
-  return _keyMap[x.toLowerCase()] || _modifier[x.toLowerCase()] || x.toUpperCase().charCodeAt(0);
-};
-
-var getKey = function getKey(x) {
-  return Object.keys(_keyMap).find((function(k) {
-    return _keyMap[k] === x;
-  }));
-};
-
-var getModifier = function getModifier(x) {
-  return Object.keys(_modifier).find((function(k) {
-    return _modifier[k] === x;
-  }));
-};
-
-function setScope(scope) {
-  _scope = scope || "all";
-}
-
-function getScope() {
-  return _scope || "all";
-}
-
-function getPressedKeyCodes() {
-  return _downKeys.slice(0);
-}
-
-function getPressedKeyString() {
-  return _downKeys.map((function(c) {
-    return getKey(c) || getModifier(c) || String.fromCharCode(c);
-  }));
-}
-
-function filter(event) {
-  var target = event.target || event.srcElement;
-  var tagName = target.tagName;
-  var flag = true;
-  if (target.isContentEditable || (tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT") && !target.readOnly) {
-    flag = false;
-  }
-  return flag;
-}
-
-function isPressed(keyCode) {
-  if (typeof keyCode === "string") {
-    keyCode = code$1(keyCode);
-  }
-  return _downKeys.indexOf(keyCode) !== -1;
-}
-
-function deleteScope(scope, newScope) {
-  var handlers;
-  var i;
-  if (!scope) scope = getScope();
-  for (var key in _handlers) {
-    if (Object.prototype.hasOwnProperty.call(_handlers, key)) {
-      handlers = _handlers[key];
-      for (i = 0; i < handlers.length; ) {
-        if (handlers[i].scope === scope) handlers.splice(i, 1); else i++;
-      }
-    }
-  }
-  if (getScope() === scope) setScope(newScope || "all");
-}
-
-function clearModifier(event) {
-  var key = event.keyCode || event.which || event.charCode;
-  var i = _downKeys.indexOf(key);
-  if (i >= 0) {
-    _downKeys.splice(i, 1);
-  }
-  if (event.key && event.key.toLowerCase() === "meta") {
-    _downKeys.splice(0, _downKeys.length);
-  }
-  if (key === 93 || key === 224) key = 91;
-  if (key in _mods) {
-    _mods[key] = false;
-    for (var k in _modifier) {
-      if (_modifier[k] === key) hotkeys[k] = false;
-    }
-  }
-}
-
-function unbind(keysInfo) {
-  if (typeof keysInfo === "undefined") {
-    Object.keys(_handlers).forEach((function(key) {
-      return delete _handlers[key];
-    }));
-  } else if (Array.isArray(keysInfo)) {
-    keysInfo.forEach((function(info) {
-      if (info.key) eachUnbind(info);
-    }));
-  } else if (typeof keysInfo === "object") {
-    if (keysInfo.key) eachUnbind(keysInfo);
-  } else if (typeof keysInfo === "string") {
-    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-    var scope = args[0], method = args[1];
-    if (typeof scope === "function") {
-      method = scope;
-      scope = "";
-    }
-    eachUnbind({
-      key: keysInfo,
-      scope: scope,
-      method: method,
-      splitKey: "+"
-    });
-  }
-}
-
-var eachUnbind = function eachUnbind(_ref) {
-  var key = _ref.key, scope = _ref.scope, method = _ref.method, _ref$splitKey = _ref.splitKey, splitKey = _ref$splitKey === void 0 ? "+" : _ref$splitKey;
-  var multipleKeys = getKeys(key);
-  multipleKeys.forEach((function(originKey) {
-    var unbindKeys = originKey.split(splitKey);
-    var len = unbindKeys.length;
-    var lastKey = unbindKeys[len - 1];
-    var keyCode = lastKey === "*" ? "*" : code$1(lastKey);
-    if (!_handlers[keyCode]) return;
-    if (!scope) scope = getScope();
-    var mods = len > 1 ? getMods$1(_modifier, unbindKeys) : [];
-    _handlers[keyCode] = _handlers[keyCode].filter((function(record) {
-      var isMatchingMethod = method ? record.method === method : true;
-      return !(isMatchingMethod && record.scope === scope && compareArray(record.mods, mods));
-    }));
-  }));
-};
-
-function eventHandler(event, handler, scope, element) {
-  if (handler.element !== element) {
-    return;
-  }
-  var modifiersMatch;
-  if (handler.scope === scope || handler.scope === "all") {
-    modifiersMatch = handler.mods.length > 0;
-    for (var y in _mods) {
-      if (Object.prototype.hasOwnProperty.call(_mods, y)) {
-        if (!_mods[y] && handler.mods.indexOf(+y) > -1 || _mods[y] && handler.mods.indexOf(+y) === -1) {
-          modifiersMatch = false;
-        }
-      }
-    }
-    if (handler.mods.length === 0 && !_mods[16] && !_mods[18] && !_mods[17] && !_mods[91] || modifiersMatch || handler.shortcut === "*") {
-      if (handler.method(event, handler) === false) {
-        if (event.preventDefault) event.preventDefault(); else event.returnValue = false;
-        if (event.stopPropagation) event.stopPropagation();
-        if (event.cancelBubble) event.cancelBubble = true;
-      }
-    }
-  }
-}
-
-function dispatch(event, element) {
-  var asterisk = _handlers["*"];
-  var key = event.keyCode || event.which || event.charCode;
-  if (!hotkeys.filter.call(this, event)) return;
-  if (key === 93 || key === 224) key = 91;
-  if (_downKeys.indexOf(key) === -1 && key !== 229) _downKeys.push(key);
-  [ "ctrlKey", "altKey", "shiftKey", "metaKey" ].forEach((function(keyName) {
-    var keyNum = modifierMap[keyName];
-    if (event[keyName] && _downKeys.indexOf(keyNum) === -1) {
-      _downKeys.push(keyNum);
-    } else if (!event[keyName] && _downKeys.indexOf(keyNum) > -1) {
-      _downKeys.splice(_downKeys.indexOf(keyNum), 1);
-    } else if (keyName === "metaKey" && event[keyName] && _downKeys.length === 3) {
-      if (!(event.ctrlKey || event.shiftKey || event.altKey)) {
-        _downKeys = _downKeys.slice(_downKeys.indexOf(keyNum));
-      }
-    }
-  }));
-  if (key in _mods) {
-    _mods[key] = true;
-    for (var k in _modifier) {
-      if (_modifier[k] === key) hotkeys[k] = true;
-    }
-    if (!asterisk) return;
-  }
-  for (var e in _mods) {
-    if (Object.prototype.hasOwnProperty.call(_mods, e)) {
-      _mods[e] = event[modifierMap[e]];
-    }
-  }
-  if (event.getModifierState && !(event.altKey && !event.ctrlKey) && event.getModifierState("AltGraph")) {
-    if (_downKeys.indexOf(17) === -1) {
-      _downKeys.push(17);
-    }
-    if (_downKeys.indexOf(18) === -1) {
-      _downKeys.push(18);
-    }
-    _mods[17] = true;
-    _mods[18] = true;
-  }
-  var scope = getScope();
-  if (asterisk) {
-    for (var i = 0; i < asterisk.length; i++) {
-      if (asterisk[i].scope === scope && (event.type === "keydown" && asterisk[i].keydown || event.type === "keyup" && asterisk[i].keyup)) {
-        eventHandler(event, asterisk[i], scope, element);
-      }
-    }
-  }
-  if (!(key in _handlers)) return;
-  for (var _i = 0; _i < _handlers[key].length; _i++) {
-    if (event.type === "keydown" && _handlers[key][_i].keydown || event.type === "keyup" && _handlers[key][_i].keyup) {
-      if (_handlers[key][_i].key) {
-        var record = _handlers[key][_i];
-        var splitKey = record.splitKey;
-        var keyShortcut = record.key.split(splitKey);
-        var _downKeysCurrent = [];
-        for (var a = 0; a < keyShortcut.length; a++) {
-          _downKeysCurrent.push(code$1(keyShortcut[a]));
-        }
-        if (_downKeysCurrent.sort().join("") === _downKeys.sort().join("")) {
-          eventHandler(event, record, scope, element);
-        }
-      }
-    }
-  }
-}
-
-function isElementBind(element) {
-  return elementHasBindEvent.indexOf(element) > -1;
-}
-
-function hotkeys(key, option, method) {
-  _downKeys = [];
-  var keys = getKeys(key);
-  var mods = [];
-  var scope = "all";
-  var element = document;
-  var i = 0;
-  var keyup = false;
-  var keydown = true;
-  var splitKey = "+";
-  var capture = false;
-  if (method === undefined && typeof option === "function") {
-    method = option;
-  }
-  if (Object.prototype.toString.call(option) === "[object Object]") {
-    if (option.scope) scope = option.scope;
-    if (option.element) element = option.element;
-    if (option.keyup) keyup = option.keyup;
-    if (option.keydown !== undefined) keydown = option.keydown;
-    if (option.capture !== undefined) capture = option.capture;
-    if (typeof option.splitKey === "string") splitKey = option.splitKey;
-  }
-  if (typeof option === "string") scope = option;
-  for (;i < keys.length; i++) {
-    key = keys[i].split(splitKey);
-    mods = [];
-    if (key.length > 1) mods = getMods$1(_modifier, key);
-    key = key[key.length - 1];
-    key = key === "*" ? "*" : code$1(key);
-    if (!(key in _handlers)) _handlers[key] = [];
-    _handlers[key].push({
-      keyup: keyup,
-      keydown: keydown,
-      scope: scope,
-      mods: mods,
-      shortcut: keys[i],
-      method: method,
-      key: keys[i],
-      splitKey: splitKey,
-      element: element
-    });
-  }
-  if (typeof element !== "undefined" && !isElementBind(element) && window) {
-    elementHasBindEvent.push(element);
-    addEvent$1(element, "keydown", (function(e) {
-      dispatch(e, element);
-    }), capture);
-    if (!winListendFocus) {
-      winListendFocus = true;
-      addEvent$1(window, "focus", (function() {
-        _downKeys = [];
-      }), capture);
-    }
-    addEvent$1(element, "keyup", (function(e) {
-      dispatch(e, element);
-      clearModifier(e);
-    }), capture);
-  }
-}
-
-function trigger(shortcut) {
-  var scope = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "all";
-  Object.keys(_handlers).forEach((function(key) {
-    var dataList = _handlers[key].filter((function(item) {
-      return item.scope === scope && item.shortcut === shortcut;
-    }));
-    dataList.forEach((function(data) {
-      if (data && data.method) {
-        data.method();
-      }
-    }));
-  }));
-}
-
-var _api = {
-  getPressedKeyString: getPressedKeyString,
-  setScope: setScope,
-  getScope: getScope,
-  deleteScope: deleteScope,
-  getPressedKeyCodes: getPressedKeyCodes,
-  isPressed: isPressed,
-  filter: filter,
-  trigger: trigger,
-  unbind: unbind,
-  keyMap: _keyMap,
-  modifier: _modifier,
-  modifierMap: modifierMap
-};
-
-for (var a in _api) {
-  if (Object.prototype.hasOwnProperty.call(_api, a)) {
-    hotkeys[a] = _api[a];
-  }
-}
-
-if (typeof window !== "undefined") {
-  var _hotkeys = window.hotkeys;
-  hotkeys.noConflict = function(deep) {
-    if (deep && window.hotkeys === hotkeys) {
-      window.hotkeys = _hotkeys;
-    }
-    return hotkeys;
-  };
-  window.hotkeys = hotkeys;
-}
-
-class DebounceController extends Controller$1 {}
-
-DebounceController.debounces = [];
-
-const defaultWait$1 = 200;
-
-const debounce = (fn, wait = defaultWait$1) => {
-  let timeoutId = null;
-  return function() {
-    const args = Array.from(arguments);
-    const context = this;
-    const params = args.map((arg => arg.params));
-    const callback = () => {
-      args.forEach(((arg, index) => arg.params = params[index]));
-      return fn.apply(context, args);
-    };
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
-    timeoutId = setTimeout(callback, wait);
-  };
-};
-
-const useDebounce = (composableController, options) => {
-  const controller = composableController;
-  const constructor = controller.constructor;
-  constructor.debounces.forEach((func => {
-    if (typeof func === "string") {
-      controller[func] = debounce(controller[func], options === null || options === void 0 ? void 0 : options.wait);
-    }
-    if (typeof func === "object") {
-      const {name: name, wait: wait} = func;
-      if (!name) return;
-      controller[name] = debounce(controller[name], wait || (options === null || options === void 0 ? void 0 : options.wait));
-    }
-  }));
-};
-
-class ThrottleController extends Controller$1 {}
-
-ThrottleController.throttles = [];
-
-class FormAutoSaveController extends Controller$1 {
-  static targets=[ "submitButton", "paramHolder" ];
-  static values={
-    delay: {
-      default: 250,
-      type: Number
-    }
-  };
-  static debounces=[ {
-    name: "save"
-  } ];
-  initialize() {
-    this.save = this.save.bind(this);
-  }
-  connect() {
-    useDebounce(this, {
-      wait: this.delayValue
-    });
-    if (this.hasSubmitButtonTarget) this.submitButtonTarget.style.display = "none";
-  }
-  save(event) {
-    if (this.hasParamHolderTarget) {
-      const fullUrl = new URL(this.submitButtonTarget.href);
-      const params = fullUrl.searchParams;
-      const paramName = this.paramHolderTarget.name;
-      const paramValue = this.paramHolderTarget.value;
-      params.set(paramName, paramValue);
-      this.submitButtonTarget.href = fullUrl.href;
-    }
-    this.submitButtonTarget.click();
-  }
-}
-
-class src_default extends Controller$1 {
-  connect() {
-    this.checkForChanges();
-  }
-  watchTargetConnected(target) {
-    this.attachActionAttributes(target);
-    this.checkForChanges();
-  }
-  watchTargetDisconnect() {
-    this.checkForChanges();
-  }
-  checkForChanges() {
-    const changeCount = [];
-    this.watchTargets.forEach((formEl => {
-      if (formEl.type === "checkbox" || formEl.type === "radio") {
-        if (formEl.checked !== formEl.defaultChecked) changeCount.push(1);
-      } else if (formEl.tagName === "SELECT") {
-        if (this.handleSelectChange(formEl) === true) changeCount.push(1);
-      } else {
-        if (formEl.value !== formEl.defaultValue) changeCount.push(1);
-      }
-    }));
-    if (changeCount.length > 0) {
-      this.enableChangeControles();
-    } else {
-      this.disableChangeControles();
-    }
-  }
-  enableChangeControles() {
-    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = false;
-  }
-  disableChangeControles() {
-    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = true;
-  }
-  handleSelectChange(selectEl) {
-    let hasChanged = false;
-    let defaultSelected = 0;
-    let i;
-    let optionsCount;
-    let option;
-    for (i = 0, optionsCount = selectEl.options.length; i < optionsCount; i++) {
-      option = selectEl.options[i];
-      hasChanged = hasChanged || option.selected !== option.defaultSelected;
-      if (option.defaultSelected) defaultSelected = i;
-    }
-    if (hasChanged && !selectEl.multiple) hasChanged = defaultSelected !== selectEl.selectedIndex;
-    if (hasChanged) return true;
-  }
-  attachActionAttributes(target) {
-    if (target.hasAttribute("data-action")) {
-      if (target.dataset.action.includes(`${this.identifier}#checkForChanges`)) return;
-    }
-    if (target.hasAttribute("data-action")) {
-      target.setAttribute("data-action", `${this.identifier}#checkForChanges ${target.dataset.action}`);
-    } else {
-      target.setAttribute("data-action", `${this.identifier}#checkForChanges`);
-    }
-  }
-}
-
-src_default.targets = [ "saveButton", "watch" ];
-
-class FormStateController extends src_default {
-  enableChangeControles() {
-    const globalSubmitButton = document.getElementById("globalFormSubmitButton");
-    super.enableChangeControles();
-    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = false;
-    if (globalSubmitButton) globalSubmitButton.disabled = false;
-  }
-  disableChangeControles() {
-    const globalSubmitButton = document.getElementById("globalFormSubmitButton");
-    super.disableChangeControles();
-    if (this.hasSaveButtonTarget) this.saveButtonTarget.disabled = true;
-    if (globalSubmitButton) globalSubmitButton.disabled = true;
-  }
-}
-
-class FormValidationController extends Controller$1 {
-  static targets=[ "submitBtn" ];
-  connect() {
-    this.submitBtnTarget.hidden = true;
-  }
-  validate() {
-    this.submitBtnTarget.click();
-  }
-}
-
-class FormResetController extends Controller$1 {
-  static targets=[ "resettable" ];
-  resetForm() {
-    if (this.hasResettableTarget) this.resettableTarget.reset();
-  }
-  clearForm() {
-    const elements = this.resettableTarget.elements;
-    this.resettableTarget.reset();
-    for (let i = 0; i < elements.length; i++) {
-      const fieldType = elements[i].type.toLowerCase();
-      switch (fieldType) {
-       case "text":
-       case "password":
-       case "textarea":
-       case "hidden":
-        elements[i].value = "";
-        break;
-
-       case "radio":
-       case "checkbox":
-        if (elements[i].checked) {
-          elements[i].checked = false;
-        }
-        break;
-
-       case "select-one":
-       case "select-multi":
-        elements[i].selectedIndex = -1;
-        break;
-      }
-    }
-  }
-}
-
-class h extends Controller$1 {
-  initialize() {
-    this.toggle = this.toggle.bind(this), this.refresh = this.refresh.bind(this);
-  }
-  checkboxAllTargetConnected(e) {
-    e.addEventListener("change", this.toggle), this.refresh();
-  }
-  checkboxTargetConnected(e) {
-    e.addEventListener("change", this.refresh), this.refresh();
-  }
-  checkboxAllTargetDisconnected(e) {
-    e.removeEventListener("change", this.toggle), this.refresh();
-  }
-  checkboxTargetDisconnected(e) {
-    e.removeEventListener("change", this.refresh), this.refresh();
-  }
-  toggle(e) {
-    e.preventDefault(), this.checkboxTargets.forEach((t => {
-      t.checked = e.target.checked, this.triggerInputEvent(t);
-    }));
-  }
-  refresh() {
-    const e = this.checkboxTargets.length, t = this.checked.length;
-    this.checkboxAllTarget.checked = t > 0, this.checkboxAllTarget.indeterminate = t > 0 && t < e;
-  }
-  triggerInputEvent(e) {
-    const t = new Event("input", {
-      bubbles: !1,
-      cancelable: !0
-    });
-    e.dispatchEvent(t);
-  }
-  get checked() {
-    return this.checkboxTargets.filter((e => e.checked));
-  }
-  get unchecked() {
-    return this.checkboxTargets.filter((e => !e.checked));
-  }
-}
-
-h.targets = [ "checkboxAll", "checkbox" ];
-
-class InputCheckboxState extends h {
-  static targets=[ "checkboxAll", "checkbox", "actionPanel", "initialPanel" ];
-  initialize() {
-    super.initialize();
-    this.reportState = this.reportState.bind(this);
-  }
-  connect() {
-    super.connect();
-    this.checkboxAllTarget.addEventListener("change", this.reportState);
-    this.checkboxTargets.forEach((checkbox => checkbox.addEventListener("change", this.reportState)));
-  }
-  disconnect() {
-    super.disconnect();
-    this.checkboxAllTarget.removeEventListener("change", this.reportState);
-    this.checkboxTargets.forEach((checkbox => checkbox.removeEventListener("change", this.reportState)));
-  }
-  reportState() {
-    if (this.checkboxAllTarget.checked || this.checkboxAllTarget.indeterminate) {
-      this.activateOptionsPanel();
-    } else {
-      this.deactivateOptionsPanel();
-    }
-  }
-  activateOptionsPanel() {
-    this.actionPanelTargets.forEach((panel => {
-      panel.style.display = "flex";
-    }));
-    this.initialPanelTargets.forEach((panel => {
-      panel.style.display = "none";
-    }));
-  }
-  deactivateOptionsPanel() {
-    this.actionPanelTargets.forEach((panel => {
-      panel.style.display = "none";
-    }));
-    this.initialPanelTargets.forEach((panel => {
-      panel.style.display = "flex";
-    }));
   }
 }
 
@@ -16719,43 +16726,7 @@ class InputFormattingController extends Controller$1 {
   }
 }
 
-class MenuController extends Controller$1 {
-  connect() {
-    const activeItem = this.element;
-    activeItem.closest(".nav-sidebar").classList.add("active-option");
-    const navPill = activeItem.closest(".nav-pills");
-    if (navPill) navPill.classList.add("show");
-  }
-  disconnect() {
-    const activeItem = this.element;
-    activeItem.closest(".nav-sidebar").classList.remove("active-option");
-    const navPill = activeItem.closest(".nav-pills");
-    if (navPill) navPill.classList.remove("show");
-  }
-}
-
-class ModalController extends Controller$1 {
-  connect() {
-    if (document.documentElement.hasAttribute("data-turbo-preview")) {
-      const modalBackdrop = document.querySelector(".modal-backdrop");
-      if (modalBackdrop) modalBackdrop.remove();
-      return;
-    }
-    this.modal = new bootstrap.Modal(this.element, {
-      keyboard: false
-    });
-    this.modal.show();
-  }
-  disconnect() {
-    if (this.modal) this.modal.dispose();
-  }
-  submitEnd(event) {
-    if (event.detail.formSubmission.submitter.formNoValidate === true) return;
-    if (event.detail.success) this.modal.hide();
-  }
-}
-
-class NumberIncrementController extends Controller$1 {
+class InputNumberIncrementController extends Controller$1 {
   static targets=[ "decreaseButton", "increaseButton", "submitBtn" ];
   connect() {
     const input = this.element.querySelector("input[type=number]");
@@ -16775,18 +16746,7 @@ class NumberIncrementController extends Controller$1 {
   }
 }
 
-class PasswordToggleController extends Controller$1 {
-  static targets=[ "unhide" ];
-  password() {
-    if (this.unhideTarget.type === "password") {
-      this.unhideTarget.type = "text";
-    } else {
-      this.unhideTarget.type = "password";
-    }
-  }
-}
-
-class RequiredController extends Controller$1 {
+class InputRequiredController extends Controller$1 {
   static targets=[ "saveButton" ];
   static values={
     saveButtonId: String
@@ -16826,6 +16786,60 @@ class RequiredController extends Controller$1 {
     const valid = this.element.checkValidity();
     this.manipulateDom(valid);
     return valid;
+  }
+}
+
+class InputValueController extends Controller$1 {
+  setValue(event) {
+    this.element.value = event.params.id;
+    console.log(this.element);
+  }
+}
+
+class MenuController extends Controller$1 {
+  connect() {
+    const activeItem = this.element;
+    activeItem.closest(".nav-sidebar").classList.add("active-option");
+    const navPill = activeItem.closest(".nav-pills");
+    if (navPill) navPill.classList.add("show");
+  }
+  disconnect() {
+    const activeItem = this.element;
+    activeItem.closest(".nav-sidebar").classList.remove("active-option");
+    const navPill = activeItem.closest(".nav-pills");
+    if (navPill) navPill.classList.remove("show");
+  }
+}
+
+class ModalController extends Controller$1 {
+  connect() {
+    if (document.documentElement.hasAttribute("data-turbo-preview")) {
+      const modalBackdrop = document.querySelector(".modal-backdrop");
+      if (modalBackdrop) modalBackdrop.remove();
+      return;
+    }
+    this.modal = new bootstrap.Modal(this.element, {
+      keyboard: false
+    });
+    this.modal.show();
+  }
+  disconnect() {
+    if (this.modal) this.modal.dispose();
+  }
+  submitEnd(event) {
+    if (event.detail.formSubmission.submitter.formNoValidate === true) return;
+    if (event.detail.success) this.modal.hide();
+  }
+}
+
+class PasswordToggleController extends Controller$1 {
+  static targets=[ "unhide" ];
+  password() {
+    if (this.unhideTarget.type === "password") {
+      this.unhideTarget.type = "text";
+    } else {
+      this.unhideTarget.type = "password";
+    }
   }
 }
 
@@ -39606,7 +39620,7 @@ class TsSelectController extends StimulusTomSelect {
   }
 }
 
-class userSearchController extends TsSearchController {
+class TsUserSearchController extends TsSearchController {
   initialize() {
     super.initialize();
     this.config.render = {
@@ -39626,7 +39640,7 @@ class userSearchController extends TsSearchController {
   }
 }
 
-class variantSearchController extends TsSearchController {
+class TsVariantSearchController extends TsSearchController {
   initialize() {
     super.initialize();
     this.config.render = {
@@ -39650,13 +39664,13 @@ window.Stimulus = Application.start();
 
 Stimulus.register("bs-instance", BsInstanceController);
 
-Stimulus.register("card-formatting", CardFormattingController);
+Stimulus.register("card-formatting", InputCardFormattingController);
 
-Stimulus.register("checkbox-validation", CheckboxValidationController);
+Stimulus.register("checkbox-validation", InputCheckboxValidationController);
 
 Stimulus.register("clipboard", ClipboardController);
 
-Stimulus.register("datepicker", DatePickerController);
+Stimulus.register("datepicker", InputDatePickerController);
 
 Stimulus.register("dom", DomController);
 
@@ -39664,27 +39678,31 @@ Stimulus.register("form-state", FormStateController);
 
 Stimulus.register("form-validation", FormValidationController);
 
-Stimulus.register("form--autosave", FormAutoSaveController);
+Stimulus.register("form-autosave", FormAutoSaveController);
 
-Stimulus.register("form--reset", FormResetController);
+Stimulus.register("form-reset", FormResetController);
 
-Stimulus.register("input--checkbox-state", InputCheckboxState);
+Stimulus.register("get-id", GetIdController);
+
+Stimulus.register("input-checkbox-state", InputCheckboxState);
 
 Stimulus.register("input-disable", InputDisableController);
 
 Stimulus.register("input-formatting", InputFormattingController);
 
-Stimulus.register("input--format-decimal", InputFormatDecimalController);
+Stimulus.register("input-format-decimal", InputFormatDecimalController);
 
-Stimulus.register("input--format-integer", InputFormatIntegerController);
+Stimulus.register("input-format-integer", InputFormatIntegerController);
 
-Stimulus.register("input--required", RequiredController);
+Stimulus.register("input-required", InputRequiredController);
+
+Stimulus.register("input-value", InputValueController);
 
 Stimulus.register("menu", MenuController);
 
 Stimulus.register("modal", ModalController);
 
-Stimulus.register("number-increment", NumberIncrementController);
+Stimulus.register("number-increment", InputNumberIncrementController);
 
 Stimulus.register("password-toggle", PasswordToggleController);
 
@@ -39694,15 +39712,15 @@ Stimulus.register("sortable-tree", SortableTreeController);
 
 Stimulus.register("toast", ToastController);
 
-Stimulus.register("tiptap--editor", TipTapEditorController);
+Stimulus.register("tiptap-editor", TipTapEditorController);
 
-Stimulus.register("ts--search", TsSearchController);
+Stimulus.register("ts-search", TsSearchController);
 
-Stimulus.register("ts--select", TsSelectController);
+Stimulus.register("ts-select", TsSelectController);
 
-Stimulus.register("ts--search-user", userSearchController);
+Stimulus.register("ts-search-user", TsUserSearchController);
 
-Stimulus.register("ts--search-variant", variantSearchController);
+Stimulus.register("ts-search-variant", TsVariantSearchController);
 
 const AypexAdmin$1 = {};
 

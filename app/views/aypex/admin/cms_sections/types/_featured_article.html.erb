@@ -22,7 +22,7 @@
 
   </div>
   <div class="col-12 col-md-8">
-    <%= f.field_container :rte_content, data: { controller: 'tiptap--editor'}, class: ['none'] do %>
+    <%= f.field_container :rte_content, data: { controller: 'tiptap-editor'}, class: ['none'] do %>
       <%= render partial: 'aypex/admin/shared/editor_buttons' %>
       <%= f.text_field :rte_content, { class: 'd-none', data: { tiptap__editor_target: "input", form_state_target: "watch" }} %>
     <% end %>

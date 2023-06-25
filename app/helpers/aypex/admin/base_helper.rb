@@ -143,7 +143,7 @@ module Aypex
 
       def preference_field_tag(name, value, options)
         if options[:key] == :currency
-          return select_tag(name, options_from_collection_for_select(supported_currencies_for_all_stores, :iso_code, :iso_code, value), data: {controller: "ts--search", form_state_target: "watch", input_disable_target: "disable"})
+          return select_tag(name, options_from_collection_for_select(supported_currencies_for_all_stores, :iso_code, :iso_code, value), data: {controller: "ts-search", form_state_target: "watch", input_disable_target: "disable"})
         end
 
         case options[:type]

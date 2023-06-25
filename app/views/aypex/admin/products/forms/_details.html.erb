@@ -21,7 +21,7 @@
         <% end %>
 
         <% if product_wysiwyg_editor_enabled? %>
-          <%= f.field_container :description, data: {controller: "tiptap--editor"} do %>
+          <%= f.field_container :description, data: {controller: "tiptap-editor"} do %>
             <%= render partial: 'aypex/admin/shared/editor_buttons' %>
             <%= f.text_field :description, { class: 'd-none', data: { tiptap__editor_target: "input", form_state_target: "watch" }} %>
           <% end %>

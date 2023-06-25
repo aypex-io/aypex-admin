@@ -1,15 +1,4 @@
 aside#main-sidebar {
-  overflow-y: auto;
-  background: var(--sa-sidebar-bg) !important;
-
-  #nav-header {
-    z-index: 1042;
-  }
-
-  #nav-footer {
-    height: var(--nav-bar-height);
-  }
-
   #carousel-main-navigation {
     margin-bottom: var(--nav-bar-height);
     margin-top: 100px;
@@ -22,8 +11,8 @@ aside#main-sidebar {
       }
     }
 
-    >li {
-      >a {
+    > li {
+      > a {
         color: var(--sa-sidebar-link-color);
         text-decoration: none;
 
@@ -70,17 +59,8 @@ aside#main-sidebar {
   }
 }
 
-@include media-breakpoint-up(sm) {
-  aside#main-sidebar {
-    width: 50%;
-  }
-}
-
 @include media-breakpoint-up(lg) {
   aside#main-sidebar {
-    left: 0;
-    z-index: 999;
-    width: 25%;
     transition: none;
 
     body.sidebar-open {
@@ -89,11 +69,5 @@ aside#main-sidebar {
         transition: none;
       }
     }
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  aside#main-sidebar {
-    width: 16.6667%;
   }
 }

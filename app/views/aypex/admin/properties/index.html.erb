@@ -31,7 +31,7 @@
         <div class="col-12 col-lg-6">
           <div class="form-group">
             <%= label_tag :q_filterable_eq, I18n.t("aypex.admin.filterable_status") %>
-            <%= f.select :filterable_eq, options_for_select([[I18n.t("aypex.admin.filterable"), true], [I18n.t("aypex.admin.non_filterable"), false]]), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
+            <%= f.select :filterable_eq, options_for_select([[I18n.t("aypex.admin.filterable"), true], [I18n.t("aypex.admin.non_filterable"), false]]), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts-select'} %>
           </div>
         </div>
       </div>

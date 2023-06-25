@@ -38,7 +38,7 @@
                 <%= item_fields.select(:override_reimbursement_type_id,
                   reimbursement_types.collect { |r| [r.name.humanize, r.id] },
                   {include_blank: true},
-                  {data: {controller: 'ts--select'}}
+                  {data: {controller: 'ts-select'}}
                 ) %>
               </td>
               <td>
@@ -51,7 +51,7 @@
                 <% if return_item.exchange_processed? %>
                   <%= return_item.exchange_variant.exchange_name %>
                 <% else %>
-                  <%= item_fields.collection_select :exchange_variant_id, return_item.eligible_exchange_variants, :id, :exchange_name, { include_blank: true }, { class: "return-item-exchange-selection", data: {controller: 'ts--select'} } %>
+                  <%= item_fields.collection_select :exchange_variant_id, return_item.eligible_exchange_variants, :id, :exchange_name, { include_blank: true }, { class: "return-item-exchange-selection", data: {controller: 'ts-select'} } %>
                 <% end %>
               </td>
             </tr>

@@ -5,20 +5,20 @@
       <div class="col-12 col-md-5">
         <div class="form-group" id="stock_movement_transfer_from_field">
           <%= label_tag :stock_location_from_id, I18n.t("aypex.admin.transfer_from_location") %>
-          <%= select_tag :stock_location_from_id, options_from_collection_for_select(@stock_locations, :id, :name), data: {controller: 'ts--select'} %>
+          <%= select_tag :stock_location_from_id, options_from_collection_for_select(@stock_locations, :id, :name), data: {controller: 'ts-select'} %>
         </div>
       </div>
       <div class="col-12 col-md-5">
         <div class="form-group" id="stock_movement_transfer_to_field">
           <%= label_tag :stock_location_to_id, I18n.t("aypex.admin.transfer_to_location") %>
-          <%= select_tag :stock_location_to_id, options_from_collection_for_select(@stock_locations, :id, :name), data: {controller: 'ts--select'} %>
+          <%= select_tag :stock_location_to_id, options_from_collection_for_select(@stock_locations, :id, :name), data: {controller: 'ts-select'} %>
         </div>
       </div>
 
       <div class="col-12 col-md-5">
         <div class="form-group" id="stock_movement_variant_id_field">
           <%= label_tag 'variant_id', I18n.t("aypex.admin.variant") %>
-          <%= select_tag :variant_id, options_from_collection_for_select(@variants, :id, :name_and_sku), data: {controller: 'ts--select'} %>
+          <%= select_tag :variant_id, options_from_collection_for_select(@variants, :id, :name_and_sku), data: {controller: 'ts-select'} %>
         </div>
       </div>
 

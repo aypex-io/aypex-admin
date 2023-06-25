@@ -9,6 +9,12 @@ Aypex::Engine.routes.draw do
       end
     end
 
+    # Assets
+    resources :assets
+    post :open_asset_manager, path: "asset_manager", to: "assets#init_asset_manager"
+
+    resources :images
+
     # Authentication
     resources :oauth_applications
 

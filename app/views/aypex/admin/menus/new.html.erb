@@ -3,7 +3,7 @@
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/error_messages', locals: { target: @menu } %>
-<%= form_with model: [:admin, @menu], data: {controller: "input--required"} do |f| %>
+<%= form_with model: [:admin, @menu], data: {controller: "input-required"} do |f| %>
   <div class="card mb-3">
     <div class="card-header">
       <h5 class="mb-0"><%= I18n.t('aypex.admin.settings') %></h5>

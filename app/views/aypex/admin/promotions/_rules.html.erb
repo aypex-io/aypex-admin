@@ -8,18 +8,18 @@
     <%= form_tag aypex.admin_promotion_promotion_rules_path(@promotion), class: 'mb-3' do %>
       <div class="input-group">
         <div class="form-floating">
-          <%= select_tag('promotion_rule[type]', options_for_promotion_rule_types(@promotion), include_blank: true, class: "form-select",  data: { controller: 'ts--select' }) %>
+          <%= select_tag('promotion_rule[type]', options_for_promotion_rule_types(@promotion), include_blank: true, class: "form-select",  data: { controller: 'ts-select' }) %>
           <%= label_tag :promotion_rule_type, I18n.t("aypex.admin.add_rule_of_type") %>
         </div>
         <%= button '', 'plus-lg.svg', 'submit', class: "btn btn-secondary input-group-text" %>
       </div>
     <% end %>
 
-    <%= form_with model: @promotion, url: object_url, method: :put, data: { controller: 'form--autosave' } do |f| %>
+    <%= form_with model: @promotion, url: object_url, method: :put, data: { controller: 'form-autosave' } do |f| %>
       <div id="promotion-policy-select">
         <% Aypex::Promotion::MATCH_POLICIES.each do |policy| %>
           <div class="form-check">
-            <%= f.radio_button :match_policy, policy, data: { action: 'form--autosave#save'} %>
+            <%= f.radio_button :match_policy, policy, data: { action: 'form-autosave#save'} %>
             <%= f.label "match_policy_#{policy}", I18n.t("aypex.admin.#{policy}") %>
           </div>
         <% end %>

@@ -13,7 +13,7 @@
           <% options = [ ['Draft', 'draft' ], ['Active', 'active' ], ['Archived', 'archived' ] ] %>
 
           <% options.delete('active') if cannot? :activate, @product %>
-          <% select_html = { data: { controller: 'ts--select', action: 'change->form-validation#validate' } } %>
+          <% select_html = { data: { controller: 'ts-select', action: 'change->form-validation#validate' } } %>
 
           <%= f.select :status, options, { include_blank: false, selected: @product.status }, select_html %>
           <%= f.label :status, I18n.t("aypex.admin.status") %>

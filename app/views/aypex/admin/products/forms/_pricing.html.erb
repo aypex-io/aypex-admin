@@ -11,7 +11,7 @@
       <div class="card-body">
         <div data-controller="form-validation">
           <%= f.field_container :cost_currency, data: { hook: "admin_product_form_cost_currency" } do %>
-            <%= f.select :cost_currency, currency_options(@product.cost_currency), {}, {data: { controller: 'ts--select', action: 'change->form-validation#validate'}} %>
+            <%= f.select :cost_currency, currency_options(@product.cost_currency), {}, {data: { controller: 'ts-select', action: 'change->form-validation#validate'}} %>
             <%= f.label :cost_currency, I18n.t("aypex.admin.cost_currency") %>
           <% end %>
 
@@ -21,7 +21,7 @@
           <div class="input-group">
             <span id="costPriceCurrencySymbol" class="input-group-text"><%= currency_symbol(@product.cost_currency) %></span>
             <div class="form-floating">
-              <%= f.text_field :cost_price, value: number_to_currency(@product.cost_price, unit: ''), data: { controller: 'input--format-decimal', form_state_target: "watch"} %>
+              <%= f.text_field :cost_price, value: number_to_currency(@product.cost_price, unit: ''), data: { controller: 'input-format-decimal', form_state_target: "watch"} %>
               <%= f.label :cost_price, I18n.t("aypex.admin.cost_price") %>
             </div>
             <span id="costPriceCurrencyIso" class="input-group-text"><%= @product.cost_currency %></span>

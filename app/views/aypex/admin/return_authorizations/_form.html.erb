@@ -61,7 +61,7 @@
           </td>
           <td>
             <% if editable %>
-              <%= item_fields.select :preferred_reimbursement_type_id, @reimbursement_types.collect{|r|[r.name.humanize, r.id]}, {include_blank: true}, {data: { controller: 'ts--select' }} %>
+              <%= item_fields.select :preferred_reimbursement_type_id, @reimbursement_types.collect{|r|[r.name.humanize, r.id]}, {include_blank: true}, {data: { controller: 'ts-select' }} %>
             <% end %>
           </td>
           <td>
@@ -69,7 +69,7 @@
               <% if return_item.exchange_processed? %>
                 <%= return_item.exchange_variant.exchange_name %>
               <% else %>
-                <%= item_fields.collection_select :exchange_variant_id, return_item.eligible_exchange_variants, :id, :exchange_name, { include_blank: true }, { class: "return-item-exchange-selection", data: {controller: 'ts--select'} } %>
+                <%= item_fields.collection_select :exchange_variant_id, return_item.eligible_exchange_variants, :id, :exchange_name, { include_blank: true }, { class: "return-item-exchange-selection", data: {controller: 'ts-select'} } %>
               <% end %>
             <% end %>
           </td>
@@ -84,13 +84,13 @@
 
   <%= f.field_container :stock_location do %>
     <%= f.label :stock_location, raw(I18n.t("aypex.admin.stock_location") + required_span_tag) %>
-    <%= f.select :stock_location_id, Aypex::StockLocation.order_default.active.to_a.collect{|l|[l.name, l.id]}, {include_blank: true}, { data: { controller: 'ts--select', placeholder: I18n.t("aypex.admin.select_a_stock_location") } %>
+    <%= f.select :stock_location_id, Aypex::StockLocation.order_default.active.to_a.collect{|l|[l.name, l.id]}, {include_blank: true}, { data: { controller: 'ts-select', placeholder: I18n.t("aypex.admin.select_a_stock_location") } %>
     <%= f.error_message_on :stock_location %>
   <% end %>
 
   <%= f.field_container :reason do %>
     <%= f.label :reason,raw(I18n.t("aypex.admin.reason") + required_span_tag) %>
-    <%= f.select :return_authorization_reason_id, @reasons.collect{|r|[r.name, r.id]}, {include_blank: true}, { data: { controller: 'ts--select', placeholder: I18n.t("aypex.admin.select_a_return_authorization_reason") } } %>
+    <%= f.select :return_authorization_reason_id, @reasons.collect{|r|[r.name, r.id]}, {include_blank: true}, { data: { controller: 'ts-select', placeholder: I18n.t("aypex.admin.select_a_return_authorization_reason") } } %>
     <%= f.error_message_on :reason %>
   <% end %>
 

@@ -9,7 +9,7 @@
       <%= f.field_container :currency do %>
         <%= f.select :currency, supported_currency_options, { include_blank: false }, disabled: @order.item_count > 0,
                                                               placeholder: I18n.t('aypex.admin.set_order_currency'),
-                                                              data: { controller: 'ts--select',
+                                                              data: { controller: 'ts-select',
                                                                       action: 'change->form-validation#validate' } %>
         <%= f.label :currency, currency_label_text %>
       <% end %>

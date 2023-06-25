@@ -28,30 +28,30 @@
       <%#-------------------------------------------------%>
       <%# Main content                                    %>
       <%#-------------------------------------------------%>
-      <container-fluid>
-        <row>
+      <div class="container-fluid">
+        <div class="row">
           <%#-------------------------------------------------%>
           <%# Menu                                            %>
           <%#-------------------------------------------------%>
           <%= render partial: 'aypex/admin/shared/menu' %>
 
-          <main>
+          <main class="bg-body offset-lg-3 offset-xl-2 col-lg-9 col-xl-10 g-0">
             <%#-------------------------------------------------%>
             <%# Content Header                                  %>
             <%#-------------------------------------------------%>
-            <content-header class="bg-body">
+            <div class="d-flex align-items-center bg-body top-0 border-bottom position-sticky w-100 py-3">
               <%= render partial: 'aypex/admin/shared/content_header' %>
-            </content-header>
+            </div>
 
             <%#-------------------------------------------------%>
             <%# Main Content Area                               %>
             <%#-------------------------------------------------%>
-            <content-body>
+            <div class="d-block bg-body container mb-5 mt-3">
               <%= yield %>
-            </content-body>
+            </div>
           </main>
-        </row>
-      </container-fluid>
+        </div>
+      </div>
 
       <%#-------------------------------------------------%>
       <%# Alerts                                          %>

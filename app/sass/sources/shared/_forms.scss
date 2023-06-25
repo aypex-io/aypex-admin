@@ -1,7 +1,3 @@
-.form-floating > label, .form-floating > span.or {
-  opacity: 0.4;
-}
-
 .form-group {
   margin-bottom: 1rem;
 
@@ -18,23 +14,4 @@
 
 .form-select {
   min-width: 150px;
-}
-
-// Hide number toggle
-// Chrome, Safari, Edge, Opera
-input.hide-number-toggle::-webkit-outer-spin-button,
-input.hide-number-toggle::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
-}
-
-// Firefox
-input[type='number'] {
-  appearance: textfield;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
 }

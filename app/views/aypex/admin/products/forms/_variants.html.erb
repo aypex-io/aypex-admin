@@ -74,7 +74,7 @@
             <%= f.select :option_type_ids, options_from_collection_for_select(@product.option_types, :id, :name, @product.option_type_ids),
                                       { include_hidden: true },
                                         multiple: true,
-                                        data: { controller: 'ts--search',
+                                        data: { controller: 'ts-search',
                                                 ts__search_endpoint_value: 'option_types',
                                                 form_state_target: "watch"
                                                } %>

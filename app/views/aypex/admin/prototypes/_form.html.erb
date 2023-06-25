@@ -8,12 +8,12 @@
 
   <div class="col-12 col-md-4">
     <%= f.field_container :property_ids do %>
-      <%= f.select :property_ids, Aypex::Property.all.map { |p| ["#{p.presentation} (#{p.name})", p.id] }, {}, { class:'form-select', placeholder: I18n.t('aypex.admin.properties'), multiple: true, data: { controller: 'ts--select' } } %>
+      <%= f.select :property_ids, Aypex::Property.all.map { |p| ["#{p.presentation} (#{p.name})", p.id] }, {}, { class:'form-select', placeholder: I18n.t('aypex.admin.properties'), multiple: true, data: { controller: 'ts-select' } } %>
       <%#= f.select :property_ids, options_from_collection_for_select(f.object.properties, :id, :name, f.object.property_ids),
                                 { include_hidden: true },
                                   multiple: true,
                                   class:'form-select',
-                                  data: { controller: 'ts--search',
+                                  data: { controller: 'ts-search',
                                           ts__search_endpoint_value: 'properties',
                                           ts__search_fields_value: ['name'],
                                           ts__search_ransack_value: ['name_i_cont']
@@ -28,7 +28,7 @@
                                 { include_hidden: true },
                                   multiple: true,
                                   class:'form-select',
-                                  data: { controller: 'ts--search',
+                                  data: { controller: 'ts-search',
                                           ts__search_endpoint_value: 'option_types',
                                           ts__search_fields_value: ['name'],
                                           ts__search_ransack_value: ['name_i_cont']
@@ -43,7 +43,7 @@
                                 { include_hidden: true },
                                   multiple: true,
                                   class:'form-select',
-                                  data: { controller: 'ts--search',
+                                  data: { controller: 'ts-search',
                                           ts__search_endpoint_value: 'categories',
                                           ts__search_txt_value: 'pretty_name',
                                           ts__search_fields_value: ['pretty_name'],

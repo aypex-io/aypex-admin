@@ -20,14 +20,14 @@
         </div>
         <div class="col-12 col-lg-4">
           <div class="form-group">
-            <%= label_tag :q_location_eq, I18n.t("aypex.admin.location") %><%= f.select :location_eq, aypex_humanize_dropdown_values('Aypex::Menu', { const: 'MENU_LOCATIONS', paramterize_values: true }), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
+            <%= label_tag :q_location_eq, I18n.t("aypex.admin.location") %><%= f.select :location_eq, aypex_humanize_dropdown_values('Aypex::Menu', { const: 'MENU_LOCATIONS', paramterize_values: true }), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts-select'} %>
           </div>
         </div>
 
         <div class="col-12 col-lg-4">
          <div class="form-group">
            <%= label_tag :q_locale_eq, I18n.t("aypex.admin.language") %>
-           <%= f.select :locale_eq, supported_locales_options(current_locale), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts--select'} %>
+           <%= f.select :locale_eq, supported_locales_options(current_locale), { include_blank: true }, class: 'js-filterable', data: {controller: 'ts-select'} %>
          </div>
         </div>
       </div>

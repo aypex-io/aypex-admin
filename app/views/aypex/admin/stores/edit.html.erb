@@ -6,6 +6,14 @@
   <%= link_to_with_icon I18n.t("aypex.admin.delete"), aypex.admin_store_url(@store), { class: 'btn btn-danger', data: { confirm: I18n.t("aypex.admin.are_you_sure"), method: :delete }, icon: 'delete.svg' } if can?(:delete, @store) && @store.can_be_deleted? %>
 <% end %>
 
+<%= form_with scope: :assets, model: [:admin, @store.logo.image],  url: aypex.admin_open_asset_manager_path, method: :post, data: {turbo_frame: :modal} do |f| %>
+  <%= f.hidden_field :viewable_type %>
+  <%= f.hidden_field :viewable_id %>
+
+  <%= f.submit %>
+<% end %>
+
+
 <%= form_with model: [:admin, @store], data: {controller: "form-state"} do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
   <%= render partial: 'aypex/admin/shared/resource_actions' %>

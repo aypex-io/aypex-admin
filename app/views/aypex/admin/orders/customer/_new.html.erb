@@ -1,7 +1,7 @@
 <% if @order.email.present? %>
   <% form_controller = 'form-state' %>
 <% else %>
-  <% form_controller = 'input--required' %>
+  <% form_controller = 'input-required' %>
 <% end %>
 
 <%= form_with model: [:admin, @order], data: {controller: form_controller} do |form| %>

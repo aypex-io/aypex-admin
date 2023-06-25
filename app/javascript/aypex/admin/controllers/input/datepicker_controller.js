@@ -1,5 +1,5 @@
 import Flatpickr from 'stimulus-flatpickr'
-import { Locales } from '../i18n/flatpickr'
+import { Locales } from '../../i18n/flatpickr'
 
 export default class extends Flatpickr {
   static targets = ['watch']

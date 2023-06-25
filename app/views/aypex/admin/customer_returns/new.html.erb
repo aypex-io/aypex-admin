@@ -22,7 +22,7 @@
 
         <%= f.field_container :stock_location do %>
           <%= f.label :stock_location, raw(I18n.t("aypex.admin.stock_location") + required_span_tag) %>
-          <%= f.select :stock_location_id, Aypex::StockLocation.order_default.active.to_a.collect{|l|[l.name.humanize, l.id]}, {include_blank: true}, { data: {controller: 'ts--select', placeholder: I18n.t("aypex.admin.select_a_stock_location") } } %>
+          <%= f.select :stock_location_id, Aypex::StockLocation.order_default.active.to_a.collect{|l|[l.name.humanize, l.id]}, {include_blank: true}, { data: {controller: 'ts-select', placeholder: I18n.t("aypex.admin.select_a_stock_location") } } %>
           <%= f.error_message_on :stock_location %>
         <% end %>
       </div>

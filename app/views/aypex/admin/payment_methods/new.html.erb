@@ -2,7 +2,7 @@
   <%= breadcrumb_builder(link_one_uri: aypex.admin_payment_methods_path, link_one_text: I18n.t("aypex.admin.all_payment_methods"), current_page_name:  I18n.t("aypex.admin.new_payment_method")) %>
 <% end %>
 
-<%= form_with model: @payment_method, url: collection_url, data: {controller: "input--required"} do |f| %>
+<%= form_with model: @payment_method, url: collection_url, data: {controller: "input-required"} do |f| %>
     <%= render partial: 'form', locals: { f: f } %>
     <%= render partial: 'aypex/admin/shared/resource_actions' %>
 <% end %>

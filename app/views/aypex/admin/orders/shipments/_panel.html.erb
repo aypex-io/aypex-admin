@@ -73,7 +73,7 @@
                       <%= f.select :variant_id, [], {}, class: 'form-select', required: true,
                                                         placeholder: I18n.t('aypex.admin.search_for_a_product_or_variant'),
                                                         data: { action: 'change->form-validation#validate',
-                                                        controller: 'ts--search-variant',
+                                                        controller: 'ts-search-variant',
                                                         ts__search_variant_debug_value: true,
                                                         ts__search_variant_uri_value: '/api/v2/platform/variants',
                                                         ts__search_variant_fields_value: ['name', 'sku'],

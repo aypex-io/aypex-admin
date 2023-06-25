@@ -2,7 +2,7 @@
   <%= breadcrumb_builder(link_one_uri: aypex.admin_reimbursement_types_path, link_one_text: I18n.t("aypex.admin.reimbursement_types"), current_page_name: I18n.t("aypex.admin.new_reimbursement_type")) %>
 <% end %>
 
-<%= form_with model: [:admin, @reimbursement_type], data: { controller: "input--required"} do |reimbursement_form| %>
+<%= form_with model: [:admin, @reimbursement_type], data: { controller: "input-required"} do |reimbursement_form| %>
   <div class="card">
     <div class="card-header">
       <h5 class="card-title"><%= I18n.t('aypex.admin.reimbursement_type') %></h5>

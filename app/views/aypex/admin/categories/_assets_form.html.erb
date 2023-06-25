@@ -1,8 +1,8 @@
 <%= f.label :image, I18n.t("aypex.admin.header_banner") %>
 <%= f.field_container :image do %>
-  <% if @object.image.persisted? %>
+  <% if @object.image %>
     <div class="image-container mb-3">
-      <%= image_tag(main_app.cdn_image_url(@object.image.try(:attachment)), class: 'w-100') if @object.image %>
+      <%#= image_tag(main_app.cdn_image_url(@object.image.try(:attachment)), class: 'w-100') if @object.image %>
     </div>
   <% end %>
 <% end %>

@@ -83,12 +83,12 @@
             <%= f.label :subtitle, I18n.t('aypex.admin.subtitle') %>
           <% end %>
 
-          <% @menu_item.build_icon unless @menu_item.icon %>
+          <% @menu_item.build_image unless @menu_item.image %>
 
           <%= f.fields_for :icon do |ff| %>
             <%= render partial: 'icon_upload_form', locals: { f: f, ff: ff } %>
 
-            <% unless @menu_item.icon.new_record? %>
+            <% unless @menu_item.image.new_record? %>
               <%= f.field_container :icon_alt do %>
                 <%= ff.text_field :alt %>
                 <%= ff.label :alt, I18n.t('aypex.admin.image_alt_text') %>

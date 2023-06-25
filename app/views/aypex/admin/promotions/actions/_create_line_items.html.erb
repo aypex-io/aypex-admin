@@ -18,7 +18,7 @@
           <%= select_tag "#{line_item_prefix}[variant_id]", line_item.variant_id, class: 'form-select',
                                           placeholder: I18n.t('aypex.admin.search_products_by_name_or_sku'),
                                           data: {
-                                                  controller: 'ts--search-variant',
+                                                  controller: 'ts-search-variant',
                                                   ts__search_variant_debug_value: false,
                                                   ts__search_variant_uri_value: '/api/v2/platform/variants',
                                                   ts__search_variant_fields_value: ['name', 'sku'],

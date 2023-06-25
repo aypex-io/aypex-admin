@@ -1,5 +1,5 @@
 import Sortable from 'stimulus-sortable'
-import { patch } from '../utilities/request_utility'
+import { patch } from '../../utilities/request_utility'
 
 export default class extends Sortable {
   async onUpdate ({ item, newIndex, oldIndex }) {

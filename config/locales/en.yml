@@ -19,6 +19,7 @@ en:
       add_action_of_type: Add action of type
       add_coupon_code: Add coupon code
       add_first_property: Add first property
+      add_images: Add images
       add_new_address: Add new address
       add_new_category: Add new category
       add_new_file: Add a new digital asset.
@@ -198,6 +199,7 @@ en:
       default_addresses: Default addresses
       default_country: Default country
       default_language: Default language
+      default_logo: Default logo
       default_tax_zone: Default tax zone
       delete: Delete
       deleted: Deleted
@@ -249,6 +251,7 @@ en:
       failed: Failed
       failed_payment_attempts: Failed payment attempts
       favicon: Favicon
+      favicon_icon: Favicon icon
       favicon_upload_info: Favicon upload info
       fill_in_customer_info: Fill in customer info
       filter: Filter
@@ -449,6 +452,7 @@ en:
       optional: Optional
       options: Options
       or: Or
+      or_drag_and_drop: Or drag and drop
       order: order
       order_adjustments: Order adjustments
       order_approved: Order approved
@@ -651,6 +655,7 @@ en:
       special_instructions: Special instructions
       specifications: Specifications
       square_image: Please use an image with an aspect ratio of 18:13 (1080px x 780px).
+      square_logo: Square logo
       starting_from: Starting from
       starts_at: Starts at
       state: State

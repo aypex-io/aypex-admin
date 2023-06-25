@@ -3,7 +3,7 @@
 <% end %>
 
 <%= turbo_frame_tag 'new_oauth_application' do %>
-  <%= form_with model: [:admin, @oauth_application], data: { controller: "input--required"} do |f| %>
+  <%= form_with model: [:admin, @oauth_application], data: { controller: "input-required"} do |f| %>
       <%= render partial: 'form', locals: { f: f } %>
       <%= render partial: 'aypex/admin/shared/resource_actions' %>
   <% end %>

@@ -13,15 +13,15 @@
 
       <sa-body>
         <div class="row">
-          <div class="col-12 mb-3" data-controller="form--autosave">
+          <div class="col-12 mb-3" data-controller="form-autosave">
             <div class="form-floating">
               <%= select_tag "product_id", options_from_collection_for_select([product], :id, :name, key),
                                             class: 'form-select',
                                             placeholder: I18n.t('aypex.admin.search_products_by_name_or_sku'),
                                             data: {
-                                                   action: 'form--autosave#save',
+                                                   action: 'form-autosave#save',
                                                    form__autosave_target: 'paramHolder',
-                                                   controller: 'ts--search',
+                                                   controller: 'ts-search',
                                                    ts__search_endpoint_value: 'products',
                                                    ts__search_fields_value: ['name', 'sku'],
                                                    ts__search_include_value: 'option_types.option_values'
@@ -36,7 +36,7 @@
               <%= fields_for :promotion, @promotion do |f|%>
                 <%= f.fields_for :promotion_rules, @promotion_rule do |pr|%>
                   <div id="opv_<%= dom_id(@promotion_rule) %>_<%= index %>" class="form-floating">
-                    <%= pr.collection_select("preferred_eligible_values[#{product.id if product}]", product.all_option_values, :id, :presentation, {selected: values.flatten, include_hidden: true}, { multiple: true, disabled: product.all_option_values.empty?, class: 'form-select', data: { controller: 'ts--select' } }) %>
+                    <%= pr.collection_select("preferred_eligible_values[#{product.id if product}]", product.all_option_values, :id, :presentation, {selected: values.flatten, include_hidden: true}, { multiple: true, disabled: product.all_option_values.empty?, class: 'form-select', data: { controller: 'ts-select' } }) %>
                     <%= label_tag 'options', I18n.t('aypex.admin.options') %>
                   </div>
                 <% end %>

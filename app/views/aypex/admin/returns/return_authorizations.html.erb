@@ -15,7 +15,7 @@
         <div class="col-12 col-lg-6">
           <div class="form-group">
             <%= label_tag :q_state_eq, I18n.t("aypex.admin.status") %>
-            <%= f.select :state_eq, Aypex::ReturnAuthorization.state_machines[:state].states.collect {|s| [I18n.t("aypex.admin.return_authorization_states.#{s.name}"), s.value]}, {include_blank: true}, class: 'js-filterable', data: { controller: 'ts--select' } %>
+            <%= f.select :state_eq, Aypex::ReturnAuthorization.state_machines[:state].states.collect {|s| [I18n.t("aypex.admin.return_authorization_states.#{s.name}"), s.value]}, {include_blank: true}, class: 'js-filterable', data: { controller: 'ts-select' } %>
           </div>
         </div>
       </div>

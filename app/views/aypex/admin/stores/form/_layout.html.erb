@@ -7,44 +7,18 @@
   <div class="card-body">
     <div class="row">
       <div class="col-12 col-md-4">
-        <% @store.build_logo unless @store.logo %>
+        <%# @store.build_logo unless @store.logo %>
 
-        <%= f.fields_for :logo do |logo_field| %>
-          <% if @store.logo.attachment&.attached? && @store.logo.attachment&.variable? %>
-            <%= image_tag main_app.cdn_image_url(@store.logo.attachment.variant(resize_to_limit: [244, 104])) %>
-          <% end %>
-
-          <%= logo_field.label :logo, I18n.t("aypex.admin.logo") %>
-          <%= logo_field.file_field :attachment %>
-        <% end %>
+        <%# debugger %>
+        <%= render partial: 'aypex/admin/shared/asset_uploader', locals: { f: f } %>
       </div>
 
       <div class="col-12 col-md-4">
-        <% @store.build_mailer_logo unless @store.mailer_logo %>
-        <%= f.fields_for :mailer_logo do |mailer_logo_field| %>
-          <% if @store.mailer_logo.attachment&.attached? && @store.mailer_logo.attachment&.variable? %>
-            <%= image_tag main_app.cdn_image_url(@store.mailer_logo.attachment.variant(resize_to_limit: [244, 104])) %>
-          <% end %>
 
-          <%= mailer_logo_field.label :mailer_logo, I18n.t("aypex.admin.mailer_logo") %>
-          <%= mailer_logo_field.file_field :attachment, accept: Aypex::StoreMailerLogo::VALID_CONTENT_TYPES.join(',') %>
-        <% end %>
       </div>
 
       <div class="col-12 col-md-4">
-        <% @store.build_favicon_image unless @store.favicon_image %>
-        <%= f.fields_for :favicon_image do |favicon_image_field| %>
-          <% if @store.favicon_image.attachment&.attached? && @store.favicon_image.attachment&.variable? %>
-            <%= image_tag main_app.cdn_image_url(@store.favicon_image.attachment.variant(resize_to_limit: [104, 104])) %>
-          <% end %>
 
-          <%= favicon_image_field.label :favicon_image, I18n.t("aypex.admin.favicon") %>
-          <%= favicon_image_field.file_field :attachment, accept: Aypex::StoreFaviconImage::VALID_CONTENT_TYPES.join(',') %>
-
-          <small class="form-text text-body-secondary">
-            <%= I18n.t("aypex.admin.favicon_upload_info") %>
-          </small>
-        <% end %>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <%= breadcrumb_builder(link_one_uri: aypex.admin_option_types_url, link_one_text: I18n.t('aypex.admin.all_option_types'), current_page_name: I18n.t('aypex.admin.new_option_type')) %>
 <% end %>
 
-<%= form_with model: [:admin, @option_type], data: { controller: "input--required"} do |f| %>
+<%= form_with model: [:admin, @option_type], data: { controller: "input-required"} do |f| %>
   <div class="card mb-3">
     <div class="card-body">
        <%= render partial: 'form', locals: { f: f } %>

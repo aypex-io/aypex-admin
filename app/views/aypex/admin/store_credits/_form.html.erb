@@ -1,6 +1,6 @@
 <div data-hook='admin_store_credit_form_fields'>
   <%= f.field_container :amount do %>
-    <%= f.text_field :amount, data: {controller: "input--format-decimal"} %>
+    <%= f.text_field :amount, data: {controller: "input-format-decimal"} %>
     <%= f.label :amount, raw(I18n.t("aypex.admin.amount") + required_span_tag) %>
   <% end %>
   <%= f.field_container :currency do %>

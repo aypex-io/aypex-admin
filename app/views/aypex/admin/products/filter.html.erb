@@ -3,7 +3,7 @@
 <% end %>
 
 <%= content_for :offcanvas_content do %>
-  <%= search_form_for [:admin, @search], id: "moreFilterForm", data: {controller: "form--autosave", turbo_frame: :index_table, form__reset_target: "resettable"} do |f| %>
+  <%= search_form_for [:admin, @search], id: "moreFilterForm", data: {controller: "form-autosave", turbo_frame: :index_table, form__reset_target: "resettable"} do |f| %>
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -15,7 +15,7 @@
           <div class="accordion-body">
             <%= f.field_container :deleted_at_null do %>
               <div class="form-check">
-                <%= f.check_box :deleted_at_null, {checked: params[:q][:deleted_at_null] == '0', class: "form-check-input", data: { action: 'form--autosave#save' }}, '0', '1' %>
+                <%= f.check_box :deleted_at_null, {checked: params[:q][:deleted_at_null] == '0', class: "form-check-input", data: { action: 'form-autosave#save' }}, '0', '1' %>
                 <%= f.label :deleted_at_null, I18n.t("aypex.admin.show_deleted"), class: 'form-check-label' %>
               </div>
             <% end %>
@@ -31,12 +31,12 @@
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
           <div class="accordion-body">
             <%= f.field_container :variants_including_master_sku_cont do %>
-              <%= f.text_field :variants_including_master_sku_cont, placeholder: I18n.t("aypex.admin.sku"), class: "form-control", data: { action: 'form--autosave#save' } %>
+              <%= f.text_field :variants_including_master_sku_cont, placeholder: I18n.t("aypex.admin.sku"), class: "form-control", data: { action: 'form-autosave#save' } %>
               <%= f.label :variants_including_master_sku_cont, I18n.t("aypex.admin.sku") %>
             <% end %>
 
             <%= f.field_container :search_by_name do %>
-              <%= f.text_field :search_by_name, placeholder: I18n.t("aypex.admin.product_name"), class: "form-control", data: { action: 'form--autosave#save' } %>
+              <%= f.text_field :search_by_name, placeholder: I18n.t("aypex.admin.product_name"), class: "form-control", data: { action: 'form-autosave#save' } %>
               <%= f.label :search_by_name, I18n.t("aypex.admin.product_name") %>
             <% end %>
           </div>
@@ -48,7 +48,7 @@
 
   <%= content_for :offcanvas_footer do %>
     <div class="flex-fill">
-      <%= link_to I18n.t('aypex.admin.clear_filters'), aypex.admin_products_path, class: "btn btn-secondary", data: {turbo_frame: :index_table, action: "form--reset#clearForm"} %>
+      <%= link_to I18n.t('aypex.admin.clear_filters'), aypex.admin_products_path, class: "btn btn-secondary", data: {turbo_frame: :index_table, action: "form-reset#clearForm"} %>
     </div>
     <div data-hook="admin_products_index_search_buttons" class="form-actions">
       <button type="button" class="btn-primary btn" data-bs-dismiss="offcanvas" aria-label="Close"><%= I18n.t('aypex.admin.done') %></button>
