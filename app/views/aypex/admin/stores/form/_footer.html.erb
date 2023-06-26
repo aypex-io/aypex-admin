@@ -5,19 +5,23 @@
     </h5>
   </div>
   <div class="card-body">
-    <%= f.field_container :description do %>
-      <%= f.text_area :description %>
-      <%= f.label :description, I18n.t("aypex.admin.description") %>
-    <% end %>
+    <%= form_with model: [:admin, @store], data: {controller: "form-state"} do |f| %>
+      <%= f.field_container :description do %>
+        <%= f.text_area :description %>
+        <%= f.label :description, I18n.t("aypex.admin.description") %>
+      <% end %>
 
-    <%= f.field_container :address do %>
-      <%= f.text_area :address %>
-      <%= f.label :address, I18n.t("aypex.admin.address") %>
-    <% end %>
+      <%= f.field_container :address do %>
+        <%= f.text_area :address %>
+        <%= f.label :address, I18n.t("aypex.admin.address") %>
+      <% end %>
 
-    <%= f.field_container :contact_phone do %>
-      <%= f.text_field :contact_phone %>
-      <%= f.label :contact_phone, I18n.t("aypex.admin.contact_phone") %>
+      <%= f.field_container :contact_phone do %>
+        <%= f.text_field :contact_phone %>
+        <%= f.label :contact_phone, I18n.t("aypex.admin.contact_phone") %>
+      <% end %>
+
+      <%= render partial: 'aypex/admin/shared/resource_actions' %>
     <% end %>
   </div>
 </div>

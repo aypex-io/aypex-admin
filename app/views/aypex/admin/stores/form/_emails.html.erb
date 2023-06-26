@@ -5,21 +5,25 @@
     </h5>
   </div>
   <div class="card-body">
-    <%= f.field_container :mail_from_address do %>
-      <%= f.text_field :mail_from_address, required: true %>
-      <%= f.label :mail_from_address, raw(I18n.t("aypex.admin.mail_from_address")  + required_span_tag) %>
-    <% end %>
-
-    <% if @store.persisted? %>
-      <%= f.field_container :customer_support_email do %>
-        <%= f.text_field :customer_support_email %>
-        <%= f.label :customer_support_email, I18n.t("aypex.admin.customer_support_email") %>
+    <%= form_with model: [:admin, @store], data: {controller: "form-state"} do |f| %>
+      <%= f.field_container :mail_from_address do %>
+        <%= f.text_field :mail_from_address, required: true %>
+        <%= f.label :mail_from_address, raw(I18n.t("aypex.admin.mail_from_address")  + required_span_tag) %>
       <% end %>
 
-      <%= f.field_container :new_order_notifications_email do %>
-        <%= f.text_field :new_order_notifications_email %>
-        <%= f.label :new_order_notifications_email, I18n.t("aypex.admin.new_order_notifications_email") %>
+      <% if @store.persisted? %>
+        <%= f.field_container :customer_support_email do %>
+          <%= f.text_field :customer_support_email %>
+          <%= f.label :customer_support_email, I18n.t("aypex.admin.customer_support_email") %>
+        <% end %>
+
+        <%= f.field_container :new_order_notifications_email do %>
+          <%= f.text_field :new_order_notifications_email %>
+          <%= f.label :new_order_notifications_email, I18n.t("aypex.admin.new_order_notifications_email") %>
+        <% end %>
       <% end %>
+
+      <%= render partial: 'aypex/admin/shared/resource_actions' %>
     <% end %>
   </div>
 </div>

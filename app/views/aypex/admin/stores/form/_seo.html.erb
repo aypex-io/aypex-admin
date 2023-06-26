@@ -5,24 +5,28 @@
     </h5>
   </div>
   <div class="card-body">
-    <%= f.field_container :seo_title do %>
-      <%= f.text_field :seo_title, class: 'form-control', placeholder: I18n.t("aypex.admin.seo_title") %>
-      <%= f.label :seo_title, I18n.t("aypex.admin.seo_title") %>
-    <% end %>
-    <%= f.field_container :meta_description do %>
-      <%= f.text_area :meta_description, class: 'form-control', placeholder: I18n.t("aypex.admin.meta_description"), style: 'height:150px' %>
-      <%= f.label :meta_description, I18n.t("aypex.admin.meta_description") %>
-    <% end %>
-    <%= f.field_container :meta_keywords do %>
-      <%= f.text_field :meta_keywords, class: 'form-control', placeholder: I18n.t("aypex.admin.meta_keywords") %>
-      <%= f.label :meta_keywords, I18n.t("aypex.admin.meta_keywords") %>
-    <% end %>
-    <%= f.field_container :seo_robots do %>
-      <%= f.text_field :seo_robots, class: 'form-control', placeholder: I18n.t("aypex.admin.seo_robots") %>
-      <%= f.label :seo_robots, I18n.t("aypex.admin.seo_robots") %>
-      <small class="form-text text-body-secondary">
-        <%= raw(I18n.t('aypex.admin.seo_robots')) %>
-      </small>
+    <%= form_with model: [:admin, @store], data: {controller: "form-state"} do |f| %>
+      <%= f.field_container :seo_title do %>
+        <%= f.text_field :seo_title, class: 'form-control', placeholder: I18n.t("aypex.admin.seo_title") %>
+        <%= f.label :seo_title, I18n.t("aypex.admin.seo_title") %>
+      <% end %>
+      <%= f.field_container :meta_description do %>
+        <%= f.text_area :meta_description, class: 'form-control', placeholder: I18n.t("aypex.admin.meta_description"), style: 'height:150px' %>
+        <%= f.label :meta_description, I18n.t("aypex.admin.meta_description") %>
+      <% end %>
+      <%= f.field_container :meta_keywords do %>
+        <%= f.text_field :meta_keywords, class: 'form-control', placeholder: I18n.t("aypex.admin.meta_keywords") %>
+        <%= f.label :meta_keywords, I18n.t("aypex.admin.meta_keywords") %>
+      <% end %>
+      <%= f.field_container :seo_robots do %>
+        <%= f.text_field :seo_robots, class: 'form-control', placeholder: I18n.t("aypex.admin.seo_robots") %>
+        <%= f.label :seo_robots, I18n.t("aypex.admin.seo_robots") %>
+        <small class="form-text text-body-secondary">
+          <%= raw(I18n.t('aypex.admin.seo_robots')) %>
+        </small>
+      <% end %>
+
+      <%= render partial: 'aypex/admin/shared/resource_actions' %>
     <% end %>
   </div>
 </div>

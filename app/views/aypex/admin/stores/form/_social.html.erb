@@ -5,19 +5,23 @@
     </h5>
   </div>
   <div class="card-body">
-    <%= f.field_container :facebook do %>
-      <%= f.text_field :facebook %>
-      <%= f.label :facebook, I18n.t("aypex.admin.facebook_username") %>
-    <% end %>
+    <%= form_with model: [:admin, @store], data: {controller: "form-state"} do |f| %>
+      <%= f.field_container :facebook do %>
+        <%= f.text_field :facebook %>
+        <%= f.label :facebook, I18n.t("aypex.admin.facebook_username") %>
+      <% end %>
 
-    <%= f.field_container :twitter do %>
-      <%= f.text_field :twitter %>
-      <%= f.label :twitter, I18n.t("aypex.admin.twitter_username") %>
-    <% end %>
+      <%= f.field_container :twitter do %>
+        <%= f.text_field :twitter %>
+        <%= f.label :twitter, I18n.t("aypex.admin.twitter_username") %>
+      <% end %>
 
-    <%= f.field_container :instagram do %>
-      <%= f.text_field :instagram %>
-      <%= f.label :instagram, I18n.t("aypex.admin.instagram_username") %>
+      <%= f.field_container :instagram do %>
+        <%= f.text_field :instagram %>
+        <%= f.label :instagram, I18n.t("aypex.admin.instagram_username") %>
+      <% end %>
+
+      <%= render partial: 'aypex/admin/shared/resource_actions' %>
     <% end %>
   </div>
 </div>

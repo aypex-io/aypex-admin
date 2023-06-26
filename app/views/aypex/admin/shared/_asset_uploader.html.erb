@@ -1,27 +1,37 @@
-<%= link_to "Upload Image", aypex.admin_assets_path %>
+<% size ||= 250 %>
+<% scale_images ||= 1 %>
+<% aspect_ratio ||= "1 / 1" %>
 
-<% if @store.logo.image.asset.attachment&.attached? %>
-  <%= image_tag main_app.cdn_image_url(@store.logo_image.attachment) %>
-<% end %>
+<div class="row">
+  <div class="col-12">
+    <%= render partial: "aypex/admin/shared/thumbnail", locals: { asset: object&.image&.asset, scale_images: scale_images, size: size, aspect_ratio: aspect_ratio } %>
 
-<%= f.fields_for :logo do |logo_field| %>
-  <%= logo_field.fields_for :image do |image_field| %>
+    <div class="row m-auto g-0 pt-2">
+      <% if object&.image&.asset&.attachment&.attached? %>
+      <div class="col-6">
+        <%= form_with scope: :assets, model: [:admin, object.image], url: aypex.admin_open_asset_manager_path, method: :post, data: {turbo_frame: :modal} do |f| %>
+          <%= f.hidden_field :viewable_type %>
+          <%= f.hidden_field :viewable_id %>
 
-    <div class="d-flex rounded bg-light flex-row align-items-center position-relative w-100">
-      <%= image_field.label :attachment, class: "d-flex position-absolute w-100 h-100" do %>
-      <% end %>
-      <div class="m-2">
-        <div>
-          <div class="d-flex border rounded align-items-center justify-content-center p-2">
-            <%= aypex_admin_svg_tag("image.svg", width: 30, height: 30) %>
-          </div>
+          <%= f.submit I18n.t('aypex.admin.change'), class: "btn btn-secondary w-100 rounded-end-0" %>
+        <% end %>
+      </div>
+
+      <div class="col-6">
+        <%= form_with model: [:admin, object.image], url: aypex.admin_image_path, method: :delete do |f| %>
+          <%= f.submit I18n.t('aypex.admin.remove'), class: "btn btn-secondary w-100 rounded-start-0" %>
+        <% end %>
+      </div>
+      <% else %>
+        <div class="col-12">
+          <%= form_with scope: :assets, model: [:admin, object.image], url: aypex.admin_open_asset_manager_path, method: :post, data: {turbo_frame: :modal} do |f| %>
+            <%= f.hidden_field :viewable_type %>
+            <%= f.hidden_field :viewable_id %>
+
+            <%= f.submit I18n.t('aypex.admin.add_an_image'), class: "btn btn-secondary w-100 rounded-end-0" %>
+          <% end %>
         </div>
-      </div>
-      <div class="flex-fill">
-        Add Default Logo
-      </div>
+      <% end %>
     </div>
-
-    <%= image_field.file_field :attachment, class: "d-none" %>
-  <% end %>
-<% end %>
+  </div>
+</div>

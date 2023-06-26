@@ -1,5 +1,15 @@
-<div class="thumbnail-image-container large-img rounded bg-body border p-2">
-  <div class="d-flex align-iten-center rounded bg-secondary w-100 h-100 overflow-hidden">
-    <%= image_tag asset.generate_url(width: 250), class: "object-fit-contain"  %>
+<% size ||= 250 %>
+<% scale_images ||= 1 %>
+<% aspect_ratio ||= "1 / 1" %>
+
+<div class="thumbnail-image-container rounded bg-body border p-2"
+     style="--apx-tmb-scale:<%= scale_images %>; aspect-ratio: <%= aspect_ratio %>;">
+
+  <div class="d-flex align-iten-center justify-content-center rounded bg-secondary w-100 overflow-hidden">
+    <% if asset&.attachment&.attached? %>
+      <%= image_tag asset.generate_url(width: size), class: "object-fit-container w-100" %>
+    <% else %>
+      <%= aypex_admin_svg_tag "image.svg", size: "#{size}px * #{size}px", class: "text-reset p-5" %>
+    <% end %>
   </div>
 </div>

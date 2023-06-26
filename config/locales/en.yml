@@ -17,6 +17,7 @@ en:
       add_a_product: Add a product
       add_a_shipment_to_this_order_to_begin_adding_items: Add a new shipping location to this order, and then add products to the shipment. Ideally, choose the location nearest the delivery address for faster and cheaper delivery.
       add_action_of_type: Add action of type
+      add_an_image: Add an image
       add_coupon_code: Add coupon code
       add_first_property: Add first property
       add_images: Add images
@@ -128,6 +129,7 @@ en:
       categories_info: Categories info
       category: Category
       category_images: Category Images
+      change: Change
       charged: Charged
       checkout: Checkout
       city: City
@@ -280,6 +282,7 @@ en:
       hero_image_info: Hero image info
       hide_from_sub_navigation: Hide from sub navigation
       home: Home
+      icon: Icon
       icon_removed: Icon removed
       id: Id
       if_you_change_the_calculator: Click update to save the new calculator.
@@ -556,6 +559,7 @@ en:
       reimbursements: Reimbursements
       reject: Reject
       rejected: Rejected
+      remove: Remove
       remove_image: Remove image
       reports: Reports
       request_errors: Request Errors
@@ -752,7 +756,10 @@ en:
       use_new_cc: Use new cc
       use_the_search_box_above_to_search_for_categories: Use the search box above to search for categories
       used: Used
+      used_by_some_social_media_channels_may_be_cropped_into_a_circle: Used by some social media channels may be cropped into a circle
       used_for_billing_and_shipping: Used for billing and shipping
+      used_for_legacy_icons_favicons_apple_touch_icons: Used for legacy icons favicons apple touch icons
+      used_for_most_common_logo_applications: Used for most common logo applications
       user: User
       user_email: User email
       user_id: User

@@ -5,19 +5,23 @@
     </h5>
   </div>
   <div class="card-body">
-    <%= f.field_container :name do %>
-      <%= f.text_field :name, required: true %>
-      <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
-    <% end %>
+    <%= form_with model: [:admin, @store], data: {controller: "form-state"} do |f| %>
+      <%= f.field_container :name do %>
+        <%= f.text_field :name, required: true %>
+        <%= f.label :name, raw(I18n.t("aypex.admin.name") + required_span_tag) %>
+      <% end %>
 
-    <%= f.field_container :code do %>
-      <%= f.text_field :code, required: true %>
-      <%= f.label :code, raw(I18n.t("aypex.admin.code") + required_span_tag) %>
-    <% end %>
+      <%= f.field_container :code do %>
+        <%= f.text_field :code, required: true %>
+        <%= f.label :code, raw(I18n.t("aypex.admin.code") + required_span_tag) %>
+      <% end %>
 
-    <%= f.field_container :url do %>
-      <%= f.text_field :url, required: true %>
-      <%= f.label :url, raw(I18n.t("aypex.admin.url") + required_span_tag) %>
+      <%= f.field_container :url do %>
+        <%= f.text_field :url, required: true %>
+        <%= f.label :url, raw(I18n.t("aypex.admin.url") + required_span_tag) %>
+      <% end %>
+
+      <%= render partial: 'aypex/admin/shared/resource_actions' %>
     <% end %>
   </div>
 </div>
