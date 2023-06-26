@@ -2,12 +2,14 @@
 <% scale_images ||= 1 %>
 <% aspect_ratio ||= "1 / 1" %>
 
+<% has_attached = asset&.attachment&.attached? %>
+
 <div class="thumbnail-image-container rounded bg-body border p-2"
      style="--apx-tmb-scale:<%= scale_images %>; aspect-ratio: <%= aspect_ratio %>;">
 
-  <div class="d-flex align-iten-center justify-content-center rounded bg-body-tertiary w-100 overflow-hidden">
-    <% if asset&.attachment&.attached? %>
-      <%= image_tag asset.generate_url(width: size), class: "object-fit-container w-100" %>
+  <div class="d-flex align-iten-center justify-content-center rounded bg-body-tertiary w-100 overflow-hidden" id=<%= dom_id(asset) if has_attached %>>
+    <% if has_attached %>
+        <%= image_tag asset.generate_url(width: size), class: "object-fit-container w-100" %>
     <% else %>
       <%= aypex_admin_svg_tag "image.svg", size: "#{size}px * #{size}px", class: "text-reset p-5" %>
     <% end %>

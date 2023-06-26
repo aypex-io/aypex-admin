@@ -1,0 +1,4 @@
+<%= turbo_stream.update dom_id(@object) do %>
+  <% fresh_img = @object.viewable.build_image %>
+  <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {image: fresh_img, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+<% end %>

@@ -4,12 +4,12 @@
 
 <div class="row">
   <div class="col-12">
-    <%= render partial: "aypex/admin/shared/thumbnail", locals: { asset: object&.image&.asset, scale_images: scale_images, size: size, aspect_ratio: aspect_ratio } %>
+    <%= render partial: "aypex/admin/shared/thumbnail", locals: { asset: image&.asset, scale_images: scale_images, size: size, aspect_ratio: aspect_ratio } %>
 
     <div class="row m-auto g-0 pt-2">
-      <% if object&.image&.asset&.attachment&.attached? %>
+      <% if image&.asset&.attachment&.attached? %>
       <div class="col-6">
-        <%= form_with scope: :assets, model: [:admin, object.image], url: aypex.admin_open_asset_manager_path, method: :post, data: {turbo_frame: :modal} do |f| %>
+        <%= form_with scope: :assets, model: [:admin, image], url: aypex.admin_assets_manager_path, method: :post, data: {turbo_frame: :modal} do |f| %>
           <%= f.hidden_field :viewable_type %>
           <%= f.hidden_field :viewable_id %>
 
@@ -18,13 +18,13 @@
       </div>
 
       <div class="col-6">
-        <%= form_with model: [:admin, object.image], url: aypex.admin_image_path, method: :delete do |f| %>
+        <%= form_with model: [:admin, image], url: aypex.admin_image_path(image), method: :delete do |f| %>
           <%= f.submit I18n.t('aypex.admin.remove'), class: "btn btn-secondary w-100 rounded-start-0" %>
         <% end %>
       </div>
       <% else %>
         <div class="col-12">
-          <%= form_with scope: :assets, model: [:admin, object.image], url: aypex.admin_open_asset_manager_path, method: :post, data: {turbo_frame: :modal} do |f| %>
+          <%= form_with scope: :assets, model: [:admin, image], url: aypex.admin_assets_manager_path, method: :post, data: {turbo_frame: :modal} do |f| %>
             <%= f.hidden_field :viewable_type %>
             <%= f.hidden_field :viewable_id %>
 

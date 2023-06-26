@@ -13,7 +13,9 @@
             <small><%= I18n.t('aypex.admin.used_for_most_common_logo_applications') %></small>
           </div>
 
-          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: @store.logo, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+          <div id="<%= dom_id(@store.logo.image) %>">
+            <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {image: @store.logo.image, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+          </div>
         </div>
 
         <div class="col-12 col-md-4">
@@ -22,7 +24,7 @@
             <small><%= I18n.t('aypex.admin.used_by_social_media') %></small>
           </div>
 
-          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: @store.square_logo, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {image: @store.square_logo.image, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
         </div>
 
         <div class="col-12 col-md-4">
@@ -31,7 +33,7 @@
             <small><%= I18n.t('aypex.admin.used_for_legacy_icons_favicons_apple_touch_icons') %></small>
           </div>
 
-          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: @store.icon, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {image: @store.icon.image, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
         </div>
       </div>
     <% end %>

@@ -11,7 +11,7 @@ Aypex::Engine.routes.draw do
 
     # Assets
     resources :assets
-    post :open_asset_manager, path: "asset_manager", to: "assets#init_asset_manager"
+    post :assets_manager, path: "assets/manager", to: "assets#manager"
 
     resources :images
 
