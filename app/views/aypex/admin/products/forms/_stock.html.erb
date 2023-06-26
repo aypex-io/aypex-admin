@@ -26,7 +26,7 @@
                     <% end %>
                   </div>
 
-                  <%= submit_tag I18n.t('aypex.admin.save'), data: {form__autosave_target: 'submitButton'} %>
+                  <%= submit_tag I18n.t('aypex.admin.save'), data: {form_autosave_target: 'submitButton'} %>
                 <% end if can?(:update, @product) && can?(:update, variant) %>
               </td>
 
@@ -46,7 +46,7 @@
                         <td class="text-center">
                           <%= form_with url: aypex.admin_stock_item_path(item), method: :put, data: { turbo_frame: :product_stock, controller: 'form-autosave' } do %>
                             <%= check_box_tag 'stock_item[backorderable]', true, item.backorderable?, class: 'form-check-input', data: {action: 'form-autosave#save'} %>
-                            <%= submit_tag I18n.t('aypex.admin.save'), data: {form__autosave_target: 'submitButton'} %>
+                            <%= submit_tag I18n.t('aypex.admin.save'), data: {form_autosave_target: 'submitButton'} %>
                           <% end if can? :update, item %>
                         </td>
                         <td>

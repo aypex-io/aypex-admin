@@ -5,27 +5,35 @@
     </h4>
   </div>
   <div class="card-body">
-    <div class="row">
-      <div class="col-12 col-md-4">
-        <h6><%= I18n.t('aypex.admin.default_logo') %></h6>
-        <small><%= I18n.t('aypex.admin.used_for_most_common_logo_applications') %></small>
-        <% logo = @store.logo || @store.build_logo %>
-        <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: logo, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
-      </div>
+    <%= turbo_frame_tag :store_branding do %>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="mb-3">
+            <h6 class="mb-0"><%= I18n.t('aypex.admin.default_logo') %></h6>
+            <small><%= I18n.t('aypex.admin.used_for_most_common_logo_applications') %></small>
+          </div>
 
-      <div class="col-12 col-md-4">
-        <h6><%= I18n.t('aypex.admin.square_logo') %></h6>
-        <small><%= I18n.t('aypex.admin.used_by_some_social_media_channels_may_be_cropped_into_a_circle') %></small>
-        <% sq_logo = @store.square_logo || @store.build_square_logo %>
-        <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: sq_logo, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
-      </div>
+          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: @store.logo, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+        </div>
 
-      <div class="col-12 col-md-4">
-        <h6><%= I18n.t('aypex.admin.icon') %></h6>
-        <small><%= I18n.t('aypex.admin.used_for_legacy_icons_favicons_apple_touch_icons') %></small>
-        <% icon = @store.icon || @store.build_icon %>
-        <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: icon, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+        <div class="col-12 col-md-4">
+          <div class="mb-3">
+            <h6 class="mb-0"><%= I18n.t('aypex.admin.square_logo') %></h6>
+            <small><%= I18n.t('aypex.admin.used_by_social_media') %></small>
+          </div>
+
+          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: @store.square_logo, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="mb-3">
+            <h6 class="mb-0"><%= I18n.t('aypex.admin.icon') %></h6>
+            <small><%= I18n.t('aypex.admin.used_for_legacy_icons_favicons_apple_touch_icons') %></small>
+          </div>
+
+          <%= render partial: 'aypex/admin/shared/asset_uploader', locals: {object: @store.icon, scale_images: 0.5, aspect_ratio: "16 / 9"} %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

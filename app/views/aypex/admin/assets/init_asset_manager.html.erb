@@ -1,13 +1,13 @@
 <% content_for :modal_header do %>
-  <h4>Select an image</h4>
+  <h4><%= I18n.t('aypex.admin.select_an_image') %></h4>
 <% end %>
 
 <% content_for :modal_body do %>
   <div>
     <div clas="row">
       <div class="col-12">
-        <%= form_with model: [:admin, @object], url: aypex.admin_assets_path, method: :post, data: {turbo_frame: :asset_collection} do |f| %>
-          <%= f.label :attachment, class: "d-block bg-body mb-3 rounded border dashed p-3 align-center text-center" do %>
+        <%= form_with model: [:admin, @object], url: aypex.admin_assets_path, method: :post, data: {controller: "form-autosave", turbo_frame: :asset_collection} do |f| %>
+          <%= f.label :attachment, class: "d-block bg-body-tertiary mb-3 rounded border dashed py-4 align-center text-center", style: "--bs-border-style: dashed;" do %>
             <div>
               <span class="badge text-bg-info"><%= I18n.t('aypex.admin.add_images') %></span>
             </div>
@@ -16,22 +16,22 @@
             </div>
           <% end %>
 
-          <%= f.file_field :attachment, class: "d-none" %>
-          <%= f.submit %>
+          <%= f.file_field :attachment, class: "d-none", data: { action: 'form-autosave#save' } %>
+          <%= f.submit "Upload", data: { form_autosave_target: "submitButton" } %>
         <% end %>
       </div>
     </div>
 
     <%= render partial: "aypex/admin/assets/collection" %>
 
-    <%= form_with model: [:admin, @target] do |f| %>
-      <%= f.hidden_field :asset_id, data: { controller: "input-value" } %>
+    <%= form_with model: [:admin, @target], data: {controller: "form-state", turbo_frame: :_top}, id: :asset_select do |f| %>
+      <%= f.text_field :asset_id, class: "d-none", data: { form_state_target: "watch", controller: "input-value" } %>
     <% end %>
   </div>
 <% end %>
 
 <% content_for :modal_footer do %>
-  <%= submit_tag(I18n.t('aypex.admin.save'), class: "btn btn-primary", form: :address_form) %>
+  <%= submit_tag(I18n.t('aypex.admin.save'), id: "globalFormSubmitButton", class: "btn btn-primary", form: :asset_select) %>
 <% end %>
 
 <%= render partial: 'aypex/admin/shared/modal', locals: {modal_dialog_settings: "modal-dialog-centered modal-dialog-scrollable modal-lg"} %>

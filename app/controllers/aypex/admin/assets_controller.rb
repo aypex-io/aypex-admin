@@ -2,9 +2,9 @@ module Aypex
   module Admin
     class AssetsController < ResourceController
       def init_asset_manager
-        @object = Aypex::Asset.new
         @collection = collection
         @target ||= find_target_resource
+        @object ||= @target.build_asset
       end
 
       private

@@ -20,7 +20,7 @@
                                             placeholder: I18n.t('aypex.admin.search_products_by_name_or_sku'),
                                             data: {
                                                    action: 'form-autosave#save',
-                                                   form__autosave_target: 'paramHolder',
+                                                   form_autosave_target: 'paramHolder',
                                                    controller: 'ts-search',
                                                    ts__search_endpoint_value: 'products',
                                                    ts__search_fields_value: ['name', 'sku'],
@@ -28,7 +28,7 @@
                                                  } %>
               <%= label_tag 'product', I18n.t('aypex.admin.product') %>
             </div>
-            <%= link_to "save", aypex.admin_promotion_promotion_rule_product_options_path(@promotion, @promotion_rule, stream_id: "opv_#{dom_id(@promotion_rule)}_#{index}"), data: { form__autosave_target: 'submitButton', turbo_stream: true } %>
+            <%= link_to "save", aypex.admin_promotion_promotion_rule_product_options_path(@promotion, @promotion_rule, stream_id: "opv_#{dom_id(@promotion_rule)}_#{index}"), data: { form_autosave_target: 'submitButton', turbo_stream: true } %>
           </div>
 
           <div class="col-12">

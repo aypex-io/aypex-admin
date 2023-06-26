@@ -5,7 +5,7 @@
 <div class="thumbnail-image-container rounded bg-body border p-2"
      style="--apx-tmb-scale:<%= scale_images %>; aspect-ratio: <%= aspect_ratio %>;">
 
-  <div class="d-flex align-iten-center justify-content-center rounded bg-secondary w-100 overflow-hidden">
+  <div class="d-flex align-iten-center justify-content-center rounded bg-body-tertiary w-100 overflow-hidden">
     <% if asset&.attachment&.attached? %>
       <%= image_tag asset.generate_url(width: size), class: "object-fit-container w-100" %>
     <% else %>

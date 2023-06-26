@@ -620,6 +620,7 @@ en:
       select_a_return_authorization_reason: Select a return authorization reason
       select_a_stock_location: Select a stock location
       select_a_store_credit_reason: Select a store credit reason
+      select_an_image: Select an image
       select_events: Select events
       select_from_prototype: Select from prototype
       seo: SEO
@@ -756,6 +757,7 @@ en:
       use_new_cc: Use new cc
       use_the_search_box_above_to_search_for_categories: Use the search box above to search for categories
       used: Used
+      used_by_social_media: Used by social media
       used_by_some_social_media_channels_may_be_cropped_into_a_circle: Used by some social media channels may be cropped into a circle
       used_for_billing_and_shipping: Used for billing and shipping
       used_for_legacy_icons_favicons_apple_touch_icons: Used for legacy icons favicons apple touch icons
