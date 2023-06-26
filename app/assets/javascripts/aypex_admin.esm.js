@@ -12756,7 +12756,7 @@ class FormResetController extends Controller$1 {
 class GetIdController extends Controller$1 {
   static outlets=[ "input-value" ];
   markAsSelected(event) {
-    this.inputValueOutlets.forEach((result => result.markAsSelected(event)));
+    this.inputValueOutlets.forEach((result => result.setValue(event)));
   }
 }
 
@@ -16792,7 +16792,6 @@ class InputRequiredController extends Controller$1 {
 class InputValueController extends Controller$1 {
   setValue(event) {
     this.element.value = event.params.id;
-    console.log(this.element);
   }
 }
 

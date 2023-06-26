@@ -4,6 +4,6 @@ export default class extends Controller {
   static outlets = ['input-value']
 
   markAsSelected (event) {
-    this.inputValueOutlets.forEach(result => result.markAsSelected(event))
+    this.inputValueOutlets.forEach(result => result.setValue(event))
   }
 }

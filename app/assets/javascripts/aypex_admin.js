@@ -11931,7 +11931,7 @@
   class GetIdController extends Controller$1 {
     static outlets=[ "input-value" ];
     markAsSelected(event) {
-      this.inputValueOutlets.forEach((result => result.markAsSelected(event)));
+      this.inputValueOutlets.forEach((result => result.setValue(event)));
     }
   }
   var commonjsGlobal = typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
@@ -15817,7 +15817,6 @@
   class InputValueController extends Controller$1 {
     setValue(event) {
       this.element.value = event.params.id;
-      console.log(this.element);
     }
   }
   class MenuController extends Controller$1 {

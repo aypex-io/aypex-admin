@@ -1,0 +1,31 @@
+<%= turbo_frame_tag :asset_collection do %>
+  <div class="row">
+    <% @collection.each do |asset| %>
+      <div class="col-2 my-3"
+           id="<%= dom_id(asset) %>"
+           data-controller="get-id"
+           data-get-id-input-value-outlet="#image_asset_id">
+        <div data-action="click->get-id#markAsSelected" data-get-id-id-param="<%= asset.id %>">
+          <%= render partial: "aypex/admin/shared/thumbnail", locals: { asset: asset } %>
+        </div>
+
+        <div class="text-center">
+          <% file_name_format = asset.attachment.filename.to_s.split(".") %>
+          <div class="text-truncate">
+            <small>
+              <%= file_name_format.first %>
+            </small>
+          </div>
+
+          <div>
+            <small>
+              <%= file_name_format.last.upcase %>
+            </small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
